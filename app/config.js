@@ -719,13 +719,15 @@ settings.corpora.testcorpus = {
 };
 */
 
-/*
+// /*
 settings.corpora.testcorp = {
     title : "Testikorpus",
     description : "Testikorpus Korpin ominaisuuksien testaamiseksi",
     id : "testcorp",
     within : settings.defaultWithin,
     context : settings.defaultContext,
+    limited_access : true,
+    licence_type : "RES",
     attributes : {
 	lemma : attrs.baseform,
         pos : attrs.pos
@@ -737,10 +739,14 @@ settings.corpora.testcorp = {
 	sentence_url : { 
 	    label : "file_url",
 	    type : "url"
+	},
+	sentence_page : { 
+	    label : "file_url",
+	    type : "info_url"
 	}
     }
 };
-*/
+// */
 
 /*
 settings.corpora.testcorp_deptree = {
@@ -1836,6 +1842,7 @@ settings.corpora.mulcold_fi = {
 settings.cgi_prefix = "http://nyklait-09-01.hum.helsinki.fi/cgi-bin/korp/";
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
+settings.showpage_cgi_script = settings.cgi_prefix + "korp_showpage.cgi";
 
 
 // label values here represent translation keys.

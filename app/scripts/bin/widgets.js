@@ -16,13 +16,17 @@
       $("<div />").html("<h4 rel='localize[corpus]'></h4> <p>" + corpusObj.title + "</p>").prependTo("#selected_sentence");
       if (!$.isEmptyObject(corpusObj.attributes)) {
         $("#selected_word").append($("<h4>").localeKey("word_attr"));
-        this.renderContent(wordData, corpusObj.attributes).appendTo("#selected_word");
+        this.renderContent(wordData, corpusObj.attributes, corpus).appendTo("#selected_word");
       }
       if (!$.isEmptyObject(corpusObj.struct_attributes)) {
         $("#selected_sentence").append($("<h4>").localeKey("sentence_attr"));
-        this.renderContent(sentenceData, corpusObj.struct_attributes).appendTo("#selected_sentence");
+        this.renderContent(sentenceData, corpusObj.struct_attributes, corpus).appendTo("#selected_sentence");
       }
       this.element.localize();
+      this.element.find("#showpage_url").unbind("click");
+      this.element.find("#showpage_url").click(function() {
+        return alert("Clicked");
+      });
       this.applyEllipse();
       if (corpusObj.attributes.deprel) {
         return this.renderGraph(tokens);
@@ -50,7 +54,7 @@
         }).parent().find(".ui-dialog-title").localeKey("dep_tree");
       }).appendTo(this.element);
     },
-    renderContent: function(wordData, corpus_attrs) {
+    renderContent: function(wordData, corpus_attrs, corpus) {
       var items, key, order, pairs, value;
       pairs = _.pairs(wordData);
       order = this.options.displayOrder;
@@ -66,14 +70,14 @@
         for (_i = 0, _len = pairs.length; _i < _len; _i++) {
           _ref = pairs[_i], key = _ref[0], value = _ref[1];
           if (corpus_attrs[key]) {
-            _results.push(this.renderItem(key, value, corpus_attrs[key]));
+            _results.push(this.renderItem(key, value, corpus_attrs[key], corpus));
           }
         }
         return _results;
       }).call(this);
       return $(items);
     },
-    renderItem: function(key, value, attrs) {
+    renderItem: function(key, value, attrs, corpus) {
       var address, getStringVal, inner, itr, li, lis, output, pattern, prefix, ul, val, valueArray, x;
       if (attrs.displayType === "hidden" || attrs.displayType === "date_interval") {
         return "";
@@ -149,6 +153,8 @@
       value = (attrs.stringify || _.identity)(value);
       if (attrs.type === "url") {
         return output.append("<a href='" + value + "' class='exturl sidebar_url'>" + (decodeURI(value)) + "</a>");
+      } else if (attrs.type === "info_url") {
+        return output.append("<a href='javascript:' id='showpage_url' class='showpage_url sidebar_url'>" + value + "</a>");
       } else if (attrs.pattern) {
         return output.append(_.template(attrs.pattern, {
           key: key,

@@ -21,13 +21,16 @@ Sidebar =
         unless $.isEmptyObject(corpusObj.attributes)
             $("#selected_word").append $("<h4>").localeKey("word_attr")
 
-            @renderContent(wordData, corpusObj.attributes).appendTo "#selected_word"
+            @renderContent(wordData, corpusObj.attributes, corpus).appendTo "#selected_word"
         unless $.isEmptyObject(corpusObj.struct_attributes)
             $("#selected_sentence").append $("<h4>").localeKey("sentence_attr")
 
-            @renderContent(sentenceData, corpusObj.struct_attributes).appendTo "#selected_sentence"
+            @renderContent(sentenceData, corpusObj.struct_attributes, corpus).appendTo "#selected_sentence"
 
         @element.localize()
+        @element.find("#showpage_url").unbind("click")
+        @element.find("#showpage_url").click ->
+             alert "Clicked"
         @applyEllipse()
         if corpusObj.attributes.deprel
             @renderGraph(tokens)
@@ -57,17 +60,17 @@ Sidebar =
 
 
 
-    renderContent: (wordData, corpus_attrs) ->
+    renderContent: (wordData, corpus_attrs, corpus) ->
         pairs = _.pairs(wordData)
         order = @options.displayOrder
         pairs.sort ([a], [b]) ->
             $.inArray(b, order) - $.inArray(a, order)
         items = for [key, value] in pairs when corpus_attrs[key]
-            @renderItem key, value, corpus_attrs[key]
+            @renderItem key, value, corpus_attrs[key], corpus
 
         return $(items)
 
-    renderItem: (key, value, attrs) ->
+    renderItem: (key, value, attrs, corpus) ->
         if attrs.displayType == "hidden" or attrs.displayType == "date_interval"
             return ""
         output = $("<p><span rel='localize[#{attrs.label}]'>#{key}</span>: </p>")
@@ -123,6 +126,10 @@ Sidebar =
 
         if attrs.type == "url"
             return output.append "<a href='#{value}' class='exturl sidebar_url'>#{decodeURI(value)}</a>"
+
+        else if attrs.type == "info_url"
+            # return output.append "<a href='#{settings.showpage_cgi_script}?corpus=#{corpus}&page=#{value}' class='showpage_url sidebar_url'>#{value}</a>"
+            return output.append "<a href='javascript:' id='showpage_url' class='showpage_url sidebar_url'>#{value}</a>"
 
 #        else if key == "msd"
 #            return output.append """<span class='msd'>#{value}</span>
