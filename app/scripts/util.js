@@ -177,6 +177,7 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
     }
     for (var i = 0; i < settings.downloadFormats.length; i++) {
 	var format = settings.downloadFormats[i];
+	var format_upper = format.toUpperCase();
 	var link_id = format + '-link'
 	// NOTE: Using attribute rel="localize[...]" to localize the
 	// title attribute requires a small change to
@@ -185,13 +186,17 @@ util.setDownloadLinks = function(xhr_settings, result_data) {
 	// localizations immediately when switching languages but only
 	// after reloading the page.
 	// // var title = util.getLocaleString('formatdescr_' + format);
-	$('#download-links').append('<a href="javascript:" '
-				    + ' id="' + link_id + '"'
-				    + ' title="' + format + '"'
-				    + ' rel="localize[formatdescr_' + format + ']"'
-				    + ' class="download_link"><img src="img/'
-				    + format + '.png" alt="'
-				    + format.toUpperCase() + '" /></a>');
+	$('#download-links').append(
+	    '<a href="javascript:" ' + ' id="' + link_id + '"'
+		+ ' title="' + format + '"'
+		+ ' rel="localize[formatdescr_' + format + ']"'
+		+ ' class="download_link">'
+		+ ((settings.downloadLinkType
+		    && settings.downloadLinkType == 'text')
+		   ? format_upper
+		   : ('<img src="img/' + format + '.png" alt="'
+		      + format_upper + '" />'))
+		+ '</a>');
 	var download_params = {
 	    query_params: JSON.stringify(
 		$.deparam.querystring(xhr_settings.url)),
