@@ -125,6 +125,10 @@ require("./scripts/directives/scroll.js")
 require("./scripts/filter_directives.js")
 require("./scripts/newsdesk.js")
 
+function requireAll(r) { r.keys().forEach(r) } 
+requireAll(require.context('./plugins', true, /\.js$/))
+requireAll(require.context('customplugins', true, /\.js$/))
+
 // only if the current mode is parallel, we load the special code required
 for(let mode of settings.modeConfig) {
   if(currentMode === mode.mode && mode.parallel) {

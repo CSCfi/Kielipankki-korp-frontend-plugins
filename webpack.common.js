@@ -32,6 +32,7 @@ module.exports = {
             defaultmode: path.resolve(korpConfigDir, "modes/default_mode.js"),
             custom: path.resolve(korpConfigDir, "custom/"),
             '@': path.resolve(__dirname, "app/scripts"),
+            customplugins: path.resolve(korpConfigDir, "plugins/"),
         },
     },
     module: {
