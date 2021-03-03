@@ -272,12 +272,14 @@ module.exports = {
                 },
             ],
         }),
-        // Merge the locale-LG.json files in app/translations,
-        // app/plugins/**/translations, <korpConfigDir>/translations
-        // and <korpConfigDir>/plugins/**/translations into
-        // translations/locale-LG.json, so that the configuration may
-        // contain additional translations for plugins (and may
-        // override default translations).
+        // Merge the locale*-LG.json files in app/translations,
+        // app/plugins/**/translations,
+        // <korpPluginDir>/**/translations,
+        // <korpConfigDir>/translations and
+        // <korpConfigDir>/plugins/**/translations into
+        // translations/locale-LG.json, so that plugins may contain
+        // translations and the configuration may override default
+        // translations.
         new MergeJsonWebpackPlugin({
             // "debug": true,
             "output": {
@@ -286,7 +288,12 @@ module.exports = {
                     [
                         "app",
                         "app/plugins/**",
+                        `${korpPluginDir}/**`,
                         korpConfigDir,
+                        // Plugin translations could also be
+                        // overridden in korpConfigDir/translations,
+                        // but this may make it easier to separate
+                        // plugin translations in the configuration.)
                         `${korpConfigDir}/plugins/**`,
                     ]),
             },
