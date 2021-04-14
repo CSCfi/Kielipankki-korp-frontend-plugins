@@ -96,6 +96,8 @@ _.map(commonSettings, function(v, k) {
   window[k] = v
 })
 
+function requireAll(r) { r.keys().forEach(r) }
+
 require("./scripts/components/sidebar.js")
 
 require("./scripts/statistics.js")
@@ -103,6 +105,8 @@ require("./scripts/cqp_parser/CQPParser.js")
 require("./scripts/cqp_parser/cqp.js")
 require("./scripts/util.js")
 require("./scripts/plugins.js")
+requireAll(require.context("./plugins", true, /\.js$/))
+requireAll(require.context("customplugins", true, /\.js$/))
 require("./scripts/pie-widget.js")
 require("./scripts/search.js")
 require("./scripts/results.js")
@@ -125,10 +129,6 @@ require("./scripts/directives.js")
 require("./scripts/directives/scroll.js")
 require("./scripts/filter_directives.js")
 require("./scripts/newsdesk.js")
-
-function requireAll(r) { r.keys().forEach(r) } 
-requireAll(require.context('./plugins', true, /\.js$/))
-requireAll(require.context('customplugins', true, /\.js$/))
 
 // only if the current mode is parallel, we load the special code required
 for(let mode of settings.modeConfig) {
