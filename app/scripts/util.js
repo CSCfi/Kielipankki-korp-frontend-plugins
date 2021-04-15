@@ -734,8 +734,12 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
     if (first_level) {
         outHTML = "<ul>"
     } else {
+        // Let plugins filter the folder title shown in the popup,
+        // based on folder configuration
         const folderTitle = plugins.callFilters(
             "formatPopupFolderTitle", folder.title || "", folder)
+        // Let plugins filter the folder description shown in the
+        // popup, based on folder configuration
         const folderDescr = plugins.callFilters(
             "formatPopupFolderInfo", folder.description || "", folder)
         outHTML = `<ul title="${folderTitle}" description="${escape(folderDescr)}">`
@@ -830,6 +834,8 @@ util.loadCorpora = function () {
                 let baseLangSentenceHTML, baseLangTokenHTML, lang
                 const corpusObj = settings.corpora[corpusID]
                 let maybeInfo = ""
+                // Let plugins filter the corpus description shown in
+                // the popup, based on corpus configuration
                 const corpusDescr = plugins.callFilters(
                     "formatPopupCorpusInfo",
                     corpusObj.description || "", corpusObj)
@@ -866,6 +872,8 @@ util.loadCorpora = function () {
                     sentenceString = util.prettyNumbers(numSentences.toString())
                 }
 
+                // Let plugins filter the corpus description shown in
+                // the popup, based on corpus configuration
                 let corpusTitle = plugins.callFilters(
                     "formatPopupCorpusTitle", corpusObj.title || "", corpusObj)
                 let output = `\
