@@ -49,7 +49,7 @@ require("./lib/jquery.format.js")
 let deparam = require("jquery-deparam")
 
 window.c = console
-window.isLab = window.location.pathname.split("/")[1] == "korplabb"
+window.isLab = window.location.pathname.split("/")[1].match(/korplabb?|-test/)
 window.currentMode = deparam(window.location.search.slice(1)).mode || "default"
 
 // tmhDynamicLocale = require("angular-dynamic-locale/src/tmhDynamicLocale")
