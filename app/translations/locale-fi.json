@@ -405,6 +405,7 @@
     "map_cluster": "Ryhmittele",
 
     "no_row_selected_map": "Valitse ainakin yksi rivi kartalla näytettäväksi",
+    "select_attribute": "Valitse piirre",
 
     "global_filter": "Suodatin",
     "add_filter": "Lisää suodatin",
