@@ -514,6 +514,8 @@
     "lang": "språk",
     "fulltext": "heltext",
 
+    "text__geo_parish": "ort",
+
     "text_id": "textidentifierare",
     "text_type": "texttyp",
     "text_genre": "genre",

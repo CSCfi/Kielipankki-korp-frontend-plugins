@@ -1559,6 +1559,8 @@
     "parish": "paikkakunta",
     "village": "kylä",
 
+    "text__geo_parish": "paikkakunta",
+
     "search_word": "hakusana",
     "comment": "kommentti",
     "informant": "informantti",

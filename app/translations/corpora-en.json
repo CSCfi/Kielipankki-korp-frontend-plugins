@@ -923,6 +923,8 @@
     "lang": "language",
     "fulltext": "full text",
 
+    "text__geo_parish": "parish",
+
     "text_id": "text id",
     "text_type": "text type",
     "text_genre": "text genre",
