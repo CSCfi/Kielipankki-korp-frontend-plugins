@@ -146,6 +146,12 @@
 
     "sent_start": "virkkeen alussa",
     "sent_end": "virkkeen lopussa",
+    "before_token": "alkuun",
+    "after_token": "loppuun",
+    "boundary_unit": "Rajayksikkö:",
+    "add_tag_box": "Lisää raja",
+    "starts": "alkaa",
+    "ends": "loppuu",
 
     "none_selected": "&lt;ei valittuja&gt;",
 
