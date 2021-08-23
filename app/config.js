@@ -22,11 +22,7 @@ var baseURL = (window.location.protocol + "//" + window.location.hostname
                + window.location.pathname);
 
 settings.autocomplete = true;
-// Currently always enable the old map at Kielipankki, since we do not
-// yet have data for the new map.
-settings.enableMap = true;
-settings.mapPosTag = ["PM", "NNP", "NNPS"]
-settings.newMapEnabled = false;
+settings.newMapEnabled = true;
 settings.hitsPerPageDefault = 25
 settings.hitsPerPageValues = [25,50,75,100,500,1000]
 // If settings.show_related_words is not defined, it is considered
