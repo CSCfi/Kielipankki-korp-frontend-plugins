@@ -194,6 +194,11 @@
     "yes": "yes",
     "no": "no",
 
+    "tag_clause": "clause",
+    "tag_sentence": "sentence",
+    "tag_paragraph": "paragraph",
+    "tag_text": "text",
+
     "utterance_num": "utterance number",
     "utterance_begin_time": "utterance begin time",
     "utterance_end_time": "utterance end time",

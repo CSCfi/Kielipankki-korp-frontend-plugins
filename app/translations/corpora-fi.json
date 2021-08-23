@@ -138,6 +138,11 @@
     "yes": "kyllä",
     "no": "ei",
 
+    "tag_clause": "lause",
+    "tag_sentence": "virke",
+    "tag_paragraph": "kappale",
+    "tag_text": "teksti",
+
     "statistics": "Tilastoja",
 
     "date_interval": "aikaväli",

@@ -185,6 +185,11 @@
     "yes": "ja",
     "no": "nej",
 
+    "tag_clause": "sats",
+    "tag_sentence": "mening",
+    "tag_paragraph": "stycke",
+    "tag_text": "text",
+
     "utterance_num": "yttrandets nummer",
     "utterance_begin_time": "yttrandets starttid",
     "utterance_end_time": "yttrandets sluttid",
