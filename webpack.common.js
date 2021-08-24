@@ -18,7 +18,89 @@ function getKorpConfigDir() {
     return config
 }
 
-const korpConfigDir = getKorpConfigDir()
+const {accessSync, constants: {R_OK}} = require('fs');
+
+const exists = filename => {
+    try {
+        accessSync(filename, R_OK);
+        return true;
+    } catch (err) {
+        return false;
+    }
+};
+
+// Adapted from https://github.com/pugjs/pug/issues/2499#issuecomment-241927949
+// The approach works in principle, but it needs some elaboration.
+// TODO:
+// - Take into account relative includes that should not be searched
+//   for in app/ but relative to the including file. Or should we just
+//   test multiple paths only for absolute includes as in the
+//   original? Or maybe for includes containing directory component?
+//   Or rather prefix or suffix the filename with an option such as
+//   "search:" or ":search" or "|search"? (If suffix, remember to trim
+//   the ".pug" extension.)
+// - Ignore (optionally?) non-found includes.
+// - Including the contents of all found files also seems possible in
+//   the way it is done below: resolve joins the names to a single
+//   string, separated by "|" (or some other separator), and read
+//   splits the filename by the separator. resolve cannot return an
+//   array, as Pug seems to validate arguments somewhere and raises a
+//   type error on an array insted of string. However, for including
+//   the content of all files to make sense, it would need to be
+//   optional depending on the include, as otherwise it would be
+//   impossible to override the content of a standard include, such as
+//   the cog menu. The option could be prefixed or suffixed in the
+//   same way as the option for searching the path.
+// - When including the contents of all found files, sort them
+//   somehow. A way to do this could be to suffix file names with a
+//   double-digit number: "include file" would include "file-10.pug"
+//   and "file-20.pug", in this order. Another option could be to list
+//   names (or patterns) for paths in the order in which they should
+//   be considered; non-matching ones would be included in an
+//   arbitrary order after the matching ones.
+function PugMultiplePathsPlugin ({paths = []}) {
+    let load = require("pug-load")
+    return {
+        name: 'multiplePaths',
+        resolve (filename, source, options) {
+            let out = [];
+            console.log("resolve", filename, source, options, paths)
+            if (filename.startsWith("search:")) {
+                filename = filename.slice(7)
+                for (let pth of paths) {
+                    let fname = path.resolve(pth, filename)
+                    console.log("exists", pth, filename, fname, exists(fname))
+                    if (exists(fname)) {
+                        out.push(fname)
+                    }
+                }
+                out = out.join("|")
+            } else {
+                out = load.resolve(filename, source, options)
+                // if (!source) {
+                //     throw new Error('the "filename" option is required to use includes and extends with "relative" paths');
+                // }
+                // out = path.resolve(path.dirname(source), filename);
+            }
+            // if (! paths.some(pth => exists(out = path.resolve(pth, filename)))) {
+            //     throw new Error(
+            //         `${filename} cannot be found in any specified directory`);
+            // }
+            return out;
+        },
+        read (filename, options) {
+            console.log("read", filename, options)
+            let out = ""
+            let filenames = filename.split("|")
+            for (let fname of filenames) {
+                out += load.read(fname, options)
+            }
+            console.log("read:out", out)
+            return out
+        },
+    };
+}
+
 
 module.exports = {
     resolve: {
@@ -99,6 +181,14 @@ module.exports = {
                             // option will result in that some elements get closer together
                             // and need to be fixed with CSS
                             pretty: true,
+                            basedir: path.resolve(__dirname, "app"),
+                            plugins: PugMultiplePathsPlugin({
+                                // TODO: Add all Korp plugin directories
+                                paths: [
+                                    path.resolve(korpConfigDir),
+                                    "app",
+                                ]
+                            }),
                         },
                     },
                 ],
