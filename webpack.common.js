@@ -29,73 +29,113 @@ const exists = filename => {
     }
 };
 
-// Adapted from https://github.com/pugjs/pug/issues/2499#issuecomment-241927949
-// The approach works in principle, but it needs some elaboration.
+// A Pug plugin to search for files to be included from multiple
+// directories specified as the paths argument.
+//
+// To enable non-default behaviour, the filename of the include
+// directive needs to be prefixed with options between two colons,
+// separated by commas; for example:
+//     include :search,optional:includes/file
+// The following options are recognized:
+// - search: Search paths for file and include the first one, unless
+//   option "all" is also specified
+// - all: Include all the files found in the order of paths (only in
+//   conjunction with "search")
+// - optional: No error if no file is found
+//
+// Inspired by
+// https://github.com/pugjs/pug/issues/2499#issuecomment-241927949
+//
 // TODO:
-// - Take into account relative includes that should not be searched
-//   for in app/ but relative to the including file. Or should we just
-//   test multiple paths only for absolute includes as in the
-//   original? Or maybe for includes containing directory component?
-//   Or rather prefix or suffix the filename with an option such as
-//   "search:" or ":search" or "|search"? (If suffix, remember to trim
-//   the ".pug" extension.)
-// - Ignore (optionally?) non-found includes.
-// - Including the contents of all found files also seems possible in
-//   the way it is done below: resolve joins the names to a single
-//   string, separated by "|" (or some other separator), and read
-//   splits the filename by the separator. resolve cannot return an
-//   array, as Pug seems to validate arguments somewhere and raises a
-//   type error on an array insted of string. However, for including
-//   the content of all files to make sense, it would need to be
-//   optional depending on the include, as otherwise it would be
-//   impossible to override the content of a standard include, such as
-//   the cog menu. The option could be prefixed or suffixed in the
-//   same way as the option for searching the path.
+// - Fix to take relative subdirectories better into account: when
+//   including file z from X/y, include X/z.
 // - When including the contents of all found files, sort them
 //   somehow. A way to do this could be to suffix file names with a
-//   double-digit number: "include file" would include "file-10.pug"
-//   and "file-20.pug", in this order. Another option could be to list
-//   names (or patterns) for paths in the order in which they should
-//   be considered; non-matching ones would be included in an
-//   arbitrary order after the matching ones.
+//   double-digit number: "include :search,all:file" would include
+//   "file-10.pug" and "file-20.pug", in this order. Another option
+//   could be to list names (or patterns) for paths in the order in
+//   which they should be considered as an argument to option "all";
+//   for example, "include :search,all=plugin1+plugin2"; non-matching
+//   ones would be included in an arbitrary order after the matching
+//   ones (or maybe optionally not included).
+// - Support globs in paths.
+// - Optionally search paths recursively.
 function PugMultiplePathsPlugin ({paths = []}) {
     let load = require("pug-load")
     return {
         name: 'multiplePaths',
+        // Resolve filename to a fully-resolved path or multiple paths
+        // separated by vertical bars (resolve has to return a string)
         resolve (filename, source, options) {
-            let out = [];
+            let out = ""
+            let fileopts = {}
             console.log("resolve", filename, source, options, paths)
-            if (filename.startsWith("search:")) {
-                filename = filename.slice(7)
+            // Extract possible file options
+            const extractFileOptions = function (filename) {
+                let fileopts = {}
+                if (filename.startsWith(":")) {
+                    filename = filename.slice(1)
+                    const colonpos = filename.indexOf(":")
+                    fileoptStr = filename.slice(0, colonpos)
+                    fileoptStr.split(",").forEach(opt => fileopts[opt] = true)
+                    filename = filename.slice(colonpos + 1)
+                }
+                return [filename, fileopts]
+            }
+            [filename, fileopts] = extractFileOptions(filename)
+            console.log("fileopts =", fileopts)
+            if (paths.length > 0 && fileopts.search) {
+                // If file options contains "search", search for
+                // filename in each of paths
                 for (let pth of paths) {
                     let fname = path.resolve(pth, filename)
                     console.log("exists", pth, filename, fname, exists(fname))
                     if (exists(fname)) {
-                        out.push(fname)
+                        // Return the first one found, unless the file
+                        // option "all" has been specified
+                        if (! fileopts.all) {
+                            return fname
+                        }
+                        out += "|" + fname
                     }
                 }
-                out = out.join("|")
+                // Strip leading vertical bar
+                out = out.slice(1)
+                // If not found and option "optional" not specified,
+                // throw an error
+                if (! out && ! fileopts.optional) {
+                    let pathstr = paths.join(", ")
+                    throw new Error(
+                        `${filename} cannot be found in any of the specified`
+                        + `directories: ${pathstr}`)
+                }
             } else {
+                // The default include behaviour
                 out = load.resolve(filename, source, options)
-                // if (!source) {
-                //     throw new Error('the "filename" option is required to use includes and extends with "relative" paths');
-                // }
-                // out = path.resolve(path.dirname(source), filename);
+                if (! exists(out) && fileopts.optional) {
+                    out = ""
+                }
             }
-            // if (! paths.some(pth => exists(out = path.resolve(pth, filename)))) {
-            //     throw new Error(
-            //         `${filename} cannot be found in any specified directory`);
-            // }
-            return out;
+            console.log("out =", out)
+            return out
         },
         read (filename, options) {
-            console.log("read", filename, options)
+            // Return the content of filename. filename may contain
+            // multiple file names separated by vertical bars, in
+            // which case the contents of the files are concatenated.
+            console.log("read", filename)
+            // Skip empty file names, as that means that an optional
+            // include file was not found.
+            if (! filename) {
+                return ""
+            }
             let out = ""
             let filenames = filename.split("|")
             for (let fname of filenames) {
                 out += load.read(fname, options)
+                console.log("read", fname)
             }
-            console.log("read:out", out)
+            // console.log("read:out", out)
             return out
         },
     };
