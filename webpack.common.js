@@ -67,7 +67,7 @@ function PugMultiplePathsPlugin ({paths = []}) {
         resolve (filename, source, options) {
             let out = ""
             let fileopts = {}
-            console.log("resolve", filename, source, options, paths)
+            // console.log("resolve", filename, source, options, paths)
             // Extract possible file options
             const extractFileOptions = function (filename) {
                 let fileopts = {}
@@ -82,7 +82,7 @@ function PugMultiplePathsPlugin ({paths = []}) {
             };
             // Get the subdirectory of filename relative to basedir
             const getRelativeSubdir = function (basedir, filename) {
-                console.log("getRelativeSubdir", basedir, filename)
+                // console.log("getRelativeSubdir", basedir, filename)
                 if (! filename.startsWith(basedir)) {
                     return ""
                 }
@@ -90,14 +90,13 @@ function PugMultiplePathsPlugin ({paths = []}) {
                 let lastSlashPos = filenameRel.lastIndexOf("/")
                 if (lastSlashPos == -1) {
                     // filename is directly in basedir
-                    console.log(filenameRel, lastSlashPos)
                     return ""
                 }
                 // Include trailing slash
                 return filenameRel.slice(0, lastSlashPos + 1)
             };
             [filename, fileopts] = extractFileOptions(filename)
-            console.log("fileopts =", fileopts)
+            // console.log("fileopts =", fileopts)
             if (paths.length > 0 && fileopts.search) {
                 // If file options contains "search", search for
                 // filename in each of paths
@@ -105,7 +104,7 @@ function PugMultiplePathsPlugin ({paths = []}) {
                 filename = getRelativeSubdir(options.basedir, source) + filename
                 for (let pth of paths) {
                     let fname = path.resolve(pth, filename)
-                    console.log("exists", pth, filename, fname, exists(fname))
+                    // console.log("exists", pth, filename, fname, exists(fname))
                     if (exists(fname)) {
                         // Return the first one found, unless the file
                         // option "all" has been specified
@@ -132,14 +131,14 @@ function PugMultiplePathsPlugin ({paths = []}) {
                     out = ""
                 }
             }
-            console.log("out =", out)
+            // console.log("out =", out)
             return out
         },
         read (filename, options) {
             // Return the content of filename. filename may contain
             // multiple file names separated by vertical bars, in
             // which case the contents of the files are concatenated.
-            console.log("read", filename)
+            // console.log("read", filename)
             // Skip empty file names, as that means that an optional
             // include file was not found.
             if (! filename) {
@@ -149,7 +148,7 @@ function PugMultiplePathsPlugin ({paths = []}) {
             let filenames = filename.split("|")
             for (let fname of filenames) {
                 out += load.read(fname, options)
-                console.log("read", fname)
+                // console.log("read", fname)
             }
             // console.log("read:out", out)
             return out
