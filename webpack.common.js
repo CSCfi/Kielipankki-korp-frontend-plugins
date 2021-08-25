@@ -47,8 +47,6 @@ const exists = filename => {
 // https://github.com/pugjs/pug/issues/2499#issuecomment-241927949
 //
 // TODO:
-// - Fix to take relative subdirectories better into account: when
-//   including file z from X/y, include X/z.
 // - When including the contents of all found files, sort them
 //   somehow. A way to do this could be to suffix file names with a
 //   double-digit number: "include :search,all:file" would include
@@ -81,12 +79,30 @@ function PugMultiplePathsPlugin ({paths = []}) {
                     filename = filename.slice(colonpos + 1)
                 }
                 return [filename, fileopts]
-            }
+            };
+            // Get the subdirectory of filename relative to basedir
+            const getRelativeSubdir = function (basedir, filename) {
+                console.log("getRelativeSubdir", basedir, filename)
+                if (! filename.startsWith(basedir)) {
+                    return ""
+                }
+                let filenameRel = filename.slice(basedir.length + 1)
+                let lastSlashPos = filenameRel.lastIndexOf("/")
+                if (lastSlashPos == -1) {
+                    // filename is directly in basedir
+                    console.log(filenameRel, lastSlashPos)
+                    return ""
+                }
+                // Include trailing slash
+                return filenameRel.slice(0, lastSlashPos + 1)
+            };
             [filename, fileopts] = extractFileOptions(filename)
             console.log("fileopts =", fileopts)
             if (paths.length > 0 && fileopts.search) {
                 // If file options contains "search", search for
                 // filename in each of paths
+                // Include the subdirectory relative to basedir
+                filename = getRelativeSubdir(options.basedir, source) + filename
                 for (let pth of paths) {
                     let fname = path.resolve(pth, filename)
                     console.log("exists", pth, filename, fname, exists(fname))
