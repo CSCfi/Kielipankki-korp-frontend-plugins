@@ -14,6 +14,14 @@
 
     script(type="text/ng-template" id="aboutTemplate.html")
       ul.my-0.py-1.text-right(ng-click="$root.isPopoverOpen = false")
+        //- Declare classes for main menu li and a elements as variables,
+        //- so that they need not repeated for every item.
+        //- The values need to be in the locals object for an included
+        //- file to reference them; see
+        //- https://github.com/pugjs/pug-loader/issues/47
+        //- https://github.com/pugjs/pug-loader/issues/54
+        - locals.cls_mainmenu_li = "bg-white hover_bg-gray-200 p-1 transition duration-200"
+        - locals.cls_mainmenu_a = "block transiton duration-200 hover_text-blue-600"
         include main_menu
 
     .flex.items-center

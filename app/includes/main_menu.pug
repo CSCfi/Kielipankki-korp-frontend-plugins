@@ -1,10 +1,10 @@
-li.bg-white.hover_bg-gray-200.p-1.transition.duration-200
-  a.block.transiton.duration-200.hover_text-blue-600#about(ng-click="citeClick()") {{'about' | loc:lang}}
-li.bg-white.hover_bg-gray-200.p-1.transition.duration-500
-  a.block.transiton.duration-200.hover_text-blue-600(href='https://spraakbanken.gu.se/verktyg/korp/användarhandledning', target='_blank') {{'docs' | loc:lang}}
-li.bg-white.hover_bg-gray-200.p-1.transition.duration-200#korplink
-  a.block.transiton.duration-200.hover_text-blue-600(href='/korp') {{'korp' | loc:lang}}
-li.bg-white.hover_bg-gray-200.p-1.transition.duration-200#korplablink
-  a.block.transiton.duration-200.hover_text-blue-600(href='/korplabb') {{'korp_lab' | loc:lang}}
-li.bg-white.hover_bg-gray-200.p-1.transition.duration-200
-  a.block.transiton.duration-200.hover_text-blue-600(href='https://spraakbanken.gu.se/sparv', target='_blank') {{'import_chain' | loc:lang}}
+li(class=locals.cls_mainmenu_li)
+  a#about(class=locals.cls_mainmenu_a, ng-click="citeClick()") {{'about' | loc:lang}}
+li(class=locals.cls_mainmenu_li)
+  a(class=locals.cls_mainmenu_a, href='https://spraakbanken.gu.se/verktyg/korp/användarhandledning', target='_blank') {{'docs' | loc:lang}}
+li#korplink(class=locals.cls_mainmenu_li)
+  a(class=locals.cls_mainmenu_a, href='/korp') {{'korp' | loc:lang}}
+li#korplablink(class=locals.cls_mainmenu_li)
+  a(class=locals.cls_mainmenu_a, href='/korplabb') {{'korp_lab' | loc:lang}}
+li(class=locals.cls_mainmenu_li)
+  a(class=locals.cls_mainmenu_a, href='https://spraakbanken.gu.se/sparv', target='_blank') {{'import_chain' | loc:lang}}
