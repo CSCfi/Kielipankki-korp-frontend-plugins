@@ -22,7 +22,7 @@
         //- https://github.com/pugjs/pug-loader/issues/54
         - locals.cls_mainmenu_li = "bg-white hover_bg-gray-200 p-1 transition duration-200"
         - locals.cls_mainmenu_a = "block transiton duration-200 hover_text-blue-600"
-        include main_menu
+        include :search:main_menu
 
     .flex.items-center
       #log_out.link(ng-click="logout()", ng-if="loggedIn")
