@@ -84,6 +84,7 @@ module.exports = {
             custom: path.resolve(korpConfigDir, "custom/"),
             '@': path.resolve(__dirname, "app/scripts"),
             customplugins: path.resolve(korpPluginDir),
+            configplugins: path.resolve(korpConfigDir, "plugins/"),
         },
     },
     module: {
