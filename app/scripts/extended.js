@@ -99,6 +99,32 @@ const selectController = (autocomplete) => [
     },
 ]
 
+const datasetSelectController = [
+    "$scope",
+    "$rootScope",
+    function ($scope, $rootScope) {
+        let dataset
+        const original = $scope.dataset
+
+        $rootScope.$watch("lang", (newVal, oldVal) => {
+            if (newVal != oldVal) {
+                initialize()
+            }
+        })
+        function initialize() {
+            const localizer = localize($scope)
+            if (_.isArray(original)) {
+                dataset = _.map(original, (item) => [item, localizer(item)])
+            } else {
+                dataset = _.map(original, (v, k) => [k, localizer(v)])
+            }
+            $scope.dataset = _.sortBy(dataset, (tuple) => tuple[1])
+            $scope.model = $scope.model || $scope.dataset[0][0]
+        }
+        initialize()
+    },
+]
+
 // Select-element. Use the following settings in the corpus:
 // - dataset: an object or an array of values
 // - escape: boolean, will be used by the escaper-directive
@@ -106,31 +132,7 @@ export default _.merge(
     {
         datasetSelect: {
             template: selectTemplate,
-            controller: [
-                "$scope",
-                "$rootScope",
-                function ($scope, $rootScope) {
-                    let dataset
-                    const original = $scope.dataset
-
-                    $rootScope.$watch("lang", (newVal, oldVal) => {
-                        if (newVal != oldVal) {
-                            initialize()
-                        }
-                    })
-                    function initialize() {
-                        const localizer = localize($scope)
-                        if (_.isArray(original)) {
-                            dataset = _.map(original, (item) => [item, localizer(item)])
-                        } else {
-                            dataset = _.map(original, (v, k) => [k, localizer(v)])
-                        }
-                        $scope.dataset = _.sortBy(dataset, (tuple) => tuple[1])
-                        $scope.model = $scope.model || $scope.dataset[0][0]
-                    }
-                    initialize()
-                },
-            ],
+            controller: datasetSelectController,
         },
 
         // Select-element. Gets values from "struct_values"-command. Use the following settings in the corpus:
