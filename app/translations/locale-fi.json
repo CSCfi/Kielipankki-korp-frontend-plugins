@@ -485,6 +485,7 @@
     "selected_words": "Valitut sanat",
     "button_done": "Valmis",
     "button_clear": "Tyhjennä",
-    "button_cancel": "Peruuta"
+    "button_cancel": "Peruuta",
 
+    "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

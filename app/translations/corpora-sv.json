@@ -1548,5 +1548,7 @@
     "datetime_content_modified": "innehållets redigeringsdatum",
     "datetime_json_modified": "JSONs redigeringsdatum",
 
-"klk_img_url" : "Se dokument i Revizor"
+    "klk_img_url" : "Se dokument i Revizor",
+
+    "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

@@ -2356,5 +2356,7 @@
 
     "opensub_text_country" : "country",
     "opensub_text_lang_orig" : "original language",
-    "opensub_text_genre" : "genre"
+    "opensub_text_genre" : "genre",
+
+    "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

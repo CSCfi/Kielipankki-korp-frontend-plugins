@@ -2231,5 +2231,7 @@
 
     "opensub_text_country" : "alkuperämaa",
     "opensub_text_lang_orig" : "alkuperäiskieli",
-    "opensub_text_genre" : "lajityyppi"
+    "opensub_text_genre" : "lajityyppi",
+
+    "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }
