@@ -260,15 +260,15 @@ settings.corpora.semfinlex_asd_sv_2018 = {
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
     urn: "urn:nbn:fi:lb-2019042604",
     metadata_urn: "urn:nbn:fi:lb-2019042603",
-    context : defaultContext,
-    within : settings.defaultWithin,
-    licence : settings.licenceinfo.CC_BY,
-    attributes : attrlist.parsed_sv,
-    structAttributes : {
-        text_url : {
-            label : "URL",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+    context: defaultContext,
+    within: settings.defaultWithin,
+    licence: settings.licenceinfo.CC_BY,
+    attributes: attrlist.parsed_sv,
+    structAttributes: {
+        text_url: {
+            label: "URL",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
@@ -298,15 +298,15 @@ settings.corpora.semfinlex_kko_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context : defaultContext,
-    within : settings.defaultWithin,
-    licence : settings.licenceinfo.CC_BY,
-    attributes : attrlist.parsed_sv,
-    structAttributes : {
-        text_url : {
-            label : "URL",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+    context: defaultContext,
+    within: settings.defaultWithin,
+    licence: settings.licenceinfo.CC_BY,
+    attributes: attrlist.parsed_sv,
+    structAttributes: {
+        text_url: {
+            label: "URL",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     }
@@ -319,15 +319,15 @@ settings.corpora.semfinlex_kho_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context : defaultContext,
-    within : settings.defaultWithin,
-    licence : settings.licenceinfo.CC_BY,
-    attributes : attrlist.parsed_sv,
-    structAttributes : {
-        text_url : {
-            label : "URL",
-            type : "url",
-            url_opts : sattrs.link_url_opts
+    context: defaultContext,
+    within: settings.defaultWithin,
+    licence: settings.licenceinfo.CC_BY,
+    attributes: attrlist.parsed_sv,
+    structAttributes: {
+        text_url: {
+            label: "URL",
+            type: "url",
+            url_opts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     }

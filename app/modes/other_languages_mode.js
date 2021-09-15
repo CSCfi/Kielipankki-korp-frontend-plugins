@@ -445,54 +445,59 @@ settings.corpus_aliases.oracc_2919_05
 /* Helsinki Corpus */
 
 sattrlist.hc = {
-    sentence_id : sattrs.sentence_id_hidden,
-    text_date : {label: "date"},
-    text_title : {label: "title"},
-    text_xmlid : {label: "hc_xmlid"},
-    text_id : {label: "hc_textid"},
-    text_source : {label: "source"},
-    text_lang : {label: "lang"},
-    text_langid : {label: "hc_lang_id"},
-    text_contemporaneity : {label: "hc_contemporaneity"},
-    //text_dialect : {label: "hc_dialect"},
-    text_form : {label: "hc_form"},
-    text_texttype : {label: "hc_texttype"},
-    text_foreignorig : {label: "hc_foreignorig"},
-    text_foreignlang : {label: "hc_foreignlang"},
-    text_spoken : {label: "hc_spoken"},
-    text_authorsex : {label: "hc_authorsex"},
-    text_author : {label: "hc_author"},
-    text_authorage : {label: "hc_authorage"},
-    text_socialrank : {label: "hc_socialrank"},
-    text_audience : {label: "hc_audience"},
-    text_partrel : {label: "hc_partrel"},
-    text_interaction : {label: "hc_interaction"},
-    text_setting : {label: "hc_setting"},
-    text_proto : {label: "hc_proto"}
+    sentence_id: sattrs.sentence_id_hidden,
+    text_date: {label: "date"},
+    text_title: {label: "title"},
+    text_xmlid: {label: "hc_xmlid"},
+    text_id: {label: "hc_textid"},
+    text_source: {label: "source"},
+    text_lang: {label: "lang"},
+    text_langid: {label: "hc_lang_id"},
+    text_contemporaneity: {label: "hc_contemporaneity"},
+    //text_dialect: {label: "hc_dialect"},
+    text_form: {label: "hc_form"},
+    text_texttype: {label: "hc_texttype"},
+    text_foreignorig: {label: "hc_foreignorig"},
+    text_foreignlang: {label: "hc_foreignlang"},
+    text_spoken: {label: "hc_spoken"},
+    text_authorsex: {label: "hc_authorsex"},
+    text_author: {label: "hc_author"},
+    text_authorage: {label: "hc_authorage"},
+    text_socialrank: {label: "hc_socialrank"},
+    text_audience: {label: "hc_audience"},
+    text_partrel: {label: "hc_partrel"},
+    text_interaction: {label: "hc_interaction"},
+    text_setting: {label: "hc_setting"},
+    text_proto: {label: "hc_proto"}
 };
 
 attrlist.hc = {
-    page : {label: "page_num",
-            opts : settings.defaultOptions},
-
-    note : {label: "note",
-            opts : settings.defaultOptions},
-
-    unit : {label: "unit",
-            opts : settings.defaultOptions},
-
-    type : {label: "type",
-            opts : settings.defaultOptions},
-
-    supplement : {label: "supplement",
-                  opts : settings.defaultOptions}
-
+    page: {
+        label: "page_num",
+        opts: settings.defaultOptions
+    },
+    note: {
+        label: "note",
+        opts: settings.defaultOptions
+    },
+    unit: {
+        label: "unit",
+        opts: settings.defaultOptions
+    },
+    type: {
+        label: "type",
+        opts: settings.defaultOptions
+    },
+    supplement: {
+        label: "supplement",
+        opts: settings.defaultOptions
+    }
 };
 
 settings.corpora.hc = {
-    id : "hc",
-    title : "Helsinki Corpus TEI XML Edition (2011)",
-    description : "Helsinki Corpus TEI XML Edition (2011), Korp Version<br/><br/>The Helsinki Corpus of English Texts is a structured multi-genre diachronic corpus, which includes periodically organized text samples from Old, Middle and Early Modern English. Each sample is preceded by a list of parameter codes giving information on the text and its author. The Corpus is useful particularly in the study of the change of linguistic features in long diachrony. It can be used as a diagnostic corpus giving general information of the occurrence of forms, structures and lexemes in different periods of English. This information can be supplemented by evidence yielded by more special and focused historical corpora.<br/><br/><strong>Note</strong> that this version of the corpus is based on the Helsinki Corpus TEI XML Edition of 2011, so it does not contain word-level annotations.",
+    id: "hc",
+    title: "Helsinki Corpus TEI XML Edition (2011)",
+    description: "Helsinki Corpus TEI XML Edition (2011), Korp Version<br/><br/>The Helsinki Corpus of English Texts is a structured multi-genre diachronic corpus, which includes periodically organized text samples from Old, Middle and Early Modern English. Each sample is preceded by a list of parameter codes giving information on the text and its author. The Corpus is useful particularly in the study of the change of linguistic features in long diachrony. It can be used as a diagnostic corpus giving general information of the occurrence of forms, structures and lexemes in different periods of English. This information can be supplemented by evidence yielded by more special and focused historical corpora.<br/><br/><strong>Note</strong> that this version of the corpus is based on the Helsinki Corpus TEI XML Edition of 2011, so it does not contain word-level annotations.",
     metadata_urn: "urn:nbn:fi:lb-2017083001",
     // Uncomment location URN when the beta stage ends
     // urn: "urn:nbn:fi:lb-2019061401",
@@ -505,76 +510,75 @@ settings.corpora.hc = {
         urn: "urn:nbn:fi:lb-2019061301",
     },
     cite_id: "HC-TEI-XML",
-    context : spContext,
-    within : spWithin,
-    attributes : attrlist.hc,
-    structAttributes : sattrlist.hc
+    context: spContext,
+    within: spWithin,
+    attributes: attrlist.hc,
+    structAttributes: sattrlist.hc
 };
 
 
 /* Oracc */
 
 sattrlist.oracc = {
-    text_cdlinumber : {
-        label : "oracc_cdlinumber",
+    text_cdlinumber: {
+        label: "oracc_cdlinumber",
     },
-    text_provenance : {
-        label : "oracc_provenance",
+    text_provenance: {
+        label: "oracc_provenance",
     },
-
-    text_language : {
-        label : "oracc_textlang",
-        displayType : "select",
-        translationKey : "oracc_textlang_",
-        dataset : [
-                   "Akkadian",
-                   "AkkadianAramaic",
-                   "AkkadianAramaicLuwian",
-                   "AkkadianEgyptian",
-                   "AkkadianOldPersian",
-                   "AkkadianOldPersianElamite",
-                   "AkkadianOldPersianElamiteEgyptian",
-                   "AkkadianUrartian",
-                   "Aramaic",
-                   "Eblaite",
-                   "Elamite",
-                   "Hittite",
-                   "Neo-Assyrian",
-                   "Neo-Babylonian",
-                   "OldPersian",
-                   "OldPersianElamite",
-                   "Sumerian",
-                   "SumerianAkkadian",
-                   "Uncertainorunspecified",
-                   "Urartian"
+    text_language: {
+        label: "oracc_textlang",
+        displayType: "select",
+        translationKey: "oracc_textlang_",
+        dataset: [
+            "Akkadian",
+            "AkkadianAramaic",
+            "AkkadianAramaicLuwian",
+            "AkkadianEgyptian",
+            "AkkadianOldPersian",
+            "AkkadianOldPersianElamite",
+            "AkkadianOldPersianElamiteEgyptian",
+            "AkkadianUrartian",
+            "Aramaic",
+            "Eblaite",
+            "Elamite",
+            "Hittite",
+            "Neo-Assyrian",
+            "Neo-Babylonian",
+            "OldPersian",
+            "OldPersianElamite",
+            "Sumerian",
+            "SumerianAkkadian",
+            "Uncertainorunspecified",
+            "Urartian"
         ]
     },
-    text_genre : {
-        label : "oracc_genre",
-        displayType : "select",
-        translationKey : "oracc_genre_",
-        dataset : [
-                   "administrativerecord",
-                   "astrologicalastronomical",
-                   "grantdecreegift",
-                   "legaltransaction",
-                   "letter",
-                   "lexical",
-                   "literary",
-                   "miscellaneous",
-                   "omendivination",
-                   "prayerritualincantation",
-                   "royalinscription",
-                   "scholarly",
-                   "school",
-                   "uncertainorunspecified"
+    text_genre: {
+        label: "oracc_genre",
+        displayType: "select",
+        translationKey: "oracc_genre_",
+        dataset: [
+            "administrativerecord",
+            "astrologicalastronomical",
+            "grantdecreegift",
+            "legaltransaction",
+            "letter",
+            "lexical",
+            "literary",
+            "miscellaneous",
+            "omendivination",
+            "prayerritualincantation",
+            "royalinscription",
+            "scholarly",
+            "school",
+            "uncertainorunspecified"
         ]
     },
-    text_period : {
-        label : "oracc_period",
-        displayType : "select",
-        translationKey : "oracc_period_",
-        dataset : [
+    text_period: {
+        label: "oracc_period",
+        displayType: "select",
+        translationKey: "oracc_period_",
+        dataset: [
             "Achaemenid",
             "Archaic",
             "EarlyDynastic",
@@ -602,41 +606,39 @@ sattrlist.oracc = {
             "UrukIV"
         ]
     },
-    text_subgenre : {
-        label : "oracc_subgenre"
+    text_subgenre: {
+        label: "oracc_subgenre"
     },
-    sentence_line : {
-        label : "oracc_line",
+    sentence_line: {
+        label: "oracc_line",
     },
-    sentence_translation : {
-        label : "oracc_sent_translation"
+    sentence_translation: {
+        label: "oracc_sent_translation"
     },
-    paragraph_id : {
-        label : "paragraph_id",
-        displayType : "hidden",
+    paragraph_id: {
+        label: "paragraph_id",
+        displayType: "hidden",
     }
 };
 
 attrlist.oracc = {
-
-    lemma : attrs.baseform,
-    ltrans :  {
+    lemma: attrs.baseform,
+    ltrans:  {
         // Lemma translation
-        label : "oracc_lemmatrans"
+        label: "oracc_lemmatrans"
     },
-    transcription : {
-        label : "oracc_transcription"
+    transcription: {
+        label: "oracc_transcription"
     },
-    sense : {
+    sense: {
         // Contextual sense
-        label : "oracc_sense"
+        label: "oracc_sense"
     },
-
-    pos : {
-        label : "pos",
-        displayType : "select",
-        translationKey : "oracc_pos_",
-        dataset : [
+    pos: {
+        label: "pos",
+        displayType: "select",
+        translationKey: "oracc_pos_",
+        dataset: [
             "adjective",
             "adverb",
             "commonnoun",
@@ -651,229 +653,226 @@ attrlist.oracc = {
             "verb"
         ]
     },
-    possub : {
+    possub: {
         // Sub POS
-        label : "oracc_pos_subcategory"
+        label: "oracc_pos_subcategory"
     },
-    standard : {
-        label : "oracc_standardized"
+    standard: {
+        label: "oracc_standardized"
     },
-
-    lang : {
-        label : "oracc_lang",
-        displayType : "select",
-        translationKey : "oracc_lang_",
-        dataset : [
-                   "Akkadian",
-                   "Aramaic",
-                   "Cuneiform",
-                   "EarlyAkkadian",
-                   "Eblaite",
-                   "Elamite",
-                   "Greek",
-                   "Hittite",
-                   "Hurrian",
-                   "LateBabylonian",
-                   "MiddleAssyrian",
-                   "MiddleBabylonian",
-                   "MiddleBabylonianperipheral",
-                   "Neo-Assyrian",
-                   "Neo-Babylonian",
-                   "OldAkkadian",
-                   "OldAssyrian",
-                   "OldBabylonian",
-                   "OldPersian",
-                   "Proto-cuneiform",
-                   "StandardBabylonian",
-                   "Sumerian",
-                   "SumerianEmesal",
-                   "Ugaritic",
-                   "Urartian"
+    lang: {
+        label: "oracc_lang",
+        displayType: "select",
+        translationKey: "oracc_lang_",
+        dataset: [
+            "Akkadian",
+            "Aramaic",
+            "Cuneiform",
+            "EarlyAkkadian",
+            "Eblaite",
+            "Elamite",
+            "Greek",
+            "Hittite",
+            "Hurrian",
+            "LateBabylonian",
+            "MiddleAssyrian",
+            "MiddleBabylonian",
+            "MiddleBabylonianperipheral",
+            "Neo-Assyrian",
+            "Neo-Babylonian",
+            "OldAkkadian",
+            "OldAssyrian",
+            "OldBabylonian",
+            "OldPersian",
+            "Proto-cuneiform",
+            "StandardBabylonian",
+            "Sumerian",
+            "SumerianEmesal",
+            "Ugaritic",
+            "Urartian"
         ]
     },
-
     // links won't work
-    url : {
+    url: {
         label: "oracc_url",
         type: "url",
         url_opts: {
-            //in_link_section : true,
-            //hide_url : true,
-            new_window : true,
+            //in_link_section: true,
+            //hide_url: true,
+            new_window: true,
         }
     }
 /*
-    url : {
-        in_link_section : true,
-        hide_url : true,
-        new_window : true,
-        label : "oracc_url",
-        type : "url"
+    url: {
+        in_link_section: true,
+        hide_url: true,
+        new_window: true,
+        label: "oracc_url",
+        type: "url"
         }*/
-
 };
 
 settings.corpora.oracc_adsd = {
-    id : "oracc_adsd",
-    title : "Astronomical Diaries Digital",
-    description : "ADsD: Astronomical Diaries Digital",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_adsd",
+    title: "Astronomical Diaries Digital",
+    description: "ADsD: Astronomical Diaries Digital",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_ario = {
-    id : "oracc_ario",
-    title : "Achaemenid Royal Inscriptions online",
-    description : "ARIo: Achaemenid Royal Inscriptions online",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_ario",
+    title: "Achaemenid Royal Inscriptions online",
+    description: "ARIo: Achaemenid Royal Inscriptions online",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_blms = {
-    id : "oracc_blms",
-    title : "Bilinguals in Late Mesopotamian Scholarship",
-    description : "blms: Bilinguals in Late Mesopotamian Scholarship",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_blms",
+    title: "Bilinguals in Late Mesopotamian Scholarship",
+    description: "blms: Bilinguals in Late Mesopotamian Scholarship",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_cams = {
-    id : "oracc_cams",
-    title : "Corpus of Ancient Mesopotamian Scholarship",
-    description : "CAMS: Corpus of Ancient Mesopotamian Scholarship",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_cams",
+    title: "Corpus of Ancient Mesopotamian Scholarship",
+    description: "CAMS: Corpus of Ancient Mesopotamian Scholarship",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_caspo = {
-    id : "oracc_caspo",
-    title : "Corpus of Akkadian Shuila-Prayers online",
-    description : "CASPo: Corpus of Akkadian Shuila-Prayers online",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_caspo",
+    title: "Corpus of Akkadian Shuila-Prayers online",
+    description: "CASPo: Corpus of Akkadian Shuila-Prayers online",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_ctij = {
-    id : "oracc_ctij",
-    title : "Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
-    description : "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_ctij",
+    title: "Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
+    description: "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_dcclt = {
-    id : "oracc_dcclt",
-    title : "Digital Corpus of Cuneiform Lexical Texts",
-    description : "DCCLT: Digital Corpus of Cuneiform Lexical Texts",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_dcclt",
+    title: "Digital Corpus of Cuneiform Lexical Texts",
+    description: "DCCLT: Digital Corpus of Cuneiform Lexical Texts",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_dccmt = {
-    id : "oracc_dccmt",
-    title : "Digital Corpus of Cuneiform Mathematical Texts",
-    description : "DCCMT: Digital Corpus of Cuneiform Mathematical Texts",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_dccmt",
+    title: "Digital Corpus of Cuneiform Mathematical Texts",
+    description: "DCCMT: Digital Corpus of Cuneiform Mathematical Texts",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_ecut = {
-    id : "oracc_ecut",
-    title : "Electronic Corpus of Urartian Texts",
-    description : "eCUT: Electronic Corpus of Urartian Texts",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_ecut",
+    title: "Electronic Corpus of Urartian Texts",
+    description: "eCUT: Electronic Corpus of Urartian Texts",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_etcsri = {
-    id : "oracc_etcsri",
-    title : "Electronic Text Corpus of Sumerian Royal Inscriptions",
-    description : "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_etcsri",
+    title: "Electronic Text Corpus of Sumerian Royal Inscriptions",
+    description: "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_hbtin = {
-    id : "oracc_hbtin",
-    title : "Hellenistic Babylonia",
-    description : "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_hbtin",
+    title: "Hellenistic Babylonia",
+    description: "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_obmc = {
-    id : "oracc_obmc",
-    title : "Old Babylonian Model Contracts",
-    description : "OBMC: Old Babylonian Model Contracts",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_obmc",
+    title: "Old Babylonian Model Contracts",
+    description: "OBMC: Old Babylonian Model Contracts",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_others = {
-    id : "oracc_others",
-    title : "Other projects",
-    description : "Other projects",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_others",
+    title: "Other projects",
+    description: "Other projects",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_riao = {
-    id : "oracc_riao",
-    title : "Royal Inscriptions of Assyria online",
-    description : "RIAo: Royal Inscriptions of Assyria online",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_riao",
+    title: "Royal Inscriptions of Assyria online",
+    description: "RIAo: Royal Inscriptions of Assyria online",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_ribo = {
-    id : "oracc_ribo",
-    title : "Royal Inscriptions of Babylonia online",
-    description : "RIBo: Royal Inscriptions of Babylonia online",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_ribo",
+    title: "Royal Inscriptions of Babylonia online",
+    description: "RIBo: Royal Inscriptions of Babylonia online",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_rimanum = {
-    id : "oracc_rimanum",
-    title : "The House of Prisoners",
-    description : "Rīm-Anum: The House of Prisoners",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_rimanum",
+    title: "The House of Prisoners",
+    description: "Rīm-Anum: The House of Prisoners",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_rinap = {
-    id : "oracc_rinap",
-    title : "Royal Inscriptions of the Neo-Assyrian Period",
-    description : "RINAP: Royal Inscriptions of the Neo-Assyrian Period",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_rinap",
+    title: "Royal Inscriptions of the Neo-Assyrian Period",
+    description: "RINAP: Royal Inscriptions of the Neo-Assyrian Period",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 settings.corpora.oracc_saao = {
-    id : "oracc_saao",
-    title : "State Archives of Assyria Online",
-    description : "SAAo: State Archives of Assyria Online",
-    context : spContext,
-    within : spWithin,
+    id: "oracc_saao",
+    title: "State Archives of Assyria Online",
+    description: "SAAo: State Archives of Assyria Online",
+    context: spContext,
+    within: spWithin,
     attributes: attrlist.oracc,
-    structAttributes : sattrlist.oracc
+    structAttributes: sattrlist.oracc
 };
 
 
@@ -1106,25 +1105,25 @@ attrlist.wanca_common = {
     spaces: {
         label: "whitespace_related_to_token",
         dataset: {
-            "_" : "_",
-            "SpaceAfter=No" : "SpaceAfter=No",
-            "SpacesAfter=\n\n" : "SpacesAfter=\n\n",
-            "SpacesBefore=\s" : "SpacesBefore=\s",
-            "SpacesAfter= " : "SpacesAfter= ",
-            "SpacesAfter=\s\s" : "SpacesAfter=\s\s",
-            "SpacesBefore=\s|SpaceAfter=No" : "SpacesBefore=\s|SpaceAfter=No",
-            "SpacesAfter=　\s" : "SpacesAfter=　\s",
-            "SpacesAfter=  " : "SpacesAfter=  ",
+            "_": "_",
+            "SpaceAfter=No": "SpaceAfter=No",
+            "SpacesAfter=\n\n": "SpacesAfter=\n\n",
+            "SpacesBefore=\s": "SpacesBefore=\s",
+            "SpacesAfter= ": "SpacesAfter= ",
+            "SpacesAfter=\s\s": "SpacesAfter=\s\s",
+            "SpacesBefore=\s|SpaceAfter=No": "SpacesBefore=\s|SpaceAfter=No",
+            "SpacesAfter=　\s": "SpacesAfter=　\s",
+            "SpacesAfter=  ": "SpacesAfter=  ",
         },
     },
     ref: attrs.ref,
 };
 
 sattrlist.wanca_common = {
-    text_url : {
-        label : "URL",
-        type : "url",
-        url_opts : sattrs.link_url_opts
+    text_url: {
+        label: "URL",
+        type: "url",
+        url_opts: sattrs.link_url_opts
     },
 };
 
@@ -1468,10 +1467,10 @@ sattrlist.fennougrica_veps = {
 };
 
 attrlist.fennougrica_veps = {
-        url: {
-            label: "klk_img_url",
-            type: "url"
-        }
+    url: {
+        label: "klk_img_url",
+        type: "url"
+    }
 };
 
 attrlist.fennougrica = {};
@@ -3105,18 +3104,18 @@ sattrlist.testerzya = {
         opts: liteOptions
     },
     sentence_id: sattrs.sentence_id_hidden,
-        sentence_section: {
+    sentence_section: {
         label: "sentence_section"
-            },
-        sentence_chapno: {
+    },
+    sentence_chapno: {
         label: "sentence_chapno"
-            },
-        paragraph_class: {
+    },
+    paragraph_class: {
         label: "paragraph_class"
-            },
-        paragraph_lang: {
+    },
+    paragraph_lang: {
         label: "paragraph_lang"
-        }
+    }
 };
 
 settings.corpora.erme_myv = {
