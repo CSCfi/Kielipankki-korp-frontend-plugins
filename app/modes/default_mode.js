@@ -1592,7 +1592,34 @@ settings.corpora.semfinlex_kho_fi_2018 = {
     },
 }
 
+
+/* FINSTUD */
+
 funcs.addCorporaToFolder("other", "finstud");
+
+sattrlist.finstud = {
+    sentence_id: sattrs.sentence_id_hidden,
+    text_textnumber: {
+        label: "studentsvenska_textnumber"
+    },
+    text_gradeexam: {
+        label: "studentsvenska_gradeexam"
+    },
+    text_subject: {
+        label: "studentsvenska_subject"
+    }
+};
+
+attrlist.finstud = {
+    code: {
+        label: "studentsvenska_code",
+        opts: settings.defaultOptions
+    },
+    properties: {
+        label: "studentsvenska_properties",
+        opts: settings.defaultOptions
+    }
+};
 
 settings.corpora.finstud = {
     id: "finstud",
@@ -1776,6 +1803,12 @@ settings.corpora.ftb3_jrcacquis = $.extend(true, {}, ftb3_info, {
 });
 
 /* ==== TIEDELEHTIÄ ==== */
+
+sattrs.link_lehdet = {
+    label: "link_to_original",
+    type: "url",
+    url_opts: sattrs.link_url_opts
+};
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
 
@@ -12382,6 +12415,15 @@ settings.corpora.vnsk_asetus = {
     }
 };
 
+sattrlist.vnsk = {
+    text_title: sattrs.text_title,
+    text_distributor: sattrs.text_distributor,
+    text_source: sattrs.text_source,
+    paragraph_id: sattrs.paragraph_id,
+    paragraph_type: sattrs.paragraph_type,
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_n: sattrs.sentence_n
+};
 
 settings.corpora.vnsk_kivi = {
     title: "Kivi",

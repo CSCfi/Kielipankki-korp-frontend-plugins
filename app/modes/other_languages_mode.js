@@ -442,6 +442,53 @@ settings.corpus_aliases.oracc_2919_05
     = settings.corpus_aliases["oracc-2019-05"];
 
 
+/* Helsinki Corpus */
+
+sattrlist.hc = {
+    sentence_id : sattrs.sentence_id_hidden,
+    text_date : {label: "date"},
+    text_title : {label: "title"},
+    text_xmlid : {label: "hc_xmlid"},
+    text_id : {label: "hc_textid"},
+    text_source : {label: "source"},
+    text_lang : {label: "lang"},
+    text_langid : {label: "hc_lang_id"},
+    text_contemporaneity : {label: "hc_contemporaneity"},
+    //text_dialect : {label: "hc_dialect"},
+    text_form : {label: "hc_form"},
+    text_texttype : {label: "hc_texttype"},
+    text_foreignorig : {label: "hc_foreignorig"},
+    text_foreignlang : {label: "hc_foreignlang"},
+    text_spoken : {label: "hc_spoken"},
+    text_authorsex : {label: "hc_authorsex"},
+    text_author : {label: "hc_author"},
+    text_authorage : {label: "hc_authorage"},
+    text_socialrank : {label: "hc_socialrank"},
+    text_audience : {label: "hc_audience"},
+    text_partrel : {label: "hc_partrel"},
+    text_interaction : {label: "hc_interaction"},
+    text_setting : {label: "hc_setting"},
+    text_proto : {label: "hc_proto"}
+};
+
+attrlist.hc = {
+    page : {label: "page_num",
+            opts : settings.defaultOptions},
+
+    note : {label: "note",
+            opts : settings.defaultOptions},
+
+    unit : {label: "unit",
+            opts : settings.defaultOptions},
+
+    type : {label: "type",
+            opts : settings.defaultOptions},
+
+    supplement : {label: "supplement",
+                  opts : settings.defaultOptions}
+
+};
+
 settings.corpora.hc = {
     id : "hc",
     title : "Helsinki Corpus TEI XML Edition (2011)",
@@ -462,6 +509,208 @@ settings.corpora.hc = {
     within : spWithin,
     attributes : attrlist.hc,
     structAttributes : sattrlist.hc
+};
+
+
+/* Oracc */
+
+sattrlist.oracc = {
+    text_cdlinumber : {
+        label : "oracc_cdlinumber",
+    },
+    text_provenance : {
+        label : "oracc_provenance",
+    },
+
+    text_language : {
+        label : "oracc_textlang",
+        displayType : "select",
+        translationKey : "oracc_textlang_",
+        dataset : [
+                   "Akkadian",
+                   "AkkadianAramaic",
+                   "AkkadianAramaicLuwian",
+                   "AkkadianEgyptian",
+                   "AkkadianOldPersian",
+                   "AkkadianOldPersianElamite",
+                   "AkkadianOldPersianElamiteEgyptian",
+                   "AkkadianUrartian",
+                   "Aramaic",
+                   "Eblaite",
+                   "Elamite",
+                   "Hittite",
+                   "Neo-Assyrian",
+                   "Neo-Babylonian",
+                   "OldPersian",
+                   "OldPersianElamite",
+                   "Sumerian",
+                   "SumerianAkkadian",
+                   "Uncertainorunspecified",
+                   "Urartian"
+        ]
+    },
+    text_genre : {
+        label : "oracc_genre",
+        displayType : "select",
+        translationKey : "oracc_genre_",
+        dataset : [
+                   "administrativerecord",
+                   "astrologicalastronomical",
+                   "grantdecreegift",
+                   "legaltransaction",
+                   "letter",
+                   "lexical",
+                   "literary",
+                   "miscellaneous",
+                   "omendivination",
+                   "prayerritualincantation",
+                   "royalinscription",
+                   "scholarly",
+                   "school",
+                   "uncertainorunspecified"
+        ]
+    },
+    text_period : {
+        label : "oracc_period",
+        displayType : "select",
+        translationKey : "oracc_period_",
+        dataset : [
+            "Achaemenid",
+            "Archaic",
+            "EarlyDynastic",
+            "Ebla",
+            "FirstMillennium",
+            "Hellenistic",
+            "LagašII",
+            "LateBabylonian",
+            "MiddleAssyrian",
+            "MiddleBabylonian",
+            "MiddleHittite",
+            "NeoAssyrian",
+            "Neo-Assyrian",
+            "NeoBabylonian",
+            "Neo-Babylonian",
+            "OldAkkadian",
+            "OldAssyrian",
+            "OldBabylonian",
+            "Parthian",
+            "StandardBabylonian",
+            "Uncertainorunspecified",
+            "Urartian",
+            "UrIII",
+            "UrukIII",
+            "UrukIV"
+        ]
+    },
+    text_subgenre : {
+        label : "oracc_subgenre"
+    },
+    sentence_line : {
+        label : "oracc_line",
+    },
+    sentence_translation : {
+        label : "oracc_sent_translation"
+    },
+    paragraph_id : {
+        label : "paragraph_id",
+        displayType : "hidden",
+    }
+};
+
+attrlist.oracc = {
+
+    lemma : attrs.baseform,
+    ltrans :  {
+        // Lemma translation
+        label : "oracc_lemmatrans"
+    },
+    transcription : {
+        label : "oracc_transcription"
+    },
+    sense : {
+        // Contextual sense
+        label : "oracc_sense"
+    },
+
+    pos : {
+        label : "pos",
+        displayType : "select",
+        translationKey : "oracc_pos_",
+        dataset : [
+            "adjective",
+            "adverb",
+            "commonnoun",
+            "conjunction",
+            "interjection",
+            "miscellaneousundetermined",
+            "number",
+            "particle",
+            "prepositionpostposition",
+            "pronoun",
+            "propernoun",
+            "verb"
+        ]
+    },
+    possub : {
+        // Sub POS
+        label : "oracc_pos_subcategory"
+    },
+    standard : {
+        label : "oracc_standardized"
+    },
+
+    lang : {
+        label : "oracc_lang",
+        displayType : "select",
+        translationKey : "oracc_lang_",
+        dataset : [
+                   "Akkadian",
+                   "Aramaic",
+                   "Cuneiform",
+                   "EarlyAkkadian",
+                   "Eblaite",
+                   "Elamite",
+                   "Greek",
+                   "Hittite",
+                   "Hurrian",
+                   "LateBabylonian",
+                   "MiddleAssyrian",
+                   "MiddleBabylonian",
+                   "MiddleBabylonianperipheral",
+                   "Neo-Assyrian",
+                   "Neo-Babylonian",
+                   "OldAkkadian",
+                   "OldAssyrian",
+                   "OldBabylonian",
+                   "OldPersian",
+                   "Proto-cuneiform",
+                   "StandardBabylonian",
+                   "Sumerian",
+                   "SumerianEmesal",
+                   "Ugaritic",
+                   "Urartian"
+        ]
+    },
+
+    // links won't work
+    url : {
+        label: "oracc_url",
+        type: "url",
+        url_opts: {
+            //in_link_section : true,
+            //hide_url : true,
+            new_window : true,
+        }
+    }
+/*
+    url : {
+        in_link_section : true,
+        hide_url : true,
+        new_window : true,
+        label : "oracc_url",
+        type : "url"
+        }*/
+
 };
 
 settings.corpora.oracc_adsd = {
@@ -1196,6 +1445,73 @@ settings.corpora.wanca_2016_yrk = {
     context: spContext,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
+};
+
+
+// Fenno-Ugrica
+
+sattrlist.fennougrica_veps = {
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_page: { label: "klk_page"},
+    within: spWithin,
+    context: spContext,
+    text_datefrom: sattrs.date,
+    text_year: {
+        label: "year"
+    },
+    text_author: {
+        label: "text_author"
+    },
+    text_title: {
+        label: "text_title"
+    }
+};
+
+attrlist.fennougrica_veps = {
+        url: {
+            label: "klk_img_url",
+            type: "url"
+        }
+};
+
+attrlist.fennougrica = {};
+
+sattrlist.fennougrica = {
+    within: spWithin,
+    context: spContext,
+    text_datefrom: sattrs.date,
+    text_author: {
+        label: "text_author"
+    },
+    text_title: {
+        label: "text_title"
+    },
+    text_editor: {
+        label: "klk_editor"
+    },
+    text_lang: {
+        label: "klk_lang",
+        displayType: "select",
+        translationKey: "klk_lang_",
+        dataset: {
+            "izh": "izh",
+            "kca": "kca",
+            "mdf": "mdf",
+            "mns": "mns",
+            "mrj": "mrj",
+            "myv": "myv",
+            "sel": "sel",
+            "vep": "vep",
+            "yrk": "yrk"
+        },
+        opts: liteOptions
+
+    },
+    text_link: {
+        url_opts: sattrs.link_url_opts,
+        label: "klk_img_url",
+        type: "url"
+    }
 };
 
 settings.corpora.fennougrica_izh = {
@@ -2725,6 +3041,84 @@ settings.fn.extend_corpus_settings(
 settings.corpus_aliases.scotscorr = "scots_.*";
 
 
+// ERME
+
+attrlist.testerzya = {};
+sattrlist.erme_debug = {}
+
+sattrlist.erme = {
+    text_author: {
+        label: "text_author"
+    },
+    text_title: {
+        label: "text_booktitle"
+    },
+    text_corrector: {
+        label: "text_corrector"
+    },
+    text_year: {
+        label: "text_year"
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+    sentence_pgno: {
+        label: "page_num"
+    },
+    text_publisher: {
+        label: "text_publisher"
+    }
+};
+
+sattrlist.testerzya = {
+    text_author: {
+        label: "text_author"
+    },
+    text_title: {
+        label: "text_title"
+    },
+    text_publisher: {
+        label: "text_publisher"
+    },
+    text_corrector: {
+        label: "text_corrector"
+    },
+    text_usage: {
+        label: "text_usage"
+    },
+    text_year: {
+        label: "text_year"
+    },
+    text_lang: {
+        label: "klk_lang",
+        displayType: "select",
+        translationKey: "klk_lang_",
+        dataset: {
+            "izh": "izh",
+            "kca": "kca",
+            "mdf": "mdf",
+            "mns": "mns",
+            "mrj": "mrj",
+            "myv": "myv",
+            "sel": "sel",
+            "vep": "vep",
+            "yrk": "yrk"
+        },
+        opts: liteOptions
+    },
+    sentence_id: sattrs.sentence_id_hidden,
+        sentence_section: {
+        label: "sentence_section"
+            },
+        sentence_chapno: {
+        label: "sentence_chapno"
+            },
+        paragraph_class: {
+        label: "paragraph_class"
+            },
+        paragraph_lang: {
+        label: "paragraph_lang"
+        }
+};
+
 settings.corpora.erme_myv = {
     id: "erme_myv",
     title: "Ersä/Erzya",
@@ -3044,6 +3438,18 @@ delete hcs2_news_extra_props;
 settings.corpus_aliases.hcs = "hcs2_.*";
 settings.corpus_aliases.hcs2 = "hcs2_.*";
 
+
+/* BESERCORP */
+
+attrlist.besercorp = {
+    msd: attrs.msd,
+    gloss: {
+        label: "gloss_ru"
+    },
+    lex: {
+        label: "lex"
+    }
+};
 
 settings.corpora.besercorp = {
     title: "BeserCorp",
