@@ -14371,7 +14371,7 @@ settings.corpora.dma = {
             type: "set",
             opts: setOptions,
             // This URL is in the sidebar (i) link
-            taginfo_url: "markup/dma_signumlist.html",
+            sidebarInfoUrl: "markup/dma_signumlist.html",
             // The input field also has an (i) link opening a list of
             // signums as links from which one can select. This has
             // been copied and modified from the code for the the

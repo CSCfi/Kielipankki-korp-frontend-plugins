@@ -963,10 +963,6 @@ attrs.pos_swecg = {
 attrs.msd = {
     label: "msd",
     opts: settings.defaultOptions,
-    // Empty taginfo_url disables the info link to MSD tags in the
-    // used sidebar; another value would link to the given URL; and an
-    // undefined value would link to the default markup/msd.html.
-    taginfo_url: "",
     // Add a <wbr> tag after each vertical bar to allow breaking the
     // line there in the sidebar, while retaining the ability to copy
     // and paste to a further search expression (unlike if we added a

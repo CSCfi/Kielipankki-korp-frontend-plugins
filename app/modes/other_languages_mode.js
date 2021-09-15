@@ -818,7 +818,6 @@ attrlist.sust_tagged = $.extend(true, attrlist.sust_common, {
     },
     msd: {
         label: "msd",
-        taginfo_url: "",
     },
 });
 
@@ -2937,7 +2936,6 @@ settings.templ.hcs2_common = {
         },
         msd: {
             label: "msd",
-            taginfo_url: "",
         },
         gloss: {
             label: "gloss",
