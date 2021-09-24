@@ -274,7 +274,6 @@ settings.corpora.semfinlex_asd_sv_2018 = {
             label: "parl_statute_type",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "parlstatutetype_",
             dataset: [
                 "laki",
                 "asetus",
@@ -286,7 +285,8 @@ settings.corpora.semfinlex_asd_sv_2018 = {
                 "kuulutus",
                 "kaari",
                 ""
-            ]
+            ],
+            translation: transl.parlStatuteType,
         }
     }
 }
@@ -593,7 +593,6 @@ settings.templ.fstc = $.extend(true, {}, settings.templ.lemmie_common, {
             // The values could be localized as in FTC, but we would
             // need to decide the translations
             localize: false,
-            translationKey: null,
             dataset: {
                 "author": "author",
                 "bibl": "bibl",
@@ -981,7 +980,6 @@ sattrlist.ylenews_sv_common = {
         label: "sentence_type",
         displayType: "select",
         opts: liteOptions,
-        translationKey: "textpart_",
         dataset: {
             "alt": "image_alt",
             "by": "byline",
@@ -991,6 +989,7 @@ sattrlist.ylenews_sv_common = {
             "heading-caption": "heading_caption",
             "text": "text",
         },
+        translation: transl.textPart,
     },
 };
 
@@ -998,7 +997,6 @@ sattrs.ylenews_sv_paragraph_type = {
     label: "paragraph_type",
     displayType: "select",
     opts: liteOptions,
-    translationKey: "textpart_",
     dataset: {
         "by": "byline",
         "heading": "heading",
@@ -1010,6 +1008,7 @@ sattrs.ylenews_sv_paragraph_type = {
         "summary": "summary",
         "text": "text",
     },
+    translation: transl.textPart,
 };
 
 settings.templ.ylenews_sv_a = {

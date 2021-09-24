@@ -529,7 +529,7 @@ sattrlist.oracc = {
     text_language: {
         label: "oracc_textlang",
         displayType: "select",
-        translationKey: "oracc_textlang_",
+        opts: liteOptions,
         dataset: [
             "Akkadian",
             "AkkadianAramaic",
@@ -551,12 +551,114 @@ sattrlist.oracc = {
             "SumerianAkkadian",
             "Uncertainorunspecified",
             "Urartian"
-        ]
+        ],
+        translation: {
+            "Akkadian": {
+                "en": "Akkadian",
+                "fi": "akkadi",
+                // "sv": "Akkadian",
+            },
+            "AkkadianAramaic": {
+                "en": "Akkadian, Aramaic",
+                "fi": "akkadi, aramea",
+                // "sv": "AkkadianAramaic",
+            },
+            "AkkadianAramaicLuwian": {
+                "en": "Akkadian, Aramaic, Luwian",
+                "fi": "akkadi, aramea, luuvi",
+                // "sv": "AkkadianAramaicLuwian",
+            },
+            "AkkadianEgyptian": {
+                "en": "Akkadian, Egyptian",
+                "fi": "akkadi, egypti",
+                // "sv": "AkkadianEgyptian",
+            },
+            "AkkadianOldPersian": {
+                "en": "Akkadian, Old Persian",
+                "fi": "akkadi, muinaispersia",
+                // "sv": "AkkadianOldPersian",
+            },
+            "AkkadianOldPersianElamite": {
+                "en": "Akkadian, Old Persian, Elamite",
+                "fi": "akkadi, muinaispersia, elami",
+                // "sv": "AkkadianOldPersianElamite",
+            },
+            "AkkadianOldPersianElamiteEgyptian": {
+                "en": "Akkadian, Old Persian, Elamite, Egyptian",
+                "fi": "akkadi, muinaispersia, elami, egypti",
+                // "sv": "AkkadianOldPersianElamiteEgyptian",
+            },
+            "AkkadianUrartian": {
+                "en": "Akkadian, Urartian",
+                "fi": "akkadi, urartu",
+                // "sv": "AkkadianUrartian",
+            },
+            "Aramaic": {
+                "en": "Aramaic",
+                "fi": "aramea",
+                // "sv": "Aramaic",
+            },
+            "Eblaite": {
+                "en": "Eblaite",
+                "fi": "ebla",
+                // "sv": "Eblaite",
+            },
+            "Elamite": {
+                "en": "Elamite",
+                "fi": "elami",
+                // "sv": "Elamite",
+            },
+            "Hittite": {
+                "en": "Hittite",
+                "fi": "heetti",
+                // "sv": "Hittite",
+            },
+            "Neo-Assyrian": {
+                "en": "Neo-Assyrian",
+                "fi": "uusassyria",
+                // "sv": "Neo-Assyrian",
+            },
+            "Neo-Babylonian": {
+                "en": "Neo-Babylonian",
+                "fi": "uusbabylonia",
+                // "sv": "Neo-Babylonian",
+            },
+            "OldPersian": {
+                "en": "Old Persian",
+                "fi": "muinaispersia",
+                // "sv": "OldPersian",
+            },
+            "OldPersianElamite": {
+                "en": "Old Persian, Elamite",
+                "fi": "muinaispersia, elami",
+                // "sv": "OldPersianElamite",
+            },
+            "Sumerian": {
+                "en": "Sumerian",
+                "fi": "sumeri",
+                // "sv": "Sumerian",
+            },
+            "SumerianAkkadian": {
+                "en": "Sumerian, Akkadian",
+                "fi": "sumeri, akkadi",
+                // "sv": "SumerianAkkadian",
+            },
+            "Uncertainorunspecified": {
+                "en": "Uncertain or unspecified",
+                "fi": "määrittelemätön",
+                // "sv": "Uncertainorunspecified",
+            },
+            "Urartian": {
+                "en": "Urartian",
+                "fi": "urartu",
+                // "sv": "Urartian",
+            },
+        },
     },
     text_genre: {
         label: "oracc_genre",
         displayType: "select",
-        translationKey: "oracc_genre_",
+        opts: liteOptions,
         dataset: [
             "administrativerecord",
             "astrologicalastronomical",
@@ -572,12 +674,84 @@ sattrlist.oracc = {
             "scholarly",
             "school",
             "uncertainorunspecified"
-        ]
+        ],
+        translation: {
+            "administrativerecord": {
+                "en": "administrative record",
+                "fi": "hallinnollinen",
+                // "sv": "administrativerecord",
+            },
+            "astrologicalastronomical": {
+                "en": "astrological/astronomical",
+                "fi": "astrologinen/astronominen",
+                // "sv": "astrologicalastronomical",
+            },
+            "grantdecreegift": {
+                "en": "grant/decree/gift",
+                "fi": "lahjoitus/määräys",
+                // "sv": "grantdecreegift",
+            },
+            "legaltransaction": {
+                "en": "legal transaction",
+                "fi": "laki",
+                // "sv": "legaltransaction",
+            },
+            "letter": {
+                "en": "letter",
+                "fi": "kirje",
+                // "sv": "letter",
+            },
+            "lexical": {
+                "en": "lexical",
+                "fi": "leksikaalinen",
+                // "sv": "lexical",
+            },
+            "literary": {
+                "en": "literary",
+                "fi": "kaunokirjallinen",
+                // "sv": "literary",
+            },
+            "miscellaneous": {
+                "en": "miscellaneous",
+                "fi": "sekalainen",
+                // "sv": "miscellaneous",
+            },
+            "omendivination": {
+                "en": "omen/divination",
+                "fi": "enteet",
+                // "sv": "omendivination",
+            },
+            "prayerritualincantation": {
+                "en": "prayer/ritual/incantation",
+                "fi": "rukoukset/rituaalit",
+                // "sv": "prayerritualincantation",
+            },
+            "royalinscription": {
+                "en": "royal inscription",
+                "fi": "kuninkaallinen",
+                // "sv": "royalinscription",
+            },
+            "scholarly": {
+                "en": "scholarly",
+                "fi": "tieteellinen",
+                // "sv": "scholarly",
+            },
+            "school": {
+                "en": "school",
+                "fi": "koulutekstit",
+                // "sv": "school",
+            },
+            "uncertainorunspecified": {
+                "en": "uncertain or unspecified",
+                "fi": "määrittelemätön",
+                // "sv": "uncertainorunspecified",
+            },
+        },
     },
     text_period: {
         label: "oracc_period",
         displayType: "select",
-        translationKey: "oracc_period_",
+        opts: liteOptions,
         dataset: [
             "Achaemenid",
             "Archaic",
@@ -604,7 +778,134 @@ sattrlist.oracc = {
             "UrIII",
             "UrukIII",
             "UrukIV"
-        ]
+        ],
+        translation: {
+            "Achaemenid": {
+                "en": "Achaemenid",
+                "fi": "persialainen",
+                // "sv": "Achaemenid",
+            },
+            "Archaic": {
+                "en": "Archaic",
+                "fi": "arkaainen",
+                // "sv": "Archaic",
+            },
+            "EarlyDynastic": {
+                "en": "Early Dynastic",
+                "fi": "varhaisdynastinen",
+                // "sv": "EarlyDynastic",
+            },
+            "Ebla": {
+                "en": "Ebla",
+                "fi": "Ebla",
+                // "sv": "Ebla",
+            },
+            "FirstMillennium": {
+                "en": "First Millennium",
+                "fi": "ensimmäinen vuosituhat",
+                // "sv": "FirstMillennium",
+            },
+            "Hellenistic": {
+                "en": "Hellenistic",
+                "fi": "hellenistinen",
+                // "sv": "Hellenistic",
+            },
+            "LagašII": {
+                "en": "Lagaš II",
+                "fi": "Lagaš II",
+                // "sv": "LagašII",
+            },
+            "LateBabylonian": {
+                "en": "Late Babylonian",
+                "fi": "myöhäisbabylonialainen",
+                // "sv": "LateBabylonian",
+            },
+            "MiddleAssyrian": {
+                "en": "Middle Assyrian",
+                "fi": "keskiassyrialainen",
+                // "sv": "MiddleAssyrian",
+            },
+            "MiddleBabylonian": {
+                "en": "Middle Babylonian",
+                "fi": "keskibabylonialainen",
+                // "sv": "MiddleBabylonian",
+            },
+            "MiddleHittite": {
+                "en": "Middle Hittite",
+                "fi": "keskiheettiläinen",
+                // "sv": "MiddleHittite",
+            },
+            "Neo-Assyrian": {
+                "en": "Neo-Assyrian",
+                "fi": "uusassyrialainen",
+                // "sv": "Neo-Assyrian",
+            },
+            "Neo-Babylonian": {
+                "en": "Neo-Babylonian",
+                "fi": "uusbabylonialainen",
+                // "sv": "Neo-Babylonian",
+            },
+            "NeoAssyrian": {
+                "en": "Neo Assyrian",
+                "fi": "uusassyrialainen",
+                // "sv": "NeoAssyrian",
+            },
+            "NeoBabylonian": {
+                "en": "Neo Babylonian",
+                "fi": "uusbabylonialainen",
+                // "sv": "NeoBabylonian",
+            },
+            "OldAkkadian": {
+                "en": "Old Akkadian",
+                "fi": "muinaisakkadilainen",
+                // "sv": "OldAkkadian",
+            },
+            "OldAssyrian": {
+                "en": "Old Assyrian",
+                "fi": "muinaisassyrialainen",
+                // "sv": "OldAssyrian",
+            },
+            "OldBabylonian": {
+                "en": "Old Babylonian",
+                "fi": "muinaisbabylonialainen",
+                // "sv": "OldBabylonian",
+            },
+            "Parthian": {
+                "en": "Parthian",
+                "fi": "parthialainen",
+                // "sv": "Parthian",
+            },
+            "StandardBabylonian": {
+                "en": "Standard Babylonian",
+                "fi": "standardibabylonia",
+                // "sv": "StandardBabylonian",
+            },
+            "Uncertainorunspecified": {
+                "en": "Uncertain or unspecified",
+                "fi": "määrittelemätön/tuntematon",
+                // "sv": "Uncertainorunspecified",
+            },
+            "UrIII": {
+                "en": "Ur III",
+                "fi": "Ur III",
+                // "sv": "UrIII",
+            },
+            "Urartian": {
+                "en": "Urartian",
+                "fi": "urartu",
+                // "sv": "Urartian",
+            },
+            "UrukIII": {
+                "en": "Uruk III",
+                "fi": "Uruk III",
+                // "sv": "UrukIII",
+            },
+            "UrukIV": {
+                "en": "Uruk IV",
+                "fi": "Uruk IV",
+                // "sv": "UrukIV",
+            },
+        },
     },
     text_subgenre: {
         label: "oracc_subgenre"
@@ -637,7 +938,7 @@ attrlist.oracc = {
     pos: {
         label: "pos",
         displayType: "select",
-        translationKey: "oracc_pos_",
+        opts: liteOptions,
         dataset: [
             "adjective",
             "adverb",
@@ -651,7 +952,94 @@ attrlist.oracc = {
             "pronoun",
             "propernoun",
             "verb"
-        ]
+        ],
+        translation: {
+            "adjective": {
+                "en": "adjective",
+                "fi": "adjektiivi",
+                // "sv": "adjective",
+            },
+            "adverb": {
+                "en": "adverb",
+                "fi": "adverbi",
+                // "sv": "adverb",
+            },
+            "common noun": {
+                "en": "common noun",
+                // "fi": "common noun",
+                // "sv": "common noun",
+            },
+            "commonnoun": {
+                "en": "common noun",
+                "fi": "substantiivi",
+                // "sv": "commonnoun",
+            },
+            "conjunction": {
+                "en": "conjunction",
+                "fi": "konjunktio",
+                // "sv": "conjunction",
+            },
+            "interjection": {
+                "en": "interjection",
+                "fi": "interjektio",
+                // "sv": "interjection",
+            },
+            "miscellaneous/undetermined": {
+                "en": "miscellaneous/undetermined",
+                // "fi": "miscellaneous/undetermined",
+                // "sv": "miscellaneous/undetermined",
+            },
+            "miscellaneousundetermined": {
+                "en": "miscellaneous/undetermined",
+                "fi": "sekalainen/määrittelemätön",
+                // "sv": "miscellaneousundetermined",
+            },
+            "number": {
+                "en": "number",
+                "fi": "numero",
+                // "sv": "number",
+            },
+            "particle": {
+                "en": "particle",
+                "fi": "partikkeli",
+                // "sv": "particle",
+            },
+            "preposition/postposition": {
+                "en": "preposition/postposition",
+                // "fi": "preposition/postposition",
+                // "sv": "preposition/postposition",
+            },
+            "prepositionpostposition": {
+                "en": "preposition/postposition",
+                "fi": "pre-/postpositio",
+                // "sv": "prepositionpostposition",
+            },
+            "pronoun": {
+                "en": "pronoun",
+                "fi": "pronomini",
+                // "sv": "pronoun",
+            },
+            "proper noun": {
+                "en": "proper noun",
+                // "fi": "proper noun",
+                // "sv": "proper noun",
+            },
+            "propernoun": {
+                "en": "proper noun",
+                "fi": "erisnimi",
+                // "sv": "propernoun",
+            },
+            "subcategory": {
+                "en": "part of speech (detailed)",
+                "fi": "tarkempi sanaluokka",
+                // "sv": "subcategory",
+            },
+            "verb": {
+                "en": "verb",
+                "fi": "verbi",
+                // "sv": "verb",
+            },
+        },
     },
     possub: {
         // Sub POS
@@ -663,7 +1051,7 @@ attrlist.oracc = {
     lang: {
         label: "oracc_lang",
         displayType: "select",
-        translationKey: "oracc_lang_",
+        opts: liteOptions,
         dataset: [
             "Akkadian",
             "Aramaic",
@@ -690,7 +1078,134 @@ attrlist.oracc = {
             "SumerianEmesal",
             "Ugaritic",
             "Urartian"
-        ]
+        ],
+        translation: {
+            "Akkadian": {
+                "en": "Akkadian",
+                "fi": "akkadi",
+                // "sv": "Akkadian",
+            },
+            "Aramaic": {
+                "en": "Aramaic",
+                "fi": "aramaea",
+                // "sv": "Aramaic",
+            },
+            "Cuneiform": {
+                "en": "Cuneiform",
+                "fi": "nuolenpäät",
+                // "sv": "Cuneiform",
+            },
+            "EarlyAkkadian": {
+                "en": "Early Akkadian",
+                "fi": "varhainen akkadi",
+                // "sv": "EarlyAkkadian",
+            },
+            "Eblaite": {
+                "en": "Eblaite",
+                "fi": "ebla",
+                // "sv": "Eblaite",
+            },
+            "Elamite": {
+                "en": "Elamite",
+                "fi": "elami",
+                // "sv": "Elamite",
+            },
+            "Greek": {
+                "en": "Greek",
+                "fi": "kreikka",
+                // "sv": "Greek",
+            },
+            "Hittite": {
+                "en": "Hittite",
+                "fi": "heetti",
+                // "sv": "Hittite",
+            },
+            "Hurrian": {
+                "en": "Hurrian",
+                "fi": "hurri",
+                // "sv": "Hurrian",
+            },
+            "LateBabylonian": {
+                "en": "Late Babylonian",
+                "fi": "myöhäisbabylonia",
+                // "sv": "LateBabylonian",
+            },
+            "MiddleAssyrian": {
+                "en": "Middle Assyrian",
+                "fi": "keskiassyria",
+                // "sv": "MiddleAssyrian",
+            },
+            "MiddleBabylonian": {
+                "en": "Middle Babylonian",
+                "fi": "keskibabylonia",
+                // "sv": "MiddleBabylonian",
+            },
+            "MiddleBabylonianperipheral": {
+                "en": "Middle Babylonian peripheral",
+                "fi": "keskibabylonia (periferia)",
+                // "sv": "MiddleBabylonianperipheral",
+            },
+            "Neo-Assyrian": {
+                "en": "Neo-Assyrian",
+                "fi": "uusassyria",
+                // "sv": "Neo-Assyrian",
+            },
+            "Neo-Babylonian": {
+                "en": "Neo-Babylonian",
+                "fi": "uusbabylonia",
+                // "sv": "Neo-Babylonian",
+            },
+            "OldAkkadian": {
+                "en": "Old Akkadian",
+                "fi": "muinaisakkadi",
+                // "sv": "OldAkkadian",
+            },
+            "OldAssyrian": {
+                "en": "Old Assyrian",
+                "fi": "muinaisassyria",
+                // "sv": "OldAssyrian",
+            },
+            "OldBabylonian": {
+                "en": "Old Babylonian",
+                "fi": "muinaisbabylonia",
+                // "sv": "OldBabylonian",
+            },
+            "OldPersian": {
+                "en": "Old Persian",
+                "fi": "muinaispersia",
+                // "sv": "OldPersian",
+            },
+            "Proto-cuneiform": {
+                "en": "Proto-cuneiform",
+                "fi": "protonuolenpäät",
+                // "sv": "Proto-cuneiform",
+            },
+            "StandardBabylonian": {
+                "en": "Standard Babylonian",
+                "fi": "standardibabylonia",
+                // "sv": "StandardBabylonian",
+            },
+            "Sumerian": {
+                "en": "Sumerian",
+                "fi": "sumeri",
+                // "sv": "Sumerian",
+            },
+            "SumerianEmesal": {
+                "en": "Sumerian Emesal",
+                "fi": "sumeri (emesal)",
+                // "sv": "SumerianEmesal",
+            },
+            "Ugaritic": {
+                "en": "Ugaritic",
+                "fi": "ugarit",
+                // "sv": "Ugaritic",
+            },
+            "Urartian": {
+                "en": "Urartian",
+                "fi": "urartu",
+                // "sv": "Urartian",
+            },
+        },
     },
     // links won't work
     url: {
@@ -929,13 +1444,13 @@ sattrlist.sust_common = {
     text_lang: {
         label: "lang",
         displayType: "select",
-        translationKey: "",
+        opts: liteOptions,
         dataset: [
             "kpv",
             "mdf",
             "myv",
         ],
-        opts: liteOptions,
+        translation: transl.lang,
     },
     text_recdate: {
         label: "interview_date"
@@ -1048,7 +1563,7 @@ attrlist.sust_tagged = $.extend(true, attrlist.sust_common, {
     pos: {
         label: "pos",
         displayType: "select",
-        translationKey: "pos_",
+        opts: liteOptions,
         dataset: {
             "A": "A",
             "Adv": "Adv",
@@ -1062,7 +1577,7 @@ attrlist.sust_tagged = $.extend(true, attrlist.sust_common, {
             "V": "V",
             null: null,
         },
-        opts: liteOptions,
+        translation: transl.pos,
     },
     msd: {
         label: "msd",
@@ -1491,7 +2006,7 @@ sattrlist.fennougrica = {
     text_lang: {
         label: "klk_lang",
         displayType: "select",
-        translationKey: "klk_lang_",
+        opts: liteOptions,
         dataset: {
             "izh": "izh",
             "kca": "kca",
@@ -1503,7 +2018,7 @@ sattrlist.fennougrica = {
             "vep": "vep",
             "yrk": "yrk"
         },
-        opts: liteOptions
+        translation: transl.lang,
 
     },
     text_link: {
@@ -2133,7 +2648,6 @@ settings.corpora.elfa = {
         text_domain: {
             label: "academic_domain",
             displayType: "select",
-            translationKey: "academic_domain_",
             opts: liteOptions,
             dataset: [
                 "behavioural_sciences",
@@ -2145,6 +2659,48 @@ settings.corpora.elfa = {
                 "social_sciences",
                 "technology",
             ],
+            translation: {
+                "behavioural_sciences": {
+                    "en": "behavioural sciences",
+                    // "fi": "behavioural_sciences",
+                    // "sv": "behavioural_sciences",
+                },
+                "economics_and_administration": {
+                    "en": "economics and administration",
+                    // "fi": "economics_and_administration",
+                    // "sv": "economics_and_administration",
+                },
+                "humanities": {
+                    "en": "humanities",
+                    // "fi": "humanities",
+                    // "sv": "humanities",
+                },
+                "medicine": {
+                    "en": "medicine",
+                    // "fi": "medicine",
+                    // "sv": "medicine",
+                },
+                "natural_sciences": {
+                    "en": "natural sciences",
+                    // "fi": "natural_sciences",
+                    // "sv": "natural_sciences",
+                },
+                "other": {
+                    "en": "other",
+                    // "fi": "other",
+                    // "sv": "other",
+                },
+                "social_sciences": {
+                    "en": "social sciences",
+                    // "fi": "social_sciences",
+                    // "sv": "social_sciences",
+                },
+                "technology": {
+                    "en": "technology",
+                    // "fi": "technology",
+                    // "sv": "technology",
+                },
+            },
         },
         text_discipline: {
             label: "academic_discipline",
@@ -2218,12 +2774,23 @@ settings.corpora.elfa = {
         text_event_purpose: {
             label: "event_purpose",
             displayType: "select",
-            translationKey: "event_purpose_",
             opts: liteOptions,
             dataset: [
                 "discuss",
                 "inform",
             ],
+            translation: {
+                "discuss": {
+                    "en": "discuss",
+                    // "fi": "discuss",
+                    // "sv": "discuss",
+                },
+                "inform": {
+                    "en": "inform",
+                    // "fi": "inform",
+                    // "sv": "inform",
+                },
+            },
         },
         text_event_num: {
             label: "event_num",
@@ -2240,23 +2807,50 @@ settings.corpora.elfa = {
         text_preparedness: {
             label: "preparedness",
             displayType: "select",
-            translationKey: "preparedness_",
             opts: liteOptions,
             dataset: [
                 "true",
                 "false",
             ],
+            translation: {
+                "false": {
+                    "en": "unprepared",
+                    // "fi": "false",
+                    // "sv": "false",
+                },
+                "true": {
+                    "en": "prepared",
+                    // "fi": "true",
+                    // "sv": "true",
+                },
+            },
         },
         text_interaction_degree: {
             label: "interaction_degree",
             displayType: "select",
-            translationKey: "interaction_degree_",
             opts: liteOptions,
             dataset: [
                 "complete",
                 "partial",
                 "none",
             ],
+            translation: {
+                "complete": {
+                    "en": "complete",
+                    // "fi": "complete",
+                    // "sv": "complete",
+                },
+                "none": {
+                    "en": "none",
+                    // "fi": "none",
+                    // "sv": "none",
+                },
+                "partial": {
+                    "en": "partial",
+                    // "fi": "partial",
+                    // "sv": "partial",
+                },
+            },
         },
         text_duration_minsec: {
             label: "recording_duration",
@@ -2286,19 +2880,34 @@ settings.corpora.elfa = {
         paragraph_speaker_type: {
             label: "speaker_identification",
             displayType: "select",
-            translationKey: "speaker_ident_",
             opts: liteOptions,
             dataset: [
                 "identified",
                 "several",
                 "unidentified",
             ],
+            translation: {
+                "identified": {
+                    "en": "single, identified speaker",
+                    // "fi": "identified",
+                    // "sv": "identified",
+                },
+                "several": {
+                    "en": "several simultaneous speakers",
+                    // "fi": "several",
+                    // "sv": "several",
+                },
+                "unidentified": {
+                    "en": "unidentified speaker",
+                    // "fi": "unidentified",
+                    // "sv": "unidentified",
+                },
+            },
         },
         paragraph_speaker_l1: {
             label: "speaker_l1",
             type: "set",
             displayType: "select",
-            translationKey: "",
             opts: setOptions,
             dataset: {
                 "ada-GH": "ada-GH",
@@ -2387,11 +2996,13 @@ settings.corpora.elfa = {
                 "yor": "yor",
                 "zho": "zho",
             },
+            // TODO: Add translations for the above languages to transl.lang
+            // in common.js and uncomment the following line
+            // translation: transl.lang,
         },
         paragraph_speaker_role: {
             label: "academic_role",
             displayType: "select",
-            translationKey: "academic_role_",
             opts: liteOptions,
             dataset: [
                 "junior staff",
@@ -2403,11 +3014,52 @@ settings.corpora.elfa = {
                 "undergraduate",
                 "unknown",
             ],
+            translation: {
+                "junior staff": {
+                    "en": "junior staff",
+                    // "fi": "junior staff",
+                    // "sv": "junior staff",
+                },
+                "junior staff and research student": {
+                    "en": "junior staff and research student",
+                    // "fi": "junior staff and research student",
+                    // "sv": "junior staff and research student",
+                },
+                "masters student": {
+                    "en": "masters student",
+                    // "fi": "masters student",
+                    // "sv": "masters student",
+                },
+                "other": {
+                    "en": "other",
+                    // "fi": "other",
+                    // "sv": "other",
+                },
+                "research student": {
+                    "en": "research student",
+                    // "fi": "research student",
+                    // "sv": "research student",
+                },
+                "senior staff": {
+                    "en": "senior staff",
+                    // "fi": "senior staff",
+                    // "sv": "senior staff",
+                },
+                "undergraduate": {
+                    "en": "undergraduate",
+                    // "fi": "undergraduate",
+                    // "sv": "undergraduate",
+                },
+                "unknown": {
+                    "en": "unknown",
+                    // "fi": "unknown",
+                    // "sv": "unknown",
+                },
+            },
         },
         paragraph_speaker_age: {
             label: "age",
             displayType: "select",
-            translationKey: "age_",
             opts: liteOptions,
             dataset: [
                 "17-23",
@@ -2416,17 +3068,44 @@ settings.corpora.elfa = {
                 "51-over",
                 "unknown",
             ],
+            translation: {
+                "17-23": {
+                    "en": "17–23",
+                    // "fi": "17-23",
+                    // "sv": "17-23",
+                },
+                "24-30": {
+                    "en": "24–30",
+                    // "fi": "24-30",
+                    // "sv": "24-30",
+                },
+                "31-50": {
+                    "en": "31–50",
+                    // "fi": "31-50",
+                    // "sv": "31-50",
+                },
+                "51-over": {
+                    "en": "over 51",
+                    // "fi": "51-over",
+                    // "sv": "51-over",
+                },
+                "unknown": {
+                    "en": "unknown",
+                    // "fi": "unknown",
+                    // "sv": "unknown",
+                },
+            },
         },
         paragraph_speaker_sex: {
             label: "gender",
             displayType: "select",
-            translationKey: "",
             opts: liteOptions,
             dataset: {
                 "male": "male",
                 "female": "female",
                 "unknown|null": "unknown",
-            }
+            },
+            translation: transl.sex,
         },
         paragraph_speaker_id: {
             label: "speaker_id",
@@ -2434,13 +3113,29 @@ settings.corpora.elfa = {
         paragraph_type: {
             label: "speech_event_type",
             displayType: "select",
-            translationKey: "speech_event_type_",
             opts: liteOptions,
             dataset: [
                 "utterance",
                 "incident",
                 "pause",
             ],
+            translation: {
+                "incident": {
+                    "en": "incident",
+                    // "fi": "incident",
+                    // "sv": "incident",
+                },
+                "pause": {
+                    "en": "pause",
+                    // "fi": "pause",
+                    // "sv": "pause",
+                },
+                "utterance": {
+                    "en": "utterance",
+                    // "fi": "utterance",
+                    // "sv": "utterance",
+                },
+            },
         },
         paragraph_id: {
             label: "turn_id",
@@ -3089,7 +3784,7 @@ sattrlist.testerzya = {
     text_lang: {
         label: "klk_lang",
         displayType: "select",
-        translationKey: "klk_lang_",
+        opts: liteOptions,
         dataset: {
             "izh": "izh",
             "kca": "kca",
@@ -3101,7 +3796,7 @@ sattrlist.testerzya = {
             "vep": "vep",
             "yrk": "yrk"
         },
-        opts: liteOptions
+        translation: transl.lang,
     },
     sentence_id: sattrs.sentence_id_hidden,
     sentence_section: {
@@ -3156,32 +3851,59 @@ settings.corpora.kildin_sample = {
         text_style: {
             label: "style",
             displayType: "select",
-            translationKey: "style_",
+            opts: liteOptions,
             dataset: [
                 "fiction",
                 "non-fiction",
             ],
-            opts: liteOptions,
+            translation: {
+                "fiction": {
+                    "en": "fiction",
+                    // "fi": "fiction",
+                    // "sv": "fiction",
+                },
+                "non-fiction": {
+                    "en": "non-fiction",
+                    // "fi": "non-fiction",
+                    // "sv": "non-fiction",
+                },
+            },
         },
         text_medium: {
             label: "medium",
             displayType: "select",
-            translationKey: "medium_",
+            opts: liteOptions,
             dataset: [
                 "book",
                 "periodical",
                 "internet",
             ],
-            opts: liteOptions,
+            translation: {
+                "book": {
+                    "en": "book",
+                    // "fi": "book",
+                    // "sv": "book",
+                },
+                "internet": {
+                    "en": "Internet",
+                    // "fi": "internet",
+                    // "sv": "internet",
+                },
+                "periodical": {
+                    "en": "periodical",
+                    // "fi": "periodical",
+                    // "sv": "periodical",
+                },
+            },
         },
         text_language: {
             label: "lang",
             displayType: "select",
-            translationKey: "",
+            opts: liteOptions,
             dataset: [
                 "sjd",
             ],
-            opts: liteOptions,
+            translation: transl.lang,
         },
         text_author: {
             label: "author",
@@ -3201,11 +3923,17 @@ settings.corpora.kildin_sample = {
         text_modus: {
             label: "text_modus",
             displayType: "select",
-            translationKey: "modus_",
+            opts: liteOptions,
             dataset: [
                 "written",
             ],
-            opts: liteOptions,
+            translation: {
+                "written": {
+                    "en": "written",
+                    // "fi": "written",
+                    // "sv": "written",
+                },
+            },
         },
         text_year: {
             label: "year",
@@ -3213,13 +3941,13 @@ settings.corpora.kildin_sample = {
         text_genre: {
             label: "genre",
             displayType: "select",
-            translationKey: "genre_",
+            opts: liteOptions,
             dataset: [
                 "biography",
                 "novel",
                 "story",
             ],
-            opts: liteOptions,
+            translation: transl.genre,
         },
         text_session_name: {
             label: "session_name",
@@ -3230,12 +3958,23 @@ settings.corpora.kildin_sample = {
         text_channel: {
             label: "channel",
             displayType: "select",
-            translationKey: "channel_",
+            opts: liteOptions,
             dataset: [
                 "original",
                 "translation",
             ],
-            opts: liteOptions,
+            translation: {
+                "original": {
+                    "en": "original",
+                    // "fi": "original",
+                    // "sv": "original",
+                },
+                "translation": {
+                    "en": "translation",
+                    // "fi": "translation",
+                    // "sv": "translation",
+                },
+            },
         },
         text_editor: {
             label: "editor",
@@ -3249,26 +3988,47 @@ settings.corpora.kildin_sample = {
         sentence_transl_lang: {
             label: "translation_lang",
             displayType: "select",
-            translationKey: "",
+            opts: liteOptions,
             dataset: [
                 "eng",
                 "rus",
                 "sms",
                 "kpv",
             ],
-            opts: liteOptions,
+            translation: transl.lang,
         },
         sentence_paragraph_boundary: {
             label: "in_paragraph",
             displayType: "select",
-            translationKey: "paraplace_",
+            opts: liteOptions,
             dataset: {
                 "begin": "begin",
                 "end": "end",
                 "begin+end": "lone",
                 "": "middle",
             },
-            opts: liteOptions,
+            translation: {
+                "begin": {
+                    "en": "begin",
+                    // "fi": "begin",
+                    // "sv": "begin",
+                },
+                "end": {
+                    "en": "end",
+                    // "fi": "end",
+                    // "sv": "end",
+                },
+                "lone": {
+                    "en": "lone sentence",
+                    // "fi": "lone",
+                    // "sv": "lone",
+                },
+                "middle": {
+                    "en": "middle",
+                    // "fi": "middle",
+                    // "sv": "middle",
+                },
+            },
         },
     }
 };
@@ -3475,7 +4235,6 @@ attrlist.byu = {
         label: "major_pos",
         type: "set",
         displayType: "select",
-        translationKey: "pos_",
         opts: setOptions,
         order: 49,
         // TODO: Map the UD2 PoS codes below to existing PoS keys
@@ -3497,12 +4256,12 @@ attrlist.byu = {
             "VERB": "VERB",
             "X": "X",
         },
+        translation: transl.pos,
     },
     pos: {
         label: "detailed_pos",
         type: "set",
         displayType: "select",
-        translationKey: "pos_",
         opts: setOptions,
         order: 48,
         // PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html,
@@ -3672,6 +4431,7 @@ attrlist.byu = {
             "GAP": "byu_GAP",   // Not in CLAWS7
             "UNKNOWN": "Unknown",   // Not in CLAWS7
         },
+        translation: transl.pos,
     },
     posorig: {
         label: "pos_orig",
@@ -3707,7 +4467,6 @@ sattrlist.byu_common = {
     paragraph_type: {
         label: "paragraph_type",
         displayType: "select",
-        translationKey: "paratype_",
         opts: liteOptions,
         dataset: [
             "paragraph",
@@ -3715,16 +4474,17 @@ sattrlist.byu_common = {
             "paragraph/heading",
             "sentence",
         ],
+        translation: transl.paragraphType,
     },
     sentence_gaps: {
         label: "sentence_part_deleted",
         displayType: "select",
-        translationKey: "",
         opts: liteOptions,
         dataset: [
             "yes",
             "no",
         ],
+        translation: transl.yesno,
     },
 };
 
@@ -3737,7 +4497,6 @@ sattrlist.coca = $.extend(
         text_genre: {
             label: "genre",
             displayType: "select",
-            translationKey: "genre_",
             opts: liteOptions,
             dataset: {
                 "ACAD": "academic",
@@ -3746,6 +4505,7 @@ sattrlist.coca = $.extend(
                 "NEWS": "newspaper",
                 "SPOK": "spoken",
             },
+            translation: transl.genre,
         },
         text_subgenre: {
             label: "subgenre",
@@ -3797,7 +4557,6 @@ sattrlist.coha =  $.extend(
         text_genre: {
             label: "genre",
             displayType: "select",
-            translationKey: "genre_",
             opts: liteOptions,
             dataset: {
                 "FIC": "fiction",
@@ -3805,6 +4564,7 @@ sattrlist.coha =  $.extend(
                 "NEWS": "newspaper",
                 "NF": "non-fiction_book",
             },
+            translation: transl.genre,
         },
         text_author: {
             label: "author",
@@ -3944,21 +4704,122 @@ sattrlist.glowbe = $.extend(
         text_country: {
             label: "country",
             displayType: "select",
-            translationKey: "country_",
             opts: liteOptions,
             // Uppercase country codes
             dataset: (_.unzip(glowbe_countries)[0]
-                       .map(function (s) { return s.toUpperCase(); })),
+                      .map(function (s) { return s.toUpperCase(); })),
+            translation: {
+                "AU": {
+                    "en": "Australia",
+                    "fi": "Australia",
+                    // "sv": "AU",
+                },
+                "BD": {
+                    "en": "Bangladesh",
+                    "fi": "Bangladesh",
+                    // "sv": "BD",
+                },
+                "CA": {
+                    "en": "Canada",
+                    "fi": "Kanada",
+                    // "sv": "CA",
+                },
+                "GB": {
+                    "en": "Great Britain",
+                    "fi": "Iso-Britannia",
+                    // "sv": "GB",
+                },
+                "GH": {
+                    "en": "Ghana",
+                    "fi": "Ghana",
+                    // "sv": "GH",
+                },
+                "HK": {
+                    "en": "Hong Kong",
+                    "fi": "Hongkong",
+                    // "sv": "HK",
+                },
+                "IE": {
+                    "en": "Ireland",
+                    "fi": "Irlanti",
+                    // "sv": "IE",
+                },
+                "IN": {
+                    "en": "India",
+                    "fi": "Intia",
+                    // "sv": "IN",
+                },
+                "JM": {
+                    "en": "Jamaica",
+                    "fi": "Jamaika",
+                    // "sv": "JM",
+                },
+                "KE": {
+                    "en": "Kenya",
+                    "fi": "Kenia",
+                    // "sv": "KE",
+                },
+                "LK": {
+                    "en": "Sri Lanka",
+                    "fi": "Sri Lanka",
+                    // "sv": "LK",
+                },
+                "MY": {
+                    "en": "Malaysia",
+                    "fi": "Malesia",
+                    // "sv": "MY",
+                },
+                "NG": {
+                    "en": "Nigeria",
+                    "fi": "Nigeria",
+                    // "sv": "NG",
+                },
+                "NZ": {
+                    "en": "New Zealand",
+                    "fi": "Uusi-Seelanti",
+                    // "sv": "NZ",
+                },
+                "PH": {
+                    "en": "Philippines",
+                    "fi": "Filippiinit",
+                    // "sv": "PH",
+                },
+                "PK": {
+                    "en": "Pakistan",
+                    "fi": "Pakistan",
+                    // "sv": "PK",
+                },
+                "SG": {
+                    "en": "Singapore",
+                    "fi": "Singapore",
+                    // "sv": "SG",
+                },
+                "TZ": {
+                    "en": "Tanzania",
+                    "fi": "Tansania",
+                    // "sv": "TZ",
+                },
+                "US": {
+                    "en": "United States",
+                    "fi": "Yhdysvallat",
+                    // "sv": "US",
+                },
+                "ZA": {
+                    "en": "South Africa",
+                    "fi": "Etelä-Afrikka",
+                    // "sv": "ZA",
+                },
+            },
         },
         text_genre: {
             label: "genre",
             displayType: "select",
-            translationKey: "genre_",
             opts: liteOptions,
             dataset: {
                 "B": "blog",
                 "G": "general",
-            }
+            },
+            translation: transl.genre,
         },
         text_url: sattrs.original_url,
         text_webdomain: {

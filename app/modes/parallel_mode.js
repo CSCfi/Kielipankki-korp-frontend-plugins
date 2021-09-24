@@ -552,7 +552,6 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
             label: "parl_statute_type",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "parlstatutetype_",
             dataset: [
                 "laki",
                 "asetus",
@@ -564,7 +563,8 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
                 "kuulutus",
                 "kaari",
                 ""
-            ]
+            ],
+            translation: transl.parlStatuteType,
         }
     },
     cite_id: "semfinlex-asd-par-2018-korp",
@@ -592,7 +592,6 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
             label: "parl_statute_type",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "parlstatutetype_",
             dataset: [
                 "laki",
                 "asetus",
@@ -604,7 +603,8 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
                 "kuulutus",
                 "kaari",
                 ""
-            ]
+            ],
+            translation: transl.parlStatuteType,
         }
     },
     cite_id: "semfinlex-asd-par-2018-korp",

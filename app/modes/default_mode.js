@@ -1537,7 +1537,6 @@ settings.corpora.semfinlex_asd_fi_2018 = {
             label: "parl_statute_type",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "parlstatutetype_",
             dataset: [
                 "laki",
                 "asetus",
@@ -1549,7 +1548,8 @@ settings.corpora.semfinlex_asd_fi_2018 = {
                 "kuulutus",
                 "kaari",
                 ""
-            ]
+            ],
+            translation: transl.parlStatuteType,
         }
     },
 }
@@ -1664,12 +1664,23 @@ settings.corpora.ftb2 = {
         subcorpus_name: {
             label: "subcorpus_name",
             displayType: "select",
-            translationKey: "subcorp_",
+            opts: liteOptions,
             dataset: {
                 "visk-sent": "visk-sent",
                 "wikipedia-samples": "wikipedia-samples"
             },
-            opts: liteOptions
+            translation: {
+                "visk-sent": {
+                    "en": "visk-sent: Example sentences of Finnish grammar",
+                    "fi": "visk-sent: Ison suomen kieliopin verkkoversion esimerkkivirkkeitä",
+                    // "sv": "visk-sent",
+                },
+                "wikipedia-samples": {
+                    "en": "wikipedia-samples: Finnish Wikipedia samples",
+                    "fi": "wikipedia-samples: Otteita suomenkielisestä Wikipediasta",
+                    // "sv": "wikipedia-samples",
+                },
+            },
         },
         sentence_id: sattrs.sentence_id_hidden
     }
@@ -1724,7 +1735,7 @@ settings.corpora.ftb3_europarl = $.extend(true, {}, ftb3_info, {
         speech_language: {
             label: "speech_language",
             displayType: "select",
-            translationKey: "ftb3_europarl_language_",
+            opts: liteOptions,
             dataset: {
                 "bg": "bg",
                 "cs": "cs",
@@ -1752,7 +1763,7 @@ settings.corpora.ftb3_europarl = $.extend(true, {}, ftb3_info, {
                 "sv": "sv",
                 "und": "und",
             },
-            opts: liteOptions
+            translation: transl.langEuroParl,
         },
         sentence_id: sattrs.sentence_id_hidden,
         sentence_line: {
@@ -9952,13 +9963,13 @@ settings.templ.kotus_ns_presidentti = {
         paragraph_type: {
             label: "paragraph_type",
             displayType: "select",
-            translationKey: "paragraphtype_",
+            opts: liteOptions,
             dataset: {
                 "p": "p",
                 "head": "head",
                 "opener": "opener",
             },
-            opts: liteOptions
+            translation: transl.paragraphType,
         },
         paragraph_topic: {
             label: "paragraph_topic"
@@ -10076,39 +10087,55 @@ settings.corpora.kotus_lakidir = {
         div_type: {
             label: "div_type",
             displayType: "select",
-            translationKey: "divtype_",
+            opts: liteOptions,
             dataset: {
                 "section": "section",
                 "section/law": "section_law",
                 "section/end": "section_end"
             },
-            opts: liteOptions
+            translation: {
+                "section": {
+                    // "en": "section",
+                    "fi": "luku",
+                    // "sv": "section",
+                },
+                "section_end": {
+                    // "en": "section_end",
+                    "fi": "lopetus",
+                    // "sv": "section_end",
+                },
+                "section_law": {
+                    // "en": "section_law",
+                    "fi": "lakipykälä",
+                    // "sv": "section_law",
+                },
+            },
         },
         paragraph_id: sattrs.paragraph_id,
         paragraph_type: {
             label: "paragraph_type",
             displayType: "select",
-            translationKey: "paragraphtype_",
+            opts: liteOptions,
             dataset: {
                 "p": "p",
                 "head": "head",
                 "opener": "opener",
                 "closer": "closer"
             },
-            opts: liteOptions
+            translation: transl.paragraphType,
         },
         sentence_id: sattrs.sentence_id_hidden,
         sentence_type: {
             label: "sentence_type",
             displayType: "select",
-            translationKey: "sentencetype_",
+            opts: liteOptions,
             dataset: {
                 "p": "p",
                 "head": "head",
                 "dateline": "dateline",
                 "signed": "signed"
             },
-            opts: liteOptions
+            translation: transl.sentenceType,
         }
     }
 };
@@ -10151,22 +10178,247 @@ settings.corpora.kotus_sp = {
         sentence_type: {
             label: "sentence_type",
             displayType: "select",
-            translationKey: "sayings_sentencetype_",
+            opts: liteOptions,
             dataset: {
                 "standard": "standard",
                 "dialect": "dialect",
                 "usage": "usage"
             },
-            opts: liteOptions
+            translation: {
+                "dialect": {
+                    // "en": "dialect",
+                    "fi": "murremuoto",
+                    // "sv": "dialect",
+                },
+                "standard": {
+                    // "en": "standard",
+                    "fi": "yleiskielistetty muoto",
+                    // "sv": "standard",
+                },
+                "usage": {
+                    // "en": "usage",
+                    "fi": "selitykset ja kommentit",
+                    // "sv": "usage",
+                },
+            },
         }
     }
 };
 
 
+// TODO: Add these to transl.pos and use that here, too
+transl.posLa = {
+    "UNK": {
+        // "en": "UNK",
+        "fi": "tuntematon",
+        // "sv": "UNK",
+    },
+    "a": {
+        // "en": "a",
+        "fi": "adjektiivi",
+        // "sv": "a",
+    },
+    "a:pron": {
+        // "en": "a:pron",
+        "fi": "adjektiivi: muu pronominaalinen",
+        // "sv": "a:pron",
+    },
+    "a:pron:dem": {
+        // "en": "a:pron:dem",
+        "fi": "adjektiivi: demonstratiivinen",
+        // "sv": "a:pron:dem",
+    },
+    "a:pron:int": {
+        // "en": "a:pron:int",
+        "fi": "adjektiivi: interrogatiivinen",
+        // "sv": "a:pron:int",
+    },
+    "a:pron:rel": {
+        // "en": "a:pron:rel",
+        "fi": "adjektiivi: relatiivinen",
+        // "sv": "a:pron:rel",
+    },
+    "adv": {
+        // "en": "adv",
+        "fi": "adverbi",
+        // "sv": "adv",
+    },
+    "adv:pron": {
+        // "en": "adv:pron",
+        "fi": "adverbi: muu pronominaalinen",
+        // "sv": "adv:pron",
+    },
+    "adv:pron:dem": {
+        // "en": "adv:pron:dem",
+        "fi": "adverbi: demonstratiivinen",
+        // "sv": "adv:pron:dem",
+    },
+    "adv:pron:int": {
+        // "en": "adv:pron:int",
+        "fi": "adverbi: interrogatiivinen",
+        // "sv": "adv:pron:int",
+    },
+    "adv:pron:rel": {
+        // "en": "adv:pron:rel",
+        "fi": "adverbi: relatiivinen",
+        // "sv": "adv:pron:rel",
+    },
+    "adv:q": {
+        // "en": "adv:q",
+        "fi": "adverbi: paljon-tyyppi",
+        // "sv": "adv:q",
+    },
+    "cnj": {
+        // "en": "cnj",
+        "fi": "konjunktio",
+        // "sv": "cnj",
+    },
+    "cnj:coord": {
+        // "en": "cnj:coord",
+        "fi": "konjunktio: rinnastus-",
+        // "sv": "cnj:coord",
+    },
+    "cnj:rel": {
+        // "en": "cnj:rel",
+        "fi": "konjunktio: relatiivi-",
+        // "sv": "cnj:rel",
+    },
+    "cnj:sub": {
+        // "en": "cnj:sub",
+        "fi": "konjunktio: alistus-",
+        // "sv": "cnj:sub",
+    },
+    "intj": {
+        // "en": "intj",
+        "fi": "interjektio",
+        // "sv": "intj",
+    },
+    "muu": {
+        // "en": "muu",
+        "fi": "muu",
+        // "sv": "muu",
+    },
+    "n": {
+        // "en": "n",
+        "fi": "substantiivi: ei erisnimi",
+        // "sv": "n",
+    },
+    "n:prop": {
+        // "en": "n:prop",
+        "fi": "substantiivi: erisnimi, ei henkilön-",
+        // "sv": "n:prop",
+    },
+    "n:prop:any": {
+        // "en": "n:prop:any",
+        "fi": "substantiivi: erisnimi",
+        // "sv": "n:prop:any",
+    },
+    "n:prop:pname": {
+        // "en": "n:prop:pname",
+        "fi": "substantiivi: henkilönnimi",
+        // "sv": "n:prop:pname",
+    },
+    "neg": {
+        // "en": "neg",
+        "fi": "kieltosana ”ei”, ”älä”",
+        // "sv": "neg",
+    },
+    "num": {
+        // "en": "num",
+        "fi": "numeraali",
+        // "sv": "num",
+    },
+    "num:card": {
+        // "en": "num:card",
+        "fi": "numeraali: perusluku",
+        // "sv": "num:card",
+    },
+    "num:murto": {
+        // "en": "num:murto",
+        "fi": "numeraali: murtoluku",
+        // "sv": "num:murto",
+    },
+    "num:ord": {
+        // "en": "num:ord",
+        "fi": "numeraali: järjestysluku",
+        // "sv": "num:ord",
+    },
+    "num:ord_pron": {
+        // "en": "num:ord_pron",
+        "fi": "pronomini/numeraali ”toinen”",
+        // "sv": "num:ord_pron",
+    },
+    "p:post": {
+        // "en": "p:post",
+        "fi": "postpositio",
+        // "sv": "p:post",
+    },
+    "p:pre": {
+        // "en": "p:pre",
+        "fi": "prepositio",
+        // "sv": "p:pre",
+    },
+    "pron": {
+        // "en": "pron",
+        "fi": "pronomini ”se”, ”ne”",
+        // "sv": "pron",
+    },
+    "pron:any": {
+        // "en": "pron:any",
+        "fi": "pronomini",
+        // "sv": "pron:any",
+    },
+    "pron:dem": {
+        // "en": "pron:dem",
+        "fi": "pronomini: demonstratiivi-",
+        // "sv": "pron:dem",
+    },
+    "pron:int": {
+        // "en": "pron:int",
+        "fi": "pronomini: interrogatiivi-",
+        // "sv": "pron:int",
+    },
+    "pron:pers": {
+        // "en": "pron:pers",
+        "fi": "pronomini ”hän”, ”he”",
+        // "sv": "pron:pers",
+    },
+    "pron:pers12": {
+        // "en": "pron:pers12",
+        "fi": "pronomini: 1. tai 2. persoona",
+        // "sv": "pron:pers12",
+    },
+    "pron:ref": {
+        // "en": "pron:ref",
+        "fi": "pronomini: refleksiivi-",
+        // "sv": "pron:ref",
+    },
+    "pron:rel": {
+        // "en": "pron:rel",
+        "fi": "pronomini: relatiivi-",
+        // "sv": "pron:rel",
+    },
+    "punct": {
+        // "en": "punct",
+        "fi": "välimerkki",
+        // "sv": "punct",
+    },
+    "q": {
+        // "en": "q",
+        "fi": "pronomini: kvanttori-",
+        // "sv": "q",
+    },
+    "v": {
+        // "en": "v",
+        "fi": "verbi",
+        // "sv": "v",
+    },
+};
+
 attrs.pos_la = {
     label: "pos",
     displayType: "select",
-    translationKey: "posla_",
+    opts: liteOptions,
     dataset: {
         "a": "a",
         "a:pron": "a:pron",
@@ -10208,14 +10460,14 @@ attrs.pos_la = {
         // "stem": "stem",
         "v": "v",
     },
-    opts: liteOptions
+    translation: transl.posLa,
 };
 // pos_las2 is for LAS2, which has codes similar to pos_la for
 // LA-murre, but fewer (and a generic "cnj").
 attrs.pos_las2 = {
     label: "pos",
     displayType: "select",
-    translationKey: "posla_",
+    opts: liteOptions,
     dataset: {
         "a": "a",
         "adv": "adv",
@@ -10235,12 +10487,12 @@ attrs.pos_las2 = {
         "UNK": "UNK",
         "v": "v",
     },
-    opts: liteOptions
+    translation: transl.posLa,
 };
 attrs.func_la = {
     label: "func",
     displayType: "select",
-    translationKey: "funcla_",
+    opts: liteOptions,
     dataset: {
         "advl": "advl",
         "advl:p": "advl:p",
@@ -10275,7 +10527,206 @@ attrs.func_la = {
         "subj:nonfin": "subj:nonfin",
         "subj:stat": "subj:stat",
     },
-    opts: liteOptions
+    translation: {
+        "advl": {
+            // "en": "advl",
+            "fi": "adverbiaali: muu",
+            // "sv": "advl",
+        },
+        "advl:p": {
+            // "en": "advl:p",
+            "fi": "adverbiaali: predikatiivi-",
+            // "sv": "advl:p",
+        },
+        "advl:v": {
+            // "en": "advl:v",
+            "fi": "adverbiaali: infiniittinen",
+            // "sv": "advl:v",
+        },
+        "advmod": {
+            // "en": "advmod",
+            "fi": "määrite: adverbin",
+            // "sv": "advmod",
+        },
+        "amod": {
+            // "en": "amod",
+            "fi": "määrite: adjektiivin",
+            // "sv": "amod",
+        },
+        "analysoimaton": {
+            // "en": "analysoimaton",
+            "fi": "muu: ei analysoitu",
+            // "sv": "analysoimaton",
+        },
+        "compl:o": {
+            // "en": "compl:o",
+            "fi": "predikatiivi: objektin",
+            // "sv": "compl:o",
+        },
+        "compl:q": {
+            // "en": "compl:q",
+            "fi": "predikatiivi: määränilmaus",
+            // "sv": "compl:q",
+        },
+        "compl:s": {
+            // "en": "compl:s",
+            "fi": "predikatiivi: subjektin",
+            // "sv": "compl:s",
+        },
+        "compl:x": {
+            // "en": "compl:x",
+            "fi": "predikatiivi: pakko, määrä, tarvis",
+            // "sv": "compl:x",
+        },
+        "infobj": {
+            // "en": "infobj",
+            "fi": "infinitiiviobjekti",
+            // "sv": "infobj",
+        },
+        "infsubj": {
+            // "en": "infsubj",
+            "fi": "infinitiivisubjekti",
+            // "sv": "infsubj",
+        },
+        "irrall": {
+            // "en": "irrall",
+            "fi": "muu: irrallinen",
+            // "sv": "irrall",
+        },
+        "jälkiosa": {
+            // "en": "jälkiosa",
+            "fi": "yhtymän jälkiosa",
+            // "sv": "jälkiosa",
+        },
+        "lauseyhd": {
+            // "en": "lauseyhd",
+            "fi": "yhdistää lauseita",
+            // "sv": "lauseyhd",
+        },
+        "lkeyhd": {
+            // "en": "lkeyhd",
+            "fi": "yhdistää lauseenosia",
+            // "sv": "lkeyhd",
+        },
+        "muu": {
+            // "en": "muu",
+            "fi": "muu: erikoistapaukset",
+            // "sv": "muu",
+        },
+        "neg:prt": {
+            // "en": "neg:prt",
+            "fi": "partikkeli ”ei”",
+            // "sv": "neg:prt",
+        },
+        "nmod": {
+            // "en": "nmod",
+            "fi": "määrite: substantiivin",
+            // "sv": "nmod",
+        },
+        "npobj": {
+            // "en": "npobj",
+            "fi": "nominiobjekti",
+            // "sv": "npobj",
+        },
+        "npsubj": {
+            // "en": "npsubj",
+            "fi": "nominisubjekti",
+            // "sv": "npsubj",
+        },
+        "nummod": {
+            // "en": "nummod",
+            "fi": "määrite: numeraalin",
+            // "sv": "nummod",
+        },
+        "osma": {
+            // "en": "osma",
+            "fi": "adverbiaali: osma",
+            // "sv": "osma",
+        },
+        "pmod": {
+            // "en": "pmod",
+            "fi": "määrite: adposition",
+            // "sv": "pmod",
+        },
+        "pred": {
+            // "en": "pred",
+            "fi": "predikaatti",
+            // "sv": "pred",
+        },
+        "pred2": {
+            // "en": "pred2",
+            "fi": "predikaatin toinen osa",
+            // "sv": "pred2",
+        },
+        "pred3": {
+            // "en": "pred3",
+            "fi": "predikaatin kolmas osa",
+            // "sv": "pred3",
+        },
+        "pred:ref": {
+            // "en": "pred:ref",
+            "fi": "predikaatti: referatiivirakenteen",
+            // "sv": "pred:ref",
+        },
+        "pred:toisto": {
+            // "en": "pred:toisto",
+            "fi": "predikaatin toisto",
+            // "sv": "pred:toisto",
+        },
+        "sanayhd_lkeyhd": {
+            // "en": "sanayhd_lkeyhd",
+            "fi": "yhdistää sananosia",
+            // "sv": "sanayhd_lkeyhd",
+        },
+        "subj:nonfin": {
+            // "en": "subj:nonfin",
+            "fi": "nominisubjekti: infiniittirakenteen",
+            // "sv": "subj:nonfin",
+        },
+        "subj:stat": {
+            // "en": "subj:stat",
+            "fi": "nominisubjekti: statusrakenteen",
+            // "sv": "subj:stat",
+        },
+    },
+};
+
+transl.clauseTypeLa = {
+    "affdecl": {
+        // "en": "affdecl",
+        "fi": "myönteinen väitelause",
+        // "sv": "affdecl",
+    },
+    "affint": {
+        // "en": "affint",
+        "fi": "myönteinen kysymyslause",
+        // "sv": "affint",
+    },
+    "affopt": {
+        // "en": "affopt",
+        "fi": "myönteinen imperatiivilause",
+        // "sv": "affopt",
+    },
+    "muu": {
+        // "en": "muu",
+        "fi": "muu",
+        // "sv": "muu",
+    },
+    "negdecl": {
+        // "en": "negdecl",
+        "fi": "kielteinen väitelause",
+        // "sv": "negdecl",
+    },
+    "negint": {
+        // "en": "negint",
+        "fi": "kielteinen kysymyslause",
+        // "sv": "negint",
+    },
+    "negopt": {
+        // "en": "negopt",
+        "fi": "kielteinen imperatiivilause",
+        // "sv": "negopt",
+    },
 };
 
 
@@ -10574,14 +11025,35 @@ settings.templ.la_murre = {
         cow: {
             label: "cowla",
             displayType: "select",
-            translationKey: "cowla_",
+            opts: liteOptions,
             dataset: {
                 "cw": "cw",
                 "cw1": "cw1",
                 "cw2": "cw2",
                 "": "noncw",
             },
-            opts: liteOptions
+            translation: {
+                "cw": {
+                    // "en": "cw",
+                    "fi": "yhdyssana",
+                    // "sv": "cw",
+                },
+                "cw1": {
+                    // "en": "cw1",
+                    "fi": "yhdyssanan alkuosa",
+                    // "sv": "cw1",
+                },
+                "cw2": {
+                    // "en": "cw2",
+                    "fi": "yhdyssanan jälkiosa",
+                    // "sv": "cw2",
+                },
+                "noncw": {
+                    // "en": "noncw",
+                    "fi": "ei yhdyssana",
+                    // "sv": "noncw",
+                },
+            },
         },
         note: {
             label: "note",
@@ -10599,16 +11071,173 @@ settings.templ.la_murre = {
         text_dialect_region: {
             label: "dialect_region",
             displayType: "select",
-            translationKey: "dialect_region_",
+            opts: liteOptions,
             dataset: la_murre_regions,
-            opts: liteOptions
+            translation: {
+                "HÄM": {
+                    // "en": "HÄM",
+                    "fi": "Hämäläismurteet",
+                    // "sv": "HÄM",
+                },
+                "KAA": {
+                    // "en": "KAA",
+                    "fi": "Kaakkoismurteet",
+                    // "sv": "KAA",
+                },
+                "LOU": {
+                    // "en": "LOU",
+                    "fi": "Lounaismurteet",
+                    // "sv": "LOU",
+                },
+                "LVÄ": {
+                    // "en": "LVÄ",
+                    "fi": "Lounaiset välimurteet",
+                    // "sv": "LVÄ",
+                },
+                "POH": {
+                    // "en": "POH",
+                    "fi": "Pohjalaismurteet",
+                    // "sv": "POH",
+                },
+                "SAV": {
+                    // "en": "SAV",
+                    "fi": "Savolaismurteet",
+                    // "sv": "SAV",
+                },
+            },
         },
         text_dialect_group: {
             label: "dialect_group",
             displayType: "select",
-            translationKey: "dialect_group_",
+            opts: liteOptions,
             dataset: la_murre_groups,
-            opts: liteOptions
+            translation: {
+                "HämE": {
+                    // "en": "HämE",
+                    "fi": "Etelä-Häme",
+                    // "sv": "HämE",
+                },
+                "HämK": {
+                    // "en": "HämK",
+                    "fi": "Kaakkois-Häme",
+                    // "sv": "HämK",
+                },
+                "HämP": {
+                    // "en": "HämP",
+                    "fi": "Pohjois-Häme",
+                    // "sv": "HämP",
+                },
+                "Kai": {
+                    // "en": "Kai",
+                    "fi": "Kainuu",
+                    // "sv": "Kai",
+                },
+                "KarE": {
+                    // "en": "KarE",
+                    "fi": "Etelä-Karjala",
+                    // "sv": "KarE",
+                },
+                "KarK": {
+                    // "en": "KarK",
+                    "fi": "Keski-Karjala",
+                    // "sv": "KarK",
+                },
+                "KarP": {
+                    // "en": "KarP",
+                    "fi": "Pohjois-Karjala",
+                    // "sv": "KarP",
+                },
+                "KesE": {
+                    // "en": "KesE",
+                    "fi": "Eteläinen Keski-Suomi",
+                    // "sv": "KesE",
+                },
+                "KesL": {
+                    // "en": "KesL",
+                    "fi": "Läntinen Keski-Suomi",
+                    // "sv": "KesL",
+                },
+                "KesP": {
+                    // "en": "KesP",
+                    "fi": "Pohjoinen Keski-Suomi",
+                    // "sv": "KesP",
+                },
+                "Kym": {
+                    // "en": "Kym",
+                    "fi": "Kymenlaakso",
+                    // "sv": "Kym",
+                },
+                "LänP": {
+                    // "en": "LänP",
+                    "fi": "Länsipohja",
+                    // "sv": "LänP",
+                },
+                "PerP": {
+                    // "en": "PerP",
+                    "fi": "Peräpohjola",
+                    // "sv": "PerP",
+                },
+                "PohE": {
+                    // "en": "PohE",
+                    "fi": "Etelä-Pohjanmaa",
+                    // "sv": "PohE",
+                },
+                "PohK": {
+                    // "en": "PohK",
+                    "fi": "Keski-Pohjanmaa",
+                    // "sv": "PohK",
+                },
+                "PohP": {
+                    // "en": "PohP",
+                    "fi": "Pohjois-Pohjanmaa",
+                    // "sv": "PohP",
+                },
+                "SatE": {
+                    // "en": "SatE",
+                    "fi": "Etelä-Satakunta",
+                    // "sv": "SatE",
+                },
+                "SatL": {
+                    // "en": "SatL",
+                    "fi": "Länsi-Satakunta",
+                    // "sv": "SatL",
+                },
+                "SatP": {
+                    // "en": "SatP",
+                    "fi": "Pohjois-Satakunta",
+                    // "sv": "SatP",
+                },
+                "SavE": {
+                    // "en": "SavE",
+                    "fi": "Etelä-Savo",
+                    // "sv": "SavE",
+                },
+                "SavP": {
+                    // "en": "SavP",
+                    "fi": "Pohjois-Savo",
+                    // "sv": "SavP",
+                },
+                "VarE": {
+                    // "en": "VarE",
+                    "fi": "Eteläinen Varsinais-Suomi",
+                    // "sv": "VarE",
+                },
+                "VarP": {
+                    // "en": "VarP",
+                    "fi": "Pohjoinen Varsinais-Suomi",
+                    // "sv": "VarP",
+                },
+                "VarU": {
+                    // "en": "VarU",
+                    "fi": "Länsi-Uusimaa",
+                    // "sv": "VarU",
+                },
+                "VarY": {
+                    // "en": "VarY",
+                    "fi": "Varsinais-Suomen ylämaa",
+                    // "sv": "VarY",
+                },
+            },
         },
         text_parish: {
             label: "parish",
@@ -10637,13 +11266,13 @@ settings.templ.la_murre = {
         paragraph_type: {
             label: "paragraph_type",
             displayType: "select",
-            translationKey: "paragraphtype_",
+            opts: liteOptions,
             dataset: {
                 "interviewee": "interviewee",
                 "interviewer": "interviewer",
                 "noninterviewee": "noninterviewee",
             },
-            opts: liteOptions
+            translation: transl.paragraphType,
         },
         paragraph_id: {
             label: "paragraph_id",
@@ -10661,13 +11290,13 @@ settings.templ.la_murre = {
         paragraph_speaker_sex: {
             label: "speaker_sex",
             displayType: "select",
-            translationKey: "",
+            opts: liteOptions,
             dataset: {
                 "male": "male",
                 "female": "female",
                 "": "unknown"
             },
-            opts: liteOptions,
+            translation: transl.sex,
         },
         paragraph_speaker_birthdate: {
             label: "speaker_birthdate",
@@ -10719,7 +11348,7 @@ settings.templ.la_murre = {
         clause_hier: {
             label: "clause_hier",
             displayType: "select",
-            translationKey: "clausehier_",
+            opts: liteOptions,
             dataset: [
                 "irrall",
                 "main",
@@ -10730,12 +11359,53 @@ settings.templ.la_murre = {
                 "sub5",
                 "muu",
             ],
-            opts: liteOptions
+            translation: {
+                "irrall": {
+                    // "en": "irrall",
+                    "fi": "irrallinen lause",
+                    // "sv": "irrall",
+                },
+                "main": {
+                    // "en": "main",
+                    "fi": "päälause",
+                    // "sv": "main",
+                },
+                "muu": {
+                    // "en": "muu",
+                    "fi": "muu",
+                    // "sv": "muu",
+                },
+                "sub1": {
+                    // "en": "sub1",
+                    "fi": "alisteinen lause taso 1",
+                    // "sv": "sub1",
+                },
+                "sub2": {
+                    // "en": "sub2",
+                    "fi": "alisteinen lause taso 2",
+                    // "sv": "sub2",
+                },
+                "sub3": {
+                    // "en": "sub3",
+                    "fi": "alisteinen lause taso 3",
+                    // "sv": "sub3",
+                },
+                "sub4": {
+                    // "en": "sub4",
+                    "fi": "alisteinen lause taso 4",
+                    // "sv": "sub4",
+                },
+                "sub5": {
+                    // "en": "sub5",
+                    "fi": "alisteinen lause taso 5",
+                    // "sv": "sub5",
+                },
+            },
         },
         clause_type: {
             label: "clause_type",
             displayType: "select",
-            translationKey: "clausetype_",
+            opts: liteOptions,
             dataset: [
                 "affdecl",
                 "negdecl",
@@ -10745,7 +11415,7 @@ settings.templ.la_murre = {
                 "negopt",
                 "muu",
             ],
-            opts: liteOptions
+            translation: transl.clauseTypeLa,
         },
         clause_hallnum: {
             label: "clause_hallnum",
@@ -10753,12 +11423,23 @@ settings.templ.la_murre = {
         clause_ora: {
             label: "clause_ora",
             displayType: "select",
-            translationKey: "clauseora_",
+            opts: liteOptions,
             dataset: {
                 "dir": "dir",
                 "": "other",
             },
-            opts: liteOptions
+            translation: {
+                "dir": {
+                    // "en": "dir",
+                    "fi": "suora esitys",
+                    // "sv": "dir",
+                },
+                "other": {
+                    // "en": "other",
+                    "fi": "muu kuin suora esitys",
+                    // "sv": "other",
+                },
+            },
         },
         clause_depth: {
             label: "clause_depth"
@@ -10904,7 +11585,7 @@ sattrlist.las2 = {
     clause_type: {
         label: "clause_type",
         displayType: "select",
-        translationKey: "clausetype_",
+        opts: liteOptions,
         dataset: {
             "affdecl": "affdecl",
             "negdecl": "negdecl",
@@ -10914,7 +11595,7 @@ sattrlist.las2 = {
             "negopt": "negopt",
             "muu": "muu",
         },
-        opts: liteOptions
+        translation: transl.clauseTypeLa,
     },
     clause_fun: {
         label: "clause_fun",
@@ -10976,7 +11657,7 @@ attrlist.agricola = {
     type: {
         label: "lang",
         displayType: "select",
-        translationKey: "agricola_lang_",
+        opts: liteOptions,
         dataset: {
             "": "fin",
             "swe": "swe",
@@ -10984,7 +11665,7 @@ attrlist.agricola = {
             "gre": "gre",
             "heb": "heb",
         },
-        opts: liteOptions
+        translation: transl.lang,
     },
     mrp: attrs.msd,
     fun: {
@@ -10996,12 +11677,34 @@ attrlist.agricola = {
     tunit: {
         label: "comp_tense",
         displayType: "select",
-        translationKey: "agricola_tense_",
+        opts: liteOptions,
         dataset: {
             "f": "f",
             "p": "p",
             "pl": "pl",
             "p pl": "ppl",
+        },
+        translation: {
+            "f": {
+                // "en": "f",
+                "fi": "futuuri",
+                // "sv": "f",
+            },
+            "p": {
+                // "en": "p",
+                "fi": "perfekti",
+                // "sv": "p",
+            },
+            "pl": {
+                // "en": "pl",
+                "fi": "pluskvamperfekti",
+                // "sv": "pl",
+            },
+            "ppl": {
+                // "en": "ppl",
+                "fi": "perfekti tai pluskvamperfekti",
+                // "sv": "ppl",
+            },
         },
     }
 };
@@ -11053,7 +11756,7 @@ sattrlist.agricola = {
     clause_type: {
         label: "clause_type",
         displayType: "select",
-        translationKey: "clausetype_",
+        opts: liteOptions,
         dataset: {
             "affdecl": "affdecl",
             "negdecl": "negdecl",
@@ -11063,7 +11766,7 @@ sattrlist.agricola = {
             "negopt": "negopt",
             "muu": "muu",
         },
-        opts: liteOptions
+        translation: transl.clauseTypeLa,
     },
     clause_depth: {
         label: "clause_depth"
@@ -11727,14 +12430,35 @@ settings.corpora.skvr = {
         sentence_type: {
             label: "sentence_type",
             displayType: "select",
-            translationKey: "skvr_stype_",
+            opts: liteOptions,
             dataset: {
                 'verse':'verse',
                 'comment':'comment',
                 'editor_commentary':'editor',
                 'caption':'caption'
             },
-            opts: liteOptions,
+            translation: {
+                "caption": {
+                    // "en": "caption",
+                    "fi": "otsikko",
+                    // "sv": "caption",
+                },
+                "comment": {
+                    // "en": "comment",
+                    "fi": "suorasanainen osuus",
+                    // "sv": "comment",
+                },
+                "editor": {
+                    // "en": "editor",
+                    "fi": "toimittajan kommentti",
+                    // "sv": "editor",
+                },
+                "verse": {
+                    // "en": "verse",
+                    "fi": "runosäe",
+                    // "sv": "verse",
+                },
+            },
         },
         sentence_refs: {
             label: "sentence_refs",
@@ -11936,12 +12660,23 @@ sattrlist.klk_fi_parsed = $.extend(
         sentence_parse_state: {
             label: "parse_state",
             displayType: "select",
-            translationKey: "parse_state_",
             opts: liteOptions,
             dataset: {
                 "parsed": "parsed",
                 "tagged": "tagged"
-            }
+            },
+            translation: {
+                "parsed": {
+                    "en": "parsed",
+                    "fi": "jäsennetty",
+                    "sv": "parsad",
+                },
+                "tagged": {
+                    "en": "tagged",
+                    "fi": "tagattu",
+                    "sv": "taggad",
+                },
+            },
         },
         sentence_local_id: {
             label: "local_id",
@@ -12080,11 +12815,12 @@ sattrs.vks_sentence_code = {
 sattrs.vks_sentence_type = {
     label: "vks_sentence_type",
     displayType: "select",
-    translationKey: "vks_sentence_type_",
+    opts: liteOptions,
     dataset: [
         "sentence",
         "heading",
     ],
+    translation: transl.sentenceType,
 };
 sattrs.vks_text_year = {
     label: "vks_text_year"
@@ -12394,23 +13130,29 @@ settings.corpora.vnsk_asetus = {
         sentence_type: {
             label: "sentence_type",
             displayType: "select",
-            translationKey: "sentencetype_",
+            opts: liteOptions,
             dataset: {
                 "p": "p",
                 "head": "head",
                 "opening": "opening"
             },
-            opts: liteOptions
+            translation: transl.sentenceType,
         },
         sentence_id: sattrs.sentence_id_hidden,
         hi_rend: {
             label: "hi_rend",
             displayType: "select",
-            translationKey: "hirend_",
+            opts: liteOptions,
             dataset: {
                 "bold": "bold"
             },
-            opts: liteOptions
+            translation: {
+                "bold": {
+                    // "en": "bold",
+                    "fi": "lihavoitu",
+                    // "sv": "bold",
+                },
+            },
         }
     }
 };
@@ -13454,7 +14196,7 @@ settings.corpora.vns_renvall = {
         item_itemtype: {
             label: "dict_itemtype",
             displayType: "select",
-            translationKey: "dictitemtype_",
+            opts: liteOptions,
             dataset: {
                 "orth": "orth",
                 "pos": "pos",
@@ -13463,7 +14205,38 @@ settings.corpora.vns_renvall = {
                 "etym": "etym",
                 "note": "note"
             },
-            opts: liteOptions
+            translation: {
+                "eg": {
+                    // "en": "eg",
+                    "fi": "esimerkki",
+                    // "sv": "eg",
+                },
+                "etym": {
+                    // "en": "etym",
+                    "fi": "etymologia",
+                    // "sv": "etym",
+                },
+                "note": {
+                    // "en": "note",
+                    "fi": "huomautus",
+                    // "sv": "note",
+                },
+                "orth": {
+                    // "en": "orth",
+                    "fi": "kirjoitusasu",
+                    // "sv": "orth",
+                },
+                "pos": {
+                    // "en": "pos",
+                    "fi": "sanaluokka",
+                    // "sv": "pos",
+                },
+                "xr": {
+                    // "en": "xr",
+                    "fi": "ristiviittaus",
+                    // "sv": "xr",
+                },
+            },
         },
         item_type: {
             label: "dict_item_type"
@@ -13471,12 +14244,12 @@ settings.corpora.vns_renvall = {
         item_lang: {
             label: "dict_etymlang",
             displayType: "select",
-            translationKey: "dictetymlang_",
+            opts: liteOptions,
             dataset: {
-                "ru": "ru",
-                "ve": "ve"
+                "ru": "swe",
+                "ve": "rus",
             },
-            opts: liteOptions
+            translation: transl.lang,
         },
     }
 };
@@ -13723,7 +14496,6 @@ sattrlist.kaannossuomi = {
         label: "origlang",
         displayType: "select",
         opts: liteOptions,
-        translationKey: "kaannossuomi_",
         dataset: [
             "fin",
             "eng",
@@ -13736,13 +14508,13 @@ sattrlist.kaannossuomi = {
             "nor",
             "hun",
             "dut",
-        ]
+        ],
+        translation: transl.lang,
     },
     text_genre: {
         label: "text_genre",
         displayType: "select",
         opts: liteOptions,
-        translationKey: "kaannossuomi_",
         dataset: [
             "academic",
             "biography",
@@ -13752,7 +14524,49 @@ sattrlist.kaannossuomi = {
             "popular_science",
             "childrens_literature",
             "kauno",
-        ]
+        ],
+        translation: {
+            "academic": {
+                "en": "academic texts",
+                "fi": "akateemiset tekstit",
+                // "sv": "academic",
+            },
+            "biography": {
+                "en": "biography",
+                "fi": "biografia",
+                // "sv": "biography",
+            },
+            "childrens_literature": {
+                "en": "childern's literature",
+                "fi": "lastenkirjallisuus",
+                // "sv": "childrens_literature",
+            },
+            "crime_fiction": {
+                "en": "detective fiction",
+                "fi": "dekkarikirjallisuus",
+                // "sv": "crime_fiction",
+            },
+            "fiction": {
+                "en": "popular literature",
+                "fi": "viihdekirjallisuus",
+                // "sv": "fiction",
+            },
+            "kauno": {
+                "en": "literature",
+                "fi": "kaunokirjallisuus",
+                // "sv": "kauno",
+            },
+            "popular_fiction": {
+                "en": "popular fiction",
+                "fi": "populaarikirjallisuus",
+                // "sv": "popular_fiction",
+            },
+            "popular_science": {
+                "en": "popular science",
+                "fi": "tietokirjallisuus",
+                // "sv": "popular_science",
+            },
+        },
     },
     text_filename: { label: "file_name" },
 };
@@ -13926,7 +14740,6 @@ settings.corpora.eduskunta = {
             label: "speaker_parl_group",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "parlgroup_",
             extendedComponent: "datasetSelect",
             escape: false,
             dataset: [
@@ -13942,12 +14755,68 @@ settings.corpora.eduskunta = {
                 "vr",
                 ""
             ],
+            translation: {
+                "": {
+                    // "en": "",
+                    "fi": "ei tiedossa",
+                    "sv": "",
+                },
+                "kd": {
+                    // "en": "kd",
+                    "fi": "Kristillisdemokraattinen eduskuntaryhmä",
+                    "sv": "Kristdemokratiska riksdagsgruppen",
+                },
+                "kesk": {
+                    // "en": "kesk",
+                    "fi": "Keskustan eduskuntaryhmä",
+                    "sv": "Centerns riksdagsgrupp",
+                },
+                "kok": {
+                    // "en": "kok",
+                    "fi": "Kansallisen kokoomuksen eduskuntaryhmä",
+                    "sv": "Samlingspartiets riksdagsgrupp",
+                },
+                "m11": {
+                    // "en": "m11",
+                    "fi": "Muutos 2011 -eduskuntaryhmä",
+                    "sv": "Riksdagsgruppen Förändring 2011",
+                },
+                "ps": {
+                    // "en": "ps",
+                    "fi": "Perussuomalaisten eduskuntaryhmä ",
+                    "sv": "Sannfinländarnas riksdagsgrupp ",
+                },
+                "r": {
+                    // "en": "r",
+                    "fi": "Ruotsalainen eduskuntaryhmä",
+                    "sv": "Svenska riksdagsgruppen",
+                },
+                "sd": {
+                    // "en": "sd",
+                    "fi": "Sosialidemokraattinen eduskuntaryhmä",
+                    "sv": "Socialdemokratiska riksdagsgruppen",
+                },
+                "vas": {
+                    // "en": "vas",
+                    "fi": "Vasemmistoliiton eduskuntaryhmä",
+                    "sv": "Vänsterförbundets riksdagsgrupp",
+                },
+                "vihr": {
+                    // "en": "vihr",
+                    "fi": "Vihreä eduskuntaryhmä",
+                    "sv": "Gröna riksdagsgruppen",
+                },
+                "vr": {
+                    // "en": "vr",
+                    "fi": "Vasenryhmän eduskuntaryhmä",
+                    "sv": "Vänstergruppens riksdagsgrupp",
+                },
+            },
         },
         paragraph_speaker_role: {
             label: "speakerrole",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "speakerrole_",
             extendedComponent: "datasetSelect",
             escape: false,
             dataset: [
@@ -13994,13 +14863,229 @@ settings.corpora.eduskunta = {
                 "varajasen",
                 "valtioneuvoston_apulaisoikeuskansleri",
                 ""
-            ]
+            ],
+            translation: {
+                "": {
+                    // "en": "",
+                    "fi": "ei tiedossa",
+                    // "sv": "",
+                },
+                "asunto_ja_viestintaministeri": {
+                    // "en": "asunto_ja_viestintaministeri",
+                    "fi": "Asunto- ja viestintäministeri",
+                    // "sv": "asunto_ja_viestintaministeri",
+                },
+                "asuntoministeri": {
+                    // "en": "asuntoministeri",
+                    "fi": "Asuntoministeri",
+                    // "sv": "asuntoministeri",
+                },
+                "eduskunnan_oikeusasiamies": {
+                    // "en": "eduskunnan_oikeusasiamies",
+                    "fi": "Eduskunnan oikeusasiamies",
+                    // "sv": "eduskunnan_oikeusasiamies",
+                },
+                "elinkeinoministeri": {
+                    // "en": "elinkeinoministeri",
+                    "fi": "Elinkeinoministeri",
+                    // "sv": "elinkeinoministeri",
+                },
+                "ensimmainen_varapuhemies": {
+                    // "en": "ensimmainen_varapuhemies",
+                    "fi": "Ensimmäinen varapuhemies",
+                    // "sv": "ensimmainen_varapuhemies",
+                },
+                "eurooppa_ja_ulkomaankauppaministeri": {
+                    // "en": "eurooppa_ja_ulkomaankauppaministeri",
+                    "fi": "Eurooppa- ja ulkomaankauppaministeri",
+                    // "sv": "eurooppa_ja_ulkomaankauppaministeri",
+                },
+                "hallinto_ja_kuntaministeri": {
+                    // "en": "hallinto_ja_kuntaministeri",
+                    "fi": "Hallinto- ja kuntaministeri",
+                    // "sv": "hallinto_ja_kuntaministeri",
+                },
+                "ikapuhemies": {
+                    // "en": "ikapuhemies",
+                    "fi": "Ikäpuhemies",
+                    // "sv": "ikapuhemies",
+                },
+                "kehitysministeri": {
+                    // "en": "kehitysministeri",
+                    "fi": "Kehitysministeri",
+                    // "sv": "kehitysministeri",
+                },
+                "kulttuuri_ja_asuntoministeri": {
+                    // "en": "kulttuuri_ja_asuntoministeri",
+                    "fi": "Kulttuuri- ja asuntoministeri",
+                    // "sv": "kulttuuri_ja_asuntoministeri",
+                },
+                "kulttuuri_ja_urheiluministeri": {
+                    // "en": "kulttuuri_ja_urheiluministeri",
+                    "fi": "Kulttuuri- ja urheiluministeri",
+                    // "sv": "kulttuuri_ja_urheiluministeri",
+                },
+                "kunta_ja_uudistusministeri": {
+                    // "en": "kunta_ja_uudistusministeri",
+                    "fi": "Kunta- ja uudistusministeri",
+                    // "sv": "kunta_ja_uudistusministeri",
+                },
+                "liikenne_ja_kuntaministeri": {
+                    // "en": "liikenne_ja_kuntaministeri",
+                    "fi": "Liikenne- ja kuntaministeri",
+                    // "sv": "liikenne_ja_kuntaministeri",
+                },
+                "liikenne_ja_viestintaministeri": {
+                    // "en": "liikenne_ja_viestintaministeri",
+                    "fi": "Liikenne- ja viestintäministeri",
+                    // "sv": "liikenne_ja_viestintaministeri",
+                },
+                "liikenneministeri": {
+                    // "en": "liikenneministeri",
+                    "fi": "Liikenneministeri",
+                    // "sv": "liikenneministeri",
+                },
+                "maa_ja_metsatalousministeri": {
+                    // "en": "maa_ja_metsatalousministeri",
+                    "fi": "Maa- ja metsätalousministeri",
+                    // "sv": "maa_ja_metsatalousministeri",
+                },
+                "maahanmuutto_ja_eurooppaministeri": {
+                    // "en": "maahanmuutto_ja_eurooppaministeri",
+                    "fi": "Maahanmuutto- ja eurooppaministeri",
+                    // "sv": "maahanmuutto_ja_eurooppaministeri",
+                },
+                "maatalous_ja_ymparistoministeri": {
+                    // "en": "maatalous_ja_ymparistoministeri",
+                    "fi": "Maatalous- ja ympäristöministeri",
+                    // "sv": "maatalous_ja_ymparistoministeri",
+                },
+                "oikeus_ja_tyoministeri": {
+                    // "en": "oikeus_ja_tyoministeri",
+                    "fi": "Oikeus- ja työministeri",
+                    // "sv": "oikeus_ja_tyoministeri",
+                },
+                "oikeusministeri": {
+                    // "en": "oikeusministeri",
+                    "fi": "Oikeusministeri",
+                    // "sv": "oikeusministeri",
+                },
+                "opetus_ja_kulttuuriministeri": {
+                    // "en": "opetus_ja_kulttuuriministeri",
+                    "fi": "Opetus- ja kulttuuriministeri",
+                    // "sv": "opetus_ja_kulttuuriministeri",
+                },
+                "opetus_ja_viestintaministeri": {
+                    // "en": "opetus_ja_viestintaministeri",
+                    "fi": "Opetus- ja viestintäministeri",
+                    // "sv": "opetus_ja_viestintaministeri",
+                },
+                "opetusministeri": {
+                    // "en": "opetusministeri",
+                    "fi": "Opetusministeri",
+                    // "sv": "opetusministeri",
+                },
+                "paaministeri": {
+                    // "en": "paaministeri",
+                    "fi": "Pääministeri",
+                    // "sv": "paaministeri",
+                },
+                "perhe_ja_peruspalveluministeri": {
+                    // "en": "perhe_ja_peruspalveluministeri",
+                    "fi": "Perhe- ja peruspalveluministeri",
+                    // "sv": "perhe_ja_peruspalveluministeri",
+                },
+                "peruspalveluministeri": {
+                    // "en": "peruspalveluministeri",
+                    "fi": "Peruspalveluministeri",
+                    // "sv": "peruspalveluministeri",
+                },
+                "puhemies": {
+                    // "en": "puhemies",
+                    "fi": "Puhemies",
+                    // "sv": "puhemies",
+                },
+                "puhuja": {
+                    // "en": "puhuja",
+                    "fi": "Puhuja",
+                    // "sv": "puhuja",
+                },
+                "puolustusministeri": {
+                    // "en": "puolustusministeri",
+                    "fi": "Puolustusministeri",
+                    // "sv": "puolustusministeri",
+                },
+                "sisaasiainministeri": {
+                    // "en": "sisaasiainministeri",
+                    "fi": "Sisäasiainministeri",
+                    // "sv": "sisaasiainministeri",
+                },
+                "sisaministeri": {
+                    // "en": "sisaministeri",
+                    "fi": "Sisäministeri",
+                    // "sv": "sisaministeri",
+                },
+                "sosiaali_ja_terveysministeri": {
+                    // "en": "sosiaali_ja_terveysministeri",
+                    "fi": "Sosiaali- ja terveysministeri",
+                    // "sv": "sosiaali_ja_terveysministeri",
+                },
+                "toinen_varapuhemies": {
+                    // "en": "toinen_varapuhemies",
+                    "fi": "Toinen varapuhemies",
+                    // "sv": "toinen_varapuhemies",
+                },
+                "tyoministeri": {
+                    // "en": "tyoministeri",
+                    "fi": "Työministeri",
+                    // "sv": "tyoministeri",
+                },
+                "ulkoasiainministeri": {
+                    // "en": "ulkoasiainministeri",
+                    "fi": "Ulkoasiainministeri",
+                    // "sv": "ulkoasiainministeri",
+                },
+                "ulkomaankauppa_ja_kehitysministeri": {
+                    // "en": "ulkomaankauppa_ja_kehitysministeri",
+                    "fi": "Ulkomaankauppa- ja kehitysministeri",
+                    // "sv": "ulkomaankauppa_ja_kehitysministeri",
+                },
+                "valtioneuvoston_apulaisoikeuskansleri": {
+                    // "en": "valtioneuvoston_apulaisoikeuskansleri",
+                    "fi": "Valtioneuvoston apulaisoikeuskansleri",
+                    // "sv": "valtioneuvoston_apulaisoikeuskansleri",
+                },
+                "valtioneuvoston_oikeuskansleri": {
+                    // "en": "valtioneuvoston_oikeuskansleri",
+                    "fi": "Valtioneuvoston oikeuskansleri",
+                    // "sv": "valtioneuvoston_oikeuskansleri",
+                },
+                "valtiovarainministeri": {
+                    // "en": "valtiovarainministeri",
+                    "fi": "Valtiovarainministeri",
+                    // "sv": "valtiovarainministeri",
+                },
+                "varajasen": {
+                    // "en": "varajasen",
+                    "fi": "varajäsen",
+                    // "sv": "varajasen",
+                },
+                "viestintaministeri": {
+                    // "en": "viestintaministeri",
+                    "fi": "Viestintäministeri",
+                    // "sv": "viestintaministeri",
+                },
+                "ymparistoministeri": {
+                    // "en": "ymparistoministeri",
+                    "fi": "Ympäristöministeri",
+                    // "sv": "ymparistoministeri",
+                },
+            },
         },
         paragraph_speech_type: {
             label: "speech_type",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "speechtype_",
             extendedComponent: "datasetSelect",
             escape: false,
             dataset: [
@@ -14009,7 +15094,34 @@ settings.corpora.eduskunta = {
                 "vastauspuheenvuoro",
                 "koputtaa",
                 ""
-            ]
+            ],
+            translation: {
+                "": {
+                    // "en": "",
+                    "fi": "ei tiedossa",
+                    // "sv": "",
+                },
+                "esittelypuheenvuoro": {
+                    // "en": "esittelypuheenvuoro",
+                    "fi": "esittelypuheenvuoro",
+                    // "sv": "esittelypuheenvuoro",
+                },
+                "koputtaa": {
+                    // "en": "koputtaa",
+                    "fi": "(koputtaa)",
+                    // "sv": "koputtaa",
+                },
+                "ryhmapuheenvuoro": {
+                    // "en": "ryhmapuheenvuoro",
+                    "fi": "ryhmäpuheenvuoro",
+                    // "sv": "ryhmapuheenvuoro",
+                },
+                "vastauspuheenvuoro": {
+                    // "en": "vastauspuheenvuoro",
+                    "fi": "vastauspuheenvuoro",
+                    // "sv": "vastauspuheenvuoro",
+                },
+            },
         },
         paragraph_participant: {
             label: "speaker"
@@ -14397,13 +15509,13 @@ settings.corpora.dma = {
         sentence_informant_sex: {
             label: "informant_sex",
             displayType: "select",
-            translationKey: "",
+            opts: liteOptions,
             dataset: {
                 "m": "male",
                 "n": "female",
                 "": "unknown"
             },
-            opts: liteOptions,
+            translation: transl.sex,
         },
         sentence_informant_birthyear: {
             label: "informant_birthyear",
@@ -14757,12 +15869,23 @@ sattrlist.s24_2018 = {
     text_msg_type: {
         label: "message_type",
         displayType: "select",
-        translationKey: "msgtype_",
+        opts: liteOptions,
         dataset: [
             "thread_start",
             "comment",
         ],
-        opts: liteOptions,
+        translation: {
+            "comment": {
+                "en": "comment",
+                "fi": "kommentti",
+                // "sv": "comment",
+            },
+            "thread_start": {
+                "en": "discussion thread start",
+                "fi": "keskusteluketjun aloitus",
+                // "sv": "thread_start",
+            },
+        },
     },
     text_empty: settings.fn.make_bool_attr("message_is_completely_empty"),
     text_id: {
@@ -14818,25 +15941,41 @@ sattrlist.s24_2018 = {
     paragraph_type: {
         label: "paragraph_type",
         displayType: "select",
-        translationKey: "paratype_",
+        opts: liteOptions,
         dataset: {
             "title": "heading",
             "body": "paragraph",
             "empty": "empty",
         },
-        opts: liteOptions,
+        translation: transl.paragraphType,
     },
     sentence_id: sattrs.sentence_id_hidden,
     sentence_polarity: {
         label: "sentence_polarity",
         displayType: "select",
-        translationKey: "polarity_",
+        opts: liteOptions,
         dataset: [
             "pos",
             "neut",
             "neg",
         ],
-        opts: liteOptions,
+        translation: {
+            "neg": {
+                "en": "negative",
+                "fi": "kielteinen",
+                "sv": "negativ",
+            },
+            "neut": {
+                "en": "neutral",
+                "fi": "neutraali",
+                "sv": "neutral",
+            },
+            "pos": {
+                "en": "positive",
+                "fi": "myönteinen",
+                "sv": "positiv",
+            },
+        },
     },
 };
 
@@ -15589,7 +16728,6 @@ sattrlist.ylenews_fi_common = {
         label: "sentence_type",
         displayType: "select",
         opts: liteOptions,
-        translationKey: "textpart_",
         dataset: {
             "alt": "image_alt",
             "by": "byline",
@@ -15599,6 +16737,7 @@ sattrlist.ylenews_fi_common = {
             "heading-caption": "heading_caption",
             "text": "text",
         },
+        translation: transl.textPart,
     },
 };
 
@@ -15606,7 +16745,6 @@ sattrs.ylenews_fi_paragraph_type = {
     label: "paragraph_type",
     displayType: "select",
     opts: liteOptions,
-    translationKey: "textpart_",
     dataset: {
         "by": "byline",
         "heading": "heading",
@@ -15618,6 +16756,7 @@ sattrs.ylenews_fi_paragraph_type = {
         "summary": "summary",
         "text": "text",
     },
+    translation: transl.textPart,
 };
 
 
@@ -15700,7 +16839,6 @@ sattrlist.ylenews_fi_selko_common = {
         label: "sentence_type",
         displayType: "select",
         opts: liteOptions,
-        translationKey: "textpart_",
         dataset: {
             "alt": "image_alt",
             "by": "byline",
@@ -15710,6 +16848,7 @@ sattrlist.ylenews_fi_selko_common = {
             "heading-caption": "heading_caption",
             "text": "text",
         },
+        translation: transl.textPart,
     },
 };
 
@@ -15718,7 +16857,6 @@ sattrs.ylenews_fi_selko_paragraph_type = {
     label: "paragraph_type",
     displayType: "select",
     opts: liteOptions,
-    translationKey: "textpart_",
     dataset: {
         "by": "byline",
         "heading": "heading",
@@ -15730,6 +16868,7 @@ sattrs.ylenews_fi_selko_paragraph_type = {
         "summary": "summary",
         "text": "text",
     },
+    translation: transl.textPart,
 };
 
 settings.corpora.ylenews_fi_2011_2018_selko_a = {

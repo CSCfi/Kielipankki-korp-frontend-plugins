@@ -122,12 +122,3518 @@ settings.licenceinfo = {
 };
 
 
+// Attribute value translations
+
+var transl = {};
+
+transl.yesno = {
+    "yes": {
+        "en": "yes",
+        "fi": "kyllä",
+        "sv": "ja",
+    },
+    "no": {
+        "en": "no",
+        "fi": "ei",
+        "sv": "nej",
+    },
+};
+
+transl.lang = {
+    // Alternative codes are included for some languages: e.g. deu =
+    // ger, ell = gre, nld = dut
+    "deu": {
+        "en": "German",
+        "fi": "saksa",
+        "sv": "tyska",
+    },
+    "dut": {
+        "en": "Dutch",
+        "fi": "hollanti",
+        "sv": "nederländska",
+    },
+    "ell": {
+        "en": "Greek",
+        "fi": "kreikka",
+        "sv": "grekiska",
+    },
+    "eng": {
+        "en": "English",
+        "fi": "englanti",
+        "sv": "engelska",
+    },
+    "est": {
+        "en": "Estonian",
+        "fi": "viro",
+        "sv": "estniska",
+    },
+    "fin": {
+        "en": "Finnish",
+        "fi": "suomi",
+        "sv": "finska",
+    },
+    "fra": {
+        "en": "French",
+        "fi": "ranska",
+        "sv": "franska",
+    },
+    "fre": {
+        "en": "French",
+        "fi": "ranska",
+        "sv": "franska",
+    },
+    "ger": {
+        "en": "German",
+        "fi": "saksa",
+        "sv": "tyska",
+    },
+    "gre": {
+        "en": "Greek",
+        "fi": "kreikka",
+        "sv": "grekiska",
+    },
+    "heb": {
+        "en": "Hebrew",
+        "fi": "heprea",
+        "sv": "hebreiska",
+    },
+    "hun": {
+        "en": "Hungarian",
+        "fi": "unkari",
+        "sv": "ungerska",
+    },
+    "izh": {
+        // "en": "izh",
+        "fi": "inkeroinen",
+        // "sv": "izh",
+    },
+    "kca": {
+        // "en": "kca",
+        "fi": "hanti",
+        // "sv": "kca",
+    },
+    "kpv": {
+        "en": "Komi-Zyrian",
+        "fi": "komisyrjääni",
+        "sv": "komi",
+    },
+    "lat": {
+        "en": "Latin",
+        "fi": "latina",
+        "sv": "latin",
+    },
+    "mdf": {
+        "en": "Moksha",
+        "fi": "mokša",
+        "sv": "moksja",
+    },
+    "mns": {
+        // "en": "mns",
+        "fi": "mansi",
+        // "sv": "mns",
+    },
+    "mrj": {
+        // "en": "mrj",
+        "fi": "länsimari",
+        // "sv": "mrj",
+    },
+    "myv": {
+        "en": "Erzya",
+        "fi": "ersä",
+        "sv": "erzia",
+    },
+    "nld": {
+        "en": "Dutch",
+        "fi": "hollanti",
+        "sv": "nederländska",
+    },
+    "nor": {
+        "en": "Norwegian",
+        "fi": "norja",
+        "sv": "norska",
+    },
+    "rus": {
+        "en": "Russian",
+        "fi": "venäjä",
+        "sv": "ryska",
+    },
+    "sel": {
+        // "en": "sel",
+        "fi": "selkuppi",
+        // "sv": "sel",
+    },
+    "sjd": {
+        // "en": "sjd",
+        "fi": "kiltinänsaame",
+        // "sv": "sjd",
+    },
+    "sms": {
+        // "en": "sms",
+        "fi": "koltansaame",
+        // "sv": "sms",
+    },
+    "spa": {
+        "en": "Spanish",
+        "fi": "espanja",
+        "sv": "spanska",
+    },
+    "swe": {
+        "en": "Swedish",
+        "fi": "ruotsi",
+        "sv": "svenska",
+    },
+    "vep": {
+        // "en": "vep",
+        "fi": "vepsä",
+        // "sv": "vep",
+    },
+    "yrk": {
+        // "en": "yrk",
+        "fi": "tundranenetsi",
+        // "sv": "yrk",
+    },
+};
+
+// TODO: Use a single set of language name translations, mapping
+// attribute values to three-letter language codes
+transl.langEuroParl = {
+    "bg": {
+        // "en": "bg",
+        "fi": "bulgaria",
+        // "sv": "bg",
+    },
+    "cs": {
+        // "en": "cs",
+        "fi": "tšekki",
+        // "sv": "cs",
+    },
+    "da": {
+        // "en": "da",
+        "fi": "tanska",
+        // "sv": "da",
+    },
+    "de": {
+        // "en": "de",
+        "fi": "saksa",
+        // "sv": "de",
+    },
+    "el": {
+        // "en": "el",
+        "fi": "kreikka",
+        // "sv": "el",
+    },
+    "en": {
+        // "en": "en",
+        "fi": "englanti",
+        // "sv": "en",
+    },
+    "es": {
+        // "en": "es",
+        "fi": "espanja",
+        // "sv": "es",
+    },
+    "et": {
+        // "en": "et",
+        "fi": "viro",
+        // "sv": "et",
+    },
+    "eu": {
+        // "en": "eu",
+        "fi": "baski",
+        // "sv": "eu",
+    },
+    "fi": {
+        // "en": "fi",
+        "fi": "suomi",
+        // "sv": "fi",
+    },
+    "fr": {
+        // "en": "fr",
+        "fi": "ranska",
+        // "sv": "fr",
+    },
+    "ga": {
+        // "en": "ga",
+        "fi": "iiri",
+        // "sv": "ga",
+    },
+    "hu": {
+        // "en": "hu",
+        "fi": "unkari",
+        // "sv": "hu",
+    },
+    "it": {
+        // "en": "it",
+        "fi": "italia",
+        // "sv": "it",
+    },
+    "lt": {
+        // "en": "lt",
+        "fi": "liettua",
+        // "sv": "lt",
+    },
+    "lv": {
+        // "en": "lv",
+        "fi": "latvia",
+        // "sv": "lv",
+    },
+    "mt": {
+        // "en": "mt",
+        "fi": "malta",
+        // "sv": "mt",
+    },
+    "nl": {
+        // "en": "nl",
+        "fi": "hollanti",
+        // "sv": "nl",
+    },
+    "pl": {
+        // "en": "pl",
+        "fi": "puola",
+        // "sv": "pl",
+    },
+    "pt": {
+        // "en": "pt",
+        "fi": "portugali",
+        // "sv": "pt",
+    },
+    "ro": {
+        // "en": "ro",
+        "fi": "romania",
+        // "sv": "ro",
+    },
+    "sk": {
+        // "en": "sk",
+        "fi": "slovakki",
+        // "sv": "sk",
+    },
+    "sl": {
+        // "en": "sl",
+        "fi": "sloveeni",
+        // "sv": "sl",
+    },
+    "sv": {
+        // "en": "sv",
+        "fi": "ruotsi",
+        // "sv": "sv",
+    },
+    "und": {
+        // "en": "und",
+        "fi": "tuntematon",
+        // "sv": "und",
+    },
+};
+
+transl.pos = {
+    "A": {
+        "en": "adjective",
+        "fi": "adjektiivi",
+        "sv": "adjektiv",
+    },
+    "AB": {
+        "en": "adverb",
+        "fi": "adverbi",
+        "sv": "adverb",
+    },
+    "ABBR": {
+        // "en": "ABBR",
+        "fi": "lyhenne",
+        // "sv": "ABBR",
+    },
+    "ADJ": {
+        "en": "adjective",
+        "fi": "adjektiivi",
+        // "sv": "ADJ",
+    },
+    "ADP": {
+        "en": "adposition",
+        "fi": "adpositio",
+        // "sv": "ADP",
+    },
+    "ADV": {
+        "en": "adverb",
+        "fi": "adverbi",
+        "sv": "adverb",
+    },
+    "AN": {
+        // "en": "AN",
+        "fi": "adjektiivi tai substantiivi",
+        // "sv": "AN",
+    },
+    "Abbr": {
+        "en": "abbreviation",
+        "fi": "lyhenne",
+        // "sv": "Abbr",
+    },
+    "AdA": {
+        // "en": "AdA",
+        "fi": "ad-adjektiivi",
+        // "sv": "AdA",
+    },
+    "Adj": {
+        // "en": "Adj",
+        "fi": "adjektiivi",
+        // "sv": "Adj",
+    },
+    "AdjNoun": {
+        // "en": "AdjNoun",
+        "fi": "adjektiivi/substantiivi",
+        // "sv": "AdjNoun",
+    },
+    "Adp": {
+        "en": "adposition",
+        "fi": "adpositio",
+        "sv": "adposition",
+    },
+    "Adv": {
+        "en": "adverb",
+        "fi": "adverbi",
+        "sv": "adverb",
+    },
+    "AgPrc": {
+        // "en": "AgPrc",
+        "fi": "agenttipartisiippi",
+        // "sv": "AgPrc",
+    },
+    "Art": {
+        // "en": "Art",
+        "fi": "artikkeli",
+        // "sv": "Art",
+    },
+    "Aux": {
+        "en": "auxiliary verb",
+        "fi": "apuverbi",
+        // "sv": "Aux",
+    },
+    "C": {
+        "en": "conjunction",
+        "fi": "konjunktio",
+        "sv": "konjunktion",
+    },
+    "CC": {
+        "en": "coordinating conjunction",
+        "fi": "rinnastuskonjunktio",
+        "sv": "samordnande konjunktion",
+    },
+    "CCONJ": {
+        "en": "coordinating conjunction",
+        "fi": "rinnastuskonjunktio",
+        // "sv": "CCONJ",
+    },
+    "CS": {
+        "en": "subordinating conjunction",
+        "fi": "alistuskonjunktio",
+        "sv": "underordnande konjunktion",
+    },
+    "Cmpr": {
+        // "en": "Cmpr",
+        "fi": "vertailukonjunktio",
+        // "sv": "Cmpr",
+    },
+    "Code": {
+        // "en": "Code",
+        "fi": "koodi",
+        // "sv": "Code",
+    },
+    "CompPart": {
+        // "en": "CompPart",
+        "fi": "yhdyssanan osa",
+        // "sv": "CompPart",
+    },
+    "Con": {
+        "en": "conjunction",
+        "fi": "konjunktio",
+        // "sv": "Con",
+    },
+    "Conj": {
+        // "en": "Conj",
+        "fi": "konjunktio",
+        // "sv": "Conj",
+    },
+    "D": {
+        // "en": "D",
+        "fi": "johdos",
+        // "sv": "D",
+    },
+    "DET": {
+        "en": "determiner",
+        "fi": "determineri",
+        "sv": "determinerare",
+    },
+    "DL": {
+        "en": "punctuation",
+        "fi": "välimerkki",
+        "sv": "interpunktion",
+    },
+    "DT": {
+        "en": "determiner",
+        "fi": "determineri",
+        "sv": "determinerare",
+    },
+    "DaUs": {
+        // "en": "DaUs",
+        "fi": "adjektiivin -us-johdos",
+        // "sv": "DaUs",
+    },
+    "DaUus": {
+        // "en": "DaUus",
+        "fi": "adjektiivin -uus-johdos",
+        // "sv": "DaUus",
+    },
+    "DnInen": {
+        // "en": "DnInen",
+        "fi": "substantiivin -inen-johdos",
+        // "sv": "DnInen",
+    },
+    "DnLlinen": {
+        // "en": "DnLlinen",
+        "fi": "substantiivin -llinen-johdos",
+        // "sv": "DnLlinen",
+    },
+    "DnTon": {
+        // "en": "DnTon",
+        "fi": "substantiivin -ton-johdos",
+        // "sv": "DnTon",
+    },
+    "DvMa": {
+        // "en": "DvMa",
+        "fi": "verbin -ma-johdos",
+        // "sv": "DvMa",
+    },
+    "DvTta": {
+        // "en": "DvTta",
+        "fi": "verbin -tta-johdos",
+        // "sv": "DvTta",
+    },
+    "E": {
+        "en": "e",
+        "fi": "e",
+        "sv": "e",
+    },
+    "EN": {
+        // "en": "EN",
+        "fi": "partisiipin perfekti",
+        // "sv": "EN",
+    },
+    "EX": {
+        // "en": "EX",
+        "fi": "there (is/are)",
+        // "sv": "EX",
+    },
+    "Foreign": {
+        "en": "foreign word",
+        "fi": "vierassana",
+        "sv": "utländskt ord",
+    },
+    "Forgn": {
+        // "en": "Forgn",
+        "fi": "vierassana",
+        // "sv": "Forgn",
+    },
+    "Gerund": {
+        // "en": "Gerund",
+        "fi": "gerundi",
+        // "sv": "Gerund",
+    },
+    "HA": {
+        "en": "interrogative/relative adverb",
+        "fi": "kysymys- tai relatiiviadverbi",
+        "sv": "frågande/relativt adverb",
+    },
+    "HD": {
+        "en": "interrogative/relative determiner",
+        "fi": "kysymys- tai relatiividetermineri",
+        "sv": "frågande/relativ determinerare",
+    },
+    "HP": {
+        "en": "interrogative/relative pronoun",
+        "fi": "kysymys- tai relatiivipronomini",
+        "sv": "frågande/relativt pronomen",
+    },
+    "HS": {
+        "en": "interrogative/relative possessive",
+        "fi": "kysymys- tai relatiivipossessiivipronomini",
+        "sv": "frågande/relativt possesivt pronomen",
+    },
+    "Heur": {
+        // "en": "Heur",
+        "fi": "heuristinen",
+        // "sv": "Heur",
+    },
+    "IE": {
+        "en": "infinitive marker",
+        "fi": "infinitiivin merkitsin",
+        "sv": "infinitivmärke",
+    },
+    "IN": {
+        "en": "interjection",
+        "fi": "interjektio",
+        "sv": "interjektion",
+    },
+    "INFMARK": {
+        // "en": "INFMARK",
+        "fi": "infinitiivin merkitsin",
+        // "sv": "INFMARK",
+    },
+    "ING": {
+        // "en": "ING",
+        "fi": "-ing",
+        // "sv": "ING",
+    },
+    "INTJ": {
+        "en": "interjection",
+        "fi": "interjektio",
+        // "sv": "INTJ",
+    },
+    "Interj": {
+        "en": "interjection",
+        "fi": "interjektio",
+        "sv": "interjektion",
+    },
+    "JJ": {
+        "en": "adjective",
+        "fi": "adjektiivi",
+        "sv": "adjektiv",
+    },
+    "KN": {
+        "en": "conjunction",
+        "fi": "konjunktio",
+        "sv": "konjunktion",
+    },
+    "MAD": {
+        "en": "punctuation",
+        "fi": "välimerkki",
+        "sv": "interpunktion",
+    },
+    "MID": {
+        "en": "punctuation",
+        "fi": "välimerkki",
+        "sv": "interpunktion",
+    },
+    "MID|MAD|PAD": {
+        "en": "punctuation",
+        // "fi": "MID|MAD|PAD",
+        "sv": "interpunktion",
+    },
+    "N": {
+        "en": "noun",
+        "fi": "substantiivi",
+        "sv": "substantiv",
+    },
+    "NEG-PART": {
+        // "en": "NEG-PART",
+        "fi": "kieltopartikkeli",
+        // "sv": "NEG-PART",
+    },
+    "NN": {
+        "en": "noun",
+        "fi": "substantiivi",
+        "sv": "substantiv",
+    },
+    "NOUN": {
+        "en": "noun",
+        "fi": "substantiivi",
+        // "sv": "NOUN",
+    },
+    "NUM": {
+        "en": "numeral",
+        "fi": "numeraali",
+        "sv": "numeral",
+    },
+    "NegPrc": {
+        // "en": "NegPrc",
+        "fi": "kieltopartisiippi",
+        // "sv": "NegPrc",
+    },
+    "NonTWOL": {
+        // "en": "NonTWOL",
+        "fi": "tunnistamaton",
+        // "sv": "NonTWOL",
+    },
+    "Noun": {
+        // "en": "Noun",
+        "fi": "substantiivi",
+        // "sv": "Noun",
+    },
+    "NounNoun": {
+        // "en": "NounNoun",
+        "fi": "substantiivi/substantiivi",
+        // "sv": "NounNoun",
+    },
+    "Num": {
+        "en": "numeral",
+        "fi": "numeraali",
+        "sv": "numeral",
+    },
+    "Numeral": {
+        // "en": "Numeral",
+        "fi": "numeraali",
+        // "sv": "Numeral",
+    },
+    "Other": {
+        "en": "other",
+        "fi": "muu",
+        // "sv": "Other",
+    },
+    "P": {
+        // "en": "P",
+        "fi": "P",
+        // "sv": "P",
+    },
+    "PAD": {
+        "en": "punctuation",
+        "fi": "välimerkki",
+        "sv": "interpunktion",
+    },
+    "PART": {
+        "en": "particle",
+        "fi": "partikkeli",
+        // "sv": "PART",
+    },
+    "PC": {
+        "en": "participle",
+        "fi": "partisiippi",
+        "sv": "particip",
+    },
+    "PL": {
+        "en": "particle",
+        "fi": "partikkeli",
+        "sv": "partikel",
+    },
+    "PM": {
+        "en": "proper noun",
+        "fi": "erisnimi",
+        "sv": "egennamn",
+    },
+    "PN": {
+        "en": "pronoun",
+        "fi": "pronomini",
+        "sv": "pronomen",
+    },
+    "POST": {
+        "en": "postposition",
+        "fi": "postpositio",
+        // "sv": "POST",
+    },
+    "PP": {
+        "en": "preposition",
+        "fi": "prepositio",
+        "sv": "preposition",
+    },
+    "PREP": {
+        "en": "preposition",
+        "fi": "prepositio",
+        "sv": "preposition",
+    },
+    "PRON": {
+        "en": "pronoun",
+        "fi": "pronomini",
+        "sv": "pronomen",
+    },
+    "PROPN": {
+        "en": "proper noun",
+        "fi": "erisnimi",
+        // "sv": "PROPN",
+    },
+    "PS": {
+        "en": "possessive",
+        "fi": "possessiivipronomini",
+        "sv": "possessivt pronomen",
+    },
+    "PUNCT": {
+        "en": "punctuation mark",
+        "fi": "välimerkki",
+        // "sv": "PUNCT",
+    },
+    "Part": {
+        // "en": "Part",
+        "fi": "partisiippi",
+        // "sv": "Part",
+    },
+    "Particle": {
+        // "en": "Particle",
+        "fi": "partikkeli",
+        // "sv": "Particle",
+    },
+    "Pcp1": {
+        // "en": "Pcp1",
+        "fi": "1. partisiippi",
+        // "sv": "Pcp1",
+    },
+    "Pcp2": {
+        // "en": "Pcp2",
+        "fi": "2. partisiippi",
+        // "sv": "Pcp2",
+    },
+    "Post": {
+        // "en": "Post",
+        "fi": "postpositio",
+        // "sv": "Post",
+    },
+    "Pp": {
+        // "en": "Pp",
+        "fi": "adpositio",
+        // "sv": "Pp",
+    },
+    "Predicative": {
+        // "en": "Predicative",
+        "fi": "predikatiivi",
+        // "sv": "Predicative",
+    },
+    "Prep": {
+        // "en": "Prep",
+        "fi": "prepositio",
+        // "sv": "Prep",
+    },
+    "Preposition": {
+        // "en": "Preposition",
+        "fi": "prepositio",
+        // "sv": "Preposition",
+    },
+    "PrfPrc": {
+        // "en": "PrfPrc",
+        "fi": "partisiipin perfekti",
+        // "sv": "PrfPrc",
+    },
+    "Pron": {
+        "en": "pronoun",
+        "fi": "pronomini",
+        "sv": "pronomen",
+    },
+    "Prop": {
+        // "en": "Prop",
+        "fi": "erisnimi",
+        // "sv": "Prop",
+    },
+    "PrsPrc": {
+        // "en": "PrsPrc",
+        "fi": "partisiipin preesens",
+        // "sv": "PrsPrc",
+    },
+    "Pun": {
+        "en": "punctuation",
+        "fi": "välimerkki",
+        // "sv": "Pun",
+    },
+    "Punct": {
+        "en": "punctuation",
+        "fi": "välimerkki",
+        "sv": "interpunktion",
+    },
+    "REL": {
+        // "en": "REL",
+        "fi": "relatiivipronomini",
+        // "sv": "REL",
+    },
+    "RG": {
+        "en": "cardinal number",
+        "fi": "perusluku",
+        "sv": "grundtal",
+    },
+    "RO": {
+        "en": "ordinal number",
+        "fi": "järjestysluku",
+        "sv": "ordningstal",
+    },
+    "ReflPron": {
+        // "en": "ReflPron",
+        "fi": "refleksiivipronomini",
+        // "sv": "ReflPron",
+    },
+    "Rel": {
+        // "en": "Rel",
+        "fi": "relatiivipronomini",
+        // "sv": "Rel",
+    },
+    "SCONJ": {
+        "en": "subordinating conjunction",
+        "fi": "alistuskonjunktio",
+        // "sv": "SCONJ",
+    },
+    "SN": {
+        "en": "subjunction",
+        "fi": "alistuskonjunktio",
+        "sv": "subjunktion",
+    },
+    "SYM": {
+        "en": "symbol",
+        "fi": "symboli",
+        // "sv": "SYM",
+    },
+    "Symb": {
+        "en": "symbol",
+        "fi": "symboli",
+        "sv": "symbol",
+    },
+    "TrunCo": {
+        // "en": "TrunCo",
+        "fi": "yhdyssanan osa",
+        // "sv": "TrunCo",
+    },
+    "UNK": {
+        // "en": "UNK",
+        "fi": "tuntematon",
+        // "sv": "UNK",
+    },
+    "UNKNOWN": {
+        "en": "unknown",
+        "fi": "analysoimaton",
+        "sv": "oanalyserat",
+    },
+    "UO": {
+        "en": "foreign word",
+        "fi": "vierassana",
+        "sv": "utländskt ord",
+    },
+    "Unknown": {
+        "en": "unknown",
+        "fi": "tunnistamaton",
+        // "sv": "Unknown",
+    },
+    "Unkwn": {
+        // "en": "Unkwn",
+        "fi": "tunnistamaton",
+        // "sv": "Unkwn",
+    },
+    "V": {
+        "en": "verb",
+        "fi": "verbi",
+        "sv": "verb",
+    },
+    "VB": {
+        "en": "verb",
+        "fi": "verbi",
+        "sv": "verb",
+    },
+    "VERB": {
+        "en": "verb",
+        "fi": "verbi",
+        // "sv": "VERB",
+    },
+    "Verb": {
+        // "en": "Verb",
+        "fi": "verbi",
+        // "sv": "Verb",
+    },
+    "X": {
+        "en": "other",
+        "fi": "muu",
+        // "sv": "X",
+    },
+    "[NON-TWOL]": {
+        // "en": "[NON-TWOL]",
+        "fi": "tunnistamaton",
+        // "sv": "[NON-TWOL]",
+    },
+    "a": {
+        // "en": "a",
+        "fi": "adjektiivi",
+        // "sv": "a",
+    },
+    "a:pron": {
+        // "en": "a:pron",
+        "fi": "adjektiivi: muu pronominaalinen",
+        // "sv": "a:pron",
+    },
+    "a:pron:dem": {
+        // "en": "a:pron:dem",
+        "fi": "adjektiivi: demonstratiivinen",
+        // "sv": "a:pron:dem",
+    },
+    "a:pron:int": {
+        // "en": "a:pron:int",
+        "fi": "adjektiivi: interrogatiivinen",
+        // "sv": "a:pron:int",
+    },
+    "a:pron:rel": {
+        // "en": "a:pron:rel",
+        "fi": "adjektiivi: relatiivinen",
+        // "sv": "a:pron:rel",
+    },
+    "adv": {
+        // "en": "adv",
+        "fi": "adverbi",
+        // "sv": "adv",
+    },
+    "adv:pron": {
+        // "en": "adv:pron",
+        "fi": "adverbi: muu pronominaalinen",
+        // "sv": "adv:pron",
+    },
+    "adv:pron:dem": {
+        // "en": "adv:pron:dem",
+        "fi": "adverbi: demonstratiivinen",
+        // "sv": "adv:pron:dem",
+    },
+    "adv:pron:int": {
+        // "en": "adv:pron:int",
+        "fi": "adverbi: interrogatiivinen",
+        // "sv": "adv:pron:int",
+    },
+    "adv:pron:rel": {
+        // "en": "adv:pron:rel",
+        "fi": "adverbi: relatiivinen",
+        // "sv": "adv:pron:rel",
+    },
+    "adv:q": {
+        // "en": "adv:q",
+        "fi": "adverbi: paljon-tyyppi",
+        // "sv": "adv:q",
+    },
+    "byu_GAP": {
+        "en": "deleted",
+        // "fi": "byu_GAP",
+        // "sv": "byu_GAP",
+    },
+    "byu_a": {
+        "en": "non-standard article “ze”",
+        // "fi": "byu_a",
+        // "sv": "byu_a",
+    },
+    "byu_appge": {
+        "en": "possessive pronoun, pre-nominal",
+        // "fi": "byu_appge",
+        // "sv": "byu_appge",
+    },
+    "byu_at": {
+        "en": "article",
+        // "fi": "byu_at",
+        // "sv": "byu_at",
+    },
+    "byu_at1": {
+        "en": "singular article",
+        // "fi": "byu_at1",
+        // "sv": "byu_at1",
+    },
+    "byu_bcl": {
+        "en": "before-clause marker",
+        // "fi": "byu_bcl",
+        // "sv": "byu_bcl",
+    },
+    "byu_c": {
+        "en": "conjunction “cept”",
+        // "fi": "byu_c",
+        // "sv": "byu_c",
+    },
+    "byu_cc": {
+        "en": "coordinating conjunction",
+        // "fi": "byu_cc",
+        // "sv": "byu_cc",
+    },
+    "byu_ccb": {
+        "en": "adversative coordinating conjunction",
+        // "fi": "byu_ccb",
+        // "sv": "byu_ccb",
+    },
+    "byu_cs": {
+        "en": "subordinating conjunction",
+        // "fi": "byu_cs",
+        // "sv": "byu_cs",
+    },
+    "byu_csa": {
+        "en": "as (as conjunction)",
+        // "fi": "byu_csa",
+        // "sv": "byu_csa",
+    },
+    "byu_csn": {
+        "en": "than (as conjunction)",
+        // "fi": "byu_csn",
+        // "sv": "byu_csn",
+    },
+    "byu_cst": {
+        "en": "that (as conjunction)",
+        // "fi": "byu_cst",
+        // "sv": "byu_cst",
+    },
+    "byu_csw": {
+        "en": "whether (as conjunction)",
+        // "fi": "byu_csw",
+        // "sv": "byu_csw",
+    },
+    "byu_d": {
+        "en": "“an-other”",
+        // "fi": "byu_d",
+        // "sv": "byu_d",
+    },
+    "byu_da": {
+        "en": "after-determiner or post-determiner capable of pronominal function",
+        // "fi": "byu_da",
+        // "sv": "byu_da",
+    },
+    "byu_da1": {
+        "en": "singular after-determiner",
+        // "fi": "byu_da1",
+        // "sv": "byu_da1",
+    },
+    "byu_da2": {
+        "en": "plural after-determiner",
+        // "fi": "byu_da2",
+        // "sv": "byu_da2",
+    },
+    "byu_dar": {
+        "en": "comparative after-determiner",
+        // "fi": "byu_dar",
+        // "sv": "byu_dar",
+    },
+    "byu_dat": {
+        "en": "superlative after-determiner",
+        // "fi": "byu_dat",
+        // "sv": "byu_dat",
+    },
+    "byu_db": {
+        "en": "before determiner or pre-determiner capable of pronominal function",
+        // "fi": "byu_db",
+        // "sv": "byu_db",
+    },
+    "byu_db2": {
+        "en": "plural before-determiner",
+        // "fi": "byu_db2",
+        // "sv": "byu_db2",
+    },
+    "byu_dd": {
+        "en": "determiner (capable of pronominal function)",
+        // "fi": "byu_dd",
+        // "sv": "byu_dd",
+    },
+    "byu_dd1": {
+        "en": "singular determiner",
+        // "fi": "byu_dd1",
+        // "sv": "byu_dd1",
+    },
+    "byu_dd2": {
+        "en": "plural determiner",
+        // "fi": "byu_dd2",
+        // "sv": "byu_dd2",
+    },
+    "byu_ddq": {
+        "en": "wh-determiner",
+        // "fi": "byu_ddq",
+        // "sv": "byu_ddq",
+    },
+    "byu_ddqge": {
+        "en": "wh-determiner, genitive",
+        // "fi": "byu_ddqge",
+        // "sv": "byu_ddqge",
+    },
+    "byu_ddqv": {
+        "en": "wh-ever determiner",
+        // "fi": "byu_ddqv",
+        // "sv": "byu_ddqv",
+    },
+    "byu_ex": {
+        "en": "existential there",
+        // "fi": "byu_ex",
+        // "sv": "byu_ex",
+    },
+    "byu_f": {
+        "en": "foreign article or preposition",
+        // "fi": "byu_f",
+        // "sv": "byu_f",
+    },
+    "byu_fo": {
+        "en": "formula",
+        // "fi": "byu_fo",
+        // "sv": "byu_fo",
+    },
+    "byu_fu": {
+        "en": "unclassified word",
+        // "fi": "byu_fu",
+        // "sv": "byu_fu",
+    },
+    "byu_fw": {
+        "en": "foreign word",
+        // "fi": "byu_fw",
+        // "sv": "byu_fw",
+    },
+    "byu_ge": {
+        "en": "germanic genitive marker",
+        // "fi": "byu_ge",
+        // "sv": "byu_ge",
+    },
+    "byu_i": {
+        "en": "non-standard preposition “uv”",
+        // "fi": "byu_i",
+        // "sv": "byu_i",
+    },
+    "byu_if": {
+        "en": "for (as preposition)",
+        // "fi": "byu_if",
+        // "sv": "byu_if",
+    },
+    "byu_ii": {
+        "en": "general preposition",
+        // "fi": "byu_ii",
+        // "sv": "byu_ii",
+    },
+    "byu_io": {
+        "en": "of (as preposition)",
+        // "fi": "byu_io",
+        // "sv": "byu_io",
+    },
+    "byu_iw": {
+        "en": "with, without (as prepositions)",
+        // "fi": "byu_iw",
+        // "sv": "byu_iw",
+    },
+    "byu_j": {
+        "en": "other adjective",
+        // "fi": "byu_j",
+        // "sv": "byu_j",
+    },
+    "byu_jj": {
+        "en": "general adjective",
+        // "fi": "byu_jj",
+        // "sv": "byu_jj",
+    },
+    "byu_jjr": {
+        "en": "general comparative adjective",
+        // "fi": "byu_jjr",
+        // "sv": "byu_jjr",
+    },
+    "byu_jjt": {
+        "en": "general superlative adjective",
+        // "fi": "byu_jjt",
+        // "sv": "byu_jjt",
+    },
+    "byu_jk": {
+        "en": "catenative adjective",
+        // "fi": "byu_jk",
+        // "sv": "byu_jk",
+    },
+    "byu_m": {
+        "en": "other number",
+        // "fi": "byu_m",
+        // "sv": "byu_m",
+    },
+    "byu_m#": {
+        "en": "number with unit",
+        // "fi": "byu_m#",
+        // "sv": "byu_m#",
+    },
+    "byu_m$": {
+        "en": "number with currency symbol",
+        // "fi": "byu_m$",
+        // "sv": "byu_m$",
+    },
+    "byu_m1": {
+        "en": "number (“million”, “billion”)",
+        // "fi": "byu_m1",
+        // "sv": "byu_m1",
+    },
+    "byu_mc": {
+        "en": "cardinal number, neutral for number",
+        // "fi": "byu_mc",
+        // "sv": "byu_mc",
+    },
+    "byu_mc1": {
+        "en": "singular cardinal number",
+        // "fi": "byu_mc1",
+        // "sv": "byu_mc1",
+    },
+    "byu_mc2": {
+        "en": "plural cardinal number",
+        // "fi": "byu_mc2",
+        // "sv": "byu_mc2",
+    },
+    "byu_mcge": {
+        "en": "genitive cardinal number, neutral for number",
+        // "fi": "byu_mcge",
+        // "sv": "byu_mcge",
+    },
+    "byu_mcmc": {
+        "en": "hyphenated number",
+        // "fi": "byu_mcmc",
+        // "sv": "byu_mcmc",
+    },
+    "byu_md": {
+        "en": "ordinal number",
+        // "fi": "byu_md",
+        // "sv": "byu_md",
+    },
+    "byu_mf": {
+        "en": "fraction,neutral for number",
+        // "fi": "byu_mf",
+        // "sv": "byu_mf",
+    },
+    "byu_n": {
+        "en": "other noun",
+        // "fi": "byu_n",
+        // "sv": "byu_n",
+    },
+    "byu_nd1": {
+        "en": "singular noun of direction",
+        // "fi": "byu_nd1",
+        // "sv": "byu_nd1",
+    },
+    "byu_nn": {
+        "en": "common noun, neutral for number",
+        // "fi": "byu_nn",
+        // "sv": "byu_nn",
+    },
+    "byu_nn1": {
+        "en": "singular common noun",
+        // "fi": "byu_nn1",
+        // "sv": "byu_nn1",
+    },
+    "byu_nn2": {
+        "en": "plural common noun",
+        // "fi": "byu_nn2",
+        // "sv": "byu_nn2",
+    },
+    "byu_nna": {
+        "en": "following noun of title",
+        // "fi": "byu_nna",
+        // "sv": "byu_nna",
+    },
+    "byu_nnb": {
+        "en": "preceding noun of title",
+        // "fi": "byu_nnb",
+        // "sv": "byu_nnb",
+    },
+    "byu_nnl1": {
+        "en": "singular locative noun",
+        // "fi": "byu_nnl1",
+        // "sv": "byu_nnl1",
+    },
+    "byu_nnl2": {
+        "en": "plural locative noun",
+        // "fi": "byu_nnl2",
+        // "sv": "byu_nnl2",
+    },
+    "byu_nno": {
+        "en": "numeral noun, neutral for number",
+        // "fi": "byu_nno",
+        // "sv": "byu_nno",
+    },
+    "byu_nno2": {
+        "en": "numeral noun, plural",
+        // "fi": "byu_nno2",
+        // "sv": "byu_nno2",
+    },
+    "byu_nnt1": {
+        "en": "temporal noun, singular",
+        // "fi": "byu_nnt1",
+        // "sv": "byu_nnt1",
+    },
+    "byu_nnt2": {
+        "en": "temporal noun, plural",
+        // "fi": "byu_nnt2",
+        // "sv": "byu_nnt2",
+    },
+    "byu_nnu": {
+        "en": "unit of measurement, neutral for number",
+        // "fi": "byu_nnu",
+        // "sv": "byu_nnu",
+    },
+    "byu_nnu1": {
+        "en": "singular unit of measurement",
+        // "fi": "byu_nnu1",
+        // "sv": "byu_nnu1",
+    },
+    "byu_nnu2": {
+        "en": "plural unit of measurement",
+        // "fi": "byu_nnu2",
+        // "sv": "byu_nnu2",
+    },
+    "byu_np": {
+        "en": "proper noun, neutral for number",
+        // "fi": "byu_np",
+        // "sv": "byu_np",
+    },
+    "byu_np1": {
+        "en": "singular proper noun",
+        // "fi": "byu_np1",
+        // "sv": "byu_np1",
+    },
+    "byu_np2": {
+        "en": "plural proper noun",
+        // "fi": "byu_np2",
+        // "sv": "byu_np2",
+    },
+    "byu_npd1": {
+        "en": "singular weekday noun",
+        // "fi": "byu_npd1",
+        // "sv": "byu_npd1",
+    },
+    "byu_npd2": {
+        "en": "plural weekday noun",
+        // "fi": "byu_npd2",
+        // "sv": "byu_npd2",
+    },
+    "byu_npm1": {
+        "en": "singular month noun",
+        // "fi": "byu_npm1",
+        // "sv": "byu_npm1",
+    },
+    "byu_npm2": {
+        "en": "plural month noun",
+        // "fi": "byu_npm2",
+        // "sv": "byu_npm2",
+    },
+    "byu_npx": {
+        "en": "other proper noun",
+        // "fi": "byu_npx",
+        // "sv": "byu_npx",
+    },
+    "byu_null": {
+        "en": "word containing symbols",
+        // "fi": "byu_null",
+        // "sv": "byu_null",
+    },
+    "byu_p": {
+        "en": "other pronoun",
+        // "fi": "byu_p",
+        // "sv": "byu_p",
+    },
+    "byu_pn": {
+        "en": "indefinite pronoun, neutral for number",
+        // "fi": "byu_pn",
+        // "sv": "byu_pn",
+    },
+    "byu_pn1": {
+        "en": "indefinite pronoun, singular",
+        // "fi": "byu_pn1",
+        // "sv": "byu_pn1",
+    },
+    "byu_pnqo": {
+        "en": "objective wh-pronoun",
+        // "fi": "byu_pnqo",
+        // "sv": "byu_pnqo",
+    },
+    "byu_pnqs": {
+        "en": "subjective wh-pronoun",
+        // "fi": "byu_pnqs",
+        // "sv": "byu_pnqs",
+    },
+    "byu_pnqv": {
+        "en": "wh-ever pronoun",
+        // "fi": "byu_pnqv",
+        // "sv": "byu_pnqv",
+    },
+    "byu_pnx1": {
+        "en": "reflexive indefinite pronoun",
+        // "fi": "byu_pnx1",
+        // "sv": "byu_pnx1",
+    },
+    "byu_ppge": {
+        "en": "nominal possessive personal pronoun",
+        // "fi": "byu_ppge",
+        // "sv": "byu_ppge",
+    },
+    "byu_pph1": {
+        "en": "3rd person singular neuter personal pronoun",
+        // "fi": "byu_pph1",
+        // "sv": "byu_pph1",
+    },
+    "byu_ppho1": {
+        "en": "3rd person singular objective personal pronoun",
+        // "fi": "byu_ppho1",
+        // "sv": "byu_ppho1",
+    },
+    "byu_ppho2": {
+        "en": "3rd person plural objective personal pronoun",
+        // "fi": "byu_ppho2",
+        // "sv": "byu_ppho2",
+    },
+    "byu_pphs1": {
+        "en": "3rd person singular subjective personal pronoun",
+        // "fi": "byu_pphs1",
+        // "sv": "byu_pphs1",
+    },
+    "byu_pphs2": {
+        "en": "3rd person plural subjective personal pronoun",
+        // "fi": "byu_pphs2",
+        // "sv": "byu_pphs2",
+    },
+    "byu_ppio1": {
+        "en": "1st person singular objective personal pronoun",
+        // "fi": "byu_ppio1",
+        // "sv": "byu_ppio1",
+    },
+    "byu_ppio2": {
+        "en": "1st person plural objective personal pronoun",
+        // "fi": "byu_ppio2",
+        // "sv": "byu_ppio2",
+    },
+    "byu_ppis1": {
+        "en": "1st person singular subjective personal pronoun",
+        // "fi": "byu_ppis1",
+        // "sv": "byu_ppis1",
+    },
+    "byu_ppis2": {
+        "en": "1st person plural subjective personal pronoun",
+        // "fi": "byu_ppis2",
+        // "sv": "byu_ppis2",
+    },
+    "byu_ppx1": {
+        "en": "singular reflexive personal pronoun",
+        // "fi": "byu_ppx1",
+        // "sv": "byu_ppx1",
+    },
+    "byu_ppx2": {
+        "en": "plural reflexive personal pronoun",
+        // "fi": "byu_ppx2",
+        // "sv": "byu_ppx2",
+    },
+    "byu_ppy": {
+        "en": "2nd person personal pronoun",
+        // "fi": "byu_ppy",
+        // "sv": "byu_ppy",
+    },
+    "byu_ra": {
+        "en": "adverb, after nominal head",
+        // "fi": "byu_ra",
+        // "sv": "byu_ra",
+    },
+    "byu_rex": {
+        "en": "adverb introducing appositional constructions",
+        // "fi": "byu_rex",
+        // "sv": "byu_rex",
+    },
+    "byu_rg": {
+        "en": "degree adverb",
+        // "fi": "byu_rg",
+        // "sv": "byu_rg",
+    },
+    "byu_rgq": {
+        "en": "wh- degree adverb",
+        // "fi": "byu_rgq",
+        // "sv": "byu_rgq",
+    },
+    "byu_rgqv": {
+        "en": "wh-ever degree adverb",
+        // "fi": "byu_rgqv",
+        // "sv": "byu_rgqv",
+    },
+    "byu_rgr": {
+        "en": "comparative degree adverb",
+        // "fi": "byu_rgr",
+        // "sv": "byu_rgr",
+    },
+    "byu_rgt": {
+        "en": "superlative degree adverb",
+        // "fi": "byu_rgt",
+        // "sv": "byu_rgt",
+    },
+    "byu_rl": {
+        "en": "locative adverb",
+        // "fi": "byu_rl",
+        // "sv": "byu_rl",
+    },
+    "byu_rp": {
+        "en": "prepositional adverb, particle",
+        // "fi": "byu_rp",
+        // "sv": "byu_rp",
+    },
+    "byu_rpk": {
+        "en": "prepositional adverb, catenative",
+        // "fi": "byu_rpk",
+        // "sv": "byu_rpk",
+    },
+    "byu_rr": {
+        "en": "general adverb",
+        // "fi": "byu_rr",
+        // "sv": "byu_rr",
+    },
+    "byu_rrq": {
+        "en": "wh- general adverb",
+        // "fi": "byu_rrq",
+        // "sv": "byu_rrq",
+    },
+    "byu_rrqv": {
+        "en": "wh-ever general adverb",
+        // "fi": "byu_rrqv",
+        // "sv": "byu_rrqv",
+    },
+    "byu_rrr": {
+        "en": "comparative general adverb",
+        // "fi": "byu_rrr",
+        // "sv": "byu_rrr",
+    },
+    "byu_rrt": {
+        "en": "superlative general adverb",
+        // "fi": "byu_rrt",
+        // "sv": "byu_rrt",
+    },
+    "byu_rt": {
+        "en": "quasi-nominal adverb of time",
+        // "fi": "byu_rt",
+        // "sv": "byu_rt",
+    },
+    "byu_to": {
+        "en": "infinitive marker",
+        // "fi": "byu_to",
+        // "sv": "byu_to",
+    },
+    "byu_uh": {
+        "en": "interjection",
+        // "fi": "byu_uh",
+        // "sv": "byu_uh",
+    },
+    "byu_v": {
+        "en": "other verb form",
+        // "fi": "byu_v",
+        // "sv": "byu_v",
+    },
+    "byu_vb0": {
+        "en": "be, base form (finite i.e. imperative, subjunctive)",
+        // "fi": "byu_vb0",
+        // "sv": "byu_vb0",
+    },
+    "byu_vbdr": {
+        "en": "were",
+        // "fi": "byu_vbdr",
+        // "sv": "byu_vbdr",
+    },
+    "byu_vbdz": {
+        "en": "was",
+        // "fi": "byu_vbdz",
+        // "sv": "byu_vbdz",
+    },
+    "byu_vbg": {
+        "en": "being",
+        // "fi": "byu_vbg",
+        // "sv": "byu_vbg",
+    },
+    "byu_vbi": {
+        "en": "be, infinitive",
+        // "fi": "byu_vbi",
+        // "sv": "byu_vbi",
+    },
+    "byu_vbm": {
+        "en": "am",
+        // "fi": "byu_vbm",
+        // "sv": "byu_vbm",
+    },
+    "byu_vbn": {
+        "en": "been",
+        // "fi": "byu_vbn",
+        // "sv": "byu_vbn",
+    },
+    "byu_vbr": {
+        "en": "are",
+        // "fi": "byu_vbr",
+        // "sv": "byu_vbr",
+    },
+    "byu_vbz": {
+        "en": "is",
+        // "fi": "byu_vbz",
+        // "sv": "byu_vbz",
+    },
+    "byu_vd": {
+        "en": "don, dons",
+        // "fi": "byu_vd",
+        // "sv": "byu_vd",
+    },
+    "byu_vd0": {
+        "en": "do, base form (finite)",
+        // "fi": "byu_vd0",
+        // "sv": "byu_vd0",
+    },
+    "byu_vdd": {
+        "en": "did",
+        // "fi": "byu_vdd",
+        // "sv": "byu_vdd",
+    },
+    "byu_vdg": {
+        "en": "doing",
+        // "fi": "byu_vdg",
+        // "sv": "byu_vdg",
+    },
+    "byu_vdi": {
+        "en": "do, infinitive",
+        // "fi": "byu_vdi",
+        // "sv": "byu_vdi",
+    },
+    "byu_vdn": {
+        "en": "done",
+        // "fi": "byu_vdn",
+        // "sv": "byu_vdn",
+    },
+    "byu_vdz": {
+        "en": "does",
+        // "fi": "byu_vdz",
+        // "sv": "byu_vdz",
+    },
+    "byu_vh0": {
+        "en": "have, base form (finite)",
+        // "fi": "byu_vh0",
+        // "sv": "byu_vh0",
+    },
+    "byu_vhd": {
+        "en": "had (past tense)",
+        // "fi": "byu_vhd",
+        // "sv": "byu_vhd",
+    },
+    "byu_vhg": {
+        "en": "having",
+        // "fi": "byu_vhg",
+        // "sv": "byu_vhg",
+    },
+    "byu_vhi": {
+        "en": "have, infinitive",
+        // "fi": "byu_vhi",
+        // "sv": "byu_vhi",
+    },
+    "byu_vhn": {
+        "en": "had (past participle)",
+        // "fi": "byu_vhn",
+        // "sv": "byu_vhn",
+    },
+    "byu_vhz": {
+        "en": "has",
+        // "fi": "byu_vhz",
+        // "sv": "byu_vhz",
+    },
+    "byu_vm": {
+        "en": "modal auxiliary",
+        // "fi": "byu_vm",
+        // "sv": "byu_vm",
+    },
+    "byu_vmk": {
+        "en": "modal catenative",
+        // "fi": "byu_vmk",
+        // "sv": "byu_vmk",
+    },
+    "byu_vv0": {
+        "en": "base form of lexical verb",
+        // "fi": "byu_vv0",
+        // "sv": "byu_vv0",
+    },
+    "byu_vvd": {
+        "en": "past tense of lexical verb",
+        // "fi": "byu_vvd",
+        // "sv": "byu_vvd",
+    },
+    "byu_vvg": {
+        "en": "-ing participle of lexical verb",
+        // "fi": "byu_vvg",
+        // "sv": "byu_vvg",
+    },
+    "byu_vvgk": {
+        "en": "-ing participle catenative",
+        // "fi": "byu_vvgk",
+        // "sv": "byu_vvgk",
+    },
+    "byu_vvi": {
+        "en": "infinitive",
+        // "fi": "byu_vvi",
+        // "sv": "byu_vvi",
+    },
+    "byu_vvn": {
+        "en": "past participle of lexical verb",
+        // "fi": "byu_vvn",
+        // "sv": "byu_vvn",
+    },
+    "byu_vvnk": {
+        "en": "past participle catenative",
+        // "fi": "byu_vvnk",
+        // "sv": "byu_vvnk",
+    },
+    "byu_vvz": {
+        "en": "-s form of lexical verb",
+        // "fi": "byu_vvz",
+        // "sv": "byu_vvz",
+    },
+    "byu_x": {
+        "en": "other word (x)",
+        // "fi": "byu_x",
+        // "sv": "byu_x",
+    },
+    "byu_xx": {
+        "en": "not, n't",
+        // "fi": "byu_xx",
+        // "sv": "byu_xx",
+    },
+    "byu_xxy": {
+        "en": "no or not with hyphen",
+        // "fi": "byu_xxy",
+        // "sv": "byu_xxy",
+    },
+    "byu_y0": {
+        "en": "punctuation (literal)",
+        // "fi": "byu_y0",
+        // "sv": "byu_y0",
+    },
+    "byu_z": {
+        "en": "other word (z)",
+        // "fi": "byu_z",
+        // "sv": "byu_z",
+    },
+    "byu_z'": {
+        "en": "word possibly missing an apostrophe",
+        // "fi": "byu_z'",
+        // "sv": "byu_z'",
+    },
+    "byu_zz": {
+        "en": "other word (zz)",
+        // "fi": "byu_zz",
+        // "sv": "byu_zz",
+    },
+    "byu_zz1": {
+        "en": "singular letter of the alphabet",
+        // "fi": "byu_zz1",
+        // "sv": "byu_zz1",
+    },
+    "byu_zz2": {
+        "en": "plural letter of the alphabet",
+        // "fi": "byu_zz2",
+        // "sv": "byu_zz2",
+    },
+    "byu_zzc": {
+        "en": "transcript metainformation @(...)",
+        // "fi": "byu_zzc",
+        // "sv": "byu_zzc",
+    },
+    "byu_zzq": {
+        "en": "transcript metainformation @!...",
+        // "fi": "byu_zzq",
+        // "sv": "byu_zzq",
+    },
+    "cnj": {
+        // "en": "cnj",
+        "fi": "konjunktio",
+        // "sv": "cnj",
+    },
+    "cnj:coord": {
+        // "en": "cnj:coord",
+        "fi": "konjunktio: rinnastus-",
+        // "sv": "cnj:coord",
+    },
+    "cnj:rel": {
+        // "en": "cnj:rel",
+        "fi": "konjunktio: relatiivi-",
+        // "sv": "cnj:rel",
+    },
+    "cnj:sub": {
+        // "en": "cnj:sub",
+        "fi": "konjunktio: alistus-",
+        // "sv": "cnj:sub",
+    },
+    "intj": {
+        // "en": "intj",
+        "fi": "interjektio",
+        // "sv": "intj",
+    },
+    "muu": {
+        // "en": "muu",
+        "fi": "muu",
+        // "sv": "muu",
+    },
+    "n": {
+        // "en": "n",
+        "fi": "substantiivi: ei erisnimi",
+        // "sv": "n",
+    },
+    "n:prop": {
+        // "en": "n:prop",
+        "fi": "substantiivi: erisnimi, ei henkilön-",
+        // "sv": "n:prop",
+    },
+    "n:prop:any": {
+        // "en": "n:prop:any",
+        "fi": "substantiivi: erisnimi",
+        // "sv": "n:prop:any",
+    },
+    "n:prop:pname": {
+        // "en": "n:prop:pname",
+        "fi": "substantiivi: henkilönnimi",
+        // "sv": "n:prop:pname",
+    },
+    "neg": {
+        // "en": "neg",
+        "fi": "kieltosana ”ei”, ”älä”",
+        // "sv": "neg",
+    },
+    "null": {
+        // "en": "null",
+        "fi": "tyhjä",
+        // "sv": "null",
+    },
+    "num": {
+        // "en": "num",
+        "fi": "numeraali",
+        // "sv": "num",
+    },
+    "num:card": {
+        // "en": "num:card",
+        "fi": "numeraali: perusluku",
+        // "sv": "num:card",
+    },
+    "num:murto": {
+        // "en": "num:murto",
+        "fi": "numeraali: murtoluku",
+        // "sv": "num:murto",
+    },
+    "num:ord": {
+        // "en": "num:ord",
+        "fi": "numeraali: järjestysluku",
+        // "sv": "num:ord",
+    },
+    "num:ord_pron": {
+        // "en": "num:ord_pron",
+        "fi": "pronomini/numeraali ”toinen”",
+        // "sv": "num:ord_pron",
+    },
+    "orig": {
+        "en": "part of speech (original)",
+        "fi": "sanaluokka (siivoamaton)",
+        // "sv": "orig",
+    },
+    "p:post": {
+        // "en": "p:post",
+        "fi": "postpositio",
+        // "sv": "p:post",
+    },
+    "p:pre": {
+        // "en": "p:pre",
+        "fi": "prepositio",
+        // "sv": "p:pre",
+    },
+    "pron": {
+        // "en": "pron",
+        "fi": "pronomini ”se”, ”ne”",
+        // "sv": "pron",
+    },
+    "pron:any": {
+        // "en": "pron:any",
+        "fi": "pronomini",
+        // "sv": "pron:any",
+    },
+    "pron:dem": {
+        // "en": "pron:dem",
+        "fi": "pronomini: demonstratiivi-",
+        // "sv": "pron:dem",
+    },
+    "pron:int": {
+        // "en": "pron:int",
+        "fi": "pronomini: interrogatiivi-",
+        // "sv": "pron:int",
+    },
+    "pron:pers": {
+        // "en": "pron:pers",
+        "fi": "pronomini ”hän”, ”he”",
+        // "sv": "pron:pers",
+    },
+    "pron:pers12": {
+        // "en": "pron:pers12",
+        "fi": "pronomini: 1. tai 2. persoona",
+        // "sv": "pron:pers12",
+    },
+    "pron:ref": {
+        // "en": "pron:ref",
+        "fi": "pronomini: refleksiivi-",
+        // "sv": "pron:ref",
+    },
+    "pron:rel": {
+        // "en": "pron:rel",
+        "fi": "pronomini: relatiivi-",
+        // "sv": "pron:rel",
+    },
+    "pun": {
+        // "en": "pun",
+        "fi": "välimerkki",
+        // "sv": "pun",
+    },
+    "punct": {
+        // "en": "punct",
+        "fi": "välimerkki",
+        // "sv": "punct",
+    },
+    "q": {
+        // "en": "q",
+        "fi": "pronomini: kvanttori-",
+        // "sv": "q",
+    },
+    "v": {
+        // "en": "v",
+        "fi": "verbi",
+        // "sv": "v",
+    },
+};
+
+transl.deprel = {
+    "++": {
+        "en": "Coordinating conjunction",
+        "fi": "Rinnastuskonjunktio",
+        "sv": "Samordnande konjunktion",
+    },
+    "+A": {
+        "en": "Conjunctional adverbial",
+        "fi": "Konjunktiivinen adverbi",
+        "sv": "Konjuktionellt adverb",
+    },
+    "+F": {
+        "en": "Coordination at main clause level",
+        "fi": "Rinnastus päälauseen tasolla",
+        "sv": "Koordination på huvudsatsnivå",
+    },
+    "AA": {
+        "en": "Other adverbial",
+        "fi": "Muu adverbiaali",
+        "sv": "Annat adverbial",
+    },
+    "AG": {
+        "en": "Agent",
+        "fi": "Agentti",
+        "sv": "Agent",
+    },
+    "AN": {
+        "en": "Apposition",
+        "fi": "Appositio",
+        "sv": "Apposition",
+    },
+    "AT": {
+        "en": "Nominal (adjectival) pre-modifier",
+        "fi": "Nominietumäärite (adjektiivi)",
+        "sv": "Framförställt attribut",
+    },
+    "CA": {
+        "en": "Contrastive adverbial",
+        "fi": "Kontrastiivinen adverbiaali",
+        "sv": "Kontrastivt adverbial",
+    },
+    "CJ": {
+        "en": "Conjunct (in coordinate structure)",
+        "fi": "Konjunkti rinnastusrakenteessa",
+        "sv": "Samordnat led",
+    },
+    "DB": {
+        "en": "Doubled function",
+        "fi": "Kaksoisfunktio",
+        "sv": "Dubbel funktion",
+    },
+    "DT": {
+        "en": "Determiner",
+        "fi": "Determineri",
+        "sv": "Determinerare, bestämningsord",
+    },
+    "EF": {
+        "en": "Relative clause in cleft",
+        "fi": "Relatiivisivulause",
+        "sv": "Relativ bisats",
+    },
+    "EO": {
+        "en": "Logical object",
+        "fi": "Looginen objekti",
+        "sv": "Egentligt objekt",
+    },
+    "ES": {
+        "en": "Logical subject",
+        "fi": "Looginen subjekti",
+        "sv": "Egentligt subjekt",
+    },
+    "ET": {
+        "en": "Other nominal post-modifier",
+        "fi": "Muu nominaalijälkimäärite",
+        "sv": "Efterställd bestämning",
+    },
+    "FO": {
+        "en": "Dummy object",
+        "fi": "Muodollinen objekti",
+        "sv": "Formellt objekt",
+    },
+    "FP": {
+        "en": "Free subjective predicative complement",
+        "fi": "Vapaa subjektiivinen predikatiivi",
+        "sv": "Fritt subjektivt predikativ (predikatsfyllnad)",
+    },
+    "FS": {
+        "en": "Dummy subject",
+        "fi": "Muodollinen subjekti",
+        "sv": "Formellt subjekt",
+    },
+    "FV": {
+        "en": "Finite predicate verb",
+        "fi": "Finiittinen predikaattiverbi",
+        "sv": "Finit verb, predikatsverb",
+    },
+    "HD": {
+        "en": "Head",
+        "fi": "Pää",
+        "sv": "Huvud",
+    },
+    "I?": {
+        "en": "Question mark",
+        "fi": "Kysymysmerkki",
+        "sv": "Frågetecken",
+    },
+    "IC": {
+        "en": "Quotation mark",
+        "fi": "Lainausmerkki",
+        "sv": "Citattecken",
+    },
+    "IF": {
+        "en": "Infinitive verb phrase minus infinitive marker",
+        "fi": "Infinitiivilauseke, ilman infinitiivin merkitsintä",
+        "sv": "Infinitivfras, utom infinitivmärke",
+    },
+    "IG": {
+        "en": "Other punctuation mark",
+        "fi": "Muu välimerkki",
+        "sv": "Övrig interpunktion",
+    },
+    "IK": {
+        "en": "Comma",
+        "fi": "Pilkku",
+        "sv": "Kommatecken",
+    },
+    "IM": {
+        "en": "Infinitive marker",
+        "fi": "Infinitiivin merkitsin",
+        "sv": "Infinitivmärke",
+    },
+    "IO": {
+        "en": "Indirect object",
+        "fi": "Epäsuora objekti",
+        "sv": "Indirekt objekt (dativobjekt)",
+    },
+    "IP": {
+        "en": "Period",
+        "fi": "Piste",
+        "sv": "Punkt",
+    },
+    "IQ": {
+        "en": "Colon",
+        "fi": "Kaksoispiste",
+        "sv": "Kolon",
+    },
+    "IR": {
+        "en": "Parenthesis",
+        "fi": "Sulje",
+        "sv": "Parentes",
+    },
+    "IS": {
+        "en": "Semicolon",
+        "fi": "Puolipiste",
+        "sv": "Semikolon",
+    },
+    "IT": {
+        "en": "Dash",
+        "fi": "Ajatusviiva tai yhdysmerkki",
+        "sv": "Divis, bindestreck",
+    },
+    "IU": {
+        "en": "Exclamation mark",
+        "fi": "Huutomerkki",
+        "sv": "Utropstecken",
+    },
+    "IV": {
+        "en": "Nonfinite verb",
+        "fi": "Ei-finiittinen verbi",
+        "sv": "Infinit verb",
+    },
+    "JC": {
+        "en": "Second quotation mark",
+        "fi": "Toinen lainausmerkki",
+        "sv": "Citattecken 2",
+    },
+    "JG": {
+        "en": "Second (other) punctuation mark",
+        "fi": "Toinen (muu) välimerkki",
+        "sv": "Övrig interpunktion 2",
+    },
+    "JR": {
+        "en": "Second parenthesis",
+        "fi": "Toinen sulje",
+        "sv": "Parentes 2",
+    },
+    "JT": {
+        "en": "Second dash",
+        "fi": "Toinen ajatusviiva tai yhdysmerkki",
+        "sv": "Divis 2, bindestreck 2",
+    },
+    "KA": {
+        "en": "Comparative adverbial",
+        "fi": "Vertailuadverbiaali",
+        "sv": "Komparativt adverbial",
+    },
+    "MA": {
+        "en": "Attitude adverbial",
+        "fi": "Lauseadverbiaali",
+        "sv": "Satsadverbial",
+    },
+    "MS": {
+        "en": "Macrosyntagm",
+        "fi": "Makrosyntagma",
+        "sv": "Makrosyntagm",
+    },
+    "NA": {
+        "en": "Negation adverbial",
+        "fi": "Kieltoadverbiaali",
+        "sv": "Negerande adverbial",
+    },
+    "OA": {
+        "en": "Object adverbial",
+        "fi": "Objektiadverbiaali (prepositio-objekti)",
+        "sv": "Objektsadverbial (prepositionsobjekt)",
+    },
+    "OO": {
+        "en": "Direct object",
+        "fi": "Suora objekti (akkusatiiviobjekti)",
+        "sv": "Direkt objekt (ackusativobjekt)",
+    },
+    "OP": {
+        "en": "Object predicative",
+        "fi": "Objektipredikatiivi",
+        "sv": "Objektspredikativ (objektiv predikatsfyllnad)",
+    },
+    "PA": {
+        "en": "Complement of preposition",
+        "fi": "Preposition komplementti",
+        "sv": "Prepositions komplement",
+    },
+    "PL": {
+        "en": "Verb particle",
+        "fi": "Verbin partikkeli",
+        "sv": "Verbpartikel",
+    },
+    "PR": {
+        "en": "Preposition",
+        "fi": "Prepositio",
+        "sv": "Preposition",
+    },
+    "PT": {
+        "en": "Predicative attribute",
+        "fi": "Predikatiiviattribuutti",
+        "sv": "Predikativt attribut",
+    },
+    "RA": {
+        "en": "Place adverbial",
+        "fi": "Paikan adverbiaali",
+        "sv": "Platsadverbial",
+    },
+    "ROOT": {
+        "en": "Root",
+        "fi": "pää",
+        "sv": "Rot",
+    },
+    "SP": {
+        "en": "Subjective predicative complement",
+        "fi": "Subjektiivipredikatiivi",
+        "sv": "Subjektspredikativ (subjektiv predikatsfyllnad)",
+    },
+    "SS": {
+        "en": "Other subject",
+        "fi": "Muu subjekti",
+        "sv": "Subjekt (övrigt subjekt)",
+    },
+    "TA": {
+        "en": "Time adverbial",
+        "fi": "Ajan adverbiaali",
+        "sv": "Tidsadverbial",
+    },
+    "TT": {
+        "en": "Address phrase",
+        "fi": "Puhuttelufraasi",
+        "sv": "Tilltalsfras",
+    },
+    "UA": {
+        "en": "Subordinate clause minus subordinating conjunction",
+        "fi": "Sivulause, ilman alistuskonjunktiota",
+        "sv": "Underordnad sats (bisats), utom subjunktion",
+    },
+    "UK": {
+        "en": "Subordinating conjunction",
+        "fi": "Alistuskonjunktio",
+        "sv": "Subjunktion",
+    },
+    "VA": {
+        "en": "Notifying adverbial",
+        "fi": "Korrelatiiviadverbiaali",
+        "sv": "Korrelativt adverbial",
+    },
+    "VG": {
+        "en": "Verb group",
+        "fi": "Verbiryhmä",
+        "sv": "Verbgrupp",
+    },
+    "VO": {
+        "en": "Infinitive object complement",
+        "fi": "Infinitiiviobjekti",
+        "sv": "Objekt med infinitiv",
+    },
+    "VS": {
+        "en": "Infinitive subject complement",
+        "fi": "Infinitiivisubjekti",
+        "sv": "Subjekt med infinitiv",
+    },
+    "XA": {
+        "en": "Expressions like 'så att säga' (so to speak)",
+        "fi": "Ilmaukset kuten ”så att säga” (niin sanotusti)",
+        "sv": "Uttryck som ”så att säga”",
+    },
+    "XF": {
+        "en": "Fundament phrase",
+        "fi": "Fundamenttilauseke",
+        "sv": "Fundamentsfras",
+    },
+    "XT": {
+        "en": "Expressions like 'så kallad' (so called)",
+        "fi": "Ilmaukset kuten ”så kallad” (niin sanottu)",
+        "sv": "Uttryck som ”så kallad”",
+    },
+    "XX": {
+        "en": "Unclassifiable grammatical function",
+        "fi": "Luokittelematon kieliopillinen funktio",
+        "sv": "Oklassificerbar satsfunktion",
+    },
+    "YY": {
+        "en": "Interjection phrase",
+        "fi": "Huudahdus",
+        "sv": "Interjektionsfras",
+    },
+    "_": {
+        "en": "unspecified",
+        "fi": "muu",
+        // "sv": "_",
+    },
+    "acl": {
+        // "en": "acl",
+        "fi": "clausal modifier of noun (adjectival clause)",
+        // "sv": "acl",
+    },
+    "acl:relcl": {
+        "en": "clausal modifier of noun (adjectival clause): relative clause modifier",
+        "fi": "clausal modifier of noun (adjectival clause): relative clause modifier",
+        "sv": "clausal modifier of noun (adjectival clause): relative clause modifier",
+    },
+    "acomp": {
+        "en": "adjectival complement",
+        "fi": "adjektiivikomplementti",
+        // "sv": "acomp",
+    },
+    "adpos": {
+        "en": "adposition",
+        "fi": "adpositio",
+        // "sv": "adpos",
+    },
+    "advcl": {
+        "en": "adverbial clause modifier",
+        "fi": "adverbiaalinen lauseenmääre",
+        // "sv": "advcl",
+    },
+    "advl": {
+        "en": "adverbial",
+        "fi": "adverbiaali",
+        // "sv": "advl",
+    },
+    "advmod": {
+        "en": "adverb modifier",
+        "fi": "adverbimääre",
+        // "sv": "advmod",
+    },
+    "amod": {
+        "en": "adjectival modifier",
+        "fi": "adjektiivimääre",
+        // "sv": "amod",
+    },
+    "appos": {
+        "en": "apposition",
+        "fi": "appositio",
+        // "sv": "appos",
+    },
+    "arg": {
+        "en": "argument",
+        "fi": "argumentti",
+        // "sv": "arg",
+    },
+    "attr": {
+        "en": "attribute",
+        "fi": "attribuutti",
+        // "sv": "attr",
+    },
+    "aux": {
+        "en": "auxiliary verb",
+        "fi": "apuverbi",
+        // "sv": "aux",
+    },
+    "aux:pass": {
+        "en": "auxiliary: passive",
+        "fi": "auxiliary: passive",
+        "sv": "auxiliary: passive",
+    },
+    "auxpass": {
+        "en": "passive auxiliary",
+        "fi": "passiivin apuverbi",
+        // "sv": "auxpass",
+    },
+    "case": {
+        "en": "case marking",
+        "fi": "case marking",
+        "sv": "case marking",
+    },
+    "cc": {
+        "en": "coordinating conjunction",
+        "fi": "rinnastuskonjunktio",
+        // "sv": "cc",
+    },
+    "cc:preconj": {
+        "en": "coordinating conjunction: preconjuction",
+        "fi": "coordinating conjunction: preconjuction",
+        "sv": "coordinating conjunction: preconjuction",
+    },
+    "ccomp": {
+        "en": "clausal complement",
+        "fi": "lausekomplementti",
+        // "sv": "ccomp",
+    },
+    "clf": {
+        "en": "classifier",
+        "fi": "classifier",
+        "sv": "classifier",
+    },
+    "comp": {
+        "en": "complement",
+        "fi": "komplementti",
+        // "sv": "comp",
+    },
+    "compar": {
+        "en": "comparative",
+        "fi": "komparatiivi",
+        // "sv": "compar",
+    },
+    "comparator": {
+        "en": "comparative conjunction",
+        "fi": "vertailukonjunktio",
+        // "sv": "comparator",
+    },
+    "complm": {
+        "en": "complementizer",
+        "fi": "komplementoija",
+        // "sv": "complm",
+    },
+    "compound": {
+        "en": "compound",
+        "fi": "sanaliitto",
+        // "sv": "compound",
+    },
+    "compound:nn": {
+        "en": "compound: noun",
+        "fi": "compound: noun",
+        "sv": "compound: noun",
+    },
+    "compound:prt": {
+        "en": "compound: phrasal verb particle",
+        "fi": "compound: phrasal verb particle",
+        "sv": "compound: phrasal verb particle",
+    },
+    "conj": {
+        "en": "coordination",
+        "fi": "rinnastus",
+        // "sv": "conj",
+    },
+    "conjunct": {
+        "en": "conjunct",
+        "fi": "konjunkti",
+        // "sv": "conjunct",
+    },
+    "cop": {
+        "en": "copula",
+        "fi": "kopula",
+        // "sv": "cop",
+    },
+    "cop:own": {
+        // "en": "cop:own",
+        "fi": "kopula (omistus)",
+        // "sv": "cop:own",
+    },
+    "cop_own": {
+        "en": "copula (own)",
+        // "fi": "cop_own",
+        // "sv": "cop_own",
+    },
+    "csubj": {
+        "en": "clausal subject",
+        "fi": "lausesubjekti",
+        // "sv": "csubj",
+    },
+    "csubj-cop": {
+        "en": "clausal copular subject",
+        "fi": "kopulan lausesubjekti",
+        // "sv": "csubj-cop",
+    },
+    "csubj:cop": {
+        "en": "clausal subject: copular",
+        "fi": "clausal subject: copular",
+        "sv": "clausal subject: copular",
+    },
+    "dep": {
+        "en": "dependent",
+        "fi": "dependentti",
+        // "sv": "dep",
+    },
+    "det": {
+        "en": "determiner",
+        "fi": "determineri",
+        // "sv": "det",
+    },
+    "discourse": {
+        "en": "discourse element",
+        "fi": "diskurssielementti",
+        // "sv": "discourse",
+    },
+    "dislocated": {
+        "en": "dislocated elements",
+        "fi": "dislocated elements",
+        "sv": "dislocated elements",
+    },
+    "dobj": {
+        "en": "direct object",
+        "fi": "suora objekti",
+        // "sv": "dobj",
+    },
+    "ellipsis": {
+        "en": "ellipsis of a head word",
+        "fi": "pääsanan ellipsi",
+        // "sv": "ellipsis",
+    },
+    "expl": {
+        "en": "expletive",
+        "fi": "expletive",
+        "sv": "expletive",
+    },
+    "fixed": {
+        // "en": "fixed",
+        "fi": "kiinteä monisanainen ilmaus",
+        // "sv": "fixed",
+    },
+    "fixed_mwe": {
+        "en": "fixed multiword expression",
+        // "fi": "fixed_mwe",
+        // "sv": "fixed_mwe",
+    },
+    "flat": {
+        // "en": "flat",
+        "fi": "puolikiinteä monisanainen ilmaus",
+        // "sv": "flat",
+    },
+    "flat:foreign": {
+        // "en": "flat:foreign",
+        "fi": "puolikiinteä monisanainen ilmaus (vierasperäinen)",
+        // "sv": "flat:foreign",
+    },
+    "flat:name": {
+        // "en": "flat:name",
+        "fi": "puolikiinteä monisanainen ilmaus (nimi)",
+        // "sv": "flat:name",
+    },
+    "flat_mwe": {
+        "en": "flat multiword expression",
+        // "fi": "flat_mwe",
+        // "sv": "flat_mwe",
+    },
+    "flat_mwe_foreign": {
+        "en": "flat multiword expression (foreign)",
+        // "fi": "flat_mwe_foreign",
+        // "sv": "flat_mwe_foreign",
+    },
+    "flat_mwe_name": {
+        "en": "flat multiword expression (name)",
+        // "fi": "flat_mwe_name",
+        // "sv": "flat_mwe_name",
+    },
+    "gobj": {
+        "en": "genitive object (of a noun)",
+        "fi": "genetiiviobjekti (substantiivin)",
+        // "sv": "gobj",
+    },
+    "goeswith": {
+        "en": "goes with",
+        "fi": "irrallinen yhdysosa",
+        // "sv": "goeswith",
+    },
+    "gsubj": {
+        "en": "genitive subject (of a noun)",
+        "fi": "genetiivisubjekti (substantiivin)",
+        // "sv": "gsubj",
+    },
+    "iccomp": {
+        "en": "infinite clausal complement",
+        "fi": "infiniittinen lausekomplementti",
+        // "sv": "iccomp",
+    },
+    "idiom": {
+        "en": "idiom",
+        "fi": "idiomi",
+        // "sv": "idiom",
+    },
+    "infmod": {
+        "en": "infinitive modifier",
+        "fi": "infinitiivimääre",
+        // "sv": "infmod",
+    },
+    "intj": {
+        "en": "interjection",
+        "fi": "interjektio",
+        // "sv": "intj",
+    },
+    "iobj": {
+        "en": "indirect object",
+        "fi": "indirect object",
+        "sv": "indirect object",
+    },
+    "list": {
+        "en": "list",
+        "fi": "list",
+        "sv": "list",
+    },
+    "main": {
+        "en": "main verb",
+        "fi": "pääverbi",
+        // "sv": "main",
+    },
+    "mark": {
+        "en": "marker",
+        "fi": "merkitsin",
+        // "sv": "mark",
+    },
+    "mod": {
+        "en": "modifier",
+        "fi": "määre",
+        // "sv": "mod",
+    },
+    "modal": {
+        "en": "modal verb",
+        "fi": "modaaliverbi",
+        // "sv": "modal",
+    },
+    "mwe": {
+        "en": "multi-word expression",
+        "fi": "monisanainen ilmaus",
+        // "sv": "mwe",
+    },
+    "name": {
+        "en": "multi-word named entity",
+        "fi": "monisanainen nimi",
+        // "sv": "name",
+    },
+    "neg": {
+        "en": "negation marker",
+        "fi": "kieltosana",
+        // "sv": "neg",
+    },
+    "nmod": {
+        "en": "nominal modifier",
+        "fi": "nominal modifier",
+        "sv": "nominal modifier",
+    },
+    "nmod:gobj": {
+        "en": "nominal modifier: genitive object",
+        "fi": "nominal modifier: genitive object",
+        "sv": "nominal modifier: genitive object",
+    },
+    "nmod:gsubj": {
+        "en": "nominal modifier: genitive subject",
+        "fi": "nominal modifier: genitive subject",
+        "sv": "nominal modifier: genitive subject",
+    },
+    "nmod:poss": {
+        "en": "nominal modifier: possessive",
+        "fi": "nominal modifier: possessive",
+        "sv": "nominal modifier: possessive",
+    },
+    "nn": {
+        "en": "noun compound modifier",
+        "fi": "yhdyssubstantiivimääre",
+        // "sv": "nn",
+    },
+    "nommod": {
+        "en": "nominal modifier",
+        "fi": "nominaalimääre",
+        // "sv": "nommod",
+    },
+    "nommod-own": {
+        "en": "nominal modifier (owner in a possessive clause)",
+        "fi": "nominaalimääre: omistaja",
+        // "sv": "nommod-own",
+    },
+    "nsubj": {
+        "en": "nominal subject",
+        "fi": "nominaalisubjekti",
+        // "sv": "nsubj",
+    },
+    "nsubj-cop": {
+        "en": "nominal copular subject",
+        "fi": "kopulan nominaalisubjekti",
+        // "sv": "nsubj-cop",
+    },
+    "nsubj:cop": {
+        "en": "nominal subject: copular",
+        "fi": "nominal subject: copular",
+        "sv": "nominal subject: copular",
+    },
+    "num": {
+        "en": "numeral modifier",
+        "fi": "numeraalimääre",
+        // "sv": "num",
+    },
+    "number": {
+        "en": "numerical expression",
+        "fi": "numeroilmaus",
+        // "sv": "number",
+    },
+    "nummod": {
+        "en": "numeric modifier",
+        "fi": "numeric modifier",
+        "sv": "numeric modifier",
+    },
+    "obj": {
+        "en": "object",
+        "fi": "objekti",
+        // "sv": "obj",
+    },
+    "obl": {
+        "en": "oblique nominal",
+        "fi": "oblique nominal",
+        // "sv": "obl",
+    },
+    "orphan": {
+        "en": "orphan",
+        "fi": "orphan",
+        // "sv": "orphan",
+    },
+    "parataxis": {
+        "en": "parataxis",
+        "fi": "parataksi",
+        // "sv": "parataxis",
+    },
+    "partmod": {
+        "en": "participal modifier",
+        "fi": "partisiippimääre",
+        // "sv": "partmod",
+    },
+    "phrm": {
+        "en": "phrase marker",
+        "fi": "lausekemerkitsin",
+        // "sv": "phrm",
+    },
+    "phrv": {
+        "en": "phrasal verb",
+        "fi": "fraasiverbi",
+        // "sv": "phrv",
+    },
+    "poss": {
+        "en": "genitive modifier",
+        "fi": "genetiivimääre",
+        // "sv": "poss",
+    },
+    "preconj": {
+        "en": "preconjunction",
+        "fi": "prekonjunktio",
+        // "sv": "preconj",
+    },
+    "prt": {
+        "en": "phrasal particle",
+        "fi": "fraasipartikkeli",
+        // "sv": "prt",
+    },
+    "punct": {
+        "en": "punctuation",
+        "fi": "välimerkki",
+        // "sv": "punct",
+    },
+    "quantmod": {
+        "en": "quantification modifier",
+        "fi": "kvanttorimääre",
+        // "sv": "quantmod",
+    },
+    "rcmod": {
+        "en": "relative clause modifier",
+        "fi": "relatiivilausemääre",
+        // "sv": "rcmod",
+    },
+    "rel": {
+        "en": "relativizer, relative word",
+        "fi": "relatiivisana",
+        // "sv": "rel",
+    },
+    "remnant": {
+        "en": "ellipsis remnant",
+        "fi": "ellipsin jäännös",
+        // "sv": "remnant",
+    },
+    "reparandum": {
+        "en": "overriden disfluency",
+        "fi": "overriden disfluency",
+        "sv": "overriden disfluency",
+    },
+    "root": {
+        "en": "root",
+        "fi": "root",
+        "sv": "root",
+    },
+    "scomp": {
+        "en": "subject complement",
+        "fi": "subjektin komplementti",
+        // "sv": "scomp",
+    },
+    "subj": {
+        "en": "subject",
+        "fi": "subjekti",
+        // "sv": "subj",
+    },
+    "voc": {
+        "en": "vocative",
+        "fi": "vokatiivi",
+        // "sv": "voc",
+    },
+    "vocative": {
+        "en": "vocative",
+        "fi": "vocative",
+        "sv": "vocative",
+    },
+    "xcomp": {
+        "en": "open clausal complement",
+        "fi": "avoin lausekomplementti",
+        // "sv": "xcomp",
+    },
+    "xcomp:ds": {
+        "en": "clausal complement (different subject)",
+        "fi": "lausekomplementti (eri subjekti)",
+        // "sv": "xcomp:ds",
+    },
+    "xsubj": {
+        "en": "external subject",
+        "fi": "ulkoinen subjekti",
+        // "sv": "xsubj",
+    },
+    "xsubj-cop": {
+        "en": "external copular subject",
+        "fi": "kopulan ulkoinen subjekti",
+        // "sv": "xsubj-cop",
+    },
+};
+
+neTypeTranslation = {
+    "EVN": {
+        "en": "event name",
+        "fi": "tapahtuman nimi",
+        "sv": "händelsenamn",
+    },
+    "EVT": {
+        "en": "event name",
+        "fi": "tapahtuman nimi",
+        "sv": "händelsenamn",
+    },
+    "LOC": {
+        "en": "location name",
+        "fi": "paikannimi",
+        "sv": "platsnamn",
+    },
+    "MSR": {
+        "en": "measure name",
+        "fi": "mitta",
+        "sv": "måttnamn",
+    },
+    "OBJ": {
+        "en": "product name",
+        "fi": "tavaran nimi",
+        "sv": "objektnamn",
+    },
+    "ORG": {
+        "en": "organization name",
+        "fi": "organisaation nimi",
+        "sv": "organisationsnamn",
+    },
+    "PRO": {
+        // "en": "PRO",
+        "fi": "tuotteen nimi",
+        "sv": "produktnamn",
+    },
+    "PRS": {
+        "en": "person name",
+        "fi": "henkilönnimi",
+        "sv": "personnamm",
+    },
+    "TME": {
+        "en": "time",
+        "fi": "aika",
+        "sv": "tid",
+    },
+    "WRK": {
+        "en": "work or art name",
+        "fi": "teoksen nimi",
+        "sv": "verks- eller konstnamn",
+    },
+};
+
+neSubtypeTranslation = {
+    "AGE": {
+        "en": "age",
+        "fi": "ikä",
+        "sv": "ålder",
+    },
+    "ANM": {
+        "en": "animal/pet/mythical beasts",
+        "fi": "eläin",
+        "sv": "djur/husdjur/mytiskt odjur",
+    },
+    "AST": {
+        "en": "astronomical",
+        "fi": "tähtitieteellinen",
+        "sv": "astronomisk",
+    },
+    "ATH": {
+        "en": "athletic",
+        "fi": "urheiluseura tai joukkue",
+        "sv": "atletisk",
+    },
+    "ATL": {
+        "en": "athletic",
+        "fi": "urheilu-",
+        "sv": "atletisk",
+    },
+    "CLC": {
+        "en": "tribe/dynasty/ethnical or race name",
+        "fi": "heimo, dynastia tai etnisyys",
+        "sv": "stam/dynasti/etniskt namn",
+    },
+    "CLT": {
+        "en": "cultural",
+        "fi": "kulttuuri-",
+        "sv": "kulturell",
+    },
+    "CLU": {
+        "en": "cultural",
+        "fi": "kulttuuri-",
+        "sv": "kulturell",
+    },
+    "CMP": {
+        "en": "computer product/telephony",
+        "fi": "tietokone- tai puhelintuote",
+        "sv": "datorprodukt/telefoni",
+    },
+    "CMU": {
+        "en": "computer unit",
+        "fi": "tietotekniikan yksikkö",
+        "sv": "datorenhet",
+    },
+    "CRP": {
+        "en": "corporation/organization",
+        "fi": "yritys tai yhdistys",
+        "sv": "företag/organisation",
+    },
+    "CUR": {
+        "en": "currency",
+        "fi": "valuutta",
+        "sv": "valuta",
+    },
+    "CVU": {
+        "en": "capacity/volume",
+        "fi": "kapasiteetti tai tilavuus",
+        "sv": "kapacitet/volym",
+    },
+    "DAT": {
+        "en": "date",
+        "fi": "päiväys",
+        "sv": "datum",
+    },
+    "DEN": {
+        "en": "density",
+        "fi": "tiheys",
+        "sv": "densitet",
+    },
+    "DSG": {
+        "en": "dosage",
+        "fi": "annos",
+        "sv": "dosering",
+    },
+    "DST": {
+        "en": "distance",
+        "fi": "matka",
+        "sv": "avstånd",
+    },
+    "EDU": {
+        "en": "educational",
+        "fi": "oppilaitos",
+        "sv": "utbildning",
+    },
+    "FIN": {
+        "en": "financial",
+        "fi": "finanssi-",
+        "sv": "finansiell",
+    },
+    "FNC": {
+        "en": "facility entity",
+        "fi": "fasiliteetti",
+        "sv": "facilitetsentitet",
+    },
+    "FRQ": {
+        "en": "frequency",
+        "fi": "taajuus",
+        "sv": "frekvens",
+    },
+    "FWP": {
+        "en": "food/beverage",
+        "fi": "ruoka tai juoma",
+        "sv": "mat/dryck",
+    },
+    "GPL": {
+        "en": "geographical/geological",
+        "fi": "maantieteellinen",
+        "sv": "geografisk/geologisk",
+    },
+    "HPL": {
+        "en": "historical/political",
+        "fi": "historiallinen tai poliittinen",
+        "sv": "historisk/politisk",
+    },
+    "HRM": {
+        "en": "time",
+        "fi": "kellonaika",
+        "sv": "klockslag",
+    },
+    "HUM": {
+        "en": "human being/fictional human character",
+        "fi": "ihminen",
+        "sv": "människa/fiktiv mänsklig karaktär",
+    },
+    "IDX": {
+        "en": "index",
+        "fi": "indeksi",
+        "sv": "index",
+    },
+    "INX": {
+        "en": "index",
+        "fi": "indeksi",
+        "sv": "index",
+    },
+    "LST": {
+        "en": "list",
+        "fi": "luettelo",
+        "sv": "lista",
+    },
+    "MDC": {
+        "en": "medical",
+        "fi": "lääketieteellinen",
+        "sv": "medicinsk",
+    },
+    "MSU": {
+        "en": "metric surface unit",
+        "fi": "pinta-ala",
+        "sv": "ytmått",
+    },
+    "MTH": {
+        "en": "saint/apostle/god/mythical name/humanoid",
+        "fi": "myyttinen",
+        "sv": "helgon/apostel/gud/mytiskt namm/humanoid",
+    },
+    "MYT": {
+        "en": "saint/apostle/god/mythical name/humanoid",
+        "fi": "myyttinen",
+        "sv": "helgon/apostel/gud/mytiskt namm/humanoid",
+    },
+    "PER": {
+        "en": "period",
+        "fi": "ajanjakso",
+        "sv": "period",
+    },
+    "PLT": {
+        "en": "political",
+        "fi": "poliittinen",
+        "sv": "politisk",
+    },
+    "PPL": {
+        "en": "geo-social-political entity",
+        "fi": "geopoliittinen",
+        "sv": "geo-social-politisk entitet",
+    },
+    "PRC": {
+        "en": "percent",
+        "fi": "prosentti",
+        "sv": "procent",
+    },
+    "PRD": {
+        "en": "product/artefact/flower/plant",
+        "fi": "tuote, artefakti tai kasvi",
+        "sv": "produkt/artefakt/växt",
+    },
+    "PRJ": {
+        "en": "project/agreement/initiative",
+        "fi": "hanke, sopimus tai aloite",
+        "sv": "projekt/överenskommelse/initiativ",
+    },
+    "PRZ": {
+        "en": "prize/scholarship/honour",
+        "fi": "palkinto tai apuraha",
+        "sv": "pris/stipendium/utmärkelse",
+    },
+    "PSS": {
+        "en": "pressure",
+        "fi": "paine",
+        "sv": "tryck",
+    },
+    "RLG": {
+        "en": "religious",
+        "fi": "uskonnollinen",
+        "sv": "religiös",
+    },
+    "RTV": {
+        "en": "radio/tv-programs",
+        "fi": "radio- tai tv-ohjelma",
+        "sv": "radio/tv-program",
+    },
+    "SPD": {
+        "en": "speed",
+        "fi": "nopeus",
+        "sv": "hastighet",
+    },
+    "STR": {
+        "en": "street/road/postal address",
+        "fi": "katu, tie tai postiosoite",
+        "sv": "gata/väg/postadress",
+    },
+    "TIT": {
+        "en": "title",
+        "fi": "titteli",
+        "sv": "titel",
+    },
+    "TMP": {
+        "en": "temperature",
+        "fi": "lämpötila",
+        "sv": "temperatur",
+    },
+    "TRN": {
+        "en": "transportation",
+        "fi": "liikenne",
+        "sv": "transport",
+    },
+    "TVR": {
+        "en": "media",
+        "fi": "media",
+        "sv": "media",
+    },
+    "VHA": {
+        "en": "air/space vehicle",
+        "fi": "ilma- tai avaruusalus",
+        "sv": "luft-/rymdfarkost",
+    },
+    "VHG": {
+        "en": "land vehicle",
+        "fi": "maa-alus",
+        "sv": "fordon",
+    },
+    "VHW": {
+        "en": "water vehicle",
+        "fi": "vesialus",
+        "sv": "fartyg",
+    },
+    "VLM": {
+        "en": "volume",
+        "fi": "tilavuus",
+        "sv": "volym",
+    },
+    "WAE": {
+        "en": "opera/theater play/symphony",
+        "fi": "näytelmä tai musiikkiteos",
+        "sv": "opera/teaterpjäs/symfoni",
+    },
+    "WAO": {
+        "en": "physical work or art",
+        "fi": "taideteos",
+        "sv": "fysiskt verk eller konst",
+    },
+    "WEB": {
+        "en": "web",
+        "fi": "WWW",
+        "sv": "webb",
+    },
+    "WMD": {
+        "en": "written media",
+        "fi": "kirjoitettu",
+        "sv": "skriven media",
+    },
+    "WMU": {
+        "en": "weight or mass unit",
+        "fi": "paino",
+        "sv": "vikt- eller massaenhet",
+    },
+    "WRT": {
+        "en": "written material",
+        "fi": "kirjallinen",
+        "sv": "skrivet material",
+    },
+    "WTH": {
+        "en": "natural",
+        "fi": "luonnon",
+        "sv": "natur",
+    },
+    "XXX": {
+        "en": "other",
+        "fi": "muu",
+        "sv": "annat",
+    },
+};
+
+transl.sentenceType = {
+    "dateline": {
+        // "en": "dateline",
+        "fi": "päiväys",
+        // "sv": "dateline",
+    },
+    "head": {
+        // "en": "head",
+        "fi": "otsikko",
+        // "sv": "head",
+    },
+    "heading": {
+        // "en": "heading",
+        "fi": "otsikko",
+        // "sv": "heading",
+    },
+    "opening": {
+        // "en": "opening",
+        "fi": "aloitus",
+        // "sv": "opening",
+    },
+    "p": {
+        // "en": "p",
+        "fi": "kappale",
+        // "sv": "p",
+    },
+    "sentence": {
+        // "en": "sentence",
+        "fi": "virke",
+        // "sv": "sentence",
+    },
+    "signed": {
+        // "en": "signed",
+        "fi": "allekirjoitus",
+        // "sv": "signed",
+    },
+};
+
+transl.paragraphType = {
+    "author": {
+        // "en": "author",
+        "fi": "tekijä",
+        // "sv": "author",
+    },
+    "byline": {
+        // "en": "byline",
+        "fi": "kirjoittaja (byline)",
+        // "sv": "byline",
+    },
+    "caption": {
+        // "en": "caption",
+        "fi": "kuvateksti",
+        // "sv": "caption",
+    },
+    "closer": {
+        // "en": "closer",
+        "fi": "lopetus",
+        // "sv": "closer",
+    },
+    "date": {
+        // "en": "date",
+        "fi": "päiväys",
+        // "sv": "date",
+    },
+    "empty": {
+        "en": "empty",
+        "fi": "tyhjä",
+        // "sv": "empty",
+    },
+    "head": {
+        // "en": "head",
+        "fi": "otsikko",
+        // "sv": "head",
+    },
+    "heading": {
+        "en": "heading",
+        "fi": "otsikko",
+        // "sv": "heading",
+    },
+    "hi": {
+        // "en": "hi",
+        "fi": "korostus",
+        // "sv": "hi",
+    },
+    "interviewee": {
+        // "en": "interviewee",
+        "fi": "haastateltava",
+        // "sv": "interviewee",
+    },
+    "interviewer": {
+        // "en": "interviewer",
+        "fi": "haastattelija",
+        // "sv": "interviewer",
+    },
+    "name": {
+        // "en": "name",
+        "fi": "nimi",
+        // "sv": "name",
+    },
+    "noninterviewee": {
+        // "en": "noninterviewee",
+        "fi": "ei-haastateltava (analysoimaton)",
+        // "sv": "noninterviewee",
+    },
+    "num": {
+        // "en": "num",
+        "fi": "numero",
+        // "sv": "num",
+    },
+    "opener": {
+        // "en": "opener",
+        "fi": "aloitus",
+        // "sv": "opener",
+    },
+    "p": {
+        // "en": "p",
+        "fi": "kappale",
+        // "sv": "p",
+    },
+    "paragraph": {
+        "en": "paragraph",
+        "fi": "kappale",
+        // "sv": "paragraph",
+    },
+    "paragraph/heading": {
+        "en": "paragraph or heading",
+        "fi": "kappale tai otsikko",
+        // "sv": "paragraph/heading",
+    },
+    "q": {
+        // "en": "q",
+        "fi": "teksti lainausmerkeissä",
+        // "sv": "q",
+    },
+    "quote": {
+        // "en": "quote",
+        "fi": "lainaus",
+        // "sv": "quote",
+    },
+    "rs": {
+        // "en": "rs",
+        "fi": "nimi tai muu viittaus",
+        // "sv": "rs",
+    },
+    "sentence": {
+        "en": "sentence",
+        "fi": "virke",
+        // "sv": "sentence",
+    },
+    "signed": {
+        // "en": "signed",
+        "fi": "allekirjoitus",
+        // "sv": "signed",
+    },
+};
+
+// For Yle news
+// TODO: Combine this with paragraph and sentence type translations
+transl.textPart = {
+    "byline": {
+        "en": "byline",
+        "fi": "kirjoittaja (byline)",
+        "sv": "byline",
+    },
+    "caption": {
+        "en": "caption",
+        "fi": "kuvateksti",
+        "sv": "bildtext",
+    },
+    "heading": {
+        "en": "heading",
+        "fi": "otsikko",
+        "sv": "rubrik",
+    },
+    "heading_alt": {
+        "en": "alternative text for heading image",
+        "fi": "otsikkokuvan seliteteksti",
+        "sv": "alternativ text för rubrikbild",
+    },
+    "heading_caption": {
+        "en": "caption for heading image",
+        "fi": "otsikkokuvan kuvateksti",
+        "sv": "bildtext för rubrikbild",
+    },
+    "headline": {
+        "en": "headline",
+        "fi": "pääotsikko",
+        "sv": "huvudrubrik",
+    },
+    "image": {
+        "en": "image",
+        "fi": "kuva",
+        "sv": "bild",
+    },
+    "image_alt": {
+        "en": "alternative text for image",
+        "fi": "kuvan seliteteksti",
+        "sv": "alternativ bildtext",
+    },
+    "lead": {
+        "en": "lead paragraph",
+        "fi": "ingressi",
+        "sv": "ingress",
+    },
+    "quote": {
+        "en": "quotation",
+        "fi": "lainaus",
+        "sv": "citat",
+    },
+    "short_summary": {
+        "en": "short summary",
+        "fi": "lyhyt tiivistelmä",
+        "sv": "kort sammanfattning",
+    },
+    "summary": {
+        "en": "summary",
+        "fi": "tiivistelmä",
+        "sv": "sammanfattning",
+    },
+    "text": {
+        "en": "text",
+        "fi": "teksti",
+        "sv": "text",
+    },
+};
+
+transl.sex = {
+    "female": {
+        "en": "female",
+        "fi": "nainen",
+        "sv": "kvinna",
+    },
+    "male": {
+        "en": "male",
+        "fi": "mies",
+        "sv": "man",
+    },
+    "other": {
+        "en": "other",
+        "fi": "muu",
+        "sv": "annat",
+    },
+    "unknown": {
+        "en": "unknown",
+        "fi": "tuntematon",
+        "sv": "okänd",
+    },
+};
+
+// TODO: Incorporate translations for other genre attributes
+transl.genre = {
+    "academic": {
+        "en": "academic",
+        "fi": "tieteellinen teksti",
+        // "sv": "academic",
+    },
+    "biography": {
+        "en": "biography",
+        // "fi": "biography",
+        // "sv": "biography",
+    },
+    "blog": {
+        "en": "blog",
+        "fi": "blogi",
+        // "sv": "blog",
+    },
+    "fiction": {
+        "en": "fiction",
+        "fi": "kaunokirjallisuus",
+        // "sv": "fiction",
+    },
+    "general": {
+        "en": "general",
+        "fi": "yleinen",
+        // "sv": "general",
+    },
+    "newspaper": {
+        "en": "newspaper",
+        "fi": "sanomalehti",
+        // "sv": "newspaper",
+    },
+    "non-fiction_book": {
+        "en": "non-fiction book",
+        "fi": "tietokirjallisuus",
+        // "sv": "non-fiction_book",
+    },
+    "novel": {
+        "en": "novel",
+        // "fi": "novel",
+        // "sv": "novel",
+    },
+    "popular_magazine": {
+        "en": "popular magazine",
+        "fi": "aikakauslehti",
+        // "sv": "popular_magazine",
+    },
+    "spoken": {
+        "en": "spoken",
+        "fi": "puhe",
+        // "sv": "spoken",
+    },
+    "story": {
+        "en": "story",
+        // "fi": "story",
+        // "sv": "story",
+    },
+};
+
+// For Semfinlex asd
+transl.parlStatuteType = {
+    "": {
+        // "en": "",
+        "fi": "ei tiedossa",
+        "sv": "",
+    },
+    "asetus": {
+        // "en": "asetus",
+        "fi": "asetus",
+        "sv": "förordning",
+    },
+    "ilmoitus": {
+        // "en": "ilmoitus",
+        "fi": "ilmoitus",
+        "sv": "meddelande",
+    },
+    "kaari": {
+        // "en": "kaari",
+        "fi": "kaari",
+        "sv": "balk",
+    },
+    "kirje": {
+        // "en": "kirje",
+        "fi": "kirje",
+        "sv": "brev",
+    },
+    "kuulutus": {
+        // "en": "kuulutus",
+        "fi": "kuulutus",
+        "sv": "kungörelse",
+    },
+    "laki": {
+        // "en": "laki",
+        "fi": "laki",
+        "sv": "lag",
+    },
+    "luettelo": {
+        // "en": "luettelo",
+        "fi": "luettelo",
+        "sv": "förteckning",
+    },
+    "paatos": {
+        // "en": "paatos",
+        "fi": "päätös",
+        "sv": "beslut",
+    },
+    "tyojarjestys": {
+        // "en": "tyojarjestys",
+        "fi": "työjärjestys",
+        "sv": "arbetsordning",
+    },
+};
+
+
 var attrs = {};  // positional attributes
 var sattrs = {}; // structural attributes
 
 attrs.pos = {
     label: "pos",
-    translationKey: "pos_",
     dataset: {
         "AB": "AB",
         "MID|MAD|PAD": "DL",
@@ -153,10 +3659,11 @@ attrs.pos = {
         "UO": "UO",
         "VB": "VB"
     },
+    translation: transl.pos,
     opts: liteOptions,
     extendedComponent: "datasetSelect",
     escape: false,
-    order: 0
+    order: 0,
 };
 
 attrs.msd_sv = {
@@ -241,7 +3748,6 @@ attrs.dephead_ud1 = {
 };
 attrs.deprel = {
     label: "deprel",
-    translationKey: "deprel_",
     extendedComponent: "datasetSelect",
     dataset: {
         "++": "++",
@@ -311,6 +3817,7 @@ attrs.deprel = {
         "VG": "VG",
         "ROOT": "ROOT"
     },
+    translation: transl.deprel,
     opts: liteOptions
 };
 attrs.prefix = {
@@ -344,18 +3851,33 @@ attrs.link = {
 };
 attrs.ne_ex = {
     label: "ne_expr",
-    translationKey: "ne_expr_",
     extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
        "ENAMEX",
        "TIMEX",
        "NUMEX",
-   ]
+    ],
+    translation: {
+        "ENAMEX": {
+            "en": "name expression",
+            "fi": "nimi-ilmaus",
+            "sv": "namnuttryck",
+        },
+        "NUMEX": {
+            "en": "numerical expression",
+            "fi": "numeroilmaus",
+            "sv": "numeriskt uttryck",
+        },
+        "TIMEX": {
+            "en": "time expression",
+            "fi": "ajanilmaus",
+            "sv": "tidsuttryck",
+        },
+    },
 };
 attrs.ne_type = {
     label: "ne_type",
-    translationKey: "ne_type_",
     extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
@@ -367,11 +3889,11 @@ attrs.ne_type = {
        "OBJ",
        "MSR",
        "TME"
-   ]
+    ],
+    translation: neTypeTranslation,
 };
 attrs.ne_subtype = {
     label: "ne_subtype",
-    translationKey: "ne_subtype_",
     extendedComponent: "datasetSelect",
     isStructAttr: true,
     dataset: [
@@ -432,11 +3954,12 @@ attrs.ne_subtype = {
         "LST",
         "DAT",
         "PER"
-   ],
-   stringify: function(val) {
-       lString = util.getLocaleStringUndefined("ne_subtype_" + val)
-       return lString || val;
-   }
+    ],
+    translation: neSubtypeTranslation,
+    stringify: function(val) {
+        lString = util.getLocaleStringUndefined("ne_subtype_" + val)
+        return lString || val;
+    }
 };
 attrs.ne_name = {
     label: "ne_name",
@@ -541,7 +4064,8 @@ var sattrlist = {};  // List of structural attributes
 attrs.pos_ftb2 = {
     label: "pos",
     displayType: "select",
-    translationKey: "posftb2_",
+    opts: liteOptions,
+    // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
         "Abbr": "Abbr",
@@ -558,12 +4082,12 @@ attrs.pos_ftb2 = {
         "Pun": "Pun",
         "V": "V"
     },
-    opts: liteOptions
+    translation: transl.pos,
 };
+
 attrs.ner_tags = {
     label: "ner_tags",
     displayType: "select",
-    translationKey: "ner_tags_",
     opts: liteOptions,
     dataset: {
         "_": "_",
@@ -584,14 +4108,246 @@ attrs.ner_tags = {
         "/?NumexMsrCur[/]?": "NumexMsrCur",
         "/?NumexMsrXxx[/]?": "NumexMsrXxx",
         "/?TimexTmeDat[/]?": "TimexTmeDat",
-    }
+    },
+    translation: {
+        "/EnamexLocGpl": {
+            "en": "location: geographical",
+            "fi": "paikka: maantieteellinen",
+            // "sv": "/EnamexLocGpl",
+        },
+        "/EnamexLocPpl": {
+            "en": "location: geopolitical",
+            "fi": "paikka: geopoliittinen",
+            // "sv": "/EnamexLocPpl",
+        },
+        "/EnamexLocStr": {
+            "en": "placa: street",
+            "fi": "paikka: katu tai tie",
+            // "sv": "/EnamexLocStr",
+        },
+        "/EnamexLocXxx": {
+            "en": "location: other",
+            "fi": "paikka: muu",
+            // "sv": "/EnamexLocXxx",
+        },
+        "/EnamexOrgAth": {
+            "en": "organization: sports",
+            "fi": "organisaatio: urheilu",
+            // "sv": "/EnamexOrgAth",
+        },
+        "/EnamexOrgClt": {
+            "en": "organization: arts and culture",
+            "fi": "organisaatio: taide ja musiikki",
+            // "sv": "/EnamexOrgClt",
+        },
+        "/EnamexOrgCrp": {
+            "en": "organization: company or association",
+            "fi": "organisaatio: yritys tai yhdistys",
+            // "sv": "/EnamexOrgCrp",
+        },
+        "/EnamexOrgEdu": {
+            "en": "organization: education",
+            "fi": "organisaatio: koulutus",
+            // "sv": "/EnamexOrgEdu",
+        },
+        "/EnamexOrgPlt": {
+            "en": "organization: political",
+            "fi": "organisaatio: poliittinen",
+            // "sv": "/EnamexOrgPlt",
+        },
+        "/EnamexOrgTvr": {
+            "en": "organization: tv or radio",
+            "fi": "organisaatio: tv ja radio",
+            // "sv": "/EnamexOrgTvr",
+        },
+        "/EnamexPrsHum": {
+            // "en": "/EnamexPrsHum",
+            "fi": "henkilö: henkilönimi",
+            // "sv": "/EnamexPrsHum",
+        },
+        "/EnamexPrsTit": {
+            "en": "person: titlt",
+            "fi": "henkilö: arvonimi",
+            // "sv": "/EnamexPrsTit",
+        },
+        "/NumexMsrCur": {
+            "en": "number: currency",
+            "fi": "numero: rahayksikkö",
+            // "sv": "/NumexMsrCur",
+        },
+        "/NumexMsrXxx": {
+            "en": "number: unit",
+            "fi": "numero: muu yksikkö",
+            // "sv": "/NumexMsrXxx",
+        },
+        "/TimexTmeDat": {
+            "en": "time: date or time",
+            "fi": "aika: ajanmääre",
+            // "sv": "/TimexTmeDat",
+        },
+        "EnamexLocGpl": {
+            "en": "location: geographical",
+            "fi": "paikka: maantieteellinen",
+            // "sv": "EnamexLocGpl",
+        },
+        "EnamexLocGpl/": {
+            "en": "location: geographical",
+            "fi": "paikka: maantieteellinen",
+            // "sv": "EnamexLocGpl/",
+        },
+        "EnamexLocPpl": {
+            "en": "location: geopolitical",
+            "fi": "paikka: geopoliittinen",
+            // "sv": "EnamexLocPpl",
+        },
+        "EnamexLocPpl/": {
+            "en": "location: geopolitical",
+            "fi": "paikka: geopoliittinen",
+            // "sv": "EnamexLocPpl/",
+        },
+        "EnamexLocStr": {
+            "en": "placa: street",
+            "fi": "paikka: katu tai tie",
+            // "sv": "EnamexLocStr",
+        },
+        "EnamexLocStr/": {
+            "en": "placa: street",
+            "fi": "paikka: katu tai tie",
+            // "sv": "EnamexLocStr/",
+        },
+        "EnamexLocXxx": {
+            "en": "location: other",
+            "fi": "paikka: muu",
+            // "sv": "EnamexLocXxx",
+        },
+        "EnamexLocXxx/": {
+            "en": "location: other",
+            "fi": "paikka: muu",
+            // "sv": "EnamexLocXxx/",
+        },
+        "EnamexOrgAth": {
+            "en": "organization: sports",
+            "fi": "organisaatio: urheilu",
+            // "sv": "EnamexOrgAth",
+        },
+        "EnamexOrgAth/": {
+            "en": "organization: sports",
+            "fi": "organisaatio: urheilu",
+            // "sv": "EnamexOrgAth/",
+        },
+        "EnamexOrgClt": {
+            "en": "organization: arts and culture",
+            "fi": "organisaatio: taide ja musiikki",
+            // "sv": "EnamexOrgClt",
+        },
+        "EnamexOrgClt/": {
+            "en": "organization: arts and culture",
+            "fi": "organisaatio: taide ja musiikki",
+            // "sv": "EnamexOrgClt/",
+        },
+        "EnamexOrgCrp": {
+            "en": "organization: company or association",
+            "fi": "organisaatio: yritys tai yhdistys",
+            // "sv": "EnamexOrgCrp",
+        },
+        "EnamexOrgCrp/": {
+            "en": "organization: company or association",
+            "fi": "organisaatio: yritys tai yhdistys",
+            // "sv": "EnamexOrgCrp/",
+        },
+        "EnamexOrgEdu": {
+            "en": "organization: education",
+            "fi": "organisaatio: koulutus",
+            // "sv": "EnamexOrgEdu",
+        },
+        "EnamexOrgEdu/": {
+            "en": "organization: education",
+            "fi": "organisaatio: koulutus",
+            // "sv": "EnamexOrgEdu/",
+        },
+        "EnamexOrgPlt": {
+            "en": "organization: political",
+            "fi": "organisaatio: poliittinen",
+            // "sv": "EnamexOrgPlt",
+        },
+        "EnamexOrgPlt/": {
+            "en": "organization: political",
+            "fi": "organisaatio: poliittinen",
+            // "sv": "EnamexOrgPlt/",
+        },
+        "EnamexOrgTvr": {
+            "en": "organization: tv or radio",
+            "fi": "organisaatio: tv ja radio",
+            // "sv": "EnamexOrgTvr",
+        },
+        "EnamexOrgTvr/": {
+            "en": "organization: tv or radio",
+            "fi": "organisaatio: tv ja radio",
+            // "sv": "EnamexOrgTvr/",
+        },
+        "EnamexPrsHum": {
+            "en": "person: person name",
+            "fi": "henkilö: henkilönimi",
+            // "sv": "EnamexPrsHum",
+        },
+        "EnamexPrsHum/": {
+            // "en": "EnamexPrsHum/",
+            "fi": "henkilö: henkilönimi",
+            // "sv": "EnamexPrsHum/",
+        },
+        "EnamexPrsTit": {
+            "en": "person: titlt",
+            "fi": "henkilö: arvonimi",
+            // "sv": "EnamexPrsTit",
+        },
+        "EnamexPrsTit/": {
+            "en": "person: titlt",
+            "fi": "henkilö: arvonimi",
+            // "sv": "EnamexPrsTit/",
+        },
+        "NumexMsrCur": {
+            "en": "number: currency",
+            "fi": "numero: rahayksikkö",
+            // "sv": "NumexMsrCur",
+        },
+        "NumexMsrCur/": {
+            "en": "number: currency",
+            "fi": "numero: rahayksikkö",
+            // "sv": "NumexMsrCur/",
+        },
+        "NumexMsrXxx": {
+            "en": "number: unit",
+            "fi": "numero: muu yksikkö",
+            // "sv": "NumexMsrXxx",
+        },
+        "NumexMsrXxx/": {
+            "en": "number: unit",
+            "fi": "numero: muu yksikkö",
+            // "sv": "NumexMsrXxx/",
+        },
+        "TimexTmeDat": {
+            "en": "time: date or time",
+            "fi": "aika: ajanmääre",
+            // "sv": "TimexTmeDat",
+        },
+        "TimexTmeDat/": {
+            "en": "time: date or time",
+            "fi": "aika: ajanmääre",
+            // "sv": "TimexTmeDat/",
+        },
+        "_": {
+            "en": "unidentified",
+            "fi": "tunnistamaton",
+            // "sv": "_",
+        },
+    },
 };
 
 attrs.namecat_omorfi = {
     label: "name_category_omorfi",
     type: "set",
     displayType: "select",
-    translationKey: "namecat_omorfi_",
+    opts: setOptions,
     dataset: [
         "ARTWORK",
         "CULTGRP",
@@ -603,13 +4359,65 @@ attrs.namecat_omorfi = {
         "PRODUCT",
         "_",
     ],
-    opts: setOptions,
+    translation: {
+        "": {
+            "en": "not a name",
+            // "fi": "",
+            "sv": "inget namn",
+        },
+        "ARTWORK": {
+            "en": "artwork",
+            "fi": "taideteos",
+            "sv": "konstverk",
+        },
+        "CULTGRP": {
+            "en": "culture group",
+            "fi": "kulttuuriryhmä",
+            "sv": "kulturgrupp",
+        },
+        "FIRST": {
+            "en": "first name",
+            "fi": "etunimi",
+            "sv": "förnamn",
+        },
+        "GEO": {
+            "en": "geographical name",
+            "fi": "maantieteellinen nimi",
+            "sv": "geographical name",
+        },
+        "LAST": {
+            "en": "last name",
+            "fi": "sukunimi",
+            "sv": "efternamn",
+        },
+        "MISC": {
+            "en": "other name",
+            "fi": "muu nimi",
+            "sv": "annat namn",
+        },
+        "ORG": {
+            "en": "organization",
+            "fi": "organisaatio",
+            "sv": "organisation",
+        },
+        "PRODUCT": {
+            "en": "product",
+            "fi": "tuote",
+            "sv": "produkt",
+        },
+        "_": {
+            // "en": "_",
+            "fi": "ei nimi",
+            // "sv": "_",
+        },
+    },
 };
 
 attrs.pos_ftb31 = {
     label: "pos",
     displayType: "select",
-    translationKey: "posftb3_",
+    opts: liteOptions,
+    // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
         "Abbr": "Abbr",
@@ -631,12 +4439,14 @@ attrs.pos_ftb31 = {
         "Unkwn": "Unkwn",
         "V": "V"
     },
-    opts: liteOptions
+    translation: transl.pos,
 };
+
 attrs.pos_kotus = {
     label: "pos",
     displayType: "select",
-    translationKey: "poskotus_",
+    opts: liteOptions,
+    // TODO: Map to generic keys for PoS translations
     dataset: {
         // Some of the following POS codes might be coding errors in
         // the corpora (usually very few occurrences): CMPR, D, DA-US,
@@ -677,13 +4487,14 @@ attrs.pos_kotus = {
         // from an empty value in the VRT file.
         "null": "null"
     },
-    opts: liteOptions
+    translation: transl.pos,
 };
 
 attrs.pos_mulcold_fi = {
     label: "pos",
     displayType: "select",
-    translationKey: "posmulcoldfi_",
+    opts: liteOptions,
+    // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
         "Abbr": "Abbr",
@@ -701,12 +4512,14 @@ attrs.pos_mulcold_fi = {
         "UNKNOWN": "UNKNOWN",
         "V": "V"
     },
-    opts: liteOptions
+    translation: transl.pos,
 };
+
 attrs.pos_mulcold_ru = {
     label: "pos",
     displayType: "select",
-    translationKey: "posmulcoldru_",
+    opts: liteOptions,
+    // TODO: Map to generic keys for PoS translations
     dataset: {
         "Adj": "Adj",
         "Adv": "Adv",
@@ -724,12 +4537,14 @@ attrs.pos_mulcold_ru = {
         "UNKNOWN": "UNKNOWN",
         "Verb": "Verb"
     },
-    opts: liteOptions
+    translation: transl.pos,
 };
+
 attrs.pos_mulcold_en = {
     label: "pos",
     displayType: "select",
-    translationKey: "posmulcolden_",
+    opts: liteOptions,
+    // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
         "ABBR": "ABBR",
@@ -751,12 +4566,14 @@ attrs.pos_mulcold_en = {
         "UNKNOWN": "UNKNOWN",
         "V": "V"
     },
-    opts: liteOptions
+    translation: transl.pos,
 };
+
 attrs.pos_mulcold_sv = {
     label: "pos",
     displayType: "select",
-    translationKey: "posmulcoldsv_",
+    opts: liteOptions,
+    // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
         "ADV": "ADV",
@@ -771,13 +4588,12 @@ attrs.pos_mulcold_sv = {
         "UNKNOWN": "UNKNOWN",
         "V": "V"
     },
-    opts: liteOptions
+    translation: transl.pos,
 };
 
 attrs.pos_uta_ru = {
     label: "pos",
     displayType: "select",
-    translationKey: "pos_",
     opts: liteOptions,
     dataset: {
         "-": "Punct",
@@ -796,12 +4612,12 @@ attrs.pos_uta_ru = {
         "S": "Prep",
         "V": "V",
     },
+    translation: transl.pos,
 };
 
 attrs.pos_ud2_universal = {
     label: "pos",
     displayType: "select",
-    translationKey: "pos_",
     dataset: {
         "ADJ": "A",
         "ADP": "Adp",
@@ -821,12 +4637,12 @@ attrs.pos_ud2_universal = {
         "VERB": "V",
         "X": "Other",
     },
+    translation: transl.pos,
 };
 
 attrs.pos_ud2_fi = {
     label: "pos",
     displayType: "select",
-    translationKey: "pos_",
     dataset: {
         "A": "A",
         "Adp": "Adp",
@@ -841,12 +4657,12 @@ attrs.pos_ud2_fi = {
         "Symb": "Symb",
         "V": "V",
     },
+    translation: transl.pos,
 };
 
 attrs.pos_ud_fi = {
     label: "pos",
     displayType: "select",
-    translationKey: "pos_",
     opts: liteOptions,
     dataset: {
         "ADJ": "A",
@@ -865,6 +4681,7 @@ attrs.pos_ud_fi = {
         "VERB": "V",
         "X": "Other",
     },
+    translation: transl.pos,
 };
 
 attrs.pos_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.pos_ud_fi));
@@ -874,7 +4691,9 @@ attrs.pos_ud_fi_ud1.order = 13;
 attrs.pos_klk = {
     label: "pos",
     displayType: "select",
-    translationKey: "pos_klk_",
+    extendedComponent: "datasetSelect",
+    escape: false,
+    opts: liteOptions,
     dataset: {
         "": "",
         "A": "A",
@@ -890,9 +4709,7 @@ attrs.pos_klk = {
         "Symb": "Symb",
         "V": "V"
     },
-    extendedComponent: "datasetSelect",
-    escape: false,
-    opts: liteOptions
+    translation: transl.pos,
 };
 attrs.pos_klk_ordered = JSON.parse(JSON.stringify(attrs.pos_klk));
 attrs.pos_klk_ordered.order = 18;
@@ -902,7 +4719,6 @@ attrs.pos_textmorfo = {
     label: "pos",
     displayType: "select",
     opts: liteOptions,
-    translationKey: "pos_",
     dataset: {
         "-|null": "Unknown",
         "Abbrev": "Abbr",
@@ -922,6 +4738,7 @@ attrs.pos_textmorfo = {
         "Proper": "Prop",
         "Verb": "Verb",
     },
+    translation: transl.pos,
 };
 
 // SWECG parts of speech, used in FSTC and Svenska Parole
@@ -1020,7 +4837,6 @@ attrs.lemgram_hidden = {
 attrs.deprel_ftb2 = {
     label: "deprel",
     displayType: "select",
-    translationKey: "deprelftb2_",
     opts: liteOptions,
     dataset: {
         "advl": "advl",
@@ -1039,12 +4855,13 @@ attrs.deprel_ftb2 = {
         "subj": "subj",
         "voc": "voc",
         "_": "_",
-    }
+    },
+    translation: transl.deprel,
 };
 attrs.deprel_tdt = {
     label: "deprel",
-    displayType: "select",
-    translationKey: "deprel_tdt_",
+    // displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "_": "_",
@@ -1102,14 +4919,14 @@ attrs.deprel_tdt = {
         "xcomp": "xcomp",
         "xsubj": "xsubj",
         "xsubj-cop": "xsubj-cop"
-    }
+    },
+    translation: transl.deprel,
 };
 attrs.deprel_tdt_ordered = JSON.parse(JSON.stringify(attrs.deprel_tdt));
 attrs.deprel_tdt_ordered.order = 16;
 attrs.deprel_ud2 = {
     label: "deprel",
     displayType: "select",
-    translationKey: "deprel_ud2_",
     opts: liteOptions,
     dataset: {
         "acl": "acl",
@@ -1157,12 +4974,12 @@ attrs.deprel_ud2 = {
         "vocative": "vocative",
         "xcomp": "xcomp",
         "xcomp:ds": "xcomp:ds",
-    }
+    },
+    translation: transl.deprel,
 };
 attrs.deprel_ud_fi = {
     label: "deprel",
     displayType: "select",
-    translationKey: "deprel_",
     opts: liteOptions,
     dataset: {
         "_": "_",
@@ -1210,7 +5027,8 @@ attrs.deprel_ud_fi = {
         "vocative": "voc",
         "xcomp": "xcomp",
         "xcomp:ds": "xcomp:ds",
-    }
+    },
+    translation: transl.deprel,
 };
 attrs.deprel_ud_fi_ud1 = JSON.parse(JSON.stringify(attrs.deprel_ud_fi));
 attrs.deprel_ud_fi_ud1.label = "deprel_ud1";
@@ -1346,7 +5164,7 @@ for (var i = 0; i < mulcold_pos_langs.length; i++) {
 attrs.wordtype = {
     label: "type",
     displayType: "select",
-    translationKey: "topling_",
+    opts: liteOptions,
     dataset: {
         "text": "text",
         "to": "to",
@@ -1354,7 +5172,33 @@ attrs.wordtype = {
         "comment": "comment",
         "subject": "subject"
     },
-    opts: settings.defaultOptions
+    translation: {
+        "comment": {
+            // "en": "comment",
+            "fi": "transkriboijan kommentti",
+            "sv": "lärares komment",
+        },
+        "from": {
+            // "en": "from",
+            "fi": "lähettäjä",
+            "sv": "ansändare",
+        },
+        "subject": {
+            // "en": "subject",
+            "fi": "aihe",
+            "sv": "subjekt",
+        },
+        "text": {
+            // "en": "text",
+            "fi": "leipäteksti",
+            "sv": "text",
+        },
+        "to": {
+            // "en": "to",
+            "fi": "vastaanottaja",
+            "sv": "adressat",
+        },
+    },
 };
 
 // Name attributes for corpora tagged with (Fi)NER.
@@ -1369,7 +5213,6 @@ attrs.wordtype = {
 attrs.ne_type_fi = {
     label: "ne_type",
     displayType: "select",
-    translationKey: "ne_type_",
     isStructAttr: true,
     dataset: [
         "LOC",
@@ -1381,13 +5224,13 @@ attrs.ne_type_fi = {
         "PRO",
         "MSR",
         "TME"
-   ]
+    ],
+    translation: neTypeTranslation,
 };
 // FiNER name subtypes
 attrs.ne_subtype_fi = {
     label: "ne_subtype",
     displayType: "select",
-    translationKey: "ne_subtype_",
     isStructAttr: true,
     dataset: [
         "ANM",
@@ -1410,13 +5253,13 @@ attrs.ne_subtype_fi = {
         "TIT",
         "TVR",
         "XXX",
-   ],
+    ],
+    translation: neSubtypeTranslation,
 };
 // FiNER full name types: expression category, type, subtype
 attrs.ne_fulltype_fi = {
     label: "ne_fulltype",
     displayType: "select",
-    translationKey: "namecat_",
     isStructAttr: true,
     dataset: [
         "EnamexEvtXxx",
@@ -1443,6 +5286,173 @@ attrs.ne_fulltype_fi = {
         "TimexTmeDat",
         "TimexTmeHrm",
     ],
+    translation: {
+        "EnamexEvtXxx": {
+            "en": "event",
+            "fi": "tapahtuma",
+            "sv": "händelse",
+        },
+        "EnamexLocAst": {
+            "en": "astronomical",
+            "fi": "tähtitieteellinen",
+            "sv": "astronomisk",
+        },
+        "EnamexLocFnc": {
+            "en": "facility",
+            "fi": "fasiliteetti",
+            "sv": "facilitetsentitet",
+        },
+        "EnamexLocGpl": {
+            "en": "geographical",
+            "fi": "maantieteellinen",
+            "sv": "geografisk",
+        },
+        "EnamexLocPpl": {
+            "en": "geopolitical",
+            "fi": "geopoliittinen",
+            "sv": "geopolitisk",
+        },
+        "EnamexLocStr": {
+            "en": "street or road",
+            "fi": "katu tai tie",
+            "sv": "gata eller väg",
+        },
+        "EnamexLocXxx": {
+            "en": "other location",
+            "fi": "muu paikka",
+            "sv": "annan plats",
+        },
+        "EnamexOrgAth": {
+            "en": "sports club",
+            "fi": "urheiluseura tai joukkue",
+            "sv": "idrottsklubb",
+        },
+        "EnamexOrgClt": {
+            "en": "cultural organization",
+            "fi": "kulttuuriorganisaatio",
+            "sv": "kulturorganisation",
+        },
+        "EnamexOrgCrp": {
+            "en": "company or society",
+            "fi": "yritys tai yhdistys",
+            "sv": "bolag eller förening",
+        },
+        "EnamexOrgEdu": {
+            "en": "educational institution",
+            "fi": "oppilaitos",
+            "sv": "utbildningsinstitution",
+        },
+        "EnamexOrgFin": {
+            "en": "financial organization",
+            "fi": "finanssiorganisaatio",
+            "sv": "finansiell organisation",
+        },
+        "EnamexOrgPlt": {
+            "en": "political party",
+            "fi": "puolue",
+            "sv": "parti",
+        },
+        "EnamexOrgTvr": {
+            "en": "mass media",
+            "fi": "media",
+            "sv": "massmedia",
+        },
+        "EnamexProXxx": {
+            "en": "product",
+            "fi": "tuote",
+            "sv": "produkt",
+        },
+        "EnamexPrsAnm": {
+            "en": "animal",
+            "fi": "eläin",
+            "sv": "djur",
+        },
+        "EnamexPrsHum": {
+            "en": "person",
+            "fi": "henkilö",
+            "sv": "person",
+        },
+        "EnamexPrsMyt": {
+            "en": "mythical",
+            "fi": "myyttinen olento",
+            "sv": "mytisk",
+        },
+        "EnamexPrsTit": {
+            "en": "title",
+            "fi": "titteli",
+            "sv": "titel",
+        },
+        "NumexMsrCur": {
+            "en": "money expression",
+            "fi": "rahailmaus",
+            "sv": "pengar",
+        },
+        "NumexMsrXxx": {
+            "en": "other numeric expression",
+            "fi": "muu numeroilmaus",
+            "sv": "annat numeriskt uttryck",
+        },
+        "TimexTmeDat": {
+            "en": "temporal expression",
+            "fi": "ajanilmaus",
+            "sv": "tidsuttryck",
+        },
+        "TimexTmeHrm": {
+            "en": "time",
+            "fi": "kellonaika",
+            "sv": "klockslag",
+        },
+        "omorfi_": {
+            "en": "not a name",
+            // "fi": "omorfi_",
+            "sv": "inget namn",
+        },
+        "omorfi_ARTWORK": {
+            "en": "artwork",
+            "fi": "taideteos",
+            "sv": "konstverk",
+        },
+        "omorfi_CULTGRP": {
+            "en": "culture group",
+            "fi": "kulttuuriryhmä",
+            "sv": "kulturgrupp",
+        },
+        "omorfi_FIRST": {
+            "en": "first name",
+            "fi": "etunimi",
+            "sv": "förnamn",
+        },
+        "omorfi_GEO": {
+            "en": "geographical name",
+            "fi": "maantieteellinen nimi",
+            "sv": "geographical name",
+        },
+        "omorfi_LAST": {
+            "en": "last name",
+            "fi": "sukunimi",
+            "sv": "efternamn",
+        },
+        "omorfi_MISC": {
+            "en": "other name",
+            "fi": "muu nimi",
+            "sv": "annat namn",
+        },
+        "omorfi_ORG": {
+            "en": "organization",
+            "fi": "organisaatio",
+            "sv": "organisation",
+        },
+        "omorfi_PRODUCT": {
+            "en": "product",
+            "fi": "tuote",
+            "sv": "produkt",
+        },
+        "omorfi__": {
+            // "en": "omorfi__",
+            "fi": "ei nimi",
+            // "sv": "omorfi__",
+        },
+    },
 };
 // The name (tokens) within the ne structure
 attrs.ne_name = {
@@ -1460,13 +5470,29 @@ attrs.ne_placename = {
 attrs.ne_placename_source = {
     label: "ne_placename_source",
     displayType: "select",
-    translationKey: "placename_source_",
+    isStructAttr: true,
     dataset: [
         "ner",
         "pos",
         "meta",
     ],
-    isStructAttr: true,
+    translation: {
+        "meta": {
+            "en": "metadata",
+            "fi": "kuvailutiedot",
+            "sv": "metadata",
+        },
+        "ner": {
+            "en": "named-entity recognizer",
+            "fi": "nimientunnistin",
+            "sv": "namnigenkännare",
+        },
+        "pos": {
+            "en": "parser or POS tagger",
+            "fi": "jäsennin",
+            "sv": "parser eller ordklasstaggare",
+        },
+    },
 };
 // The raw (Fi)NER tag as a positional attriute
 attrs.ner_rawtag = {
@@ -1478,12 +5504,28 @@ attrs.ner_rawtag = {
 attrs.ner_bio = {
     label: "ner_bio",
     displayType: "select",
-    translationKey: "ner_bio_",
     dataset: [
         "B",
         "I",
         "O",
     ],
+    translation: {
+        "B": {
+            "en": "beginning (B)",
+            "fi": "alussa (B)",
+            "sv": "början (B)",
+        },
+        "I": {
+            "en": "inside (I)",
+            "fi": "sisällä (I)",
+            "sv": "innanför (I)",
+        },
+        "O": {
+            "en": "outside (O)",
+            "fi": "ulkopuolella (O)",
+            "sv": "utanför (O)",
+        },
+    },
 };
 
 // Common name attributes for (Fi)NER-tagged corpora
@@ -1569,24 +5611,30 @@ sattrs.author_deathyear = {
 sattrs.sex = {
     label: "sex",
     displayType: "select",
-    translationKey: "sex_",
+    opts: liteOptions,
     dataset: {
         "f": "female",
         "m": "male",
         "x": "other",
         "u": "unknown",
     },
-    opts: liteOptions,
+    translation: transl.sex,
 };
 
 sattrs.author_name_type = {
     label: "author_name_type",
     displayType: "select",
-    translationKey: "author_name_type_",
+    opts: liteOptions,
     dataset: {
         "candidate id": "candidate_id",
     },
-    opts: liteOptions,
+    translation: {
+        "candidate_id": {
+            "en": "candidate id",
+            "fi": "kokelaan tunniste",
+            "sv": "abiturientsignum",
+        },
+    },
 };
 
 
@@ -1664,14 +5712,15 @@ sattrs.text_link_gutenberg = {
 sattrs.sentence_type = {
     label: "sentence_type",
     displayType: "select",
-    translationKey: "klassikot_",
+    // No translations for this key (2021-09-15)
+    // translationKey: "klassikot_",
     dataset: {
         "text": "text",
         "head": "head",
         "stanza": "stanza",
         "speaker": "speaker",
         "stage": "stage"
-    }
+    },
 };
 
 
@@ -1714,12 +5763,24 @@ sattrs.part_num = {
 sattrs.mikhailov_text_genre = {
     label: "text_genre",
     displayType: "select",
-    translationKey: "textgenre_",
+    opts: liteOptions,
     dataset: {
         "fiction": "fiction",
         "law": "law",
     },
-    opts: liteOptions
+    // TODO: Add these to transl.genre
+    translation: {
+        "fiction": {
+            "en": "fiction",
+            "fi": "kaunokirjallisuus",
+            "sv": "skönlitteratur",
+        },
+        "law": {
+            "en": "legal text",
+            "fi": "lakiteksti",
+            "sv": "juridisk text",
+        },
+    },
 };
 
 sattrs.text_author = {
@@ -1932,15 +5993,15 @@ sattrlist.klk = {
     text_language: {
         label: "lang",
         displayType: "select",
-        translationKey: "",
+        extendedComponent: "datasetSelect",
+        escape: false,
         opts: liteOptions,
         dataset: {
             "fi": "fin",
             "sv": "swe",
             "et": "est",
         },
-        extendedComponent: "datasetSelect",
-        escape: false,
+        translation: transl.lang,
     },
     /*
     text_page_id: {
@@ -1967,14 +6028,25 @@ sattrlist.klk = {
     text_publ_type: {
         label: "publication_type",
         displayType: "select",
-        translationKey: "publtype_",
+        extendedComponent: "datasetSelect",
+        escape: false,
         opts: liteOptions,
         dataset: {
             "aikakausi": "journal",
             "sanomalehti": "newspaper"
         },
-        extendedComponent: "datasetSelect",
-        escape: false,
+        translation: {
+            "journal": {
+                "en": "journal",
+                "fi": "aikakauslehti",
+                "sv": "tidskrift",
+            },
+            "newspaper": {
+                "en": "newspaper",
+                "fi": "sanomalehti",
+                "sv": "tidning",
+            },
+        },
     },
     paragraph_id: {
         label: "paragraph_id",
@@ -3392,12 +7464,23 @@ sattrlist.europarl_v7 = {
     sentence_type: {
         label: "sentence_type",
         displayType: "select",
-        translationKey: "europarl_v7_sentence_type_",
+        opts: liteOptions,
         dataset: {
             "meta": "meta",
             "speech": "speech"
         },
-        opts: liteOptions
+        translation: {
+            "meta": {
+                // "en": "meta",
+                "fi": "meta",
+                // "sv": "meta",
+            },
+            "speech": {
+                // "en": "speech",
+                "fi": "puhe",
+                // "sv": "speech",
+            },
+        },
     },
 
     sentence_line: {
@@ -3423,7 +7506,8 @@ sattrlist.europarl_v7 = {
     speaker_aff: {
         label: 'speaker_affiliation',
         displayType: "select",
-        translationKey: "europarl_v7_aff_",
+        // No translations for this key (2021-09-15)
+        // translationKey: "europarl_v7_aff_",
         dataset: {
             "und": "und"
         }
@@ -3431,7 +7515,7 @@ sattrlist.europarl_v7 = {
     speaker_lang: {
         label: "speech_language",
         displayType: "select",
-        translationKey: "ftb3_europarl_language_",
+        opts: liteOptions,
         dataset: {
             "BG": "bg",
             "CS": "cs",
@@ -3459,7 +7543,7 @@ sattrlist.europarl_v7 = {
             "SV": "sv",
             "und": "und"
         },
-        opts: liteOptions
+        translation: transl.langEuroParl,
     }
 };
 
@@ -3707,9 +7791,9 @@ settings.fn.make_bool_attr = function (label, yes_no) {
     return {
         label: label,
         displayType: "select",
-        translationKey: "",
-        dataset: dataset,
         opts: liteOptions,
+        dataset: dataset,
+        translation: transl.yesno,
     };
 };
 
@@ -3922,17 +8006,8 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
                 val = attrdef.renderItem(
                     key, val, attrdef, token_data.pos_attrs,
                     token_data.struct_attrs, token_data.tokens);
-            } else if (attrdef.translationKey != undefined) {
-                if (attrdef.dataset && ! _.isArray(attrdef.dataset)) {
-                    val = (attrdef.dataset != undefined
-                           ? attrdef.dataset[val]
-                           : val);
-                }
-                var loc_val = util.getLocaleStringUndefined(
-                    attrdef.translationKey + val);
-                if (loc_val != undefined) {
-                    val = loc_val;
-                }
+            } else if (attrdef.translation != null) {
+                val = util.translateAttribute(null, attrdef.translation, val);
             } else if (val == "") {
                 val = util.getLocaleString("unknown");
             }
@@ -4198,12 +8273,12 @@ settings.templ.lemmie_common = {
             label: "lang",
             displayType: "select",
             opts: liteOptions,
-            translationKey: "",
             dataset: [
                 "fin",
                 "eng",
                 "swe",
-            ]
+            ],
+            translation: transl.lang,
         },
         text_date: sattrs.date,
         text_filename: {
@@ -4234,9 +8309,9 @@ settings.templ.lemmie_common = {
         paragraph_type: {
             label: "paragraph_type",
             displayType: "select",
-            translationKey: "paragraphtype_",
+            opts: liteOptions,
             dataset: {},
-            opts: liteOptions
+            translation: transl.paragraphType,
         },
         sentence_id: sattrs.sentence_id_hidden,
         sentence_within: {
@@ -4329,6 +8404,7 @@ module.exports = {
     attrlist,
     sattrlist,
     funcs,
+    transl,
     setOptions,
     liteOptions,
     makeVideoAttr,
