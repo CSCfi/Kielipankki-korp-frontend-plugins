@@ -133,6 +133,11 @@
     "subject": "subject",
     "volume": "volume",
 
+    "book_number": "book number",
+    "contributor": "contributor",
+    
+    "nlfcl_contributor": "collaborator",
+
     "author_name_type": "type of author name",
     "author_name_type_candidate_id": "candidate id",
     "sex": "sex",

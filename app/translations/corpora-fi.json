@@ -86,6 +86,10 @@
     "text_volume": "nide",
     "subject": "aihe",
 
+    "book_number": "kirjan numero",
+
+    "nlfcl_contributor": "muu tekijä",
+
     "digitized": "digitoitu",
     "modified": "muunnettu",
     "wordcount": "sanamäärä",
