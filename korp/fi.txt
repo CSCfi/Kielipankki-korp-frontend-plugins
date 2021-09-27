@@ -1,3 +1,12 @@
+
+<!-- Uusi aineisto (beta): Kansalliskirjaston klassikkokirjasto (suomi) 2021-09-27 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-201803281"
+target="_blank">Kansalliskirjaston klassikkokirjaston suomenkielinen
+osakorpus – Kielipankki-versio (nlfcl-fi-korp)</a> on nyt
+käytettävissä beetatestiversiona Korpissa.
+
+
 <!-- Uusi aineisto (beta): Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti-suomi-rinnakkaiskorpus 2021-09-16 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019121805"

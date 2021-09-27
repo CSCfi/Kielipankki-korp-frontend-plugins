@@ -1,3 +1,12 @@
+
+<!-- New corpus (beta): Classics Library of the National Library of Finland (Finnish sub-corpus) 2021-09-27 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-201803281" target="_blank">The
+Finnish sub-corpus of the Classics Library of the National Library of
+Finland – Kielipankki version (nlfcl-fi-korp)</a> is now available in
+Korp as a beta test version.
+
+
 <!-- New corpus (beta): Classics of English and American Literature as translated by Kersti Juva, English-Finnish parallel corpus 2021-09-16 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019121805"
