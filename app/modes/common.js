@@ -1790,6 +1790,10 @@ attrlist.finer2 = {
         label: "ner_tags",
         type: "set",
         opts: settings.setOptions,
+        // Hide the tags containing nesting information (a digit
+        // suffix) until it can be represented and searched for in a
+        // more user-friendly way (in Korp 9)
+        displayType: "hidden",
     },
     nerbio: {
         label: "ner_bio",
