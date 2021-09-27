@@ -13860,6 +13860,7 @@ settings.corpora.nlfcl_fi = {
     metadata_urn: "urn:nbn:fi:lb-201803281",
     cite_id: "nlfcl-fi-korp",
     licence: settings.licenceinfo.CC_BY_40,
+    labels: ["beta"],
     features: ["paragraphs", "parsed_tdt", "finer2"],
     struct_attributes: {
         text_id: sattrs.hidden,
@@ -13884,6 +13885,9 @@ settings.corpora.nlfcl_fi = {
     }
     
 };
+
+settings.fn.add_corpus_aliases("nlfcl_fi", ["nlfcl-fi"]);
+
 
 /* testiversio
 settings.corpora.suomi24fi = {
