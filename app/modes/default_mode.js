@@ -13868,22 +13868,21 @@ settings.corpora.nlfcl_fi = {
 	text_author: sattrs.text_author,
 	text_contributor: {
             label: "nlfcl_contributor"
-	}, 
-	text_rights: sattrs.hidden,             
+	},
+	text_rights: sattrs.hidden,
 	text_filename: sattrs.hidden,
 	text_digitized: {
             label: "digitization_date"
 	},
 	text_book_number: {
             label: "book_number"
-	},  
+	},
 	text_year: {
 	    label: "publication_year"
 	},
 	paragraph_id: sattrs.paragraph_id_hidden,
 	sentence_id: sattrs.sentence_id_hidden,
     }
-    
 };
 
 settings.fn.add_corpus_aliases("nlfcl_fi", ["nlfcl-fi"]);
