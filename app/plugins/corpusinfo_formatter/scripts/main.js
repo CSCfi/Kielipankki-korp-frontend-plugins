@@ -50,12 +50,16 @@ class CorpusInfoFormatter {
             settings.corpusExtraInfo ?
                 this._formatCorpusExtraInfo(
                     corpusObj,
-                    {info_items: settings.corpusExtraInfo[target],
-                     static_localization: target == "infoPopup"})
+                    {
+                        info_items: settings.corpusExtraInfo[target],
+                        static_localization: target == "infoPopup",
+                        item_paragraphs: target == "sidebar",
+                    })
             :
                 undefined
         if (corpusExtraInfo) {
-            descr += (descr ? "<br/><br/>" : "") + corpusExtraInfo
+            descr += ((descr && target == "infoPopup" ? "<br/><br/>" : "") +
+                      corpusExtraInfo)
         }
         return descr
     }
