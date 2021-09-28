@@ -5660,33 +5660,33 @@ sattrs.context_url = {
 // property url_opts.
 sattrs.link_url_opts = {
     // Show the the link in a separate link section
-    in_link_section: true,
+    inLinkSection: true,
     // Hide the URL and use the attribute label as the link text
-    hide_url: true,
+    hideUrl: true,
     // Open the link in a new window (or tab)
-    new_window: true,
+    newWindow: true,
 };
 
 sattrs.link_fulltext = {
     label: "show_fulltext",
     type: "url",
-    url_opts: sattrs.link_url_opts
+    urlOpts: sattrs.link_url_opts
 };
 sattrs.link_original = {
     label: "show_original",
     type: "url",
-    url_opts: sattrs.link_url_opts
+    urlOpts: sattrs.link_url_opts
 };
 sattrs.link_fulltext_context = {
     label: "show_fulltext_context",
     type: "url",
-    url_opts: sattrs.link_url_opts
+    urlOpts: sattrs.link_url_opts
 };
 sattrs.link_prefixed = function (label, url_prefix) {
     return {
         label: label,
         type: "url",
-        url_opts: sattrs.link_url_opts,
+        urlOpts: sattrs.link_url_opts,
         url_prefix: url_prefix
     };
 };
@@ -5700,13 +5700,13 @@ sattrs.link_show_video_annex = sattrs.link_prefixed(
 sattrs.link_gutenberg = {
     label: "show_gutenberg",
     type: "url",
-    url_opts: sattrs.link_url_opts
+    urlOpts: sattrs.link_url_opts
 };
 
 sattrs.text_link_gutenberg = {
     label: "show_gutenberg_text",
     type: "url",
-    url_opts: sattrs.link_url_opts
+    urlOpts: sattrs.link_url_opts
 };
 
 sattrs.sentence_type = {
@@ -5868,7 +5868,7 @@ sattrlist.ethesis = {
     text_url: {
         label: "text_abslink",
         type: "url",
-        url_opts: sattrs.link_url_opts
+        urlOpts: sattrs.link_url_opts
     }
 };
 
@@ -6091,7 +6091,7 @@ sattrlist.klk_pagelinks = {
     text_page_image_url: {
         label: "show_page_image",
         type: "url",
-        url_opts: sattrs.link_url_opts,
+        urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
             return settings.fn.make_klk_page_image_url(token_data, 0);
@@ -6100,7 +6100,7 @@ sattrlist.klk_pagelinks = {
     text_page_image_context_url: {
         label: "show_page_image_context",
         type: "url",
-        url_opts: sattrs.link_url_opts,
+        urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
             return settings.fn.make_klk_page_image_url(token_data, 2);
@@ -6109,7 +6109,7 @@ sattrlist.klk_pagelinks = {
     text_download_pdf_url: {
         label: "download_publ_pdf",
         type: "url",
-        url_opts: sattrs.link_url_opts,
+        urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
             return settings.fn.make_klk_url_base(token_data) + "/pdf";

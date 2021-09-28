@@ -1211,17 +1211,17 @@ attrlist.oracc = {
     url: {
         label: "oracc_url",
         type: "url",
-        url_opts: {
-            //in_link_section: true,
-            //hide_url: true,
-            new_window: true,
+        urlOpts: {
+            //inLinkSection: true,
+            //hideUrl: true,
+            newWindow: true,
         }
     }
 /*
     url: {
-        in_link_section: true,
-        hide_url: true,
-        new_window: true,
+        inLinkSection: true,
+        hideUrl: true,
+        newWindow: true,
         label: "oracc_url",
         type: "url"
         }*/
@@ -1638,7 +1638,7 @@ sattrlist.wanca_common = {
     text_url: {
         label: "URL",
         type: "url",
-        url_opts: sattrs.link_url_opts
+        urlOpts: sattrs.link_url_opts
     },
 };
 
@@ -2022,7 +2022,7 @@ sattrlist.fennougrica = {
 
     },
     text_link: {
-        url_opts: sattrs.link_url_opts,
+        urlOpts: sattrs.link_url_opts,
         label: "klk_img_url",
         type: "url"
     }

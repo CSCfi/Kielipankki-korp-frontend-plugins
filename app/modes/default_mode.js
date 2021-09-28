@@ -1531,7 +1531,7 @@ settings.corpora.semfinlex_asd_fi_2018 = {
         text_url: {
             label: "URL",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
@@ -1567,7 +1567,7 @@ settings.corpora.semfinlex_kko_fi_2018 = {
         text_url: {
             label: "URL",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     },
@@ -1586,7 +1586,7 @@ settings.corpora.semfinlex_kho_fi_2018 = {
         text_url: {
             label: "URL",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     },
@@ -1818,7 +1818,7 @@ settings.corpora.ftb3_jrcacquis = $.extend(true, {}, ftb3_info, {
 sattrs.link_lehdet = {
     label: "link_to_original",
     type: "url",
-    url_opts: sattrs.link_url_opts
+    urlOpts: sattrs.link_url_opts
 };
 
 settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
@@ -11335,7 +11335,7 @@ settings.templ.la_murre = {
         sentence_fulltext_link:  {
             label: "show_fulltext",
             type: "url",
-            url_opts: sattrs.link_url_opts,
+            urlOpts: sattrs.link_url_opts,
             synthetic: true,
             stringify_synthetic: settings.fn.make_la_murre_fulltext_url,
         },
@@ -12472,12 +12472,12 @@ sattrlist.s24_update = {
     text_urlmsg: {
         label: "suomi24fi_urlmsg",
         type: "url",
-        url_opts: sattrs.link_url_opts
+        urlOpts: sattrs.link_url_opts
     },
     text_urlboard: {
         label: "suomi24fi_urlboard",
         type: "url",
-        url_opts: sattrs.link_url_opts
+        urlOpts: sattrs.link_url_opts
     },
     sentence_id: sattrs.sentence_id_hidden,
     text_title: sattrs.text_title,
@@ -14337,22 +14337,22 @@ settings.corpora.skn = {
         sentence_urlview: {
             label: "murre_urlview",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_urlvaw: {
             label: "murre_urlwav",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_urltextgrid: {
             label: "murre_urltextgrid",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_urleaf: {
             label: "murre_urleaf",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         }
     }
 };
@@ -14720,17 +14720,17 @@ settings.corpora.eduskunta = {
         text_original_video: {
             label: "original_video",
             type: "url",
-            url_opts: {
-                hide_url: true,
-                new_window: true,
+            urlOpts: {
+                hideUrl: true,
+                newWindow: true,
             },
         },
         text_original_transcript: {
             label: "original_transcript",
             type: "url",
-            url_opts: {
-                hide_url: true,
-                new_window: true,
+            urlOpts: {
+                hideUrl: true,
+                newWindow: true,
             },
         },
         paragraph_speaker: {
@@ -15144,7 +15144,7 @@ settings.corpora.eduskunta = {
         utterance_videopage_link: {
             label: "show_video",
             type: "url",
-            url_opts: sattrs.link_url_opts,
+            urlOpts: sattrs.link_url_opts,
             synthetic: true,
             order: 50,
             stringify_synthetic: function (token_data) {
@@ -15590,7 +15590,7 @@ settings.corpora.dma = {
             label: "show_wordnote",
             opts: settings.defaultOptions,
             type: "url",
-            url_opts: $.extend({}, sattrs.link_url_opts, {
+            urlOpts: $.extend({}, sattrs.link_url_opts, {
                 stringify_link: function (key, filename, attrs, html_attrs) {
                     if (! filename) {
                         return "";
@@ -15793,12 +15793,12 @@ settings.corpora.s24 = {
         text_urlmsg: {
             label: "suomi24fi_urlmsg",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_urlboard: {
             label: "suomi24fi_urlboard",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         }
     }
 };
@@ -15916,7 +15916,7 @@ sattrlist.s24_2018 = {
     text_thread_link: {
         label: "show_orig_thread",
         type: "url",
-        url_opts: sattrs.link_url_opts,
+        urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
             return ("https://keskustelu.suomi24.fi/t/"
@@ -15926,7 +15926,7 @@ sattrlist.s24_2018 = {
     text_comment_link: {
         label: "show_orig_message",
         type: "url",
-        url_opts: sattrs.link_url_opts,
+        urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
             var comment_id = token_data.struct_attrs.text_comment_id

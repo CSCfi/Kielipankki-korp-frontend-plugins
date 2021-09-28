@@ -268,7 +268,7 @@ settings.corpora.semfinlex_asd_sv_2018 = {
         text_url: {
             label: "URL",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
@@ -306,7 +306,7 @@ settings.corpora.semfinlex_kko_sv_2018 = {
         text_url: {
             label: "URL",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     }
@@ -327,7 +327,7 @@ settings.corpora.semfinlex_kho_sv_2018 = {
         text_url: {
             label: "URL",
             type: "url",
-            url_opts: sattrs.link_url_opts
+            urlOpts: sattrs.link_url_opts
         },
         text_keywords: {label: "keywords"}
     }
