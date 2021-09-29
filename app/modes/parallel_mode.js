@@ -747,7 +747,6 @@ settings.corpora.ceal_o_fi = {
     id: "ceal_o_fi",
     shortname: "ceal-par-korp",
     lang: "fin",
-    labels: ["beta"],
     urn: "urn:nbn:fi:lb-2019121808",
     metadata_urn: "urn:nbn:fi:lb-2019121805",
     licence: {
@@ -770,7 +769,6 @@ settings.corpora.ceal_o_en = {
     id: "ceal_o_en",
     shortname: "ceal-par-korp",
     lang: "eng",
-    labels: ["beta"],
     urn: "urn:nbn:fi:lb-2019121808",
     metadata_urn: "urn:nbn:fi:lb-2019121805",
     licence: {
