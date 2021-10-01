@@ -511,8 +511,6 @@ settings.modeConfig = [
     }
 ];
 
-// Namespace for functions used in configuring corpora
-settings.fn = {};
 // Namespace for corpus configuration templates
 settings.templ = {};
 // Namespace for extra corpus info used in multiple corpora

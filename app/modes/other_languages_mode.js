@@ -2188,8 +2188,8 @@ settings.corpora.mulcold_ru = {
     structAttributes: sattrlist.mulcold,
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
-                                   ["mulcold_en", "mulcold_de", "mulcold_ru"]);
+funcs.extend_corpus_settings(settings.corpusinfo.mulcold,
+                             ["mulcold_en", "mulcold_de", "mulcold_ru"]);
 
 settings.corpora.legal_ru = {
     id: "legal_ru",
@@ -2201,8 +2201,8 @@ settings.corpora.legal_ru = {
     structAttributes: sattrlist.legal
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
-                                   ["legal_ru"]);
+funcs.extend_corpus_settings(settings.corpusinfo.firulex,
+                             ["legal_ru"]);
 
 
 /* E-thesis en */
@@ -2479,8 +2479,8 @@ settings.corpora.parrus_2016_ru = {
     attributes: attrlist.parrus_2016_ru,
     structAttributes: sattrlist.parrus_2016_ru,
 };
-settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
-                                   ["parrus_2016_ru"]);
+funcs.extend_corpus_settings(settings.corpusinfo.parrus_2016,
+                             ["parrus_2016_ru"]);
 
 
 /* ParFin 2016 ru */
@@ -2500,8 +2500,8 @@ settings.corpora.parfin_2016_ru = {
     attributes: attrlist.parfin_2016_ru,
     structAttributes: sattrlist.parfin_2016_ru,
 };
-settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
-                                   ["parfin_2016_ru"]);
+funcs.extend_corpus_settings(settings.corpusinfo.parfin_2016,
+                             ["parfin_2016_ru"]);
 
 
 settings.corpora.topling_en = {
@@ -3692,7 +3692,7 @@ settings.corpora.scots_royal = {
     description: "Helsinki Corpus of Scottish Correspondence: Royal",
 };
 
-settings.fn.extend_corpus_settings(
+funcs.extend_corpus_settings(
     {
         context: {
             // 2 preceding and following lines, but not crossing
@@ -4182,7 +4182,7 @@ hcs2_hierarchy = [
     ] ],
 ];
 
-settings.fn.make_folder_hierarchy(
+funcs.make_folder_hierarchy(
     settings.corporafolders.swahili.hcs2, hcs2_hierarchy,
     {
         id_prefix: "hcs2_",
@@ -4533,7 +4533,7 @@ var coca_hierarchy = [
     ["spok", "Spoken"],
 ];
 
-settings.fn.make_folder_hierarchy(
+funcs.make_folder_hierarchy(
     settings.corporafolders.english.other.coca, coca_hierarchy,
     {
         id_prefix: "coca_",
@@ -4613,7 +4613,7 @@ settings.templ.coha_common = {
 };
 
 // Make a corpus/folder hierarchy for COHA (to be used as an argument
-// to settings.fn.make_folder_hierarchy): decades as folders, decades
+// to funcs.make_folder_hierarchy): decades as folders, decades
 // with genres as corpora from start_decade to end_decade (inclusive),
 // with the genres listed in an array of two-elemen arrays (corpus id
 // suffix, genre name).
@@ -4645,7 +4645,7 @@ var coha_hierarchy =
     make_coha_hierarchy(1810, 1850, coha_genres_nonews)
     .concat(make_coha_hierarchy(1860, 2000, coha_genres_news));
 
-settings.fn.make_folder_hierarchy(
+funcs.make_folder_hierarchy(
     settings.corporafolders.english.historical.coha, coha_hierarchy,
     {
         id_prefix: "coha_",
@@ -4835,7 +4835,7 @@ settings.templ.glowbe_common = {
 };
 
 // Make a corpus/folder hierarchy for GloWbE (to be used as an
-// argument to settings.fn.make_folder_hierarchy) based on the list of
+// argument to funcs.make_folder_hierarchy) based on the list of
 // country codes and names: countries as folders, countries with
 // genres (general or blog) as corpora.
 function make_glowbe_hierarchy (countries) {
@@ -4852,7 +4852,7 @@ function make_glowbe_hierarchy (countries) {
     return result;
 }
 
-settings.fn.make_folder_hierarchy(
+funcs.make_folder_hierarchy(
     settings.corporafolders.english.other.glowbe,
     make_glowbe_hierarchy(glowbe_countries),
     {
@@ -4870,7 +4870,7 @@ settings.corpus_aliases["glowbe-2017h1"] = "glowbe_.*";
 
 
 
-settings.fn.add_attr_extra_properties(settings.corpora);
+funcs.add_attr_extra_properties(settings.corpora);
 
 
 settings.corpusListing = new CorpusListing(settings.corpora);

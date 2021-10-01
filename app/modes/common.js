@@ -6094,7 +6094,7 @@ sattrlist.klk_pagelinks = {
         urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
-            return settings.fn.make_klk_page_image_url(token_data, 0);
+            return funcs.make_klk_page_image_url(token_data, 0);
         }
     },
     text_page_image_context_url: {
@@ -6103,7 +6103,7 @@ sattrlist.klk_pagelinks = {
         urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
-            return settings.fn.make_klk_page_image_url(token_data, 2);
+            return funcs.make_klk_page_image_url(token_data, 2);
         }
     },
     text_download_pdf_url: {
@@ -6112,7 +6112,7 @@ sattrlist.klk_pagelinks = {
         urlOpts: sattrs.link_url_opts,
         synthetic: true,
         stringify_synthetic: function (token_data) {
-            return settings.fn.make_klk_url_base(token_data) + "/pdf";
+            return funcs.make_klk_url_base(token_data) + "/pdf";
         }
     },
 };
@@ -7618,7 +7618,6 @@ sattrlist.topling = {
 
 
 // Functions used in corpus configurations
-// TODO: Rename settings.fn.* as funcs.*
 funcs = {};
 
 
@@ -7657,7 +7656,7 @@ funcs.addCorporaToFolder = function (folderName, corpusIds, options = {}) {
 
 
 // Homepage in Kotus's Kaino service
-settings.fn.kaino_homepage = function(urlbase) {
+funcs.kaino_homepage = function(urlbase) {
     return {
         name: "Kokoelman etusivu",
         url: "http://kaino.kotus.fi/korpus/" + urlbase + "_coll_rdf.xml",
@@ -7713,19 +7712,19 @@ settings.corporafolder_properties = {
 // configurations for unavailable corpora are removed by default
 // (util.removeUnavailableCorpora).
 //
-// settings.fn.remove_empty_corporafolders has been replaced by
+// funcs.remove_empty_corporafolders has been replaced by
 // util.removeEmptyCorporafolders, but there is not yet an exact
-// replacement for settings.fn.remove_matching_corpora that would
+// replacement for funcs.remove_matching_corpora that would
 // remove corpora based on regular expressions.
 //
 // TODO: Remove these functions from here when a replacement for
-// settings.fn.remove_matching_corpora has been implemented in util.
+// funcs.remove_matching_corpora has been implemented in util.
 
 
 // Recursively remove corpora folders in folder containing no corpora
 // (or folders) that are in settings.corpora. Returns true if folder
 // is empty.
-settings.fn.remove_empty_corporafolders = function (folder) {
+funcs.remove_empty_corporafolders = function (folder) {
     var empty = true;
     if ("contents" in folder) {
         var new_contents = [];
@@ -7745,7 +7744,7 @@ settings.fn.remove_empty_corporafolders = function (folder) {
     for (var prop in folder) {
         if (folder.hasOwnProperty(prop)
             && ! (prop in settings.corporafolder_properties)) {
-            if (settings.fn.remove_empty_corporafolders(folder[prop])) {
+            if (funcs.remove_empty_corporafolders(folder[prop])) {
                 delete folder[prop];
             } else {
                 empty = false;
@@ -7760,7 +7759,7 @@ settings.fn.remove_empty_corporafolders = function (folder) {
 // second argument is true, remove the corpora that do *not* match any
 // of the regular expressions. After that, remove corpora folders that
 // would be empty after removing the copora.
-settings.fn.remove_matching_corpora = function (corplist) {
+funcs.remove_matching_corpora = function (corplist) {
     var inverse = (arguments.length > 1 && arguments[1]);
     var corp_re = new RegExp("^(" + corplist.join ("|") + ")$");
     for (var corpus in settings.corpora) {
@@ -7769,7 +7768,7 @@ settings.fn.remove_matching_corpora = function (corplist) {
             delete settings.corpora[corpus];
         }
     }
-    settings.fn.remove_empty_corporafolders(settings.corporafolders);
+    funcs.remove_empty_corporafolders(settings.corporafolders);
 };
 
 
@@ -7784,7 +7783,7 @@ settings.fn.remove_matching_corpora = function (corplist) {
 
 // Add the extra attibute properties in settings.attr_extra_properties
 // to the appropriate attributes of corpora.
-settings.fn.add_attr_extra_properties = function (corpora) {
+funcs.add_attr_extra_properties = function (corpora) {
     for (var corpname in corpora) {
         var corpus = corpora[corpname];
         var attr_group_names = ["attributes", "struct_attributes"];
@@ -7830,7 +7829,7 @@ settings.fn.add_attr_extra_properties = function (corpora) {
 //   override: if true, override an existing alias (default: no)
 //   add_variants: if false, do not add the alias variants (default:
 //     true)
-settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
+funcs.add_corpus_aliases = function (corpus_id_patt, aliases) {
     var opts = arguments[2] || {};
     var override = opts.override || false;
     var add_variants = (opts.add_variants !== false);
@@ -7902,8 +7901,7 @@ settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
 // replaced with the variable part of the id specified in the infolist
 // item.
 
-settings.fn.add_corpus_settings = function (template, infolist, folder,
-                                            id_templ) {
+funcs.add_corpus_settings = function (template, infolist, folder, id_templ) {
     var ids = [];
     // Replace {} with the id in infolist in these properties:
     var id_subst_props = ["title", "description"];
@@ -7948,7 +7946,7 @@ settings.fn.add_corpus_settings = function (template, infolist, folder,
 
 
 // Add properties to the settings of the listed corpora.
-settings.fn.extend_corpus_settings = function (props, corpus_ids) {
+funcs.extend_corpus_settings = function (props, corpus_ids) {
     for (var i = 0; i < corpus_ids.length; i++) {
         $.extend(true, settings.corpora[corpus_ids[i]], props);
     }
@@ -7960,7 +7958,7 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
 // - label: attribute translation label
 // - yes_no: an array of two items: the corpus values for "yes" and
 //   "no"; if omitted, use "y" and "n".
-settings.fn.make_bool_attr = function (label, yes_no) {
+funcs.make_bool_attr = function (label, yes_no) {
     var dataset = {};
     if (arguments.length < 2) {
         dataset = {
@@ -7991,8 +7989,8 @@ settings.fn.make_bool_attr = function (label, yes_no) {
 //   explained and their values are the explanations of the attribute
 //   values corresponding to the keys
 // Example:
-//   pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quote'})%>",
-settings.fn.make_explained_value = function (value, value_map) {
+//   pattern: "<%=funcs.make_explained_value(val, {'0': 'no_quote'})%>",
+funcs.make_explained_value = function (value, value_map) {
     if (value in value_map) {
         value += (" <i style=\"color: grey;\">[<span rel=\"localize["
                   + value_map[value] + "]\"></span>]</i>");
@@ -8003,7 +8001,7 @@ settings.fn.make_explained_value = function (value, value_map) {
 
 // Add a zero-width space before "T" to allow more logical
 // line-breaking of an ISO datetime value.
-settings.fn.stringify_iso_datetime = function (val) {
+funcs.stringify_iso_datetime = function (val) {
     return val.replace(/T/g, "<wbr>T");
 };
 
@@ -8047,8 +8045,8 @@ settings.fn.stringify_iso_datetime = function (val) {
 // TODO: Would this function be better in the util module? Or maybe a
 // separate util_config?
 
-settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
-                                              options) {
+funcs.make_folder_hierarchy = function (parent_folder, subfolder_tree,
+                                        options) {
 
     // Return a function for making the folder or corpus (depending on
     // the argumet "type") config object with the given options.
@@ -8102,7 +8100,7 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
                                              parent_folder, ancestor_ids)
             var subfolder = folder_info.data;
             parent_folder[folder_info.id] = subfolder;
-            settings.fn.make_folder_hierarchy(
+            funcs.make_folder_hierarchy(
                 subfolder, subsubfolders, options,
                 ancestor_ids.concat([folder_info.id]));
         } else {
@@ -8124,7 +8122,7 @@ settings.fn.make_folder_hierarchy = function (parent_folder, subfolder_tree,
 // for setting the order of attributes. attrnamelist lists the names
 // of the attribute in the desired order: it can be either an array of
 // strings or a single string of names separated by spaces (or tabs).
-settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
+funcs.set_attr_order = function (attrstruct, attrnamelist) {
     if (typeof attrnamelist == "string") {
         attrnamelist = attrnamelist.split(/[ \t]+/);
     }
@@ -8140,7 +8138,7 @@ settings.fn.set_attr_order = function (attrstruct, attrnamelist) {
 // Functions for the video page
 
 // Return the milliseconds value ms0 formatted as hh:mm:ss.xxx
-settings.fn.ms_to_hms = function (ms0) {
+funcs.ms_to_hms = function (ms0) {
     // Adapted from https://stackoverflow.com/a/2998822
     var pad = function (num, len) {
         var s = "000" + Math.floor(num).toString();
@@ -8173,9 +8171,9 @@ settings.fn.ms_to_hms = function (ms0) {
 //   be converted from milliseconds to seconds
 // - omit_attrs: the structural attributes not to be passed to the
 //   video page
-settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
-                                           msec2sec_attrs, omit_attrs) {
-    // console.log("settings.fn.make_videopage_url", token_data);
+funcs.make_videopage_url = function (corpus_id, token_data, video_url,
+                                     msec2sec_attrs, omit_attrs) {
+    // console.log("funcs.make_videopage_url", token_data);
     var msec_to_sec = function (sec) {
         return (parseInt(sec) / 1000).toString();
     };
@@ -8280,7 +8278,7 @@ settings.fn.make_videopage_url = function (corpus_id, token_data, video_url,
 
 // Construct a list of years from start to end, years in opts.omit
 // omitted, descending if opts.descending
-settings.fn.make_yearlist = function(start, end, opts)
+funcs.make_yearlist = function(start, end, opts)
 {
     var omit = [];
     var descending = false;
@@ -8306,7 +8304,7 @@ settings.fn.make_yearlist = function(start, end, opts)
 
 // Construct corpus settings by year and corpus folder settings by
 // decade
-settings.fn.make_corpus_settings_by_year_decade = function(
+funcs.make_corpus_settings_by_year_decade = function(
     folder_parent, folder_name_format, corpus_name_format,
     make_folder_settings_fn, make_corpus_settings_fn, yearlist)
 {
@@ -8343,7 +8341,7 @@ settings.fn.make_corpus_settings_by_year_decade = function(
 
 
 // Construct settings contents for a single KLK corpus
-settings.fn.make_klk_corpus_settings = function(
+funcs.make_klk_corpus_settings = function(
     title_format, descr_format, key_prefix, lang, year, parsed)
 {
     var year_str = year.toString();
@@ -8366,7 +8364,7 @@ settings.fn.make_klk_corpus_settings = function(
 
 // Functions used to make page URL attribute values
 
-settings.fn.make_klk_url_base = function (data) {
+funcs.make_klk_url_base = function (data) {
     return ("http://digi.kansalliskirjasto.fi/"
             + data.struct_attrs.text_publ_type
             + "/binding/"
@@ -8374,7 +8372,7 @@ settings.fn.make_klk_url_base = function (data) {
 };
 
 // Return the argument word with non-word characters removed
-settings.fn.remove_non_word_chars = function (word) {
+funcs.remove_non_word_chars = function (word) {
     // Modified from
     // http://stackoverflow.com/questions/11598786/how-to-replace-non-printable-unicode-characters-javascript,
     // which was from
@@ -8389,9 +8387,9 @@ settings.fn.remove_non_word_chars = function (word) {
 
 // Return the string of context_size words before and after
 // token_data.pos_attrs.word.
-settings.fn.find_context_words = function (token_data, context_size) {
+funcs.find_context_words = function (token_data, context_size) {
     var main_word =
-        settings.fn.remove_non_word_chars(token_data.pos_attrs.word);
+        funcs.remove_non_word_chars(token_data.pos_attrs.word);
     if (context_size == 0) {
         return main_word;
     }
@@ -8402,7 +8400,7 @@ settings.fn.find_context_words = function (token_data, context_size) {
     }
     var numwords = 0;
     for (var i = wordnum - 1; i >= 0 && numwords < context_size; i--) {
-        var word = settings.fn.remove_non_word_chars(token_data.tokens[i].word);
+        var word = funcs.remove_non_word_chars(token_data.tokens[i].word);
         if (word) {
             words.unshift(word);
             numwords++;
@@ -8411,7 +8409,7 @@ settings.fn.find_context_words = function (token_data, context_size) {
     var numtokens = token_data.tokens.length;
     numwords = 0;
     for (var i = wordnum + 1; i < numtokens && numwords < context_size; i++) {
-        var word = settings.fn.remove_non_word_chars(token_data.tokens[i].word);
+        var word = funcs.remove_non_word_chars(token_data.tokens[i].word);
         if (word) {
             words.push(word);
             numwords++;
@@ -8422,9 +8420,9 @@ settings.fn.find_context_words = function (token_data, context_size) {
 
 // Return a KLK page image URL for a token, with the specified context
 // size.
-settings.fn.make_klk_page_image_url = function (token_data, context_size) {
-    var words = settings.fn.find_context_words(token_data, context_size);
-    return (settings.fn.make_klk_url_base(token_data)
+funcs.make_klk_page_image_url = function (token_data, context_size) {
+    var words = funcs.find_context_words(token_data, context_size);
+    return (funcs.make_klk_url_base(token_data)
             + "?page=" + token_data.struct_attrs.text_page_no)
             + (words ? "&term=" + words : "");
 }

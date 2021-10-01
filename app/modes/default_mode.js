@@ -225,7 +225,7 @@ settings.corporafolders.literary.skk = {
         urn: "urn:nbn:fi:lb-2015022401",
         metadata_urn: "urn:nbn:fi:lb-20140730186",
         licence: settings.licenceinfo.EUPL_11,
-        homepage: settings.fn.kaino_homepage("klassikot/meta/klassikot"),
+        homepage: funcs.kaino_homepage("klassikot/meta/klassikot"),
         cite_id: "SKK",
     }
 };
@@ -923,7 +923,7 @@ settings.corporafolders.news.ylenews_fi = {
 settings.corporafolders.news.ylenews_fi.a = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (tutkijoille)",
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, Korp<br/>Tutkijoiden käytettävissä oleva versio: virkkeet alkuperäisessä järjestyksessä ja tuki laajennetulle kontekstille.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-    // Contents are added later with settings.fn.add_corpus_settings
+    // Contents are added later with funcs.add_corpus_settings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019121005",
@@ -939,7 +939,7 @@ settings.corporafolders.news.ylenews_fi.a = {
 settings.corporafolders.news.ylenews_fi.s = {
     title: "Ylen suomenkielinen uutisarkisto 2011–2018 (kaikille)",
     description: "Ylen suomenkielinen uutisarkisto 2011–2018, sekoitettu, Korp<br/>Kaikille avoin versio: virkkeet sekoitettuina kunkin tekstin sisällä ja ilman laajennetun kontekstin tukea.<br/><br/>Aineisto on jaettu osakorpuksiin vuosittain, ja tekstit kunkin vuoden sisällä on järjestetty muokkausajankohdan mukaan.<br/><br/>Huomaa, että korpus sisältää selkouutiset, jotka ovat Korpissa myös erillisenä aineistonaan.",
-    // Contents are added later with settings.fn.add_corpus_settings
+    // Contents are added later with funcs.add_corpus_settings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019121006",
@@ -1100,7 +1100,7 @@ settings.corporafolders.other.kotus_ns_presidentti = {
         urn: "urn:nbn:fi:lb-20151001",
         metadata_urn: "urn:nbn:fi:lb-20140730150",
         licence: settings.licenceinfo.EUPL_11,
-        homepage: settings.fn.kaino_homepage(
+        homepage: funcs.kaino_homepage(
             "teko/meta/presidentti/presidentti"),
         compiler: {
             name: "Kotimaisten kielten keskus",
@@ -1155,7 +1155,7 @@ settings.corporafolders.historical.vks = {
         urn: "urn:nbn:fi:lb-201407166",
         metadata_urn: "urn:nbn:fi:lb-201407165",
         licence: settings.licenceinfo.EUPL_11,
-        homepage: settings.fn.kaino_homepage("vks/meta/vks"),
+        homepage: funcs.kaino_homepage("vks/meta/vks"),
         cite_id: "VKS",
     },
 };
@@ -1262,7 +1262,7 @@ settings.corporafolders.historical.vns = {
         urn: "urn:nbn:fi:lb-2016081203",
         metadata_urn: "urn:nbn:fi:lb-20140730147",
         licence: settings.licenceinfo.EUPL_11,
-        homepage: settings.fn.kaino_homepage("1800/meta/1800"),
+        homepage: funcs.kaino_homepage("1800/meta/1800"),
         cite_id: "VNSK",
     },
 };
@@ -9913,7 +9913,7 @@ for (const [key, label] of [
     ["news", "lehdet"],
     ["literary", "kirjallisuus"],
 ]) {
-    settings.fn.make_folder_hierarchy(
+    funcs.make_folder_hierarchy(
         settings.corporafolders[key]["ftc_" + key], ftc_hierarchy[key],
         {
             id_prefix: "ftc_",
@@ -9927,7 +9927,7 @@ delete ftc_hierarchy;
 
 // TODO: Add aliases for subcorpora, such as ftc_aamu (or
 // ftc_aamulehti). Maybe integrate creating aliases to
-// settings.fn.make_folder_hierarchy(), or maybe better yet, add a
+// funcs.make_folder_hierarchy(), or maybe better yet, add a
 // facility to take the alias property from corporafolder if the alias
 // should cover all the corpora of a folder.
 settings.corpus_aliases.ftc = "ftc_.*";
@@ -9983,7 +9983,7 @@ settings.templ.kotus_ns_presidentti = {
 };
 
 
-settings.fn.make_president_corpora = function () {
+funcs.make_president_corpora = function () {
 
     var corpus_id_prefix = "kotus_ns_presidentti_";
 
@@ -10042,7 +10042,7 @@ settings.fn.make_president_corpora = function () {
           homepage: make_homepage_info("muut") }
     );
     corpus_ids.push(corpus_id_prefix + "muut");
-    settings.fn.add_corpus_settings(
+    funcs.add_corpus_settings(
         settings.templ.kotus_ns_presidentti,
         president_templ_fill,
         settings.corporafolders.other.kotus_ns_presidentti,
@@ -10053,7 +10053,7 @@ settings.fn.make_president_corpora = function () {
     settings.corpus_aliases["kotus_ns_presidentti"] = joined_corpus_ids;
 }
 
-settings.fn.make_president_corpora();
+funcs.make_president_corpora();
 
 
 settings.corpora.kotus_lakidir = {
@@ -10065,7 +10065,7 @@ settings.corpora.kotus_lakidir = {
     // TODO: Check that & is paased correctly to the URL
     cite_id: "Lakeja&direktiiveja",
     licence: settings.licenceinfo.EUPL_11,
-    homepage: settings.fn.kaino_homepage("teko/meta/saadokset/saadokset"),
+    homepage: funcs.kaino_homepage("teko/meta/saadokset/saadokset"),
     within: spWithin,
     context: spContext,
     attributes: {
@@ -10148,7 +10148,7 @@ settings.corpora.kotus_sp = {
     urn: "urn:nbn:fi:lb-2016081202",
     metadata_urn: "urn:nbn:fi:lb-20140730176",
     licence: settings.licenceinfo.EUPL_11,
-    homepage: settings.fn.kaino_homepage("sp/meta/sp"),
+    homepage: funcs.kaino_homepage("sp/meta/sp"),
     cite_id: "Sananparsikokoelma",
     within: settings.defaultWithin,
     context: defaultContext,
@@ -10984,7 +10984,7 @@ var la_murre_fulltext_url_prefix =
 // identifier and the number of the first and last token of the match
 // as the query string. This function is used as a stringify_synthetic
 // function for the fulltext URLs.
-settings.fn.make_la_murre_fulltext_url = function (token_data) {
+funcs.make_la_murre_fulltext_url = function (token_data) {
     var tokencnt = token_data.tokens.length;
     var match_start = 0;
     var match_end = 0;
@@ -11337,7 +11337,7 @@ settings.templ.la_murre = {
             type: "url",
             urlOpts: sattrs.link_url_opts,
             synthetic: true,
-            stringify_synthetic: settings.fn.make_la_murre_fulltext_url,
+            stringify_synthetic: funcs.make_la_murre_fulltext_url,
         },
         clause_clnum: {
             label: "clause_clnum",
@@ -11473,7 +11473,7 @@ settings.templ.la_murre = {
     ignore_between_tokens_cqp: '[pos="punct"]*',
 };
 
-settings.fn.make_folder_hierarchy(
+funcs.make_folder_hierarchy(
     settings.corporafolders.spoken.la_murre, la_murre_grouping,
     {
         id_prefix: la_murre_corpus_prefix,
@@ -11497,7 +11497,7 @@ settings.short_url_config.la_murre =
         settings.preselected_corpora = ["__spoken.la_murre"];
         // // Other modes and corpora could be excluded
         // settings.modeConfig = settings.modeConfig.slice(0, 1);
-        // settings.fn.remove_matching_corpora(["lam_.*"], true);
+        // funcs.remove_matching_corpora(["lam_.*"], true);
     }
 settings.short_url_config["la-murre"] = settings.short_url_config.la_murre;
 
@@ -11637,7 +11637,7 @@ settings.corpora.las2_esseet = {
 
 // Add the common properties to the corpus settings of las2_tentit and
 // las2_esseet
-settings.fn.extend_corpus_settings(
+funcs.extend_corpus_settings(
     las2_common_props, ["las2_tentit", "las2_esseet"]);
 
 delete las2_common_props;
@@ -12523,7 +12523,7 @@ settings.corpora.kfspc_fi = {
     structAttributes: sattrlist.kfspc
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
+funcs.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
 
 // Ylioppilasaineet
 
@@ -12584,7 +12584,7 @@ settings.corpora.legal_fi = {
     structAttributes: sattrlist.legal
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.firulex,
+funcs.extend_corpus_settings(settings.corpusinfo.firulex,
                                    ["legal_fi"]);
 
 
@@ -12601,7 +12601,7 @@ settings.corpora.mulcold_fi = {
     structAttributes: sattrlist.mulcold
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.mulcold,
+funcs.extend_corpus_settings(settings.corpusinfo.mulcold,
                                    ["mulcold_fi"]);
 
 
@@ -12623,7 +12623,7 @@ settings.corpora.parfin_2016_fi = {
     licenceType: "RES",
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
+funcs.extend_corpus_settings(settings.corpusinfo.parfin_2016,
                                    ["parfin_2016_fi"]);
 
 
@@ -12644,7 +12644,7 @@ settings.corpora.parrus_2016_fi = {
     attributes: attrlist.parrus_2016_fi,
     structAttributes: sattrlist.parrus_2016_fi,
 };
-settings.fn.extend_corpus_settings(settings.corpusinfo.parrus_2016,
+funcs.extend_corpus_settings(settings.corpusinfo.parrus_2016,
                                    ["parrus_2016_fi"]);
 
 
@@ -12712,12 +12712,12 @@ attrlist.klk_fi_parsed =
 attrlist.klk_fi_parsed_pagelinks = attrlist.klk_fi_parsed;
 
 
-var klk_fi_parsed_years = settings.fn.make_yearlist(1820, 2000);
+var klk_fi_parsed_years = funcs.make_yearlist(1820, 2000);
 
 // Generate settings.corpora and settings.corporafolders for the
 // Finnish KLK corpora by using the above functions
 
-settings.fn.make_corpus_settings_by_year_decade(
+funcs.make_corpus_settings_by_year_decade(
     settings.corporafolders.news.klk_fi, "fi_{decade}", "klk_fi_{year}",
     function(decade) {
         return {
@@ -12726,7 +12726,7 @@ settings.fn.make_corpus_settings_by_year_decade(
         };
     },
     function(year) {
-        return settings.fn.make_klk_corpus_settings(
+        return funcs.make_klk_corpus_settings(
             "KLK suomi {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year}",
             "klk",
@@ -12734,7 +12734,7 @@ settings.fn.make_corpus_settings_by_year_decade(
             year,
             klk_fi_parsed_years.indexOf(year) != -1);
     },
-    settings.fn.make_yearlist(1820, 2000,
+    funcs.make_yearlist(1820, 2000,
                               {descending: true,
                                omit: [1828, 1843]})
 );
@@ -12775,13 +12775,13 @@ attrlist.klk2_fi_parsed =
         attrlist.parsed_tdt,
         attrlist.klk2_fi);
 
-settings.fn.set_attr_order(
+funcs.set_attr_order(
     attrlist.klk2_fi_parsed,
     "lemma lemmacomp pos msd dephead deprel hyph ocr cc vpos");
 
 attrlist.klk2_fi_parsed_pagelinks = attrlist.klk2_fi_parsed;
 
-settings.fn.make_corpus_settings_by_year_decade(
+funcs.make_corpus_settings_by_year_decade(
     settings.corporafolders.news.klk2_fi,
     "fi_{decade}",
     "klk2test_fi_{year}",
@@ -12791,7 +12791,7 @@ settings.fn.make_corpus_settings_by_year_decade(
         };
     },
     function(year) {
-        return settings.fn.make_klk_corpus_settings(
+        return funcs.make_klk_corpus_settings(
             "KLK2 suomi {year}",
             "Kansalliskirjaston suomenkielisiä sanoma- ja aikakauslehtiä vuodelta {year} (versio 2)",
             "klk2",
@@ -14655,7 +14655,7 @@ settings.corpora.iijoki = {
 // - label: the localization label for the custom attribute
 // - base_attr: the id of the structural attribute with a milliseconds
 //   value
-settings.fn.make_hms_custom_attr = function (label, base_attr) {
+funcs.make_hms_custom_attr = function (label, base_attr) {
     return {
         customType: "struct",
         label: label,
@@ -14664,7 +14664,7 @@ settings.fn.make_hms_custom_attr = function (label, base_attr) {
                               tokens) {
             // console.log(base_attr + "_hms", key, value, attrs, wordData,
             //          sentenceData, tokens);
-            return settings.fn.ms_to_hms(sentenceData[base_attr]);
+            return funcs.ms_to_hms(sentenceData[base_attr]);
         }
     };
 };
@@ -15152,7 +15152,7 @@ settings.corpora.eduskunta = {
                     == "no") {
                     return undefined;
                 } else {
-                    return settings.fn.make_videopage_url(
+                    return funcs.make_videopage_url(
                         "eduskunta",
                         token_data,
                         token_data.struct_attrs.text_original_video
@@ -15186,13 +15186,13 @@ settings.corpora.eduskunta = {
     },
     customAttributes: {
         // FIXME: Make these work
-        // text_session_duration: settings.fn.make_hms_custom_attr(
+        // text_session_duration: funcs.make_hms_custom_attr(
         //     "session_duration", "text_session_duration"),
-        // utterance_begin_time_hms: settings.fn.make_hms_custom_attr(
+        // utterance_begin_time_hms: funcs.make_hms_custom_attr(
         //     "utterance_begin_time", "utterance_begin_time"),
-        // utterance_end_time_hms: settings.fn.make_hms_custom_attr(
+        // utterance_end_time_hms: funcs.make_hms_custom_attr(
         //     "utterance_end_time", "utterance_end_time"),
-        // utterance_duration_hms: settings.fn.make_hms_custom_attr(
+        // utterance_duration_hms: funcs.make_hms_custom_attr(
         //     "utterance_duration", "utterance_duration"),
         video: makeVideoAttr(
             "@text_original_video", "", "", "",
@@ -15212,7 +15212,7 @@ settings.corpus_aliases["topling-fi"] = "topling_fi";
 // Return a stringify function for a dataset attribute attrname in the
 // DMA corpus. The stringify function returns the value as mapped
 // through the dataset, without localization.
-settings.fn.dma_stringify_dataset_value = function (attrname) {
+funcs.dma_stringify_dataset_value = function (attrname) {
     return function (value) {
         return settings.corpora.dma.structAttributes[attrname].dataset[value];
     };
@@ -15249,7 +15249,7 @@ settings.corpora.dma = {
             localize: false,
             // The values of the dataset are shown for the keys
             // without localization.
-            stringify: settings.fn.dma_stringify_dataset_value(
+            stringify: funcs.dma_stringify_dataset_value(
                 "text_dialect_region"),
             dataset: {
                 "1": "1 Lounaismurteet",
@@ -15810,13 +15810,13 @@ sattrlist.s24_2018 = {
     text_title: sattrs.title,
     text_date: sattrs.date,
     text_time: sattrs.time,
-    // text_datetime_approximated: settings.fn.make_bool_attr(
+    // text_datetime_approximated: funcs.make_bool_attr(
     //  "timestamp_approximated"),
     text_author: {
         label: "writer_nickname",
     },
-    text_author_logged_in: settings.fn.make_bool_attr("user_logged_in"),
-    text_author_nick_registered: settings.fn.make_bool_attr("registered_nick"),
+    text_author_logged_in: funcs.make_bool_attr("user_logged_in"),
+    text_author_nick_registered: funcs.make_bool_attr("registered_nick"),
     text_topic_names: {
         label: "s24_topic_full",
     },
@@ -15865,7 +15865,7 @@ sattrlist.s24_2018 = {
     // text_topic_nums_set: {
     //  label: "s24_topic_nums_set",
     // },
-    text_topic_adultonly: settings.fn.make_bool_attr("s24_topic_is_adultonly"),
+    text_topic_adultonly: funcs.make_bool_attr("s24_topic_is_adultonly"),
     text_msg_type: {
         label: "message_type",
         displayType: "select",
@@ -15887,7 +15887,7 @@ sattrlist.s24_2018 = {
             },
         },
     },
-    text_empty: settings.fn.make_bool_attr("message_is_completely_empty"),
+    text_empty: funcs.make_bool_attr("message_is_completely_empty"),
     text_id: {
         label: "text_id",
     },
@@ -15899,18 +15899,18 @@ sattrlist.s24_2018 = {
     },
     text_comment_id: {
         label: "comment_id",
-        pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
+        pattern: "<%=funcs.make_explained_value(val, {'0': 'thread_start_message'})%>",
     },
     text_parent_comment_id: {
         label: "parent_comment_id",
-        pattern: "<%=settings.fn.make_explained_value(val, {'0': 'thread_start_message'})%>",
+        pattern: "<%=funcs.make_explained_value(val, {'0': 'thread_start_message'})%>",
     },
     text_parent_datetime: {
         label: "parent_timestamp",
     },
     text_quoted_comment_id: {
         label: "quoted_comment_id",
-        pattern: "<%=settings.fn.make_explained_value(val, {'0': 'no_quotation'})%>",
+        pattern: "<%=funcs.make_explained_value(val, {'0': 'no_quotation'})%>",
     },
     text_filename_vrt: sattrs.filename,
     text_thread_link: {
@@ -15987,7 +15987,7 @@ settings.templ.s24_2018 = {
     structAttributes: sattrlist.s24_2018,
 };
 
-settings.fn.add_corpus_settings(
+funcs.add_corpus_settings(
     settings.templ.s24_2018,
     (function (year1, year2) {
         var result = [];
@@ -16008,7 +16008,7 @@ settings.fn.add_corpus_settings(
     settings.corporafolders.cmc.s24_2017h2,
     "s24_");
 
-settings.fn.add_corpus_aliases(
+funcs.add_corpus_aliases(
     "s24_20(0[1-9]|1[0-7])",
     [
         "suomi24-2017h2",
@@ -16712,15 +16712,15 @@ sattrlist.ylenews_fi_common = {
     text_url: sattrs.link_original,
     text_datetime_published: {
         label: "datetime_published",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
         label: "datetime_content_modified",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
         label: "datetime_json_modified",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
@@ -16774,7 +16774,7 @@ settings.templ.ylenews_fi_a = {
         }),
 };
 
-settings.fn.add_corpus_settings(
+funcs.add_corpus_settings(
     settings.templ.ylenews_fi_a,
     [2011, 2018],
     settings.corporafolders.news.ylenews_fi.a,
@@ -16801,7 +16801,7 @@ settings.templ.ylenews_fi_s = {
 };
 
 
-settings.fn.add_corpus_settings(
+funcs.add_corpus_settings(
     settings.templ.ylenews_fi_s,
     [2011, 2018],
     settings.corporafolders.news.ylenews_fi.s,
@@ -16825,15 +16825,15 @@ sattrlist.ylenews_fi_selko_common = {
     text_url: sattrs.link_original,
     text_datetime_published: {
         label: "datetime_published",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     text_datetime_content_modified: {
         label: "datetime_content_modified",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     text_datetime_json_modified: {
         label: "datetime_json_modified",
-        stringify: settings.fn.stringify_iso_datetime,
+        stringify: funcs.stringify_iso_datetime,
     },
     sentence_type: {
         label: "sentence_type",
@@ -16930,7 +16930,7 @@ settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"]
 // moving this to initialization code (util.coffee, main.coffee),
 // which might also otherwise make sense. (Jyrki Niemi 2016-10-18)
 
-settings.fn.add_attr_extra_properties(settings.corpora);
+funcs.add_attr_extra_properties(settings.corpora);
 
 
 settings.corpusListing = new CorpusListing(settings.corpora);

@@ -7615,8 +7615,8 @@ settings.corpora.kfspc_sv = {
     hide: true
 };
 
-settings.fn.extend_corpus_settings(settings.corpusinfo.kfspc,
-                                   ["kfspc_fi", "kfspc_sv"]);
+funcs.extend_corpus_settings(settings.corpusinfo.kfspc,
+                             ["kfspc_fi", "kfspc_sv"]);
 
 funcs.addCorporaToFolder("other", "kfspc_fi");
 
@@ -7695,7 +7695,7 @@ settings.corpora.mulcold_de = {
     hide: true
 };
 
-settings.fn.extend_corpus_settings(
+funcs.extend_corpus_settings(
     $.extend({}, settings.corpusinfo.mulcold, { cite_id: "MULCOLD", }),
     ["mulcold_fi", "mulcold_en", "mulcold_sv", "mulcold_ru", "mulcold_de"]);
 
@@ -7721,7 +7721,7 @@ settings.corpora.parfin_2016_ru = {
     hide: true,
 };
 
-settings.fn.extend_corpus_settings(
+funcs.extend_corpus_settings(
     {
         // Properties common to parfin_2016_fi and parfin_2016_ru
         title: "ParFin 2016",
@@ -7738,8 +7738,8 @@ settings.fn.extend_corpus_settings(
     },
     ["parfin_2016_fi", "parfin_2016_ru"]
 );
-settings.fn.extend_corpus_settings(settings.corpusinfo.parfin_2016,
-                                   ["parfin_2016_fi", "parfin_2016_ru"]);
+funcs.extend_corpus_settings(settings.corpusinfo.parfin_2016,
+                             ["parfin_2016_fi", "parfin_2016_ru"]);
 
 
 /* ParRus 2016 */
@@ -7814,7 +7814,7 @@ settings.corpora.parrus_2016_fi4 = {
     title: "ParRus 2016 (suomenkielinen käännös 4)",
 };
 
-settings.fn.extend_corpus_settings(
+funcs.extend_corpus_settings(
     {
         // Properties common to all ParRus 2016 language versions
         description: "ParRus 2016 – venäjä–suomi kaunokirjallisten tekstien rinnakkaiskorpus<br/>Venäjänkielisiä kaunokirjallisia tekstejä (klassista ja 1900-luvun kirjallisuutta) ja niiden käännöksiä suomeksi kappaletasolla kohdistettuina.<br/>ParRus 2016: русско-русский корпус художественных текстов. Русская классическая и современная проза и ее переводы на финский язык, тексты выровнены на уровне абзацев.<br/><br/><strong>Huomaa:</strong> Suomeksi haettaessa hakutulos sisältää samoja tuloksia useaan kertaan.<br/><br/><a href=\"http://nl.ijs.si/ME/V4/msd/html/msd-ru.html\" target=\"_blank\">Venäjän morfologisen ja sanaluokka-annotaation kuvaus (englanniksi)</a></br><a href=\"http://www.ruscorpora.ru/instruction-syntax.html\" target=\"_blank\">Venäjän syntaktisen annotaation kuvaus (venäjäksi)</a><br/><a href=\"http://universaldependencies.org/#fi\" target=\"_blank\">Suomen annotaatioiden kuvaus</a>",
@@ -7835,7 +7835,7 @@ settings.fn.extend_corpus_settings(
      "parrus_2016_fi4",
      "parrus_2016_ru"]);
 
-settings.fn.extend_corpus_settings(
+funcs.extend_corpus_settings(
     settings.corpusinfo.parrus_2016,
     ["parrus_2016_fi",
      "parrus_2016_fi1",
@@ -7844,7 +7844,7 @@ settings.fn.extend_corpus_settings(
      "parrus_2016_fi4",
      "parrus_2016_ru"]);
 
-settings.fn.extend_corpus_settings(
+funcs.extend_corpus_settings(
     {
         // Properties common to parrus_2016_fiN
         lang: "fin",
@@ -7859,7 +7859,7 @@ settings.fn.extend_corpus_settings(
      "parrus_2016_fi4"]);
 
 
-settings.fn.add_attr_extra_properties(settings.corpora);
+funcs.add_attr_extra_properties(settings.corpora);
 
 
 console.log("parallelcorpuslisting")
