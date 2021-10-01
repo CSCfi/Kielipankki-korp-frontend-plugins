@@ -7689,9 +7689,192 @@ settings.attr_extra_properties = [
 /*
  * Generic functions
  *
- * These could perhaps be moved to util.coffee or to a script file of
- * their own.
+ * These could perhaps be moved to util.js or to a script file of
+ * their own or a plugin.
  */
+
+
+// corporafolder properties that are not names of subfolders.
+// Represented as an object instead of an array, so that we can use
+// the JavaScript "in" operator.
+settings.corporafolder_properties = {
+    title: "",
+    description: "",
+    contents: "",
+    info: "",
+    unselected: ""
+};
+
+
+// Remove non-existing or irrelevant corpora (and folders) based on
+// the server from which the code is being run.
+//
+// NOTE: These functions have less use now that the corpus
+// configurations for unavailable corpora are removed by default
+// (util.removeUnavailableCorpora).
+//
+// settings.fn.remove_empty_corporafolders has been replaced by
+// util.removeEmptyCorporafolders, but there is not yet an exact
+// replacement for settings.fn.remove_matching_corpora that would
+// remove corpora based on regular expressions.
+//
+// TODO: Remove these functions from here when a replacement for
+// settings.fn.remove_matching_corpora has been implemented in util.
+
+
+// Recursively remove corpora folders in folder containing no corpora
+// (or folders) that are in settings.corpora. Returns true if folder
+// is empty.
+settings.fn.remove_empty_corporafolders = function (folder) {
+    var empty = true;
+    if ("contents" in folder) {
+        var new_contents = [];
+        for (var i = 0; i < folder.contents.length; i++) {
+            var corpname = folder.contents[i];
+            if (corpname in settings.corpora) {
+                new_contents.push(corpname);
+            }
+        }
+        if (new_contents.length == 0) {
+            delete folder.contents;
+        } else {
+            folder.contents = new_contents;
+            empty = false;
+        }
+    }
+    for (var prop in folder) {
+        if (folder.hasOwnProperty(prop)
+            && ! (prop in settings.corporafolder_properties)) {
+            if (settings.fn.remove_empty_corporafolders(folder[prop])) {
+                delete folder[prop];
+            } else {
+                empty = false;
+            }
+        }
+    }
+    return empty;
+}
+
+// Remove from settings.corpora corpora whose property name (id)
+// matches one of regular expressions (as strings) in corplist. If the
+// second argument is true, remove the corpora that do *not* match any
+// of the regular expressions. After that, remove corpora folders that
+// would be empty after removing the copora.
+settings.fn.remove_matching_corpora = function (corplist) {
+    var inverse = (arguments.length > 1 && arguments[1]);
+    var corp_re = new RegExp("^(" + corplist.join ("|") + ")$");
+    for (var corpus in settings.corpora) {
+        var matches = corp_re.test (corpus);
+        if ((matches && ! inverse) || (inverse && ! matches)) {
+            delete settings.corpora[corpus];
+        }
+    }
+    settings.fn.remove_empty_corporafolders(settings.corporafolders);
+};
+
+
+// Add extra properties to corpus attributes based on other
+// properties. This is currently used to add extended_template and
+// controller to attributes with displayType "select".
+// Another approach would be to add these properties explicitly to all
+// the relevant attribute objects, as Språkbanken have done. Both
+// approaches probably have advantages and disadvantages (less
+// redundancy vs. explicitness).
+
+
+// Add the extra attibute properties in settings.attr_extra_properties
+// to the appropriate attributes of corpora.
+settings.fn.add_attr_extra_properties = function (corpora) {
+    for (var corpname in corpora) {
+        var corpus = corpora[corpname];
+        var attr_group_names = ["attributes", "struct_attributes"];
+        var attr_group_count = attr_group_names.length;
+        for (var groupnum = 0; groupnum < attr_group_count; groupnum++) {
+            if (attr_group_names[groupnum] in corpus) {
+                var attrs = corpus[attr_group_names[groupnum]];
+                var extra_props_count = settings.attr_extra_properties.length;
+                for (var attrname in attrs) {
+                    for (var i = 0; i < extra_props_count; i++) {
+                        var attr_extra_props =
+                            settings.attr_extra_properties[i];
+                        var attr = attrs[attrname];
+                        if (attr_extra_props.test(attr)) {
+                            var props = attr_extra_props.props;
+                            for (var prop in props) {
+                                if (props.hasOwnProperty(prop)
+                                    && ! attr.hasOwnProperty(prop)) {
+                                    attr[prop] = props[prop];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Add corpus aliases that are expanded to the corpus ids matching the
+// regular expression string corpus_id_patt (actually, a
+// comma-separated list of regular expressions matching corpus ids).
+//
+// In addition to the explicitly specified corpus aliases, the
+// function also adds variants with and without a "-korp" suffix and
+// with underscores converted to dashes and dashes to underscores. If
+// the specified corpus aliases contain an alias with "-korp-" or
+// "_korp_" infix, also aliases without it are added.
+//
+// The optional third argument is an object containing options. The
+// following options are supported:
+//   override: if true, override an existing alias (default: no)
+//   add_variants: if false, do not add the alias variants (default:
+//     true)
+settings.fn.add_corpus_aliases = function (corpus_id_patt, aliases) {
+    var opts = arguments[2] || {};
+    var override = opts.override || false;
+    var add_variants = (opts.add_variants !== false);
+
+    var add_dash_underscore_variants = function (aliases, alias) {
+        if (alias.indexOf("_") > -1) {
+            aliases.push(alias.replace(/_/g, "-"));
+        }
+        if (alias.indexOf("-") > -1) {
+            aliases.push(alias.replace(/-/g, "_"));
+        }
+    }
+
+    if (! _.isArray(aliases)) {
+        aliases = [aliases];
+    }
+    for (var i = 0; i < aliases.length; i++) {
+        var alias = aliases[i]
+        var aliases2 = [alias];
+        var alias2;
+        if (add_variants) {
+            // Add alias variants:
+            // x -> x, x-korp, x_korp
+            // x-y | x_y | x-y-korp | x_y_korp -> x-y, x_y, x-y-korp, x_y_korp
+            add_dash_underscore_variants(aliases2, alias);
+            // This may add some aliases twice to alias2, but that
+            // does not matter in the end.
+            if (alias.match(/[_-]korp($|[_-])/)) {
+                alias2 = alias.replace(/[_-]korp($|[_-])/, "$1");
+                aliases2.push(alias2)
+                add_dash_underscore_variants(aliases2, alias2);
+            } else {
+                aliases2.push(alias + "-korp");
+                add_dash_underscore_variants(aliases2, alias + "-korp");
+            }
+        }
+        for (var j = 0; j < aliases2.length; j++) {
+            alias2 = aliases2[j];
+            if (override || ! (alias2 in settings.corpus_aliases)) {
+                settings.corpus_aliases[alias2] = corpus_id_patt;
+            }
+        }
+    }
+};
 
 
 // Add corpus settings for multiple corpora using a template, modified
