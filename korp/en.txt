@@ -1,4 +1,22 @@
 
+<!-- Word picture works for all dependency-parsed Finnish corpora 2021-10-04 -->
+
+The word picture feature works now for all dependency-parsed Finnish
+corpora, in particular also for _Suomi24 2001–2017_. Due to a
+technical error, the word picture could previously be obtained only
+for some dependency-parsed corpora. We apologize for the error and
+thank the user who reported it.
+
+However, word pictures from the _Newspaper and Periodical Corpus of
+the National Library of Finland (KLK)_ are incomplete. We apologize for
+the situation and try to correct it.
+
+Please also note that the word picture works only in the simple
+search, when the search word is a single word form or has been chosen
+from the autocompletion list of combinations of lemmas and parts of
+speech.
+
+
 <!-- New corpus (beta): Classics Library of the National Library of Finland (Finnish sub-corpus) 2021-09-27 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201803281" target="_blank">The

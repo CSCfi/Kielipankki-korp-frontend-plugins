@@ -1,4 +1,21 @@
 
+<!-- Sanakuva toimii kaikilla dependenssijäsennetyillä suomen aineistoilla 2021-10-04 -->
+
+Sanakuvaominaisuus toimii nyt kaikilla dependenssijäsennetyillä
+suomenkielisillä aineistoilla, erityisesti myös _Suomi24 2001–2017_
+-aineistolla. Teknisen virheen vuoksi sanakuva oli aiemmin mahdollinen
+vain osasta dependenssijäsennettyjä aineistoja. Pahoittelemme virhettä
+ja kiitämme siitä ilmoittanutta käyttäjää.
+
+_Kansalliskirjaston lehtikokoelman (KLK)_ suomenkielisten lehtien
+sanakuvat ovat kuitenkin puutteellisia. Pahoittelemme asiaa ja pyrimme
+korjaamaan tilanteen.
+
+Huomaa myös, että sanakuva toimii vain yksinkertaisessa haussa, kun
+hakusanana on yksittäinen sananmuoto tai täydennyslistasta valittu
+sanan perusmuodon ja sanaluokan yhdistelmä.
+
+
 <!-- Uusi aineisto (beta): Kansalliskirjaston klassikkokirjasto (suomi) 2021-09-27 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201803281"
