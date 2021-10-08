@@ -7,7 +7,6 @@ settings.lemgramSelect = true;
 settings.wordpicture = true;
 settings.show_related_words = true;
 
-// test
 // Override the default statisticsFormatting.makeGroupingValue (in
 // statistics_config.js) to group lemmas, saldo values and lemgrams in
 // the same way as Språkbanken's Korp (ignoring the possible trailing
