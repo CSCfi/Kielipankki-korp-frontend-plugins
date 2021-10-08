@@ -188,8 +188,11 @@ settings.downloadFormatParamsPhysical = {
 
 
 // Korp backend URL
-settings.korpBackendURL =
-    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
+// Always use the backend at korp.csc.fi
+settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
+// // Alternatively, use the backend on the same site as the frontend
+// settings.korpBackendURL =
+//    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
 settings.downloadCgiScript = settings.cgi_prefix + "korp_download.cgi";
 
@@ -675,6 +678,14 @@ settings.isSubfolderPropertyName = null
 // settings.preselectedCorpora array results in no corpora
 // preselected, instead of preselecting all unrestricted corpora
 settings.allowNoPreselectedCorpora = true
+
+// A regular expression matching the names of positional attributes
+// with an underscore, so that they will not be handled as structural
+// attributes in statistics_config; if undefined or null, no
+// positional attribute name contains an underscore.
+// TODO: Generate the list dynamically based on corpora.
+settings.posAttrNamesWithUnderscore =
+    /^((word|lemma|pos|msd|dephead|deprel|ref)_.*|(clean|other|sketchy)_note)$/
 
 // Formatting functions for corpus and corpus folder titles in the
 // corpus chooser
