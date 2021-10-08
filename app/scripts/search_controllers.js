@@ -531,6 +531,10 @@ korpApp.controller("ExtendedToken", function ($scope, utils) {
                 }
             })
         )
+        // Clear _.memoize cache for s.getOpts, as different corpora
+        // may have different options, and to avoid "word" with empty
+        // options when opening Korp anew with no corpora pre-selected
+        s.getOpts.cache = new _.memoize.Cache
     }
 
     s.$on("corpuschooserchange", onCorpusChange)
