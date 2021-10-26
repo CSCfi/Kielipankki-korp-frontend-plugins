@@ -950,7 +950,7 @@ settings.corpora.nlfcl_sv = {
     cite_id: "nlfcl-sv-korp",
     licence: settings.licenceinfo.CC_BY_40,
     labels: ["beta"],
-    features: ["paragraphs", "parsed_tdt", "finer2"],
+    features: ["paragraphs"],
     attributes : attrlist.parsed_sv,
     struct_attributes: {
         text_id: sattrs.hidden,
