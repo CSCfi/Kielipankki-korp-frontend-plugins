@@ -951,7 +951,7 @@ settings.corpora.nlfcl_sv = {
     licence: settings.licenceinfo.CC_BY_40,
     labels: ["beta"],
     features: ["paragraphs"],
-    attributes : attrlist.parsed_sv,
+    attributes : attrlist.parsed_sv_lemmaset,
     struct_attributes: {
         text_id: sattrs.hidden,
         text_title: sattrs.text_title,
