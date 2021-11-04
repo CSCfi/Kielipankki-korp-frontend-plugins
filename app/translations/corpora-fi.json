@@ -1712,6 +1712,8 @@
     "polarity_neut": "neutraali",
     "polarity_neg": "kielteinen",
 
+    "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
+
     "publication_type": "julkaisutyyppi",
     "publtype_journal": "aikakauslehti",
     "publtype_newspaper": "sanomalehti",

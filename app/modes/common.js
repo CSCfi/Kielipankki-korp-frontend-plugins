@@ -2060,6 +2060,11 @@ sattrs.day_of_month = {
     label: "day"
 };
 
+sattrs.sentence_lang = {
+    label: "sentence_lang_identified",
+};
+
+
 /* KFSCP --- */
 
 sattrs.text_pubdate = {

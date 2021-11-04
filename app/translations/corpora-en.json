@@ -1204,6 +1204,8 @@
     "polarity_neut": "neutral",
     "polarity_neg": "negative",
 
+    "sentence_lang_identified": "sentence language (identified)",
+
     "locality": "locality",
     "locality_orig": "locality in original language",
     "locality_russian": "locality in Russian",
