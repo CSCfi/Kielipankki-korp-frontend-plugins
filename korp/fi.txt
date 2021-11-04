@@ -1,4 +1,12 @@
 
+<!-- Uusi aineisto (beta): Kansalliskirjaston klassikkokirjasto (ruotsi) 2021-11-04 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-201804041"
+target="_blank">Kansalliskirjaston klassikkokirjaston ruotsinkielinen
+osakorpus – Kielipankki-versio (nlfcl-sv-korp)</a> on nyt
+käytettävissä beetatestiversiona Korpissa.
+
+
 <!-- Sanakuva toimii kaikilla dependenssijäsennetyillä suomen aineistoilla 2021-10-04 -->
 
 Sanakuvaominaisuus toimii nyt kaikilla dependenssijäsennetyillä

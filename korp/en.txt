@@ -1,4 +1,12 @@
 
+<!-- New corpus (beta): Classics Library of the National Library of Finland (Swedish sub-corpus) 2021-11-04 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-201804041" target="_blank">The
+Swedish sub-corpus of the Classics Library of the National Library of
+Finland – Kielipankki version (nlfcl-sv-korp)</a> is now available in
+Korp as a beta test version.
+
+
 <!-- Word picture works for all dependency-parsed Finnish corpora 2021-10-04 -->
 
 The word picture feature works now for all dependency-parsed Finnish

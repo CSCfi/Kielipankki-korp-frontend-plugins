@@ -1,4 +1,12 @@
 
+<!-- Ny korpus (beta): Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus 2021-11-04 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-201804041"
+target="_blank">Nationalbibliotekets Klassikerbiblioteks
+svenskspråkiga delkorpus – Kielipankki version (nlfcl-sv-korp)</a> är
+nu tillgänglig i Korp som en betaversion.
+
+
 <!-- Ny korpus (beta): Yle svenska webbartiklar 2012–2018 2019-12-09 -->
 
 Korpusen *Yle svenska webbartiklar 2012–2018, Korp* är nu tillgänglig
