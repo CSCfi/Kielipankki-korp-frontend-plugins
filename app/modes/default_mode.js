@@ -281,7 +281,7 @@ settings.corporafolders.internet = {
     contents: ["s24", "ylilauta", "hsfi"]
 };
 
-settings.corporafolders.internet.suomi24_2017h2 = {
+settings.corporafolders.internet.suomi24_accruing = {
     title: "Suomi24 2001–2017",
     // TODO: Change VRT download and metadata URN to point to the new
     // version when it is available
@@ -15303,7 +15303,7 @@ settings.corpora.s24 = {
 
 /* Suomi24 2001–2017 (previously 2017H2) */
 
-sattrlist.s24_2018 = {
+sattrlist.s24_2001_2017 = {
     text_title: sattrs.title,
     // text_datetime: sattrs.datetime,
     text_date: sattrs.date,
@@ -15452,34 +15452,43 @@ sattrlist.s24_2018 = {
     },
 };
 
-settings.templ.s24_2018 = {
+settings.templ.s24_2001_2017 = {
     title: "",
     description: "",
     id: "",
     features: ["paragraphs", "parsed_tdt", "spaces"],
-    struct_attributes: sattrlist.s24_2018,
+    struct_attributes: sattrlist.s24_2001_2017,
+};
+
+
+var make_s24_templ_fill = function (year1, year2, version) {
+    var result = [];
+    var year_range = year1.toString() + "–" + year2.toString();
+    if (version) {
+        version = " " + version;
+    }
+    for (var y = year1; y <= year2; y++) {
+        var ystr = y.toString();
+        result.push({
+            title: "Suomi24 " + year_range + ": " + ystr,
+            description: (
+                "Suomi24 virkkeet -korpus " + year_range + ", Korp-versio"
+                    + version + ": "
+                    + ystr
+                    + "<br/>Suomi24-keskustelujen viestit vuodelta "
+                    + ystr),
+            id: ystr,
+        });
+    }
+    return result;
 };
 
 settings.fn.add_corpus_settings(
-    settings.templ.s24_2018,
-    (function (year1, year2) {
-	var result = [];
-	for (var y = year1; y <= year2; y++) {
-	    var ystr = y.toString();
-	    result.push({
-		title: "Suomi24 2001–2017: " + ystr,
-		description: (
-		    "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2: "
-			+ ystr
-			+ "<br/>Suomi24-keskustelujen viestit vuodelta "
-			+ ystr),
-		id: ystr,
-	    });
-	}
-	return result;
-    })(2001, 2017),
-    settings.corporafolders.s24_2017h2,
-    "s24_");
+    settings.templ.s24_2001_2017,
+    make_s24_templ_fill(2001, 2017, "1.2"),
+    settings.corporafolders.s24_accruing,
+    "s24_"
+);
 
 settings.fn.add_corpus_aliases(
     "s24_20(0[1-9]|1[0-7])",
