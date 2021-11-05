@@ -1,4 +1,13 @@
 
+<!-- Extended corpus (beta): Suomi24 2018–2020 2021-11-05 -->
+
+The Suomi24 corpus collection has been extended with the discussions
+from 2018–2020 (<a href="http://urn.fi/urn:nbn:fi:lb-2021101521"
+target="_blank">The Suomi24 Sentences Corpus 2018–2020, Korp
+version</a>). **Please note** that the extension is in beta testing,
+so it may be changed without notice.
+
+
 <!-- New corpus (beta): Classics Library of the National Library of Finland (Swedish sub-corpus) 2021-11-04 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201804041" target="_blank">The

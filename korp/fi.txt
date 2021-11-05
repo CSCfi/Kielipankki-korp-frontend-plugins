@@ -1,4 +1,13 @@
 
+<!-- Laajennettu aineisto (beta): Suomi24 2018–2020 2021-11-05 -->
+
+Suomi24-aineistokokoelmaa on laajennettu vuosien 2018–2020
+keskusteluilla (<a href="http://urn.fi/urn:nbn:fi:lb-2021101521"
+target="_blank">Suomi24 virkkeet -korpus 2018–2020, Korp-versio</a>).
+**Huomaa**, että laajennusosa on beetatestivaihessa, joten siihen voi
+tulla muutoksia ilman ilmoitusta.
+
+
 <!-- Uusi aineisto (beta): Kansalliskirjaston klassikkokirjasto (ruotsi) 2021-11-04 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201804041"
