@@ -1097,6 +1097,7 @@
     "parent_comment_id": "comment parent id",
     "quoted_comment_id": "quoted comment id",
     "parent_timestamp": "parent timestamp",
+    "thread_closed": "closed discussion thread",
 
     "thread_start_message": "thread start message",
     "no_quotation": "no quotation",
@@ -1203,6 +1204,8 @@
     "polarity_pos": "positive",
     "polarity_neut": "neutral",
     "polarity_neg": "negative",
+
+    "sentence_lang_identified": "sentence language (identified)",
 
     "locality": "locality",
     "locality_orig": "locality in original language",

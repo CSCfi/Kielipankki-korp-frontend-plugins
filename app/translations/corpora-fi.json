@@ -1662,6 +1662,7 @@
     "parent_comment_id": "kommentin vanhemman tunniste",
     "quoted_comment_id": "lainatun kommentin tunniste",
     "parent_timestamp": "kommentin vanhemman aikaleima",
+    "thread_closed": "keskusteluketju suljettu",
 
     "thread_start_message": "ketjun aloitusviesti",
     "no_quotation": "ei lainausta",
@@ -1711,6 +1712,8 @@
     "polarity_pos": "myönteinen",
     "polarity_neut": "neutraali",
     "polarity_neg": "kielteinen",
+
+    "sentence_lang_identified": "virkkeen kieli (tunnistettu)",
 
     "publication_type": "julkaisutyyppi",
     "publtype_journal": "aikakauslehti",

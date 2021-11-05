@@ -782,6 +782,8 @@
     "polarity_neut": "neutral",
     "polarity_neg": "negativ",
 
+    "sentence_lang_identified": "satsens språk (identifierad)",
+
     "ner_tags": "namnklassificering",
     "ner_tag_max": "namnklassificering (maximal)",
 

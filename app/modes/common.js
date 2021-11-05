@@ -2060,6 +2060,11 @@ sattrs.day_of_month = {
     label: "day"
 };
 
+sattrs.sentence_lang = {
+    label: "sentence_lang_identified",
+};
+
+
 /* KFSCP --- */
 
 sattrs.text_pubdate = {
@@ -4490,8 +4495,8 @@ settings.fn.extend_corpus_settings = function (props, corpus_ids) {
 // Generate a declaration for an attribute with Boolean values.
 // Arguments:
 // - label: attribute translation label
-// - yes_no: an array of two items: the corpus values for "yes" and
-//   "no"; if omitted, use "y" and "n".
+// - yes_no: an array of two or three items: the corpus values for
+//   "yes", "no" and optionally "unknown"; if omitted, use "y" and "n".
 settings.fn.make_bool_attr = function (label, yes_no) {
     var dataset = {};
     if (arguments.length < 2) {
@@ -4502,6 +4507,9 @@ settings.fn.make_bool_attr = function (label, yes_no) {
     } else {
 	dataset[yes_no[0]] = "yes";
 	dataset[yes_no[1]] = "no";
+        if (yes_no.length > 2) {
+            dataset[yes_no[2]] = "unknown";
+        }
     }
     return {
 	label: label,
