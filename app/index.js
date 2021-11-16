@@ -105,9 +105,21 @@ require("./scripts/cqp_parser/CQPParser.js")
 require("./scripts/cqp_parser/cqp.js")
 require("./scripts/util.js")
 require("./scripts/plugins.js")
-requireAll(require.context("./plugins", true, /\.js$/))
-requireAll(require.context("customplugins", true, /\.js$/))
-requireAll(require.context("configplugins", true, /\.js$/))
+try {
+    requireAll(require.context("./plugins", true, /\.js$/))
+} catch (error) {
+    console.log("No bundled plugins found")
+}
+try {
+    requireAll(require.context("customplugins", true, /\.js$/))
+} catch (error) {
+    console.log("No custom plugins found")
+}
+try {
+    requireAll(require.context("configplugins", true, /\.js$/))
+} catch (error) {
+    console.log("No configuration plugins found")
+}
 require("./scripts/pie-widget.js")
 require("./scripts/search.js")
 require("./scripts/results.js")
