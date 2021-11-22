@@ -949,7 +949,6 @@ settings.corpora.nlfcl_sv = {
     metadata_urn: "urn:nbn:fi:lb-201804041",
     cite_id: "nlfcl-sv-korp",
     licence: settings.licenceinfo.CC_BY_40,
-    labels: ["beta"],
     features: ["paragraphs"],
     attributes : attrlist.parsed_sv_lemmaset,
     struct_attributes: {
