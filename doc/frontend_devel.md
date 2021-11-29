@@ -162,6 +162,12 @@ export default {
 }
 ```
 
+A `stats_cqp` function can take the additional arguments `ignoreCase`
+(`boolean`: `true` if the value should be treated case-insensitively)
+and `type` (`string`: the name of the attribute). The function should
+take care of escaping the regular expression metacharacters in
+attribute values as appropriate.
+
 Rendering values and generating CQP can also be controlled by editing `app/config/statistics_config.js`, but 
 of course it is best to avoid editing the actual code if it is possible.
 
