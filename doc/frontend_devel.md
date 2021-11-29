@@ -486,7 +486,7 @@ Korp's map uses annotations to get locations. The user selects rows from the sta
     Also the name of the attribute must contain `"__"` and `"geo"` to show up in the list of supported attributes.
 
 - `settings.mapEnabled` - `boolean`. The map should be enabled.
-- `settings.mapCenter` - Where the center of the map should be located when user opens map. Example:  
+- `settings.mapCenter` - Where the center of the map should be located when user opens map (but see `settings.calculateMapCenter` below for calculating the center based on map data). Example:  
    ```
     settings.mapCenter = {
       lat: 62.99515845212052,
@@ -494,6 +494,13 @@ Korp's map uses annotations to get locations. The user selects rows from the sta
       zoom: 4
     };
     ```
+- `settings.calculateMapCenter` - `string`. The name of the function to calculate the map center dynamically based on the location points to be shown on the map. The supported values are:
+    - `"constant"`: Use the value in `settings.mapCenter` (the default).
+    - `"maximumAbsoluteFrequency"`: Center to the location with the maximum absolute frequency.
+    - `"average"`: Center to the average of the latitudes and longitudes of all locations.
+    - `"weightedAverage"`: Center to the average of the latitudes and longitudes of all the locations, weighted by the absolute frequency of each location.
+    - `"centerPoint"`: Center to the middle of the northernmost and southernmost and the westernmost and easternmost points.
+Note that the zoom level is always taken from `settings.mapCenter.zoom`, regardless of the distance of the points on the map from each other.
 
 
 ## News widget
