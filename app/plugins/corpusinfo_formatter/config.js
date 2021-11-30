@@ -89,6 +89,10 @@ settings.makeCorpusExtraInfoItem = valueOrDefault(
             }
         },
         pid: function (corpusObj, label) {
+            // If cite_id is explicitly null or "", omit the citation link
+            if (corpusObj.cite_id === null || corpusObj.cite_id == "") {
+                return
+            }
             // If the PID of a corpus is not specified explicitly, use
             // the metadata URN.
             var pid = ((corpusObj.pid ? corpusObj.pid.urn : null)
