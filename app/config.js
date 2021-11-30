@@ -401,6 +401,10 @@ settings.makeCorpusExtraInfoItem = {
     },
     cite: function (corpusObj, label) {
         if (settings.corpus_cite_base_url) {
+            // If cite_id is explicitly null or "", omit the citation link
+            if (corpusObj.cite_id === null || corpusObj.cite_id == "") {
+                return
+            }
             // Use the metadata URN as the default cite id; fall back
             // to cite_id if no metadata URN is found
             let citeId = (
