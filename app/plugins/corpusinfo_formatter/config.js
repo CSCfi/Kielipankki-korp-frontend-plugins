@@ -36,6 +36,7 @@ settings.urnResolver = valueOrDefault(
 settings.corpusExtraInfoItems = valueOrDefault(
     settings.corpusExtraInfoItems,
     [
+        "credits",
         "subcorpus_of",
         "pid",
         "cite",
@@ -56,6 +57,7 @@ settings.corpusExtraInfo = valueOrDefault(
     {
         infoPopup: settings.corpusExtraInfoItems,
         sidebar: [
+            "credits",
             "subcorpus_of",
             "pid",
             "cite",
