@@ -624,11 +624,11 @@ util.splitLemgram = function (lemgram) {
 // settings.downloadFormats (Jyrki Niemi <jyrki.niemi@helsinki.fi>
 // 2014-02-26/04-30)
 
-util.setDownloadLinks = function (xhr_settings, result_data) {
+util.setDownloadLinks = function (query_url, result_data) {
     // If some of the required parameters are null, return without
     // adding the download links.
     if (
-        !(xhr_settings != null && result_data != null && result_data.corpus_order != null && result_data.kwic != null)
+        !(query_url != null && result_data != null && result_data.corpus_order != null && result_data.kwic != null)
     ) {
         c.log("failed to do setDownloadLinks")
         return
@@ -686,8 +686,8 @@ util.setDownloadLinks = function (xhr_settings, result_data) {
 `)
 
         const download_params = {
-            // query_params: JSON.stringify($.deparam.querystring(xhr_settings.url)),
-            query_params: xhr_settings.url,
+            query_params: JSON.stringify(
+                $.deparam(query_url.slice(query_url.indexOf("?") + 1))),
             format,
             korp_url: window.location.href,
             korp_server_url: settings.korpBackendURL,
