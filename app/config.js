@@ -84,8 +84,8 @@ settings.compressBackendParamsOpts = {
     compressed_command: false,
 };
 
-settings.enableBackendKwicDownload = false
-settings.enableFrontendKwicDownload = true
+settings.enableBackendKwicDownload = true
+settings.enableFrontendKwicDownload = false
 
 // Enable passing additional information (UI language, search mode) to
 // the backend for writing the backend log. If not defined, considered
@@ -194,7 +194,7 @@ settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
 // settings.korpBackendURL =
 //    window.location.protocol + "//" + window.location.hostname + "/korp/api8";
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
-settings.downloadCgiScript = settings.cgi_prefix + "korp_download.cgi";
+settings.downloadCgiScript = "https://korp.csc.fi/cgi-bin/korp/korp_download.cgi";
 
 // The main Korp and Korp Labs URL for the links in the cog menu
 settings.korpUrl = {
