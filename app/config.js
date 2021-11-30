@@ -94,9 +94,13 @@ settings.addBackendLogInfo = true;
 
 settings.downloadFormats = [
     "annot",
+    "annot_xls",
     "ref",
+    "ref_xls",
     "sentences",
+    "sentences_xls",
     "sentences_kwic",
+    "sentences_kwic_xls",
     "text",
     "json",
     "nooj",
@@ -136,8 +140,20 @@ settings.downloadFormatParams = {
         match_marker: "***",
         physical_formats: physical_formats.table,
     },
+    "annot_xls": {
+        format: "tokens,xls",
+        format_suffix: ".xls",
+        attrs: "+,-lex",
+        match_marker: "***",
+        physical_formats: physical_formats.table,
+    },
     "ref": {
         format: "bibref",
+        physical_formats: physical_formats.table,
+    },
+    "ref_xls": {
+        format: "bibref,xls",
+        format_suffix: ".xls",
         physical_formats: physical_formats.table,
     },
     "sentences": {
@@ -145,10 +161,22 @@ settings.downloadFormatParams = {
         subformat: "lemmas-resultinfo",
         physical_formats: physical_formats.table,
     },
+    "sentences_xls": {
+        format: "sentences,xls",
+        format_suffix: ".xls",
+        subformat: "lemmas-resultinfo",
+        physical_formats: physical_formats.table,
+    },
     // As "sentences", but match tokens and context tokens in separate
     // columns
     "sentences_kwic": {
         format: "sentences",
+        subformat: "lemmas-resultinfo,lemmas-kwic",
+        physical_formats: physical_formats.table,
+    },
+    "sentences_kwic_xls": {
+        format: "sentences,xls",
+        format_suffix: ".xls",
         subformat: "lemmas-resultinfo,lemmas-kwic",
         physical_formats: physical_formats.table,
     },
