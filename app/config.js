@@ -630,6 +630,10 @@ settings.mapCenter = {
     lng: 25.803222,
     zoom: 4
 };
+// The function with which to calculate the initial map centre, using
+// only the "zoom" property from settings.mapCenter
+settings.calculateMapCenter = "centerPoint"
+
 
 settings.readingModeField = "sentence_id"
 
