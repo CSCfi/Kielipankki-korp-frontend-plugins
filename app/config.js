@@ -201,9 +201,7 @@ settings.cgi_prefix =
     window.location.protocol + "//" + window.location.hostname +
     (isProductionServerBeta
      ? "/cgi-bin/korp-beta/"
-     : (isProductionServerOld ?
-	"/cgi-bin/korp-old/"
-	: "/cgi-bin/korp/"));
+     : "/cgi-bin/korp/");
 settings.cgi_script = settings.cgi_prefix + "korp.cgi";
 settings.lemgrams_cgi_script = settings.cgi_prefix + "korp_lemgrams.cgi";
 settings.download_cgi_script = settings.cgi_prefix + "korp_download.cgi";
