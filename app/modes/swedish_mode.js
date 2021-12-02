@@ -1096,6 +1096,8 @@ settings.corpora.nlfcl_sv = {
     }
 };
 
+funcs.addCorporaToFolder("literary", "nlfcl_sv");
+
 
 funcs.add_attr_extra_properties(settings.corpora);
 
