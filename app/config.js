@@ -277,8 +277,7 @@ settings.filterSelection = "intersection"
 
 settings.newsDeskUrl =
     window.location.protocol + "//" + window.location.hostname + "/"
-    + window.location.pathname + "news/json/korp"
-    + ((isProductionServerBeta || isLab) ? "beta" : "") + "news.json";
+    + window.location.pathname + "news/json/korpnews.json";
 
 // authenticationType: "basic", "shibboleth" or "none"
 settings.authenticationType = (isProductionServer ? "shibboleth" : "basic");
