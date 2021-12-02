@@ -5563,7 +5563,7 @@ attrlist.finer2 = {
     nertags: {
         label: "ner_tags",
         type: "set",
-        opts: settings.setOptions,
+        opts: setOptions,
         // Hide the tags containing nesting information (a digit
         // suffix) until it can be represented and searched for in a
         // more user-friendly way (in Korp 9)
@@ -5593,7 +5593,7 @@ settings.corpusFeatures.finer = {
     attributes: attrlist.finer,
 };
 
-settings.corpus_features.finer2 = {
+settings.corpusFeatures.finer2 = {
     attributes: attrlist.finer2,
 };
 

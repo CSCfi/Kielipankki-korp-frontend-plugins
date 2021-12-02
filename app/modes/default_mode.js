@@ -14299,7 +14299,7 @@ settings.corpora.nlfcl_fi = {
     cite_id: "nlfcl-fi-korp",
     licence: settings.licenceinfo.CC_BY_40,
     features: ["paragraphs", "parsed_tdt", "finer2"],
-    struct_attributes: {
+    structAttributes: {
         text_id: sattrs.hidden,
 	text_title: sattrs.text_title,
 	text_author: sattrs.text_author,
@@ -14322,7 +14322,7 @@ settings.corpora.nlfcl_fi = {
     }
 };
 
-settings.fn.add_corpus_aliases("nlfcl_fi", ["nlfcl-fi"]);
+funcs.add_corpus_aliases("nlfcl_fi", ["nlfcl-fi"]);
 
 
 settings.corpus_aliases.murre = "skn";
@@ -16029,7 +16029,7 @@ settings.templ.s24_2001_2017 = {
     shortname: "suomi24-2001-2017-korp-v1-2",
     features: ["paragraphs", "parsed_tdt", "spaces"],
     structAttributes: sattrlist.s24_2018,
-    struct_attributes: sattrlist.s24_2001_2017,
+    structAttributes: sattrlist.s24_2001_2017,
 };
 
 
@@ -16085,7 +16085,7 @@ sattrlist.s24_2018_2020 = $.extend(
                     "SuomiAreena",
                 ]),
             }),
-        text_thread_closed: settings.fn.make_bool_attr(
+        text_thread_closed: funcs.make_bool_attr(
             "thread_closed", ["y", "n", ""]),
         sentence_lang: sattrs.sentence_lang,
     }
@@ -16101,23 +16101,23 @@ settings.templ.s24_2018_2020 = {
     shortname: "suomi24-2018-2020-korp",
     features: ["paragraphs", "parsed_tdt", "spaces"],
     labels: ["beta"],
-    struct_attributes: sattrlist.s24_2018_2020,
+    structAttributes: sattrlist.s24_2018_2020,
 };
 
-settings.fn.add_corpus_settings(
+funcs.add_corpus_settings(
     settings.templ.s24_2018_2020,
     make_s24_templ_fill(2018, 2020, ""),
     settings.corporafolders.cmc.s24_accruing,
     "s24_"
 );
 
-settings.fn.add_corpus_aliases(
+funcs.add_corpus_aliases(
     "s24_20(1[89]|20)",
     [
         "suomi24-2018-2020",
     ]);
 
-settings.fn.add_corpus_aliases(
+funcs.add_corpus_aliases(
     "s24_20(0[1-9]|1[0-9]|20)",
     [
         "suomi24-2001-2020",

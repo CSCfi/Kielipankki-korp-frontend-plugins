@@ -546,11 +546,11 @@ settings.corpora.ceal_o_fi = {
 	urn: "urn:nbn:fi:lb-2019121806",
     },
     cite_id: "ceal-par-korp",
-    limited_access: true,
-    licence_type: "RES",
+    limitedAccess: true,
+    licenceType: "RES",
     attributes: attrlist.ud2_fi,
-    struct_attributes: sattrlist.ceal_common,
-    linked_to: ["ceal_o_en"]
+    structAttributes: sattrlist.ceal_common,
+    linkedTo: ["ceal_o_en"]
 };
 
 settings.corpora.ceal_o_en = {
@@ -568,11 +568,11 @@ settings.corpora.ceal_o_en = {
 	urn: "urn:nbn:fi:lb-2019121806",
     },
     cite_id: "ceal-par-korp",
-    limited_access: true,
-    licence_type: "RES",
+    limitedAccess: true,
+    licenceType: "RES",
     attributes: attrlist.ud2_en,
-    struct_attributes: sattrlist.ceal_common,
-    linked_to: ["ceal_o_fi"],
+    structAttributes: sattrlist.ceal_common,
+    linkedTo: ["ceal_o_fi"],
     hide: true
 };
 
