@@ -5554,6 +5554,26 @@ attrlist.finer = {
     nerbio: attrs.ner_bio,
 };
 
+// Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
+// but Finnish NER *tags* version 2)
+attrlist.finer2 = {
+    nertag: {
+        label: "ner_tag_max",
+    },
+    nertags: {
+        label: "ner_tags",
+        type: "set",
+        opts: settings.setOptions,
+        // Hide the tags containing nesting information (a digit
+        // suffix) until it can be represented and searched for in a
+        // more user-friendly way (in Korp 9)
+        displayType: "hidden",
+    },
+    nerbio: {
+        label: "ner_bio",
+    },
+};
+
 attrlist.ud2_fi = {
     ref: attrs.ref,
     lemma: attrs.baseform,
@@ -5571,6 +5591,10 @@ attrlist.ud2_en = attrlist.ud2_fi;
 
 settings.corpusFeatures.finer = {
     attributes: attrlist.finer,
+};
+
+settings.corpus_features.finer2 = {
+    attributes: attrlist.finer2,
 };
 
 // An attribute not to be shown in Korp but included for documentation
@@ -5828,6 +5852,11 @@ sattrs.month = {
 sattrs.day_of_month = {
     label: "day"
 };
+
+sattrs.sentence_lang = {
+    label: "sentence_lang_identified",
+};
+
 
 /* KFSCP --- */
 
@@ -7958,8 +7987,8 @@ funcs.extend_corpus_settings = function (props, corpus_ids) {
 // Generate a declaration for an attribute with Boolean values.
 // Arguments:
 // - label: attribute translation label
-// - yes_no: an array of two items: the corpus values for "yes" and
-//   "no"; if omitted, use "y" and "n".
+// - yes_no: an array of two or three items: the corpus values for
+//   "yes", "no" and optionally "unknown"; if omitted, use "y" and "n".
 funcs.make_bool_attr = function (label, yes_no) {
     var dataset = {};
     if (arguments.length < 2) {
@@ -7968,8 +7997,11 @@ funcs.make_bool_attr = function (label, yes_no) {
             "n": "no",
         };
     } else {
-        dataset[yes_no[0]] = "yes";
-        dataset[yes_no[1]] = "no";
+	dataset[yes_no[0]] = "yes";
+	dataset[yes_no[1]] = "no";
+        if (yes_no.length > 2) {
+            dataset[yes_no[2]] = "unknown";
+        }
     }
     return {
         label: label,

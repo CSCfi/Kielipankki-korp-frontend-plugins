@@ -196,6 +196,7 @@ settings.corporafolders.news.klk2_fi = {
 
 funcs.addCorporaToFolder("literary", [
     "gutenberg",
+    "nlfcl_fi",
     "sks_kivi_fi",
     "skvr",
     "parfin_2016_fi",
@@ -229,6 +230,7 @@ settings.corporafolders.literary.skk = {
         cite_id: "SKK",
     }
 };
+
 
 settings.corporafolders.literary.kaannossuomi = {
     title: "Käännössuomen korpus",
@@ -299,37 +301,41 @@ funcs.addCorporaToFolder("cmc", [
     "ylilauta",
 ]);
 
-settings.corporafolders.cmc.suomi24_2017h2 = {
-    title: "Suomi24 2001–2017",
+settings.corporafolders.cmc.suomi24_accruing = {
+    title: "Suomi24 2001–2020",
     // TODO: Change VRT download and metadata URN to point to the new
     // version when it is available
-    description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2021-04-21: Aineistosta on nyt käytössä päivitetty versio 1.2, jonka kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment) ilmaiseva polaarisuustieto (positiivinen, neutraali, negatiivinen). Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a href='https://arxiv.org/pdf/2012.02613.pdf' target='_blank'>FinnSentiment-aineistolla</a>.<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
+    description: "Suomi24 virkkeet -korpus 2001–2020, Korp-versio<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2020 (1.1.2001–31.12.2020).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2021101527' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2020 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2021101528' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>Tämä kokoelma sisältää aineistot <a href='http://urn.fi/urn:nbn:fi:lb-2020021803' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2</i></a> ja <a href='http://urn.fi/urn:nbn:fi:lb-2021101521' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2018–2020, Korp-versio</i></a>.<br/><br/>(<i>Suomi24 2001–2017</i> näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2021-11-05: Kokoelmaan on lisätty beetatestiversiona vuosien 2018–2020 keskustelut (<a href='http://urn.fi/urn:nbn:fi:lb-2021101521' target='_blank' title='Kuvailutiedot'><i>Suomi24 virkkeet -korpus 2018–2020, Korp-versio</i></a>).<br/><br/>2021-04-21: Aineistosta on nyt käytössä päivitetty versio 1.2, jonka kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment) ilmaiseva polaarisuustieto (positiivinen, neutraali, negatiivinen). Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a href='https://arxiv.org/pdf/2012.02613.pdf' target='_blank'>FinnSentiment-aineistolla</a>.<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
+    // description: "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2<br/><a href='http://keskustelu.suomi24.fi' target='_blank'>Suomi24-keskustelupalvelun</a> keskustelut vuosilta 2001–2017 (1.1.2001–31.12.2017).<br/>Aineistossa näkyy kaikkien keskustelujen sisältö enintään kappaletasolla.<br/>Aineisto on jaettu osakorpuksiin vuosittain.<br/>Tutkijat voivat myös ladata käyttöönsä <a href='http://urn.fi/urn:nbn:fi:lb-2019010801' target='_blank' title='Kuvailutiedot'>koko Suomi24 2001–2017 -aineiston</a> Kielipankin <a href='http://urn.fi/urn:nbn:fi:lb-2019010802' target='_blank'>latauspalvelusta</a> (<a href='http://urn.fi/urn:nbn:fi:lb-20150304151' target='_blank'>lisenssi</a>).<br/><br/>(Tämä aineisto näkyi beetatestausvaiheessa Korpissa nimellä <i>Suomi24 virkkeet -korpus (2017H2)</i> ja aineiston ensimmäinen versio nimellä <i>Suomi24 2017H2</i>.)<br/><br/>2021-04-21: Aineistosta on nyt käytössä päivitetty versio 1.2, jonka kuhunkin virkkeeseen on lisätty virkkeen tunnetilaa (sentiment) ilmaiseva polaarisuustieto (positiivinen, neutraali, negatiivinen). Polaarisuustieto on tuotettu luokittimella, joka on opetettu <a href='https://arxiv.org/pdf/2012.02613.pdf' target='_blank'>FinnSentiment-aineistolla</a>.<br/><br/>2020-02-20: Aineistosta on nyt käytössä korjattu versio 1.1. Se sisältää aiemmasta versiosta vuosilta 2009–2012 ja 2014 puuttuneet kirjoittajan nimimerkkitiedot, ja kaikissa nimimerkeissä merkit <i>'</i>, <i>\"</i> ja <i>&amp;</i> näkyvät sellaisinaan, eivät <i>&amp;apos;</i>, <i>&amp;quot;</i> ja <i>&amp;amp;</i>. Lisäksi aineiston nimessä on korvattu <i>2017H2</i> vuosivälillä <i>2001–2017</i>.<br/><br/>2020-01-21: Aineiston dependenssijäsennykset ja -relaatiot on korjattu 2019-12-19. Myös sanakuva toimii periaatteessa, mutta aineiston koon vuoksi valitettavasti ei aina käytännössä. Selvitämme asiaa. Nimientunnistustiedot ovat toistaiseksi vain vanhemmassa Suomi24 2016H2 -aineistossa.</strong>",
     contents: [
-        "s24_2001",
-        "s24_2002",
-        "s24_2003",
-        "s24_2004",
-        "s24_2005",
-        "s24_2006",
-        "s24_2007",
-        "s24_2008",
-        "s24_2009",
-        "s24_2010",
-        "s24_2011",
-        "s24_2012",
-        "s24_2013",
-        "s24_2014",
-        "s24_2015",
-        "s24_2016",
-        "s24_2017",
+	"s24_2001",
+	"s24_2002",
+	"s24_2003",
+	"s24_2004",
+	"s24_2005",
+	"s24_2006",
+	"s24_2007",
+	"s24_2008",
+	"s24_2009",
+	"s24_2010",
+	"s24_2011",
+	"s24_2012",
+	"s24_2013",
+	"s24_2014",
+	"s24_2015",
+	"s24_2016",
+	"s24_2017",
+	"s24_2018",
+	"s24_2019",
+	"s24_2020",
     ],
     info: {
-        urn: "urn:nbn:fi:lb-2020021804",
-        metadata_urn: "urn:nbn:fi:lb-2020021803",
-        licence: settings.licenceinfo.CC_BY_NC,
-        homepage_url: "http://keskustelu.suomi24.fi",
-        cite_id: "suomi24-2001-2017-korp-v1-2",
-        shortname: "suomi24-2001-2017-korp-v1-2",
+	urn: "urn:nbn:fi:lb-2021101526",
+	metadata_urn: "urn:nbn:fi:lb-2021101525",
+	licence: settings.licenceinfo.CC_BY_NC,
+	homepage_url: "http://keskustelu.suomi24.fi",
+	cite_id: "urn:nbn:fi:lb-2021101525",
+	shortname: "suomi24-2001-2020-korp",
     }
 };
 
@@ -1523,7 +1529,7 @@ settings.corpora.semfinlex_asd_fi_2018 = {
     lang: "fin",
     title: "Alkuperäisiä säädöksiä",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1734, 1868, 1889, 1895, 1896, 1898, 1901, 1906, 1907 ja 1917–2018.",
-    urn: "urn:nbn:fi:lb-2019042602",
+    urn: "urn:nbn:fi:lb-2020052702",
     metadata_urn: "urn:nbn:fi:lb-2020052701",
     licence: settings.licenceinfo.CC_BY,
     features: ["paragraphs", "parsed_tdt"],
@@ -14284,6 +14290,40 @@ settings.corpora.gutenberg = {
     }
 };
 
+settings.corpora.nlfcl_fi = {
+    id: "nlfcl_fi",
+    title: "Kansalliskirjaston klassikkokirjasto (suomi)",
+    description: "Kansalliskirjaston klassikkokirjaston sisältämiä suomenkielisiä teoksia vuosilta 1549–1944, Kielipankki-versio",
+    urn: "urn:nbn:fi:lb-201803282",
+    metadata_urn: "urn:nbn:fi:lb-201803281",
+    cite_id: "nlfcl-fi-korp",
+    licence: settings.licenceinfo.CC_BY_40,
+    features: ["paragraphs", "parsed_tdt", "finer2"],
+    struct_attributes: {
+        text_id: sattrs.hidden,
+	text_title: sattrs.text_title,
+	text_author: sattrs.text_author,
+	text_contributor: {
+            label: "nlfcl_contributor"
+	},
+	text_rights: sattrs.hidden,
+	text_filename: sattrs.hidden,
+	text_digitized: {
+            label: "digitization_date"
+	},
+	text_book_number: {
+            label: "book_number"
+	},
+	text_year: {
+	    label: "publication_year"
+	},
+	paragraph_id: sattrs.paragraph_id_hidden,
+	sentence_id: sattrs.sentence_id_hidden,
+    }
+};
+
+settings.fn.add_corpus_aliases("nlfcl_fi", ["nlfcl-fi"]);
+
 
 settings.corpus_aliases.murre = "skn";
 
@@ -15806,7 +15846,7 @@ settings.corpora.s24 = {
 
 /* Suomi24 2001–2017 (previously 2017H2) */
 
-sattrlist.s24_2018 = {
+sattrlist.s24_2001_2017 = {
     text_title: sattrs.title,
     text_date: sattrs.date,
     text_time: sattrs.time,
@@ -15979,34 +16019,48 @@ sattrlist.s24_2018 = {
     },
 };
 
-settings.templ.s24_2018 = {
+settings.templ.s24_2001_2017 = {
     title: "",
     description: "",
     id: "",
+    urn: "urn:nbn:fi:lb-2020021804",
+    metadata_urn: "urn:nbn:fi:lb-2020021803",
+    cite_id: "suomi24-2001-2017-korp-v1-2",
+    shortname: "suomi24-2001-2017-korp-v1-2",
     features: ["paragraphs", "parsed_tdt", "spaces"],
     structAttributes: sattrlist.s24_2018,
+    struct_attributes: sattrlist.s24_2001_2017,
+};
+
+
+var make_s24_templ_fill = function (year1, year2, version) {
+    var result = [];
+    var year_range = year1.toString() + "–" + year2.toString();
+    if (version) {
+        version = " " + version;
+    }
+    for (var y = year1; y <= year2; y++) {
+        var ystr = y.toString();
+        result.push({
+            title: "Suomi24 " + year_range + ": " + ystr,
+            description: (
+                "Suomi24 virkkeet -korpus " + year_range + ", Korp-versio"
+                    + version + ": "
+                    + ystr
+                    + "<br/>Suomi24-keskustelujen viestit vuodelta "
+                    + ystr),
+            id: ystr,
+        });
+    }
+    return result;
 };
 
 funcs.add_corpus_settings(
-    settings.templ.s24_2018,
-    (function (year1, year2) {
-        var result = [];
-        for (var y = year1; y <= year2; y++) {
-            var ystr = y.toString();
-            result.push({
-                title: "Suomi24 2001–2017: " + ystr,
-                description: (
-                    "Suomi24 virkkeet -korpus 2001–2017, Korp-versio 1.2: "
-                        + ystr
-                        + "<br/>Suomi24-keskustelujen viestit vuodelta "
-                        + ystr),
-                id: ystr,
-            });
-        }
-        return result;
-    })(2001, 2017),
-    settings.corporafolders.cmc.s24_2017h2,
-    "s24_");
+    settings.templ.s24_2001_2017,
+    make_s24_templ_fill(2001, 2017, "1.2"),
+    settings.corporafolders.cmc.s24_accruing,
+    "s24_"
+);
 
 funcs.add_corpus_aliases(
     "s24_20(0[1-9]|1[0-7])",
@@ -16015,6 +16069,58 @@ funcs.add_corpus_aliases(
         "suomi24-2001-2017",
         "suomi24-2001-2017-korp-v1-1",
         "suomi24-2001-2017-korp-v1-2",
+    ]);
+
+var topic_top_2001_2017 = sattrlist.s24_2001_2017.text_topic_name_top;
+sattrlist.s24_2018_2020 = $.extend(
+    {}, sattrlist.s24_2001_2017,
+    {
+        text_topic_name_top: $.extend(
+            {}, topic_top_2001_2017,
+            {
+                dataset: topic_top_2001_2017.dataset.concat([
+	            "Kysy Mitä Vain",
+	            "Suomi24 Blogi ★",
+                    "Suomi24",
+                    "SuomiAreena",
+                ]),
+            }),
+        text_thread_closed: settings.fn.make_bool_attr(
+            "thread_closed", ["y", "n", ""]),
+        sentence_lang: sattrs.sentence_lang,
+    }
+);
+
+settings.templ.s24_2018_2020 = {
+    title: "",
+    description: "",
+    id: "",
+    urn: "urn:nbn:fi:lb-2021101522",
+    metadata_urn: "urn:nbn:fi:lb-2021101521",
+    cite_id: "urn:nbn:fi:lb-2021101522",
+    shortname: "suomi24-2018-2020-korp",
+    features: ["paragraphs", "parsed_tdt", "spaces"],
+    labels: ["beta"],
+    struct_attributes: sattrlist.s24_2018_2020,
+};
+
+settings.fn.add_corpus_settings(
+    settings.templ.s24_2018_2020,
+    make_s24_templ_fill(2018, 2020, ""),
+    settings.corporafolders.cmc.s24_accruing,
+    "s24_"
+);
+
+settings.fn.add_corpus_aliases(
+    "s24_20(1[89]|20)",
+    [
+        "suomi24-2018-2020",
+    ]);
+
+settings.fn.add_corpus_aliases(
+    "s24_20(0[1-9]|1[0-9]|20)",
+    [
+        "suomi24-2001-2020",
     ]);
 
 
