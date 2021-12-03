@@ -1827,7 +1827,7 @@ sattrs.link_lehdet = {
     urlOpts: sattrs.link_url_opts
 };
 
-settings.corpus_aliases.tiedelehdet = "tiedelehdet_.*";
+settings.corpusAliases.tiedelehdet = "tiedelehdet_.*";
 
 settings.corpora.tiedelehdet_hiidenkivi = {
     title: "Hiidenkivi",
@@ -3471,7 +3471,7 @@ settings.corpora.tiedelehdet_tutkimustiedote = {
 
 /* ===== LEHTIÄ ===== */
 
-settings.corpus_aliases.muut_lehdet = "lehdet_.*";
+settings.corpusAliases.muut_lehdet = "lehdet_.*";
 
 settings.corpora.lehdet_selkosanomat = {
     title: "Selkosanomat/Selkouutiset",
@@ -9182,8 +9182,8 @@ settings.corpora.lehdet_euro_talous = {
 // coding) might be to have in the corpus definitions a property such
 // as
 //     versions: ["lehdet90ff-v2"]
-settings.corpus_aliases.lehdet90ff_v2 =
-    settings.corpus_aliases["lehdet90ff-v2"] =
+settings.corpusAliases.lehdet90ff_v2 =
+    settings.corpusAliases["lehdet90ff-v2"] =
     "tiedelehdet_30paivaa,tiedelehdet_aakusti,tiedelehdet_agricola,tiedelehdet_aidinkieli,tiedelehdet_aikuiskasvatus,tiedelehdet_aluejaymparisto,tiedelehdet_ammattikasvatuksen_aikakauskirja,tiedelehdet_apollon,tiedelehdet_areiopagi,tiedelehdet_ats,tiedelehdet_auraica,tiedelehdet_automaatiovayla,tiedelehdet_avain,tiedelehdet_baptria,tiedelehdet_bryobrotherella,tiedelehdet_diakonia,tiedelehdet_elo,tiedelehdet_ennenjanyt,tiedelehdet_geofoorumi,tiedelehdet_geologi,tiedelehdet_glossae,tiedelehdet_harukaze,tiedelehdet_havina,tiedelehdet_hiidenkivi,tiedelehdet_historiallinen,tiedelehdet_historianystava,tiedelehdet_idantutkimus,tiedelehdet_ilmansuojelu,tiedelehdet_informaatio,tiedelehdet_janus,tiedelehdet_hykirjasto,tiedelehdet_kasvu,tiedelehdet_kieliskooppi,tiedelehdet_kliinlab,tiedelehdet_kognitiivinen,tiedelehdet_kompositio,tiedelehdet_kosmopolis,tiedelehdet_kulttuurintutkimus,tiedelehdet_kulutustutkimus,tiedelehdet_kunnallistiede,tiedelehdet_kuntoutus,tiedelehdet_liikenteensuunta_v2,tiedelehdet_liiketalous,tiedelehdet_liikuntajatiede,tiedelehdet_lounaishame,tiedelehdet_maaseudunuusiaika,tiedelehdet_matkailututkimus,tiedelehdet_mediajaviestinta,tiedelehdet_metsatiede,tiedelehdet_muinaistutkija,tiedelehdet_musiikinsuunta,tiedelehdet_musiikkikasv,tiedelehdet_niinnain_v2,tiedelehdet_nimi,tiedelehdet_nayttamo_tutkimus,tiedelehdet_poliittinentalous,tiedelehdet_prologi,tiedelehdet_psykologia,tiedelehdet_rakmek,tiedelehdet_ravitsemus,tiedelehdet_ruralia,tiedelehdet_sananjalka,tiedelehdet_siirtolaisuus,tiedelehdet_skas,tiedelehdet_skeptikko,tiedelehdet_skholion,tiedelehdet_solubiologi,tiedelehdet_sosiaalilaaketiede,tiedelehdet_sosiologia,tiedelehdet_suo,tiedelehdet_susa,tiedelehdet_kirkkohistoria,tiedelehdet_sydanaani,tiedelehdet_synnyt,tiedelehdet_tahiti,tiedelehdet_taimiuutiset,tiedelehdet_teologinen,tiedelehdet_terminfo,tiedelehdet_terra,tiedelehdet_thanatos,tiedelehdet_tiedejaase,tiedelehdet_tieteessatapahtuu,tiedelehdet_tktlehti,tiedelehdet_tietolinja,tiedelehdet_toksikologi,tiedelehdet_transmitteri,tiedelehdet_trio,tiedelehdet_tutkimustiedote,tiedelehdet_tutkivasos,tiedelehdet_tyoelama,tiedelehdet_ura,tiedelehdet_uskonnontutkija,tiedelehdet_vartija,tiedelehdet_versus,tiedelehdet_virittaja,tiedelehdet_walbum,tiedelehdet_yhdyskuntasuunnittelu,tiedelehdet_yhteiskuntapolitiikka,tiedelehdet_ymparistohistoria,lehdet_aalto_university_magazine,lehdet_aarre,lehdet_aino,lehdet_ajolinja,lehdet_akavalainen,lehdet_allergia,lehdet_ammattisotilas,lehdet_amnesty,lehdet_ananda,lehdet_animalia,lehdet_anti,lehdet_antimilitaristi_sivari,lehdet_apaja,lehdet_aplodi,lehdet_arkkitehtiuutiset,lehdet_aromi,lehdet_aselehti,lehdet_askel,lehdet_asukas,lehdet_asukki,lehdet_asuminen_yhteiskunta,lehdet_asuntoinfo,lehdet_aurora,lehdet_avainlehti,lehdet_avec,lehdet_avec_perhelehti,lehdet_avh,lehdet_avvisio,lehdet_bof_online,lehdet_canews,lehdet_cplehti,lehdet_curly,lehdet_debatti,lehdet_diabetes_ja_laakari,lehdet_diakonia,lehdet_edimensio,lehdet_effortti,lehdet_ekonomi,lehdet_elinehto,lehdet_elamantahdet_terve,lehdet_elamassa_kelansanomat,lehdet_elore,lehdet_emma,lehdet_entisesta_enemman,lehdet_ernie,lehdet_espanjan_sanomat,lehdet_espoo,lehdet_esri,lehdet_ethnos,lehdet_eurooppalainen,lehdet_euro_talous,lehdet_evento,lehdet_focus,lehdet_folium_classicum,lehdet_hkaksi,lehdet_haagalainen,lehdet_haavi,lehdet_hallaus,lehdet_helen,lehdet_helmeri,lehdet_helmi,lehdet_helsinginhenki,lehdet_helsinki_info,lehdet_hengitys,lehdet_heppu,lehdet_hervannan_sanomat,lehdet_hima,lehdet_hopealeijona,lehdet_huili,lehdet_humanistilehti,lehdet_husari,lehdet_hyva_asukas,lehdet_impakti,lehdet_infors,lehdet_infront,lehdet_jane_paulo,lehdet_jargonia,lehdet_joensuun_uutiset,lehdet_julkaisija,lehdet_kalastuslehti,lehdet_kalpa,lehdet_kansanopisto,lehdet_karhunkierros,lehdet_karhunpalvelus,lehdet_kauppapolitiikka,lehdet_kaupunkilainen,lehdet_kehittaja,lehdet_kemia_kemi,lehdet_kemilainen,lehdet_kerberos,lehdet_keski_espoon_sanomat,lehdet_keva,lehdet_kide,lehdet_kide_taidelehti,lehdet_kielipolku_dysfasia,lehdet_kirjo,lehdet_kita,lehdet_koiviston_viesti,lehdet_kontakt,lehdet_koor,lehdet_koti,lehdet_kotipuutarha,lehdet_kotosalla,lehdet_kuljetusyrittaja,lehdet_kulttuurivihkot,lehdet_kumina,lehdet_kumposti,lehdet_kunnallissuomi,lehdet_kuuloset,lehdet_kuuloviesti,lehdet_kynnys,lehdet_kyvyt_kayttoon_vates,lehdet_kaytannon_maamies,lehdet_lapsenmaailma,lehdet_legenda,lehdet_leija,lehdet_luokanopettaja,lehdet_luuppisanomat,lehdet_lahde_liikkeelle,lehdet_maailma_kiitotie,lehdet_materia,lehdet_matkailusilma,lehdet_me,lehdet_mercurius,lehdet_meripelastus,lehdet_merkonomi,lehdet_minna,lehdet_mirator,lehdet_modin,lehdet_motiva_mplus_xpress,lehdet_musetti,lehdet_muusikko,lehdet_nonsordino,lehdet_nakyva_nainen,lehdet_ollaviiskytviisplus,lehdet_omakotisanomat,lehdet_ostrobotnia,lehdet_ota_opiksi,lehdet_oulunkylainen,lehdet_pakolainen,lehdet_palveluesimies,lehdet_paraisten_kuulutukset,lehdet_pardianyt,lehdet_pariperhe,lehdet_partio_jalki,lehdet_patria,lehdet_pelastusalan_ammattilainen,lehdet_pelastustieto,lehdet_perussuomalainen,lehdet_pihlajamaki_info,lehdet_pihlajisto_viikinmaki,lehdet_pippuri,lehdet_pirkkalainen,lehdet_pirta,lehdet_pispalalainen,lehdet_plari,lehdet_pointti,lehdet_poleemi,lehdet_polemiikki,lehdet_policy,lehdet_poromies,lehdet_print_media,lehdet_pro_etelapohjanmaa,lehdet_prointerior,lehdet_promaint_kunnossapito,lehdet_proresto,lehdet_puulehti,lehdet_puutarha_sanomat,lehdet_rautalampilehti,lehdet_rautatievirkamies,lehdet_ruotuvaki,lehdet_ronsy,lehdet_saarijarvelainen,lehdet_saariselka,lehdet_saima,lehdet_secretarius,lehdet_selkosanomat,lehdet_signum,lehdet_skrolli,lehdet_sofia,lehdet_solidaarisuus,lehdet_sosiaalivakuutus,lehdet_stiiknafuulia,lehdet_sukuviesti,lehdet_suomen_historiallinen,lehdet_suomenmaa,lehdet_seniorilehti,lehdet_suomi_puola,lehdet_super,lehdet_susikko,lehdet_sydan_hameen_lehti,lehdet_syopa,lehdet_syopasaation_focus,lehdet_sosso,lehdet_taku,lehdet_talentia,lehdet_taloustaito,lehdet_tamk_nyt,lehdet_tampere,lehdet_kauppakamarilehti,lehdet_tampereen_liikuntasanomat,lehdet_tampu,lehdet_tanhuviesti,lehdet_tanssiurheilija,lehdet_tapaturmavakuutus,lehdet_tapiolan_asiakaslehti,lehdet_tatsi,lehdet_tek_verkkolehti,lehdet_teollisuussuomi,lehdet_terve_elama,lehdet_terve_pirkanmaa,lehdet_tervetuloa_jyvaskylaan,lehdet_terveydeksi,lehdet_tiedetoimittaja,lehdet_tiedosta,lehdet_tietoa_maasta,lehdet_tietoarkisto,lehdet_tiimi,lehdet_toimi,lehdet_toisinsanoen,lehdet_toolilainen,lehdet_tukijalka,lehdet_tukilinja,lehdet_tukiviesti,lehdet_tuntosarvi,lehdet_turkuposti,lehdet_tutkain,lehdet_tuulivoima_tuulienergia_tuulensilma,lehdet_tyoelake,lehdet_taydellinenympyra,lehdet_ubik,lehdet_uiotus,lehdet_uljas,lehdet_uniikki,lehdet_unioni,lehdet_universitas,lehdet_universitaschydenius,lehdet_utain,lehdet_uusiouutiset,lehdet_uusipaiva,lehdet_uusi_safiiri,lehdet_uutis_jousi,lehdet_vaasan_ylioppilaslehti,lehdet_valkoinen_kaapio,lehdet_valkonauha,lehdet_vammaisurheilu,lehdet_vanhustyo,lehdet_vankilavirkailija,lehdet_vantaan_akseli,lehdet_vantaan_asukaslehti,lehdet_vapaa_ajattelija,lehdet_vasama,lehdet_koskinen,lehdet_veturimies,lehdet_via,lehdet_via_helsinki,lehdet_vilkku,lehdet_virallinenlehti,lehdet_virilactis,lehdet_virta,lehdet_valitysuutiset,lehdet_walpo,lehdet_wieteri,lehdet_yhteenveto,lehdet_yhteishyva,lehdet_yhteishyva_ruoka,lehdet_yhys_tiedotuslehti,lehdet_yliopistolainen,lehdet_yrittajasanomat,lehdet_yritysetiikka";
 
 
@@ -9270,7 +9270,7 @@ settings.corpora.karjalansuomi = {
     }
 };
 
-settings.corpus_aliases.lehdet_ks = "karjalansuomi";
+settings.corpusAliases.lehdet_ks = "karjalansuomi";
 
 
 settings.corpora.reittidemo = {
@@ -9936,7 +9936,7 @@ delete ftc_hierarchy;
 // funcs.make_folder_hierarchy(), or maybe better yet, add a
 // facility to take the alias property from corporafolder if the alias
 // should cover all the corpora of a folder.
-settings.corpus_aliases.ftc = "ftc_.*";
+settings.corpusAliases.ftc = "ftc_.*";
 
 
 settings.templ.kotus_ns_presidentti = {
@@ -10055,8 +10055,8 @@ funcs.make_president_corpora = function () {
         corpus_id_prefix
     );
     var joined_corpus_ids = corpus_ids.join(",");
-    settings.corpus_aliases["ns_presidentti"] = joined_corpus_ids;
-    settings.corpus_aliases["kotus_ns_presidentti"] = joined_corpus_ids;
+    settings.corpusAliases["ns_presidentti"] = joined_corpus_ids;
+    settings.corpusAliases["kotus_ns_presidentti"] = joined_corpus_ids;
 }
 
 funcs.make_president_corpora();
@@ -10975,7 +10975,7 @@ for (var i = 0; i < la_murre_grouping.length; i++) {
             la_murre_parishes.push(parishes[k][1]);
             var corpname = la_murre_corpus_prefix + parishes[k][0]
             la_murre_corpora.push(corpname);
-            settings.corpus_aliases[la_murre_alias_prefix + parishes[k][2]] =
+            settings.corpusAliases[la_murre_alias_prefix + parishes[k][2]] =
                 corpname;
         }
     }
@@ -11493,8 +11493,8 @@ funcs.make_folder_hierarchy(
 
 
 // Construct a shorthand alias
-settings.corpus_aliases.la_murre = la_murre_corpora.join(",");
-settings.corpus_aliases["la-murre"] = settings.corpus_aliases.la_murre;
+settings.corpusAliases.la_murre = la_murre_corpora.join(",");
+settings.corpusAliases["la-murre"] = settings.corpusAliases.la_murre;
 
 // Configure a short URL: preselect only the LA-murre corpus folder
 // (all its subcorpora)
@@ -11648,7 +11648,7 @@ funcs.extend_corpus_settings(
 
 delete las2_common_props;
 
-settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
+settings.corpusAliases.las2 = "las2_tentit,las2_esseet";
 
 // AGRICOLA
 
@@ -11872,8 +11872,8 @@ settings.corpora.agricola_veisut = {
     structAttributes: sattrlist.agricola
 };
 
-settings.corpus_aliases.agricola = "agricola_.*";
-settings.corpus_aliases["agricola-korp"] = "agricola_.*";
+settings.corpusAliases.agricola = "agricola_.*";
+settings.corpusAliases["agricola-korp"] = "agricola_.*";
 
 
 // SKS-KIVI
@@ -12573,8 +12573,8 @@ settings.corpora.yoaineet = {
     },
 };
 
-settings.corpus_aliases.ylioppilasaineet = "yoaineet";
-settings.corpus_aliases["yo-aineet"] = "yoaineet";
+settings.corpusAliases.ylioppilasaineet = "yoaineet";
+settings.corpusAliases["yo-aineet"] = "yoaineet";
 
 
 // FiRuLex
@@ -14322,10 +14322,10 @@ settings.corpora.nlfcl_fi = {
     }
 };
 
-funcs.add_corpus_aliases("nlfcl_fi", ["nlfcl-fi"]);
+funcs.addCorpusAliases("nlfcl_fi", ["nlfcl-fi"]);
 
 
-settings.corpus_aliases.murre = "skn";
+settings.corpusAliases.murre = "skn";
 
 settings.corpora.skn = {
     title: "SKN – Suomen kielen näytteitä",
@@ -15241,10 +15241,10 @@ settings.corpora.eduskunta = {
 };
 
 // Support "eduskunta_test" as an alias
-settings.corpus_aliases["eduskunta_test"] = "eduskunta";
+settings.corpusAliases["eduskunta_test"] = "eduskunta";
 
 
-settings.corpus_aliases["topling-fi"] = "topling_fi";
+settings.corpusAliases["topling-fi"] = "topling_fi";
 
 
 /* DMA – Digitaalinen muoto-opin arkisto (Digital Morphology Archives) */
@@ -15777,10 +15777,10 @@ settings.corpora.s24_010 = {
     structAttributes: sattrlist.s24_update
 };
 
-settings.corpus_aliases.suomi24 = "s24_0(0[1-9]|10)";
-settings.corpus_aliases["suomi24-2016h2"] = "s24_0(0[1-9]|10)";
-settings.corpus_aliases.suomi24_2016h2
-    = settings.corpus_aliases["suomi24-2016h2"];
+settings.corpusAliases.suomi24 = "s24_0(0[1-9]|10)";
+settings.corpusAliases["suomi24-2016h2"] = "s24_0(0[1-9]|10)";
+settings.corpusAliases.suomi24_2016h2
+    = settings.corpusAliases["suomi24-2016h2"];
 
 // Configure a short URL: preselect only the Suomi24 corpus folder
 // (all its subcorpora)
@@ -16062,7 +16062,7 @@ funcs.add_corpus_settings(
     "s24_"
 );
 
-funcs.add_corpus_aliases(
+funcs.addCorpusAliases(
     "s24_20(0[1-9]|1[0-7])",
     [
         "suomi24-2017h2",
@@ -16111,13 +16111,13 @@ funcs.add_corpus_settings(
     "s24_"
 );
 
-funcs.add_corpus_aliases(
+funcs.addCorpusAliases(
     "s24_20(1[89]|20)",
     [
         "suomi24-2018-2020",
     ]);
 
-funcs.add_corpus_aliases(
+funcs.addCorpusAliases(
     "s24_20(0[1-9]|1[0-9]|20)",
     [
         "suomi24-2001-2020",
@@ -16886,9 +16886,9 @@ funcs.add_corpus_settings(
     settings.corporafolders.news.ylenews_fi.a,
     "ylenews_fi_{}_a");
 
-settings.corpus_aliases["ylenews_fi_2011_2018_a"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018-korp"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018"]
+settings.corpusAliases["ylenews_fi_2011_2018_a"]
+    = settings.corpusAliases["ylenews-fi-2011-2018-korp"]
+    = settings.corpusAliases["ylenews-fi-2011-2018"]
     = "ylenews_fi_201[1-8]_a";
 
 
@@ -16913,9 +16913,9 @@ funcs.add_corpus_settings(
     settings.corporafolders.news.ylenews_fi.s,
     "ylenews_fi_{}_s");
 
-settings.corpus_aliases["ylenews_fi_2011_2018_s"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018-s-korp"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018-s"]
+settings.corpusAliases["ylenews_fi_2011_2018_s"]
+    = settings.corpusAliases["ylenews-fi-2011-2018-s-korp"]
+    = settings.corpusAliases["ylenews-fi-2011-2018-s"]
     = "ylenews_fi_201[1-8]_s";
 
 
@@ -16999,8 +16999,8 @@ settings.corpora.ylenews_fi_2011_2018_selko_a = {
 };
 
 
-settings.corpus_aliases["ylenews-fi-2011-2018-selko-korp"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018-selko"]
+settings.corpusAliases["ylenews-fi-2011-2018-selko-korp"]
+    = settings.corpusAliases["ylenews-fi-2011-2018-selko"]
     = "ylenews_fi_2011_2018_selko_a";
 
 
@@ -17023,8 +17023,8 @@ settings.corpora.ylenews_fi_2011_2018_selko_s = {
 };
 
 
-settings.corpus_aliases["ylenews-fi-2011-2018-selko-s-korp"]
-    = settings.corpus_aliases["ylenews-fi-2011-2018-selko-s"]
+settings.corpusAliases["ylenews-fi-2011-2018-selko-s-korp"]
+    = settings.corpusAliases["ylenews-fi-2011-2018-selko-s"]
     = "ylenews_fi_2011_2018_selko_s";
 
 

@@ -7860,7 +7860,7 @@ funcs.add_attr_extra_properties = function (corpora) {
 //   override: if true, override an existing alias (default: no)
 //   add_variants: if false, do not add the alias variants (default:
 //     true)
-funcs.add_corpus_aliases = function (corpus_id_patt, aliases) {
+funcs.addCorpusAliases = function (corpus_id_patt, aliases) {
     var opts = arguments[2] || {};
     var override = opts.override || false;
     var add_variants = (opts.add_variants !== false);
@@ -7899,8 +7899,8 @@ funcs.add_corpus_aliases = function (corpus_id_patt, aliases) {
         }
         for (var j = 0; j < aliases2.length; j++) {
             alias2 = aliases2[j];
-            if (override || ! (alias2 in settings.corpus_aliases)) {
-                settings.corpus_aliases[alias2] = corpus_id_patt;
+            if (override || ! (alias2 in settings.corpusAliases)) {
+                settings.corpusAliases[alias2] = corpus_id_patt;
             }
         }
     }

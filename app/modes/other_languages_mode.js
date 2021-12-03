@@ -437,9 +437,9 @@ settings.corporafolders.cuneiform.oracc = {
     }
 };
 
-settings.corpus_aliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
-settings.corpus_aliases.oracc_2919_05
-    = settings.corpus_aliases["oracc-2019-05"];
+settings.corpusAliases["oracc-2019-05"] = "oracc_adsd,oracc_ario,oracc_blms,oracc_cams,oracc_caspo,oracc_ctij,oracc_dcclt,oracc_dccmt,oracc_ecut,oracc_etcsri,oracc_hbtin,oracc_obmc,oracc_riao,oracc_ribo,oracc_rimanum,oracc_rinap,oracc_saao,oracc_others";
+settings.corpusAliases.oracc_2919_05
+    = settings.corpusAliases["oracc-2019-05"];
 
 
 /* Helsinki Corpus */
@@ -2525,7 +2525,7 @@ settings.corpora.topling_en = {
     structAttributes: sattrlist.topling
 };
 
-settings.corpus_aliases["topling-en"] = "topling_en";
+settings.corpusAliases["topling-en"] = "topling_en";
 
 
 settings.corpora.elfa = {
@@ -3732,7 +3732,7 @@ funcs.extend_corpus_settings(
         "scots_royal",
     ]);
 
-settings.corpus_aliases.scotscorr = "scots_.*";
+settings.corpusAliases.scotscorr = "scots_.*";
 
 
 // ERME
@@ -4194,8 +4194,8 @@ funcs.make_folder_hierarchy(
 delete hcs2_hierarchy;
 delete hcs2_news_extra_props;
 
-settings.corpus_aliases.hcs = "hcs2_.*";
-settings.corpus_aliases.hcs2 = "hcs2_.*";
+settings.corpusAliases.hcs = "hcs2_.*";
+settings.corpusAliases.hcs2 = "hcs2_.*";
 
 
 /* BESERCORP */
@@ -4545,8 +4545,8 @@ funcs.make_folder_hierarchy(
 
 delete coca_hierarchy;
 
-settings.corpus_aliases.coca = "coca_.*";
-settings.corpus_aliases["coca-2017h1"] = "coca_.*";
+settings.corpusAliases.coca = "coca_.*";
+settings.corpusAliases["coca-2017h1"] = "coca_.*";
 
 
 // COHA
@@ -4659,8 +4659,8 @@ delete coha_genres_nonews;
 delete coha_genres_news;
 delete coha_hierarchy;
 
-settings.corpus_aliases.coha = "coha_.*";
-settings.corpus_aliases["coha-2017h1"] = "coha_.*";
+settings.corpusAliases.coha = "coha_.*";
+settings.corpusAliases["coha-2017h1"] = "coha_.*";
 
 
 // GloWbE
@@ -4865,8 +4865,8 @@ funcs.make_folder_hierarchy(
 
 delete glowbe_countries;
 
-settings.corpus_aliases.glowbe = "glowbe_.*";
-settings.corpus_aliases["glowbe-2017h1"] = "glowbe_.*";
+settings.corpusAliases.glowbe = "glowbe_.*";
+settings.corpusAliases["glowbe-2017h1"] = "glowbe_.*";
 
 
 

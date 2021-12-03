@@ -491,7 +491,7 @@ settings.corpora.topling_sv = {
 
 funcs.addCorporaToFolder("learner", "topling_sv");
 
-settings.corpus_aliases["topling-sv"] = "topling_sv";
+settings.corpusAliases["topling-sv"] = "topling_sv";
 
 
 settings.corpora.kfspc_sv = {
@@ -647,7 +647,7 @@ for (const [key, label] of [
 delete fstc_hierarchy;
 
 // TODO: Add aliases for subcorpora, such as fstc_fnb
-settings.corpus_aliases.fstc = "fstc_.*";
+settings.corpusAliases.fstc = "fstc_.*";
 
 
 /* Svenska Parole */
@@ -1032,9 +1032,9 @@ funcs.add_corpus_settings(
     settings.corporafolders.news.ylenews_sv.a,
     "ylenews_sv_{}_a");
 
-settings.corpus_aliases["ylenews_sv_2012_2018_a"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018-korp"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018"]
+settings.corpusAliases["ylenews_sv_2012_2018_a"]
+    = settings.corpusAliases["ylenews-sv-2012-2018-korp"]
+    = settings.corpusAliases["ylenews-sv-2012-2018"]
     = "ylenews_sv_201[2-8]_a";
 
 settings.templ.ylenews_sv_s = {
@@ -1057,9 +1057,9 @@ funcs.add_corpus_settings(
     settings.corporafolders.news.ylenews_sv.s,
     "ylenews_sv_{}_s");
 
-settings.corpus_aliases["ylenews_sv_2012_2018_s"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018-s-korp"]
-    = settings.corpus_aliases["ylenews-sv-2012-2018-s"]
+settings.corpusAliases["ylenews_sv_2012_2018_s"]
+    = settings.corpusAliases["ylenews-sv-2012-2018-s-korp"]
+    = settings.corpusAliases["ylenews-sv-2012-2018-s"]
     = "ylenews_sv_201[2-8]_s";
 
 

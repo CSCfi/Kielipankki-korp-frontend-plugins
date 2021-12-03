@@ -591,7 +591,7 @@ settings.sentLinkWithin = {
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)
-settings.corpus_aliases = {};
+settings.corpusAliases = {};
 
 // Functions to configure "short URLs": if the function
 // settings.short_url_config[shorturl] exists, it is executed whenever
