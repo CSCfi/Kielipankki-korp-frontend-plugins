@@ -67,6 +67,9 @@ $.when(loc_dfd, deferred_domReady).then(
             c.error(error)
         }
 
+        // Let plugins modify location after the DOM is ready
+        plugins.callActions("modifyLocationOnDomReady", location)
+
         try {
             const corpus = locationSearch()["corpus"]
             if (corpus) {
