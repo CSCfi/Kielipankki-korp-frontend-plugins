@@ -224,10 +224,11 @@ settings.korpBackendURL = "https://korp.csc.fi/korp/api8";
 // console.log("korpBackendURL: '" + settings.korpBackendURL + "'")
 settings.downloadCgiScript = "https://korp.csc.fi/cgi-bin/korp/korp_download.cgi";
 
-// The main Korp and Korp Labs URL for the links in the cog menu
+// The main Korp, Korp Labs and old Korp URLs for the links in the cog menu
 settings.korpUrl = {
     "main": (isProductionServer ? "/korp/" : "/korp/"),
-    "lab": (isProductionServer ? "/korplab/" : "/korplab/")
+    "lab": (isProductionServer ? "/korplab/" : "/korplab/"),
+    "old": (isProductionServer ? "/korp-old/" : "/korp-old/"),
 };
 
 settings.urnResolver = "http://urn.fi/";
