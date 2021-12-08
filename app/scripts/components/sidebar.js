@@ -330,6 +330,11 @@ export const sidebarComponent = {
                                 const stringifyKey = attrs.stringify
                                 val = stringify(stringifyKey, x)
 
+                                // Map the value through non-array attrs.dataset
+                                if (attrs.dataset && ! _.isArray(attrs.dataset)) {
+                                    val = attrs.dataset[val] || val
+                                }
+
                                 if (attrs.translation != null) {
                                     val = util.translateAttribute($ctrl.lang, attrs.translation, val)
                                 }
@@ -362,8 +367,14 @@ export const sidebarComponent = {
                     let str_value = value
                     if (attrs.stringify) {
                         str_value = stringify(attrs.stringify, value)
-                    } else if (attrs.translation) {
-                        str_value = util.translateAttribute($ctrl.lang, attrs.translation, value)
+                    } else {
+                        // Map the value through non-array attrs.dataset
+                        if (attrs.dataset && ! _.isArray(attrs.dataset)) {
+                            str_value = attrs.dataset[value] || value
+                        }
+                        if (attrs.translation) {
+                            str_value = util.translateAttribute($ctrl.lang, attrs.translation, str_value)
+                        }
                     }
 
                     if (attrs.type === "url") {
