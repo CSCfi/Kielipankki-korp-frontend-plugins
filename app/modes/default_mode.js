@@ -1541,7 +1541,7 @@ settings.corpora.semfinlex_asd_fi_2018 = {
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "laki",
@@ -1669,7 +1669,7 @@ settings.corpora.ftb2 = {
     structAttributes: {
         subcorpus_name: {
             label: "subcorpus_name",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "visk-sent": "visk-sent",
@@ -1740,7 +1740,7 @@ settings.corpora.ftb3_europarl = $.extend(true, {}, ftb3_info, {
         },
         speech_language: {
             label: "speech_language",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "bg": "bg",
@@ -9302,7 +9302,7 @@ settings.corpora.reittidemo = {
         },
         utterance_participant: {
             label: "speaker",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "ML",
                 "TA"
@@ -9968,7 +9968,7 @@ settings.templ.kotus_ns_presidentti = {
         paragraph_id: sattrs.paragraph_id,
         paragraph_type: {
             label: "paragraph_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "p": "p",
@@ -10092,7 +10092,7 @@ settings.corpora.kotus_lakidir = {
         },
         div_type: {
             label: "div_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "section": "section",
@@ -10120,7 +10120,7 @@ settings.corpora.kotus_lakidir = {
         paragraph_id: sattrs.paragraph_id,
         paragraph_type: {
             label: "paragraph_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "p": "p",
@@ -10133,7 +10133,7 @@ settings.corpora.kotus_lakidir = {
         sentence_id: sattrs.sentence_id_hidden,
         sentence_type: {
             label: "sentence_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "p": "p",
@@ -10183,7 +10183,7 @@ settings.corpora.kotus_sp = {
         },
         sentence_type: {
             label: "sentence_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "standard": "standard",
@@ -10423,7 +10423,7 @@ transl.posLa = {
 
 attrs.pos_la = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "a": "a",
@@ -10472,7 +10472,7 @@ attrs.pos_la = {
 // LA-murre, but fewer (and a generic "cnj").
 attrs.pos_las2 = {
     label: "pos",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "a": "a",
@@ -10497,7 +10497,7 @@ attrs.pos_las2 = {
 };
 attrs.func_la = {
     label: "func",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "advl": "advl",
@@ -11030,7 +11030,7 @@ settings.templ.la_murre = {
         func: attrs.func_la,
         cow: {
             label: "cowla",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "cw": "cw",
@@ -11076,7 +11076,7 @@ settings.templ.la_murre = {
         },
         text_dialect_region: {
             label: "dialect_region",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: la_murre_regions,
             translation: {
@@ -11114,7 +11114,7 @@ settings.templ.la_murre = {
         },
         text_dialect_group: {
             label: "dialect_group",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: la_murre_groups,
             translation: {
@@ -11247,7 +11247,7 @@ settings.templ.la_murre = {
         },
         text_parish: {
             label: "parish",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             dataset: la_murre_parishes,
             opts: liteOptions
@@ -11271,7 +11271,7 @@ settings.templ.la_murre = {
         },
         paragraph_type: {
             label: "paragraph_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "interviewee": "interviewee",
@@ -11295,7 +11295,7 @@ settings.templ.la_murre = {
         },
         paragraph_speaker_sex: {
             label: "speaker_sex",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "male": "male",
@@ -11353,7 +11353,7 @@ settings.templ.la_murre = {
         },
         clause_hier: {
             label: "clause_hier",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "irrall",
@@ -11410,7 +11410,7 @@ settings.templ.la_murre = {
         },
         clause_type: {
             label: "clause_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "affdecl",
@@ -11428,7 +11428,7 @@ settings.templ.la_murre = {
         },
         clause_ora: {
             label: "clause_ora",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "dir": "dir",
@@ -11590,7 +11590,7 @@ sattrlist.las2 = {
     },
     clause_type: {
         label: "clause_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "affdecl": "affdecl",
@@ -11662,7 +11662,7 @@ attrlist.agricola = {
     },
     type: {
         label: "lang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "": "fin",
@@ -11682,7 +11682,7 @@ attrlist.agricola = {
     },
     tunit: {
         label: "comp_tense",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "f": "f",
@@ -11761,7 +11761,7 @@ sattrlist.agricola = {
     },
     clause_type: {
         label: "clause_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "affdecl": "affdecl",
@@ -12014,7 +12014,7 @@ settings.corpora.opensub_fi_2017 = {
             label: "opensub_text_country",
             type: "set",
             opts: setOptions,
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Afghanistan",
                 "Algeria",
@@ -12136,7 +12136,7 @@ settings.corpora.opensub_fi_2017 = {
             label: "opensub_text_lang_orig",
             type: "set",
             opts: setOptions,
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Abkhazian",
                 "Aboriginal",
@@ -12310,7 +12310,7 @@ settings.corpora.opensub_fi_2017 = {
             label: "opensub_text_genre",
             type: "set",
             opts: setOptions,
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             dataset: [
                 "Action",
                 "Adult",
@@ -12435,7 +12435,7 @@ settings.corpora.skvr = {
         sentence_id: sattrs.sentence_id_hidden,
         sentence_type: {
             label: "sentence_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 'verse':'verse',
@@ -12665,7 +12665,7 @@ sattrlist.klk_fi_parsed = $.extend(
     {
         sentence_parse_state: {
             label: "parse_state",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "parsed": "parsed",
@@ -12820,7 +12820,7 @@ sattrs.vks_sentence_code = {
 };
 sattrs.vks_sentence_type = {
     label: "vks_sentence_type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: [
         "sentence",
@@ -13135,7 +13135,7 @@ settings.corpora.vnsk_asetus = {
         },
         sentence_type: {
             label: "sentence_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "p": "p",
@@ -13147,7 +13147,7 @@ settings.corpora.vnsk_asetus = {
         sentence_id: sattrs.sentence_id_hidden,
         hi_rend: {
             label: "hi_rend",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "bold": "bold"
@@ -14201,7 +14201,7 @@ settings.corpora.vns_renvall = {
         text_source: sattrs.text_source,
         item_itemtype: {
             label: "dict_itemtype",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "orth": "orth",
@@ -14249,7 +14249,7 @@ settings.corpora.vns_renvall = {
         },
         item_lang: {
             label: "dict_etymlang",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "ru": "swe",
@@ -14441,7 +14441,7 @@ settings.corpora.topling_fi = {
 sattrlist.ceal_common = {
     text_title: {
         label: "work_title",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         localize: false,
         opts: liteOptions,
         dataset: [
@@ -14453,7 +14453,7 @@ sattrlist.ceal_common = {
     text_year: sattrs.year,
     text_author: {
         label: "author",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         localize: false,
         opts: liteOptions,
         dataset: [
@@ -14534,7 +14534,7 @@ sattrlist.kaannossuomi = {
     text_year: { label: "year" },
     text_orig_lang: {
         label: "origlang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "fin",
@@ -14553,7 +14553,7 @@ sattrlist.kaannossuomi = {
     },
     text_genre: {
         label: "text_genre",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "academic",
@@ -14778,7 +14778,7 @@ settings.corpora.eduskunta = {
         },
         paragraph_speaker_parl_group: {
             label: "speaker_parl_group",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             extendedComponent: "datasetSelect",
             escape: false,
@@ -14855,7 +14855,7 @@ settings.corpora.eduskunta = {
         },
         paragraph_speaker_role: {
             label: "speakerrole",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             extendedComponent: "datasetSelect",
             escape: false,
@@ -15124,7 +15124,7 @@ settings.corpora.eduskunta = {
         },
         paragraph_speech_type: {
             label: "speech_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             extendedComponent: "datasetSelect",
             escape: false,
@@ -15285,7 +15285,7 @@ settings.corpora.dma = {
     structAttributes: {
         text_dialect_region: {
             label: "dialect_region",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             // The values of the dataset are shown for the keys
             // without localization.
@@ -15305,7 +15305,7 @@ settings.corpora.dma = {
         },
         text_dialect_group: {
             label: "dialect_group",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             stringify: function (value) {
                 return (settings.corpora.dma.structAttributes
@@ -15372,7 +15372,7 @@ settings.corpora.dma = {
         },
         text_parish_name: {
             label: "parish",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             dataset: [
                 "Artjärvi",
@@ -15548,7 +15548,7 @@ settings.corpora.dma = {
         },
         sentence_informant_sex: {
             label: "informant_sex",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "m": "male",
@@ -15862,7 +15862,7 @@ sattrlist.s24_2001_2017 = {
     },
     text_topic_name_top: {
         label: "s24_topic_main",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         localize: false,
         dataset: [
             "Ajanviete",
@@ -15908,7 +15908,7 @@ sattrlist.s24_2001_2017 = {
     text_topic_adultonly: funcs.make_bool_attr("s24_topic_is_adultonly"),
     text_msg_type: {
         label: "message_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "thread_start",
@@ -15980,7 +15980,7 @@ sattrlist.s24_2001_2017 = {
     },
     paragraph_type: {
         label: "paragraph_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "title": "heading",
@@ -15992,7 +15992,7 @@ sattrlist.s24_2001_2017 = {
     sentence_id: sattrs.sentence_id_hidden,
     sentence_polarity: {
         label: "sentence_polarity",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "pos",
@@ -16245,7 +16245,7 @@ settings.corpora.iclfi = {
 sattrlist.ylenews_fi_common = {
     text_main_department: {
         label: "main_section",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
                   "100 päivää",
@@ -16430,7 +16430,7 @@ sattrlist.ylenews_fi_common = {
         label: "sections",
         type: "set",
         opts: setOptions,
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         dataset: [
                   "100 päivää",
                   "101 kirjaa",
@@ -16832,7 +16832,7 @@ sattrlist.ylenews_fi_common = {
     sentence_id: sattrs.hidden,
     sentence_type: {
         label: "sentence_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "alt": "image_alt",
@@ -16849,7 +16849,7 @@ sattrlist.ylenews_fi_common = {
 
 sattrs.ylenews_fi_paragraph_type = {
     label: "paragraph_type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "by": "byline",
@@ -16943,7 +16943,7 @@ sattrlist.ylenews_fi_selko_common = {
     },
     sentence_type: {
         label: "sentence_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "alt": "image_alt",
@@ -16961,7 +16961,7 @@ sattrlist.ylenews_fi_selko_common = {
 
 sattrs.ylenews_fi_selko_paragraph_type = {
     label: "paragraph_type",
-    displayType: "select",
+    extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
         "by": "byline",

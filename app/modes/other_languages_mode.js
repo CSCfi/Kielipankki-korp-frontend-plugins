@@ -528,7 +528,7 @@ sattrlist.oracc = {
     },
     text_language: {
         label: "oracc_textlang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "Akkadian",
@@ -657,7 +657,7 @@ sattrlist.oracc = {
     },
     text_genre: {
         label: "oracc_genre",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "administrativerecord",
@@ -750,7 +750,7 @@ sattrlist.oracc = {
     },
     text_period: {
         label: "oracc_period",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "Achaemenid",
@@ -937,7 +937,7 @@ attrlist.oracc = {
     },
     pos: {
         label: "pos",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "adjective",
@@ -1050,7 +1050,7 @@ attrlist.oracc = {
     },
     lang: {
         label: "oracc_lang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "Akkadian",
@@ -1443,7 +1443,7 @@ settings.corpora.ethesis_de = {
 sattrlist.sust_common = {
     text_lang: {
         label: "lang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "kpv",
@@ -1562,7 +1562,7 @@ attrlist.sust_tagged = $.extend(true, attrlist.sust_common, {
     },
     pos: {
         label: "pos",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "A": "A",
@@ -2005,7 +2005,7 @@ sattrlist.fennougrica = {
     },
     text_lang: {
         label: "klk_lang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "izh": "izh",
@@ -2545,7 +2545,7 @@ settings.corpora.elfa = {
     attributes: {
         type: {
             label: "token_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -2577,7 +2577,7 @@ settings.corpora.elfa = {
         },
         subtype: {
             label: "token_subtype",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -2594,7 +2594,7 @@ settings.corpora.elfa = {
         },
         mode: {
             label: "action_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -2606,7 +2606,7 @@ settings.corpora.elfa = {
         },
         voice: {
             label: "speaking_mode",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
             dataset: {
@@ -2647,7 +2647,7 @@ settings.corpora.elfa = {
         },
         text_domain: {
             label: "academic_domain",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "behavioural_sciences",
@@ -2704,7 +2704,7 @@ settings.corpora.elfa = {
         },
         text_discipline: {
             label: "academic_discipline",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
             dataset: [
@@ -2752,7 +2752,7 @@ settings.corpora.elfa = {
         },
         text_event_type: {
             label: "event_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
             dataset: [
@@ -2773,7 +2773,7 @@ settings.corpora.elfa = {
         },
         text_event_purpose: {
             label: "event_purpose",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "discuss",
@@ -2806,7 +2806,7 @@ settings.corpora.elfa = {
         },
         text_preparedness: {
             label: "preparedness",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "true",
@@ -2827,7 +2827,7 @@ settings.corpora.elfa = {
         },
         text_interaction_degree: {
             label: "interaction_degree",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "complete",
@@ -2857,7 +2857,7 @@ settings.corpora.elfa = {
         },
         text_recording_type: {
             label: "recording_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: false,
             opts: liteOptions,
             dataset: [
@@ -2879,7 +2879,7 @@ settings.corpora.elfa = {
         },
         paragraph_speaker_type: {
             label: "speaker_identification",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "identified",
@@ -2907,7 +2907,7 @@ settings.corpora.elfa = {
         paragraph_speaker_l1: {
             label: "speaker_l1",
             type: "set",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: setOptions,
             dataset: {
                 "ada-GH": "ada-GH",
@@ -3002,7 +3002,7 @@ settings.corpora.elfa = {
         },
         paragraph_speaker_role: {
             label: "academic_role",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "junior staff",
@@ -3059,7 +3059,7 @@ settings.corpora.elfa = {
         },
         paragraph_speaker_age: {
             label: "age",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "17-23",
@@ -3098,7 +3098,7 @@ settings.corpora.elfa = {
         },
         paragraph_speaker_sex: {
             label: "gender",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "male": "male",
@@ -3112,7 +3112,7 @@ settings.corpora.elfa = {
         },
         paragraph_type: {
             label: "speech_event_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "utterance",
@@ -3154,7 +3154,7 @@ sattrlist.scotscorr = {
     text_fraser: { label: "scotscorr_fraser" },
     text_lcinf: {
         label: "scotscorr_lcinf",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: {
@@ -3190,7 +3190,7 @@ sattrlist.scotscorr = {
     },
     text_largeregion: {
         label: "scotscorr_largeregion",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: {
@@ -3211,7 +3211,7 @@ sattrlist.scotscorr = {
     text_lclet: { label: "scotscorr_lclet" },
     text_wgr: {
         label: "scotscorr_srg",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: [
@@ -3223,7 +3223,7 @@ sattrlist.scotscorr = {
     },
     text_agr: {
         label: "scotscorr_arg",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: [
@@ -3235,7 +3235,7 @@ sattrlist.scotscorr = {
     },
     text_lettertype: {
         label: "scotscorr_hand",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: [
@@ -3246,7 +3246,7 @@ sattrlist.scotscorr = {
     },
     text_scripttype: {
         label: "scotscorr_scripttype",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: [
@@ -3267,7 +3267,7 @@ sattrlist.scotscorr = {
     },
     text_lettertype2: {
         label: "scotscorr_hand2",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: [
@@ -3278,7 +3278,7 @@ sattrlist.scotscorr = {
     },
     text_scripttype2: {
         label: "scotscorr_scripttype",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         localize: false,
         dataset: [
@@ -3783,7 +3783,7 @@ sattrlist.testerzya = {
     },
     text_lang: {
         label: "klk_lang",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: {
             "izh": "izh",
@@ -3850,7 +3850,7 @@ settings.corpora.kildin_sample = {
     structAttributes: {
         text_style: {
             label: "style",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "fiction",
@@ -3871,7 +3871,7 @@ settings.corpora.kildin_sample = {
         },
         text_medium: {
             label: "medium",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "book",
@@ -3898,7 +3898,7 @@ settings.corpora.kildin_sample = {
         },
         text_language: {
             label: "lang",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "sjd",
@@ -3922,7 +3922,7 @@ settings.corpora.kildin_sample = {
         },
         text_modus: {
             label: "text_modus",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "written",
@@ -3940,7 +3940,7 @@ settings.corpora.kildin_sample = {
         },
         text_genre: {
             label: "genre",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "biography",
@@ -3957,7 +3957,7 @@ settings.corpora.kildin_sample = {
         },
         text_channel: {
             label: "channel",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "original",
@@ -3987,7 +3987,7 @@ settings.corpora.kildin_sample = {
         },
         sentence_transl_lang: {
             label: "translation_lang",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "eng",
@@ -3999,7 +3999,7 @@ settings.corpora.kildin_sample = {
         },
         sentence_paragraph_boundary: {
             label: "in_paragraph",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "begin": "begin",
@@ -4048,7 +4048,7 @@ settings.templ.hcs2_common = {
         lemma: attrs.baseform,
         pos: {
             label: "pos",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: "false",
             // The dataset currently excludes tags for punctuation
             // marks
@@ -4095,7 +4095,7 @@ settings.templ.hcs2_common = {
         },
         syntax: {
             label: "syntactic_function",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             localize: "false",
             dataset: [
                 "@A>",
@@ -4234,7 +4234,7 @@ attrlist.byu = {
     pos_major: {
         label: "major_pos",
         type: "set",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: setOptions,
         order: 49,
         // TODO: Map the UD2 PoS codes below to existing PoS keys
@@ -4261,7 +4261,7 @@ attrlist.byu = {
     pos: {
         label: "detailed_pos",
         type: "set",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: setOptions,
         order: 48,
         // PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html,
@@ -4466,7 +4466,7 @@ sattrlist.byu_common = {
     },
     paragraph_type: {
         label: "paragraph_type",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "paragraph",
@@ -4478,7 +4478,7 @@ sattrlist.byu_common = {
     },
     sentence_gaps: {
         label: "sentence_part_deleted",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         opts: liteOptions,
         dataset: [
             "yes",
@@ -4496,7 +4496,7 @@ sattrlist.coca = $.extend(
     {
         text_genre: {
             label: "genre",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "ACAD": "academic",
@@ -4556,7 +4556,7 @@ sattrlist.coha =  $.extend(
     {
         text_genre: {
             label: "genre",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "FIC": "fiction",
@@ -4576,7 +4576,7 @@ sattrlist.coha =  $.extend(
         // only there?
         text_lcc: {
             label: "lib_congress_classif",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "A": "A – General Works",
@@ -4703,7 +4703,7 @@ sattrlist.glowbe = $.extend(
         // but they could have use if more than one subcorpus is selected.
         text_country: {
             label: "country",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             // Uppercase country codes
             dataset: (_.unzip(glowbe_countries)[0]
@@ -4813,7 +4813,7 @@ sattrlist.glowbe = $.extend(
         },
         text_genre: {
             label: "genre",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: {
                 "B": "blog",

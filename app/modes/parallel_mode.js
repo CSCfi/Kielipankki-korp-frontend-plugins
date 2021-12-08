@@ -459,7 +459,7 @@ sattrlist.ceal_common = {
     text_year: sattrs.year,
     text_author: {
         label: "author",
-        displayType: "select",
+        extendedComponent: "datasetSelect",
         localize: false,
         opts: liteOptions,
         dataset: [
@@ -599,7 +599,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "laki",
@@ -639,7 +639,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
         },
         text_parl_statute_type: {
             label: "parl_statute_type",
-            displayType: "select",
+            extendedComponent: "datasetSelect",
             opts: liteOptions,
             dataset: [
                 "laki",
