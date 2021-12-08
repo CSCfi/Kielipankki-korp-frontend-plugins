@@ -144,6 +144,12 @@ export const sidebarComponent = {
                         "formatSidebarCorpusInfo", "", corpusObj)
                     $("#selected_corpus").html(corpusInfo)
 
+                    // Allow plugins to modify sidebar content; $ctrl
+                    // refers to sentenceData, corpusObj and tokens
+                    // and can be used to call controller methods
+                    plugins.callActions(
+                        "modifySidebarContent", $ctrl, wordData, customData)
+
                     $element.localize()
                     this.applyEllipse()
                 },
