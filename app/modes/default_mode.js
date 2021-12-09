@@ -15990,32 +15990,7 @@ sattrlist.s24_2001_2017 = {
         translation: transl.paragraphType,
     },
     sentence_id: sattrs.sentence_id_hidden,
-    sentence_polarity: {
-        label: "sentence_polarity",
-        extendedComponent: "datasetSelect",
-        opts: liteOptions,
-        dataset: [
-            "pos",
-            "neut",
-            "neg",
-        ],
-        translation: {
-            "neg": {
-                "en": "negative",
-                "fi": "kielteinen",
-                "sv": "negativ",
-            },
-            "neut": {
-                "en": "neutral",
-                "fi": "neutraali",
-                "sv": "neutral",
-            },
-            "pos": {
-                "en": "positive",
-                "fi": "myönteinen",
-                "sv": "positiv",
-            },
-        },
+    sentence_polarity: sattrs.sentence_polarity,
     },
 };
 
