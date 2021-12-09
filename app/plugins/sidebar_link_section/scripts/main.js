@@ -64,6 +64,7 @@ class MakeSidebarLinkSection {
         const linkAttrs = {}
         extractLinkAttrs(corpusInfo.attributes, linkAttrs)
         extractLinkAttrs(corpusInfo.structAttributes, linkAttrs)
+        extractLinkAttrs(corpusInfo.customAttributes, linkAttrs)
         corpusInfo.linkAttributes = linkAttrs
     }
 
