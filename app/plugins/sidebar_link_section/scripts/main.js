@@ -36,9 +36,10 @@ class MakeSidebarLinkSection {
             if (attrs) {
                 for (let attrname in attrs) {
                     const attr = attrs[attrname]
-                    if ((attr.type === "url") &&
-                            (attr.urlOpts != null) &&
-                            attr.urlOpts.inLinkSection) {
+                    // Only test for urlOpts.inLinkSection, regardless
+                    // of type == "url", as some attributes might not
+                    // have the latter
+                    if (attr.urlOpts && attr.urlOpts.inLinkSection) {
                         if (attr._linkAttr) {
                             // This attribute was already handled via
                             // another reference; that happens when many
