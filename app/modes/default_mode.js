@@ -15860,40 +15860,18 @@ sattrlist.s24_2001_2017 = {
                                                       ["y", "n", "?"]),
     text_topic_names: {
         label: "s24_topic_full",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_topic_name_top: {
         label: "s24_topic_main",
-        extendedComponent: "datasetSelect",
-        localize: false,
-        dataset: [
-            "Ajanviete",
-            "Ajoneuvot ja liikenne",
-            "Harrastukset",
-            "Koti ja rakentaminen",
-            "Lemmikit",
-            "Matkailu",
-            "Muoti ja kauneus",
-            "Nuoret",
-            "Paikkakunnat",
-            "Perhe",
-            "Ruoka ja juoma",
-            "Ryhmät",
-            "Seksi",
-            "Suhteet",
-            "Talous",
-            "Terveys",
-            "Tiede ja teknologia",
-            "Työ ja opiskelu",
-            "Urheilu ja kuntoilu",
-            "Viihde ja kulttuuri",
-            "Yhteiskunta",
-        ],
         opts: liteOptions,
         hideSidebar: true,
+        extendedComponent: "structServiceSelect",
     },
     text_topic_name_leaf: {
         label: "s24_topic_leaf",
         hideSidebar: true,
+        extendedComponent: "structServiceAutocomplete",
     },
     // text_topic_names_set: {
     //  label: "s24_topic_set",
@@ -16004,8 +15982,8 @@ settings.templ.s24_2001_2017 = {
     cite_id: "suomi24-2001-2017-korp-v1-2",
     shortname: "suomi24-2001-2017-korp-v1-2",
     features: ["paragraphs", "parsed_tdt", "spaces"],
-    structAttributes: sattrlist.s24_2018,
     structAttributes: sattrlist.s24_2001_2017,
+    defaultFilters: ["text_topic_name_top", "text_topic_names"],
 };
 
 
@@ -16047,20 +16025,9 @@ funcs.addCorpusAliases(
         "suomi24-2001-2017-korp-v1-2",
     ]);
 
-var topic_top_2001_2017 = sattrlist.s24_2001_2017.text_topic_name_top;
 sattrlist.s24_2018_2020 = $.extend(
     {}, sattrlist.s24_2001_2017,
     {
-        text_topic_name_top: $.extend(
-            {}, topic_top_2001_2017,
-            {
-                dataset: topic_top_2001_2017.dataset.concat([
-	            "Kysy Mitä Vain",
-	            "Suomi24 Blogi ★",
-                    "Suomi24",
-                    "SuomiAreena",
-                ]),
-            }),
         text_thread_closed: funcs.make_bool_attr(
             "thread_closed", ["y", "n", ""]),
         sentence_lang: sattrs.sentence_lang,
