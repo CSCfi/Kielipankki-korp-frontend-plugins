@@ -5857,6 +5857,34 @@ sattrs.sentence_lang = {
     label: "sentence_lang_identified",
 };
 
+sattrs.sentence_polarity = {
+    label: "sentence_polarity",
+    extendedComponent: "datasetSelect",
+    opts: liteOptions,
+    dataset: [
+        "pos",
+        "neut",
+        "neg",
+    ],
+    translation: {
+        "neg": {
+            "en": "negative",
+            "fi": "kielteinen",
+            "sv": "negativ",
+        },
+        "neut": {
+            "en": "neutral",
+            "fi": "neutraali",
+            "sv": "neutral",
+        },
+        "pos": {
+            "en": "positive",
+            "fi": "myönteinen",
+            "sv": "positiv",
+        },
+    },
+};
+
 
 /* KFSCP --- */
 
