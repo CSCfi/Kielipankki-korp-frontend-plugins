@@ -8197,6 +8197,12 @@ funcs.set_attr_order = function (attrstruct, attrnamelist) {
 };
 
 
+// Create a pattern for a link with the label as the link text
+funcs.makeLinkPattern = function (label, url) {
+    return `<a href="${url}" class="exturl sidebar_link" target="_blank"><span rel="localize[${label}]"></span></a>`
+}
+
+
 // Functions for the video page
 
 // Return the milliseconds value ms0 formatted as hh:mm:ss.xxx
