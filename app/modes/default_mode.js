@@ -15932,31 +15932,6 @@ sattrlist.s24_2001_2017 = {
         pattern: "<%=funcs.make_explained_value(val, {'0': 'no_quotation'})%>",
     },
     text_filename_vrt: sattrs.filename,
-    text_thread_link: {
-        label: "show_orig_thread",
-        type: "url",
-        urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            return ("https://keskustelu.suomi24.fi/t/"
-                    + token_data.struct_attrs.text_thread_id);
-        },
-    },
-    text_comment_link: {
-        label: "show_orig_message",
-        type: "url",
-        urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            var comment_id = token_data.struct_attrs.text_comment_id
-            var url = ("https://keskustelu.suomi24.fi/t/"
-                       + token_data.struct_attrs.text_thread_id);
-            if (comment_id != "0") {
-                url += "#comment-" + token_data.struct_attrs.text_comment_id;
-            }
-            return url;
-        },
-    },
     paragraph_type: {
         label: "paragraph_type",
         extendedComponent: "datasetSelect",
@@ -15970,6 +15945,23 @@ sattrlist.s24_2001_2017 = {
     },
     sentence_id: sattrs.sentence_id_hidden,
     sentence_polarity: sattrs.sentence_polarity,
+};
+
+// Custom attributes: links based on the values of other attributes
+sattrlist.s24_2001_2017_custom = {
+    text_thread_link: {
+        pattern: funcs.makeLinkPattern(
+            "show_orig_thread",
+            "https://keskustelu.suomi24.fi/t/<%= struct_attrs.text_thread_id %>"),
+        customType: "struct",
+        urlOpts: sattrs.link_url_opts,
+    },
+    text_comment_link: {
+        pattern: funcs.makeLinkPattern(
+            "show_orig_message",
+            "https://keskustelu.suomi24.fi/t/<%= struct_attrs.text_thread_id + (struct_attrs.text_comment_id != '0' ? '#comment-' + struct_attrs.text_comment_id : '') %>"),
+        customType: "struct",
+        urlOpts: sattrs.link_url_opts,
     },
 };
 
@@ -15983,6 +15975,7 @@ settings.templ.s24_2001_2017 = {
     shortname: "suomi24-2001-2017-korp-v1-2",
     features: ["paragraphs", "parsed_tdt", "spaces"],
     structAttributes: sattrlist.s24_2001_2017,
+    customAttributes: sattrlist.s24_2001_2017_custom,
     defaultFilters: ["text_topic_name_top", "text_topic_names"],
 };
 
@@ -16045,6 +16038,7 @@ settings.templ.s24_2018_2020 = {
     features: ["paragraphs", "parsed_tdt", "spaces"],
     labels: ["beta"],
     structAttributes: sattrlist.s24_2018_2020,
+    customAttributes: sattrlist.s24_2001_2017_custom,
 };
 
 funcs.add_corpus_settings(
