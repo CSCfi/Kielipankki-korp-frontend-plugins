@@ -137,6 +137,11 @@ transl.yesno = {
         "fi": "ei",
         "sv": "nej",
     },
+    "unknown": {
+        "en": "unknown",
+        "fi": "ei tiedossa",
+        "sv": "okänd",
+    },
 };
 
 transl.lang = {
@@ -5605,7 +5610,8 @@ attrs.hidden = {
 sattrs.hidden = attrs.hidden;
 
 sattrs.text_title = {
-    label: "title"
+    label: "title",
+    extendedComponent: "structServiceAutocomplete",
 };
 sattrs.title = sattrs.text_title;
 sattrs.text_distributor = {
@@ -5620,17 +5626,21 @@ sattrs.text_published = {
     label: "text_pubdate2"
 };
 sattrs.publisher = {
-    label: "publisher"
+    label: "publisher",
+    extendedComponent: "structServiceAutocomplete",
 };
 
 sattrs.author = {
-    label: "author"
+    label: "author",
+    extendedComponent: "structServiceAutocomplete",
 };
 sattrs.author_birthyear = {
-    label: "author_birthyear"
+    label: "author_birthyear",
+    extendedComponent: "structServiceAutocomplete",
 };
 sattrs.author_deathyear = {
-    label: "author_deathyear"
+    label: "author_deathyear",
+    extendedComponent: "structServiceAutocomplete",
 };
 
 
@@ -5665,7 +5675,8 @@ sattrs.author_name_type = {
 
 
 sattrs.publ_year = {
-    label: "year_published"
+    label: "year_published",
+    extendedComponent: "structServiceAutocomplete",
 };
 
 sattrs.fulltext_url = {
@@ -6023,6 +6034,7 @@ sattrlist.klk = {
     },
     text_publ_title: {
         label: "publication",
+        extendedComponent: "structServiceAutocomplete",
     },
     /*
     text_publ_part: {
@@ -6040,6 +6052,7 @@ sattrlist.klk = {
     },
     text_issue_title: {
         label: "issue_title",
+        extendedComponent: "structServiceAutocomplete",
     },
     /*
     text_part_name: {
