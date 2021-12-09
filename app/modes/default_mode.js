@@ -15856,7 +15856,8 @@ sattrlist.s24_2001_2017 = {
         label: "writer_nickname",
     },
     text_author_logged_in: funcs.make_bool_attr("user_logged_in"),
-    text_author_nick_registered: funcs.make_bool_attr("registered_nick"),
+    text_author_nick_registered: funcs.make_bool_attr("registered_nick",
+                                                      ["y", "n", "?"]),
     text_topic_names: {
         label: "s24_topic_full",
     },
