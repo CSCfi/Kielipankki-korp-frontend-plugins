@@ -38,8 +38,10 @@ class ConfigUrlOpts {
             for (let attrname in (corpusObj[attrgroup] || {})) {
                 let attr = corpusObj[attrgroup][attrname];
                 let urlOpts = attr.urlOpts
-                if (urlOpts && ! attr.pattern
-                        && (urlOpts.newWindow || urlOpts.hideUrl)) {
+                if (! urlOpts) {
+                    continue
+                }
+                if (! attr.pattern && (urlOpts.newWindow || urlOpts.hideUrl)) {
                     let target = (urlOpts.newWindow !== false
                                   ? " target=\"_blank\"" : "")
                     let pattBegin = `<a href="<%= val %>" class="exturl sidebar_link"${target}>`
@@ -60,7 +62,7 @@ class ConfigUrlOpts {
                 // extended search, statistics and comparison, unless
                 // the corresponding hide property has explicitly been
                 // set
-                if (urlOpts && urlOpts.inLinkSection) {
+                if (urlOpts.inLinkSection) {
                     for (let type of ["Statistics", "Extended", "Compare"]) {
                         if (attr["hide" + type] === undefined) {
                             attr["hide" + type] = true
