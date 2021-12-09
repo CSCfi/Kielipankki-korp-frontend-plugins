@@ -12500,9 +12500,11 @@ sattrlist.s24_update = {
     },
     text_discussionarea: {
         label: "suomi24fi_sect",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_subsections: {
         label: "suomi24fi_sub",
+        extendedComponent: "structServiceAutocomplete",
     },
     text_anonnick: {
         label: "suomi24fi_user",
@@ -15821,9 +15823,11 @@ settings.corpora.s24 = {
         text_time: sattrs.text_time,
         text_sect: {
             label: "suomi24fi_sect",
+            extendedComponent: "structServiceAutocomplete",
         },
         text_sub: {
             label: "suomi24fi_sub",
+            extendedComponent: "structServiceAutocomplete",
         },
         text_user: {
             label: "suomi24fi_user",
