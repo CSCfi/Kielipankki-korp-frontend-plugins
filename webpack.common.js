@@ -194,6 +194,11 @@ module.exports = {
                     noErrorOnMissing: true,
                 },
                 {
+                    from: korpConfigDir + "/markup/*html",
+                    to: "markup/[name].[ext]",
+                    noErrorOnMissing: true,
+                },
+                {
                     from: "app/translations/angular-locale_*.js",
                     to: "translations/[name].[ext]",
                 },
