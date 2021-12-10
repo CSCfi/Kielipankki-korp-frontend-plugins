@@ -10,6 +10,15 @@ var setOptions = {
     "is": "contains",
     "is_not": "not contains"
 };
+var fullSetOptions = {
+    "is": "contains",
+    "is_not": "not contains",
+    "starts_with": "starts_with_contains",
+    "contains": "incontains_contains",
+    "ends_with": "ends_with_contains",
+    "matches": "regexp_contains",
+    "matches_not": "not_regexp_contains",
+};
 var probabilitySetOptions = {
     "is": "highest_rank",
     "is_not": "not_highest_rank",
@@ -8666,6 +8675,7 @@ module.exports = {
     funcs,
     transl,
     setOptions,
+    fullSetOptions,
     liteOptions,
     makeVideoAttr,
 }
