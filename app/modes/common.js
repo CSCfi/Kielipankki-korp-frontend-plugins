@@ -4789,9 +4789,7 @@ attrs.msd = {
     // line there in the sidebar, while retaining the ability to copy
     // and paste to a further search expression (unlike if we added a
     // zero-width space U+200B).
-    stringify: function(val) {
-        return val.replace(/\|/g, "|<wbr>");
-    }
+    pattern: "<%= val.replace(/\\|/g, '|<wbr>') %>",
 };
 attrs.msd_ordered = JSON.parse(JSON.stringify(attrs.msd));
 attrs.msd_ordered.order = 17;
