@@ -54,8 +54,11 @@ window.CorpusListing = class CorpusListing {
 
     // takes an array of mapping objs and returns their intersection
     _mapping_intersection(mappingArray) {
+        // Uniquify mappingArray before reducing it to improve the
+        // speed for large mapping arrays, in particular if the array
+        // contains many references to the same objects
         return _.reduce(
-            mappingArray,
+            _.uniqWith(mappingArray, _.isEqual),
             function (a, b) {
                 const keys_intersect = _.intersection(_.keys(a), _.keys(b))
                 const to_mergea = _.pick(a, ...keys_intersect)
@@ -66,7 +69,10 @@ window.CorpusListing = class CorpusListing {
     }
 
     _mapping_union(mappingArray) {
-        return _.reduce(mappingArray, (a, b) => _.merge(a, b), {})
+        // Uniquify mappingArray first to improve speed
+        return _.reduce(
+            _.uniqWith(mappingArray, _.isEqual),
+            (a, b) => _.merge(a, b), {})
     }
 
     getCurrentAttributes(lang) {
