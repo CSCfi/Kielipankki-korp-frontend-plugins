@@ -97,7 +97,7 @@ var hp_corpusChooser = {
             this.setStatus(theBox, "checked") // Checked
         }
 
-        var numDisabled = element.find(".disabled").length
+        var numDisabled = element.find(".boxdiv.disabled").length
         if (element.find(".boxdiv").length === numDisabled && numDisabled > 0) {
             element.addClass("disabled")
         } else {
@@ -305,10 +305,13 @@ var hp_corpusChooser = {
                     if ($(this).is(".disabled")) return
                     hp_this.updateState($(this).parent())
                     var childMan = $(this).children(".checkbox")
-                    var checkedAllUnlocked =
-                        childMan.hasClass("intermediate") &&
-                        childMan.parent().siblings("div:not(.disabled)").length ===
-                            childMan.parent().siblings().find(".checked").length
+                    var checkedAllUnlocked = false
+                    if (childMan.hasClass("intermediate")) {
+                        var subtree = childMan.parent().parent()
+                        checkedAllUnlocked = (
+                            subtree.find(".boxdiv:not(.disabled)").length ===
+                            subtree.find(".hplabel .checked").length)
+                    }
                     if (childMan.hasClass("checked") || checkedAllUnlocked) {
                         // Checked, uncheck it if not the root of a tree
                         if (!$(this).parent().hasClass("tree")) {
@@ -322,8 +325,16 @@ var hp_corpusChooser = {
                         hp_this.setStatus(childMan, "checked")
                         if ($(this).parent().hasClass("tree")) {
                             // If tree, check all descendants
-                            descendants = childMan.parent().siblings("div:not(.disabled)").find(".checkbox")
+                            var descendantDivs =
+                                childMan.parent().parent().find("div:not(.disabled)")
+                            // All unlocked descendant checkboxes
+                            descendants = descendantDivs.children().children(".checkbox")
                             hp_this.setStatus(descendants, "checked")
+                            // Checkboxes for branches containing also
+                            // locked ones are made intermediate
+                            var descendantsIntermed =
+                                descendantDivs.has("div.disabled").children().children(".checkbox")
+                            hp_this.setStatus(descendantsIntermed, "intermediate")
                         }
                     }
                     var ancestors = childMan.parents(".tree")
