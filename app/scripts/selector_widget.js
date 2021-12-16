@@ -257,6 +257,12 @@ var hp_corpusChooser = {
             .unbind("click")
             .click(function () {
                 hp_this.setStatus($(".boxlabel .checkbox, div.checks .boxdiv:not(.disabled) .checkbox"), "checked")
+                // Adjust the checkboxes of folders also containing locked
+                // corpora to "intermediate"
+                hp_this.setStatus(
+                    $("div.tree:not(.disabled)").has("div.disabled")
+                        .children(".boxlabel").children(".checkbox"),
+                    "intermediate")
                 hp_this.countSelected()
                 // Fire callback "change":
                 hp_this.triggerChange()
