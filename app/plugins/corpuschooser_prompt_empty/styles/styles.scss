@@ -1,0 +1,23 @@
+
+// Style definitions for plugin corpuschooser-prompt-empty
+
+
+// By default, do not show the "Select corpora" prompt
+#hp_corpora_promptEmpty {
+    display: none;
+};
+
+// If no corpora are selected, show the "Select corpora" prompt in
+// bold red and make the corpus chooser top frame border red and
+// medium width
+#corpusbox.no-corpora-selected {
+    #hp_corpora_promptEmpty {
+        display: inline;
+        color: red;
+        font-weight: bold;
+    }
+    .hp_topframe {
+        border-color: red;
+        border-width: medium;
+    }
+}
