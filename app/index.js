@@ -106,17 +106,17 @@ require("./scripts/cqp_parser/cqp.js")
 require("./scripts/util.js")
 require("./scripts/plugins.js")
 try {
-    requireAll(require.context("./plugins", true, /\.js$/))
+    requireAll(require.context("./plugins", true, /\.(js|ts|s?css)$/))
 } catch (error) {
     console.log("No bundled plugins found")
 }
 try {
-    requireAll(require.context("customplugins", true, /\.js$/))
+    requireAll(require.context("customplugins", true, /\.(js|ts|s?css)$/))
 } catch (error) {
     console.log("No custom plugins found")
 }
 try {
-    requireAll(require.context("configplugins", true, /\.js$/))
+    requireAll(require.context("configplugins", true, /\.(js|ts|s?css)$/))
 } catch (error) {
     console.log("No configuration plugins found")
 }
