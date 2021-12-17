@@ -184,6 +184,8 @@ var hp_corpusChooser = {
             .append($("<span>").localeKey("corpselector_sentences_long"))
     },
     triggerChange: function () {
+        // Allow plugins to modify the corpus chooser
+        plugins.callActions("onCorpusChooserChange")
         this._trigger("change", null, [this.selectedItems()])
     },
 
