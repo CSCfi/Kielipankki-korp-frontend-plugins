@@ -109,12 +109,19 @@ korpApp.directive("mapCtrl", ($timeout, searches) => ({
             // for (let f in calcCenterFunc) {
             //     c.log(f, calcCenterFunc[f](points))
             // }
-            return calcCenterFunc[settings.calculateMapCenter](points)
+            // Use the fixed map center if the result is empty
+            const centerFunc = (points.length > 0
+                                ? settings.calculateMapCenter
+                                : "fixed")
+            return calcCenterFunc[centerFunc](points)
         }
 
         // Functions for calculating map center based on an array of
         // points. settings.calculateMapCenter should be set to the
         // name of the function to be used.
+        // TODO: Add support for a corpus-specific fixed center. If
+        // the results come from multiple corpora, use the center of
+        // centers.
         const calcCenterFunc = {
             // Center to the coordinates specified in settings.mapCenter
             fixed: function (points) {
