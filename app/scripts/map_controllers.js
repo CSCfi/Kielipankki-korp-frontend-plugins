@@ -117,7 +117,7 @@ korpApp.directive("mapCtrl", ($timeout, searches) => ({
         // name of the function to be used.
         const calcCenterFunc = {
             // Center to the coordinates specified in settings.mapCenter
-            constant: function (points) {
+            fixed: function (points) {
                 return settings.mapCenter
             },
             // Center to the point with the maximum absolute frequency
@@ -167,9 +167,9 @@ korpApp.directive("mapCtrl", ($timeout, searches) => ({
         }
 
         // If settings.calculateMapCenter is undefined or unrecognized, use
-        // "constant" (settings.mapCenter), for backward compatibility
+        // "fixed" (settings.mapCenter), for backward compatibility
         if (! settings.calculateMapCenter || ! calcCenterFunc[settings.calculateMapCenter]) {
-            settings.calculateMapCenter = "constant"
+            settings.calculateMapCenter = "fixed"
         }
 
         s.newKWICSearch = function (marker) {
