@@ -17,6 +17,9 @@ if (location.hash.length && location.hash[1] !== "?") {
     location.hash = `#?${_.trimStart(location.hash, "#")}`
 }
 
+// Restore saved hash parameters for the current mode (if so configured)
+util.restoreModeParams()
+
 $.ajaxSetup({
     dataType: "json",
     traditional: true,

@@ -241,7 +241,7 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
     const s = $scope
 
     s.logoClick = function () {
-        const [baseUrl, modeParam, langParam] = $scope.getUrlParts(currentMode)
+        const [baseUrl, modeParam, langParam] = $scope.getUrlParts(currentMode, false)
         window.location = baseUrl + modeParam + langParam
         if (langParam.length > 0) {
             window.location.reload()
@@ -312,8 +312,11 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
         return s.getUrlParts(modeId).join("")
     }
 
-    s.getUrlParts = function (modeId) {
-        const langParam = settings.defaultLanguage === s.$root.lang ? "" : `#?lang=${s.$root.lang}`
+    s.getUrlParts = function (modeId, restoreParams = true) {
+        let langParam = settings.defaultLanguage === s.$root.lang ? "" : `#?lang=${s.$root.lang}`
+        if (restoreParams) {
+            langParam = util.addRestoreParam(langParam)
+        }
         const modeParam = modeId === "default" ? "" : `?mode=${modeId}`
         return [location.pathname, modeParam, langParam]
     }

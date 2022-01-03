@@ -18,4 +18,11 @@ export function setDefaultConfigValues() {
         // some safety margin
         settings.backendURLMaxLength = 8100
     }
+    if (! settings.modeSwitchRestoreParamsExclude) {
+        // By default, do not restore the UI language from the saved
+        // parameters when switching modes but keep the active
+        // language. This has effect only if
+        // settings.modeSwitchRestoreParams == true.
+        settings.modeSwitchRestoreParamsExclude = ["lang"]
+    }
 }

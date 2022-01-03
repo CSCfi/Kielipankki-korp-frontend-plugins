@@ -2,7 +2,8 @@
   #top_bar.flex.items-center.justify-between.px-3.py-2
     ul#mode_switch
       li(ng-repeat="mode in visible", class="visible", ng-class="{selected: mode.selected}")
-        a(ng-href="{{getUrl(mode.mode)}}") 
+        a(ng-href="{{getUrl(mode.mode)}}"
+          onclick="util.saveModeParams();") 
           | {{mode.localekey | loc:lang}}
       li.menu_more.visible(ng-if="menu.length") 
         a.dropdown-toggle(popper, no-close-on-click="true", my="right+15% top+10", at="bottom right") {{'more' | loc:lang}}
