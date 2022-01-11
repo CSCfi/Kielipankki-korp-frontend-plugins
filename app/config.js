@@ -789,3 +789,8 @@ settings.formatCorpusChooserItem = {
     // standaloneCorpus: (title, corpus) => `<b>${title}</b>`,
     // corpusWithSubcorpora: (title, folder) => `<b>${title}</b>`,
 }
+
+// Restore saved parameters when switching modes
+settings.modeSwitchRestoreParams = true
+// But keep the active "lang" (UI language)
+settings.modeSwitchRestoreParamsExclude = ["lang"]
