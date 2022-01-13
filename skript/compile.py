@@ -88,6 +88,7 @@ if __name__ == "__main__":
         if not strftime("%Y-%m-%d") > out_item.get("e", "9999-99-99"): # skip any expired news and introduce a new millenium bug
             out.append(out_item)
     if args.pretty:
-        print "newsdata(%s)" % (json.dumps(out, sort_keys=True, indent=4, separators=(',', ': ')))
+        json_opts = dict(sort_keys=True, indent=4, separators=(',', ': '))
     else:
-        print "newsdata(%s)" % (json.dumps(out, separators=(',', ':'))) # minified
+        json_opts = dict(separators=(',', ':')) # minified
+    print "newsdata(%s)" % (json.dumps(out, **json_opts),)
