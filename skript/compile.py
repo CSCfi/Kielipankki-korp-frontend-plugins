@@ -41,6 +41,7 @@ if __name__ == "__main__":
     parser.add_argument("limit")
     parser.add_argument('--pretty', action='store_true')
     parser.add_argument('--secondary')
+    parser.add_argument("--callback", default="newsdata")
 
     args = parser.parse_args()
     def_lang = args.default_language
@@ -91,4 +92,4 @@ if __name__ == "__main__":
         json_opts = dict(sort_keys=True, indent=4, separators=(',', ': '))
     else:
         json_opts = dict(separators=(',', ':')) # minified
-    print "newsdata(%s)" % (json.dumps(out, **json_opts),)
+    print "%s(%s)" % (args.callback, json.dumps(out, **json_opts),)
