@@ -18,4 +18,8 @@ export function setDefaultConfigValues() {
         // some safety margin
         settings.backendURLMaxLength = 8100
     }
+    if (! settings.defaultLanguage) {
+        // Swedish as the default UI language
+        settings.defaultLanguage = "sv"
+    }
 }
