@@ -30,7 +30,9 @@ const exists = filename => {
 };
 
 // A Pug plugin to search for files to be included from multiple
-// directories specified as the paths argument.
+// directories specified as the paths argument. paths may contain
+// wildcards as recognized by fast-glob, which allows recursive search
+// by using "**".
 //
 // To enable non-default behaviour, the filename of the include
 // directive needs to be prefixed with options between two colons,
@@ -56,10 +58,9 @@ const exists = filename => {
 //   for example, "include :search,all=plugin1+plugin2"; non-matching
 //   ones would be included in an arbitrary order after the matching
 //   ones (or maybe optionally not included).
-// - Support globs in paths.
-// - Optionally search paths recursively.
 function PugMultiplePathsPlugin ({paths = []}) {
     let load = require("pug-load")
+    const fg = require("fast-glob")
     return {
         name: 'multiplePaths',
         // Resolve filename to a fully-resolved path or multiple paths
@@ -103,15 +104,28 @@ function PugMultiplePathsPlugin ({paths = []}) {
                 // Include the subdirectory relative to basedir
                 filename = getRelativeSubdir(options.basedir, source) + filename
                 for (let pth of paths) {
-                    let fname = path.resolve(pth, filename)
-                    // console.log("exists", pth, filename, fname, exists(fname))
-                    if (exists(fname)) {
-                        // Return the first one found, unless the file
-                        // option "all" has been specified
-                        if (! fileopts.all) {
-                            return fname
+                    if (fg.isDynamicPattern(pth)) {
+                        // fast-glob returns paths in arbitrary order,
+                        // so sort the result
+                        let fnames = fg.sync(pth + "/" + filename).sort()
+                        // console.log("globbed fnames", pth, filename, fnames)
+                        if (fnames.length > 0) {
+                            if (! fileopts.all) {
+                                return fnames[0]
+                            }
+                            out += "|" + fnames.join("|")
                         }
-                        out += "|" + fname
+                    } else {
+                        let fname = path.resolve(pth, filename)
+                        // console.log("exists", pth, filename, fname, exists(fname))
+                        if (exists(fname)) {
+                            // Return the first one found, unless the file
+                            // option "all" has been specified
+                            if (! fileopts.all) {
+                                return fname
+                            }
+                            out += "|" + fname
+                        }
                     }
                 }
                 // Strip leading vertical bar
