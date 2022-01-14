@@ -60,6 +60,9 @@ const Plugins = class Plugins {
         // named feature. A plugin object occurs in the value of
         // multiple properties if it is waiting for multiple features.
         this.pluginsWaitingForFeatures = {}
+        // Names of AngularJS modules defined by plugins, to be added
+        // as dependencies to the Korp app
+        this.angularModules = []
     }
 
     // Add (append) callback function func in object plugin to hook point
@@ -242,6 +245,16 @@ const Plugins = class Plugins {
                 settings_obj[key] = default_settings[key]
             }
         }
+    }
+
+    // Create and return an AngularJS module name with args and
+    // register it to be added as a depencency to the Korp app.
+    // Plugins should typically use this instead of "angular.module".
+    // Inspired by https://stackoverflow.com/a/17944566
+    registerAngularModule (name, ...args) {
+        // c.log("plugins.registerAngularModule", name, ...args)
+        this.angularModules.push(name)
+        return angular.module(name, ...args)
     }
 
 }

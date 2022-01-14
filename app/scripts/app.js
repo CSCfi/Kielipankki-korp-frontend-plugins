@@ -42,6 +42,8 @@ window.korpApp = angular.module("korpApp", [
     "sbMap",
     "tmh.dynamicLocale",
     "angular.filter",
+    // Angular modules registered in plugins
+    ...plugins.angularModules,
 ])
 
 korpApp.component(kwicPagerName, kwicPager).component(sidebarName, sidebarComponent)
