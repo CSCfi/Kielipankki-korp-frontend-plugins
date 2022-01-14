@@ -22,4 +22,11 @@ export function setDefaultConfigValues() {
         // Swedish as the default UI language
         settings.defaultLanguage = "sv"
     }
+    if (! settings.locales) {
+        // Locales corresponding to UI languages
+        settings.locales = {
+            sv: "sv-SE",
+            en: "gb-EN",
+        }
+    }
 }

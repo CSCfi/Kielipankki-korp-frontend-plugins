@@ -524,6 +524,8 @@ __languages__ - Array of supported interface language codes s.a. `["en", "sv"]`
 
 __defaultLanguage__ - The default interface language. Example: `"sv"`
 
+__locales__ - Locales corresponding to the interface languages; e.g. `{ sv: "sv-SE", en: "gb-EN" }`
+
 __downloadFormats__ - Available formats of KWIC-download.
 
 __downloadFormatParams__ - Settings for KWIC-download.
