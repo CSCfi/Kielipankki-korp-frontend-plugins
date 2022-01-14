@@ -1,4 +1,8 @@
 #header(ng-controller="headerCtrl")
+
+  //- Optional top header, to be defined in config or plugins
+  include :search,optional,all:top_header
+
   #top_bar.flex.items-center.justify-between.px-3.py-2
     ul#mode_switch
       li(ng-repeat="mode in visible", class="visible", ng-class="{selected: mode.selected}")
