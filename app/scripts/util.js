@@ -279,7 +279,9 @@ window.CorpusListing = class CorpusListing {
             })
         )
         if (_.isEmpty(withins)) {
-            return { sentence: { label: { sv: "mening", en: "sentence" } } }
+            return { sentence: { label: (
+                _.fromPairs(_.map(settings.languages,
+                                  (lang) => [lang, loc_data[lang].within_sentence]))) } }
         }
         return withins
     }
