@@ -306,9 +306,12 @@ module.exports = {
                             pretty: true,
                             basedir: path.resolve(__dirname, "app"),
                             plugins: PugMultiplePathsPlugin({
-                                // TODO: Add all Korp plugin directories
                                 paths: [
                                     path.resolve(korpConfigDir),
+                                    // Search under all plugin directories
+                                    path.resolve(`${korpConfigDir}/plugins/**`),
+                                    path.resolve(`${korpPluginDir}/**`),
+                                    path.resolve("app/plugins/**"),
                                     "app",
                                 ]
                             }),
