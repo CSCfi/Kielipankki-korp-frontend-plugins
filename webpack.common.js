@@ -19,7 +19,158 @@ function getKorpConfigDir() {
     return config
 }
 
-const korpConfigDir = getKorpConfigDir()
+const {accessSync, constants: {R_OK}} = require('fs');
+
+const exists = filename => {
+    try {
+        accessSync(filename, R_OK);
+        return true;
+    } catch (err) {
+        return false;
+    }
+};
+
+// A Pug plugin to search for files to be included from multiple
+// directories specified as the paths argument. paths may contain
+// wildcards as recognized by fast-glob, which allows recursive search
+// by using "**".
+//
+// To enable non-default behaviour, the filename of the include
+// directive needs to be prefixed with options between two colons,
+// separated by commas; for example:
+//     include :search,optional:includes/file
+// The following options are recognized:
+// - search: Search paths for file and include the first one, unless
+//   option "all" is also specified
+// - all: Include all the files found in the order of paths (only in
+//   conjunction with "search")
+// - optional: No error if no file is found
+//
+// Inspired by
+// https://github.com/pugjs/pug/issues/2499#issuecomment-241927949
+//
+// TODO:
+// - When including the contents of all found files, sort them
+//   somehow. A way to do this could be to suffix file names with a
+//   double-digit number: "include :search,all:file" would include
+//   "file-10.pug" and "file-20.pug", in this order. Another option
+//   could be to list names (or patterns) for paths in the order in
+//   which they should be considered as an argument to option "all";
+//   for example, "include :search,all=plugin1+plugin2"; non-matching
+//   ones would be included in an arbitrary order after the matching
+//   ones (or maybe optionally not included).
+function PugMultiplePathsPlugin ({paths = []}) {
+    let load = require("pug-load")
+    const fg = require("fast-glob")
+    return {
+        name: 'multiplePaths',
+        // Resolve filename to a fully-resolved path or multiple paths
+        // separated by vertical bars (resolve has to return a string)
+        resolve (filename, source, options) {
+            let out = ""
+            let fileopts = {}
+            // console.log("resolve", filename, source, options, paths)
+            // Extract possible file options
+            const extractFileOptions = function (filename) {
+                let fileopts = {}
+                if (filename.startsWith(":")) {
+                    filename = filename.slice(1)
+                    const colonpos = filename.indexOf(":")
+                    fileoptStr = filename.slice(0, colonpos)
+                    fileoptStr.split(",").forEach(opt => fileopts[opt] = true)
+                    filename = filename.slice(colonpos + 1)
+                }
+                return [filename, fileopts]
+            };
+            // Get the subdirectory of filename relative to basedir
+            const getRelativeSubdir = function (basedir, filename) {
+                // console.log("getRelativeSubdir", basedir, filename)
+                if (! filename.startsWith(basedir)) {
+                    return ""
+                }
+                let filenameRel = filename.slice(basedir.length + 1)
+                let lastSlashPos = filenameRel.lastIndexOf("/")
+                if (lastSlashPos == -1) {
+                    // filename is directly in basedir
+                    return ""
+                }
+                // Include trailing slash
+                return filenameRel.slice(0, lastSlashPos + 1)
+            };
+            [filename, fileopts] = extractFileOptions(filename)
+            // console.log("fileopts =", fileopts)
+            if (paths.length > 0 && fileopts.search) {
+                // If file options contains "search", search for
+                // filename in each of paths
+                // Include the subdirectory relative to basedir
+                filename = getRelativeSubdir(options.basedir, source) + filename
+                for (let pth of paths) {
+                    if (fg.isDynamicPattern(pth)) {
+                        // fast-glob returns paths in arbitrary order,
+                        // so sort the result
+                        let fnames = fg.sync(pth + "/" + filename).sort()
+                        // console.log("globbed fnames", pth, filename, fnames)
+                        if (fnames.length > 0) {
+                            if (! fileopts.all) {
+                                return fnames[0]
+                            }
+                            out += "|" + fnames.join("|")
+                        }
+                    } else {
+                        let fname = path.resolve(pth, filename)
+                        // console.log("exists", pth, filename, fname, exists(fname))
+                        if (exists(fname)) {
+                            // Return the first one found, unless the file
+                            // option "all" has been specified
+                            if (! fileopts.all) {
+                                return fname
+                            }
+                            out += "|" + fname
+                        }
+                    }
+                }
+                // Strip leading vertical bar
+                out = out.slice(1)
+                // If not found and option "optional" not specified,
+                // throw an error
+                if (! out && ! fileopts.optional) {
+                    let pathstr = paths.join(", ")
+                    throw new Error(
+                        `${filename} cannot be found in any of the specified`
+                        + `directories: ${pathstr}`)
+                }
+            } else {
+                // The default include behaviour
+                out = load.resolve(filename, source, options)
+                if (! exists(out) && fileopts.optional) {
+                    out = ""
+                }
+            }
+            // console.log("out =", out)
+            return out
+        },
+        read (filename, options) {
+            // Return the content of filename. filename may contain
+            // multiple file names separated by vertical bars, in
+            // which case the contents of the files are concatenated.
+            // console.log("read", filename)
+            // Skip empty file names, as that means that an optional
+            // include file was not found.
+            if (! filename) {
+                return ""
+            }
+            let out = ""
+            let filenames = filename.split("|")
+            for (let fname of filenames) {
+                out += load.read(fname, options)
+                // console.log("read", fname)
+            }
+            // console.log("read:out", out)
+            return out
+        },
+    };
+}
+
 
 // Return an array of all the locale (language) codes LG from
 // localization files filename-LG.json in the directories listed in
@@ -146,6 +297,14 @@ module.exports = {
                             // option will result in that some elements get closer together
                             // and need to be fixed with CSS
                             pretty: true,
+                            basedir: path.resolve(__dirname, "app"),
+                            plugins: PugMultiplePathsPlugin({
+                                // TODO: Add all Korp plugin directories
+                                paths: [
+                                    path.resolve(korpConfigDir),
+                                    "app",
+                                ]
+                            }),
                         },
                     },
                 ],
