@@ -659,6 +659,8 @@ Note that filtering out unavailable corpora requires that the backend command `/
 
 Handling unavailable corpora results in a somewhat slower startup of Korp, so it could be enabled only for development environments, so that the production environment would have a slightly faster startup.
 
+__allowNoPreselectedCorpora__ - Boolean. If `true`, an empty or undefined `preselectedCorpora` means that no corpora are initially selected instead of having all unprotected corpora selected.
+
 __mapEnabled__ - See [Map](#map).
 
 __newMapEnabled__ - Renamed to `mapEnabled`.
