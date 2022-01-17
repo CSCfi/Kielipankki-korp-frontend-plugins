@@ -632,22 +632,24 @@ util.splitLemgram = function (lemgram) {
 // settings.downloadFormats (Jyrki Niemi <jyrki.niemi@helsinki.fi>
 // 2014-02-26/04-30)
 
-util.setDownloadLinks = function (xhr_settings, result_data) {
+util.setDownloadLinks = function (query_url, result_data) {
     // If some of the required parameters are null, return without
     // adding the download links.
     if (
-        !(xhr_settings != null && result_data != null && result_data.corpus_order != null && result_data.kwic != null)
+        !(query_url != null && result_data != null && result_data.corpus_order != null && result_data.kwic != null)
     ) {
         c.log("failed to do setDownloadLinks")
         return
     }
 
+    // Set the download links of the active tab
+    const downloadLinksElem = $(".active .download_links")
     if (result_data.hits === 0) {
-        $("#download-links").hide()
+        downloadLinksElem.hide()
         return
     }
 
-    $("#download-links").show()
+    downloadLinksElem.show()
 
     // Get the number (index) of the corpus of the query result hit
     // number hit_num in the corpus order information of the query
@@ -655,7 +657,7 @@ util.setDownloadLinks = function (xhr_settings, result_data) {
     const get_corpus_num = (hit_num) => result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus)
 
     c.log("setDownloadLinks data:", result_data)
-    $("#download-links").empty()
+    downloadLinksElem.empty()
     // Corpora in the query result
     const result_corpora = result_data.corpus_order.slice(
         get_corpus_num(0),
@@ -675,7 +677,7 @@ util.setDownloadLinks = function (xhr_settings, result_data) {
         }
         i++
     }
-    $("#download-links").append("<option value='init' rel='localize[download_kwic]'></option>")
+    downloadLinksElem.append("<option value='init' rel='localize[download_kwic]'></option>")
     i = 0
     while (i < settings.downloadFormats.length) {
         const format = settings.downloadFormats[i]
@@ -694,8 +696,8 @@ util.setDownloadLinks = function (xhr_settings, result_data) {
 `)
 
         const download_params = {
-            // query_params: JSON.stringify($.deparam.querystring(xhr_settings.url)),
-            query_params: xhr_settings.url,
+            query_params: JSON.stringify(
+                $.deparam(query_url.slice(query_url.indexOf("?") + 1))),
             format,
             korp_url: window.location.href,
             korp_server_url: settings.korpBackendURL,
@@ -711,11 +713,11 @@ util.setDownloadLinks = function (xhr_settings, result_data) {
                 $.extend(download_params, settings.downloadFormatParams[format])
             }
         }
-        option.appendTo("#download-links").data("params", download_params)
+        option.appendTo(downloadLinksElem).data("params", download_params)
         i++
     }
-    $("#download-links").off("change")
-    $("#download-links")
+    downloadLinksElem.off("change")
+    downloadLinksElem
         .localize()
         .click(false)
         .change(function (event) {

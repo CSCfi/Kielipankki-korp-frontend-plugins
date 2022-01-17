@@ -54,8 +54,8 @@ span.reading_btn.hide_reading.link(ng-hide="loading", ng-click="toggleReading()"
         span.corpus_title_warn(rel='localize[no_context_support]', ng-if='::sentence.noContext')
       span(ng-repeat='wd in sentence.tokens', kwic-word='kwic-word')
 kwic-pager(ng-if="hits" total-hits="hits", current-page="page", page-change="pageChange(page)", hits-per-page="pagerHitsPerPage")
-#download-links-container
-  select#download-links(ng-if="_settings.enableBackendKwicDownload")
+.download-links-container
+  select.download_links(ng-if="_settings.enableBackendKwicDownload")
   select#frontendDownloadLinks(ng-if="_settings.enableFrontendKwicDownload",
                         ng-change="download.init(download.selected, hits_display)", 
                         ng-model="download.selected",
