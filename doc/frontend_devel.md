@@ -629,6 +629,8 @@ __corporafolders__ - Create a directory-structure in corpus chooser. Example:
         contents: ["corpus3", "corpus4"]
     }
 
+__corpusfolderNonSubfolderProperties__ - Array of corpus folder property names *not* to be treated as subfolder ids, in addition to `"title"`, `"contents"` and `"description"` (default: []).
+
 __preselectedCorpora__ - An array of corpus (internal) names or folder names. Given corpora and corpora in folders will be selected on load. To select only a subfolder write `folder.subfolder`.
  
 __mapEnabled__ - See [Map](#map).
