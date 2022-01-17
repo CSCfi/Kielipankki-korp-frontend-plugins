@@ -28,7 +28,7 @@ let reduceCqp = function(type, tokens, ignoreCase) {
     let attrs = settings.corpusListing.getCurrentAttributes()
     if (attrs[type] && attrs[type].stats_cqp) {
         // A stats_cqp function should call regescape for the value as appropriate
-        return customFunctions[attrs[type].stats_cqp](tokens, ignoreCase)
+        return customFunctions[attrs[type].stats_cqp](tokens, ignoreCase, type)
     }
     tokens = _.map(tokens, val => regescape(val))
     switch (type) {
