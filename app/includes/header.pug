@@ -35,9 +35,9 @@
         a(ng-click="showLogin()", ng-show="!loggedIn") {{'log_in' | loc:lang}}
 
       #languages
-        a(data-mode='sv', ng-click="lang = 'sv'") {{'swedish' | loc:lang}}
-        a(data-mode='en', ng-click="lang = 'en'") {{'english' | loc:lang}}
-        
+        a(ng-repeat="lg in languages", data-mode="{{lg}}", ng-click="lang = '{{lg}}'")
+          | {{languageNames[lg]}}
+
       #news_area
         div(news-desk="", header="'newsdesk-header'", storage="'korp_last_read_newsitem'")
 
