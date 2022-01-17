@@ -18,4 +18,12 @@ export function setDefaultConfigValues() {
         // some safety margin
         settings.backendURLMaxLength = 8100
     }
+    if (! settings.languageNames) {
+        // Names of UI languages in the languages themselves, as shown
+        // in the language menu, so they need not be localized
+        settings.languageNames = {
+            "sv": "Svenska",
+            "en": "English",
+        }
+    }
 }
