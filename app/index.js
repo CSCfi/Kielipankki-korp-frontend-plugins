@@ -143,6 +143,12 @@ require("./scripts/directives/scroll.js")
 require("./scripts/filter_directives.js")
 require("./scripts/newsdesk.js")
 
+try {
+    require("custom/style_loader.js")
+} catch (error) {
+    console.log("No custom style loader specified")
+}
+
 // only if the current mode is parallel, we load the special code required
 for(let mode of settings.modeConfig) {
   if(currentMode === mode.mode && mode.parallel) {
