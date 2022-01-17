@@ -9,3 +9,6 @@ requireAll(require.context("../styles/kielipankki", true, /\.s?css$/))
 
 // Sidebar style modifications
 require("../styles/sidebar_mods.scss")
+
+// Newsdesk style modifications
+require("../styles/newsdesk_mods.scss")
