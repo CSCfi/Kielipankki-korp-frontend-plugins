@@ -19,6 +19,10 @@ window.isSubfolderName =
 window.authenticationProxy = new model.AuthenticationProxy()
 window.timeProxy = new model.TimeProxy()
 
+// Let plugins act before loading the actual application, passing some
+// data (currently only jStorage) that may be used or modified
+plugins.callActions("beforeLoadApp", {jStorage: jStorage})
+
 const creds = jStorage.get("creds")
 if (creds) {
     authenticationProxy.loginObj = creds
@@ -28,6 +32,9 @@ if (creds) {
 if (location.hash.length && location.hash[1] !== "?") {
     location.hash = `#?${_.trimStart(location.hash, "#")}`
 }
+
+// Let plugins modify location
+plugins.callActions("modifyLocation", location)
 
 $.ajaxSetup({
     dataType: "json",
@@ -71,6 +78,9 @@ $.when(loc_dfd, deferred_domReady).then(
         } catch (error) {
             c.error(error)
         }
+
+        // Let plugins modify location after the DOM is ready
+        plugins.callActions("modifyLocationOnDomReady", location)
 
         try {
             const corpus = locationSearch()["corpus"]
@@ -129,6 +139,12 @@ $.when(loc_dfd, deferred_domReady).then(
             // TODO: this does nothing?
             selected: settings.defaultLanguage,
         })
+
+        // Let plugins modify settings.corpora and settings.corporafolders
+        plugins.callActions("modifyCorpusConfigs",
+                            settings.corpora, settings.corporafolders)
+        // Let plugins act when the DOM is ready
+        plugins.callActions("onDomReady")
 
         setTimeout(() => window.onHashChange(null, true), 0)
         $("body").animate({ opacity: 1 }, function () {

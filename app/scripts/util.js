@@ -742,7 +742,15 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
     if (first_level) {
         outHTML = "<ul>"
     } else {
-        outHTML = `<ul title="${folder.title}" description="${escape(folder.description)}">`
+        // Let plugins filter the folder title shown in the popup and
+        // in the corpus chooser, based on folder configuration
+        const folderTitle = plugins.callFilters(
+            "formatPopupFolderTitle", folder.title || "", folder)
+        // Let plugins filter the folder description shown in the
+        // popup, based on folder configuration
+        const folderDescr = plugins.callFilters(
+            "formatPopupFolderInfo", folder.description || "", folder)
+        outHTML = `<ul title="${folderTitle}" description="${escape(folderDescr)}">`
     }
     if (folder) {
         // This check makes the code work even if there isn't a ___settings.corporafolders = {};___ in config.js
@@ -756,7 +764,11 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
         // Corpora
         if (folder["contents"] && folder["contents"].length > 0) {
             $.each(folder.contents, function (key, value) {
-                outHTML += `<li id="${value}">${settings.corpora[value]["title"]}</li>`
+                // Let plugins filter the corpus title
+                const corpusTitle = plugins.callFilters(
+                    "formatCorpusChooserCorpusTitle",
+                    settings.corpora[value]["title"], settings.corpora[value])
+                outHTML += `<li id="${value}">${corpusTitle}</li>`
                 added_corpora_ids.push(value)
             })
         }
@@ -776,7 +788,11 @@ util.loadCorporaFolderRecursive = function (first_level, folder) {
             }
 
             // Add it anyway:
-            outHTML += `<li id='${val}'>${settings.corpora[val].title}</li>`
+            // Let plugins filter the corpus title
+            const corpusTitle = plugins.callFilters(
+                "formatCorpusChooserCorpusTitle",
+                settings.corpora[val]["title"], settings.corpora[val])
+            outHTML += `<li id='${val}'>${corpusTitle}</li>`
         }
     }
     outHTML += "</ul>"
@@ -834,8 +850,13 @@ util.loadCorpora = function () {
                 let baseLangSentenceHTML, baseLangTokenHTML, lang
                 const corpusObj = settings.corpora[corpusID]
                 let maybeInfo = ""
-                if (corpusObj.description) {
-                    maybeInfo = `<br/><br/>${corpusObj.description}`
+                // Let plugins filter the corpus description shown in
+                // the popup, based on corpus configuration
+                const corpusDescr = plugins.callFilters(
+                    "formatPopupCorpusInfo",
+                    corpusObj.description || "", corpusObj)
+                if (corpusDescr) {
+                    maybeInfo = `<br/><br/>${corpusDescr}`
                 }
                 const numTokens = corpusObj.info.Size
                 const baseLang = settings.corpora[corpusID] && settings.corpora[corpusID].linkedTo
@@ -867,10 +888,14 @@ util.loadCorpora = function () {
                     sentenceString = util.prettyNumbers(numSentences.toString())
                 }
 
+                // Let plugins filter the corpus description shown in
+                // the popup, based on corpus configuration
+                let corpusTitle = plugins.callFilters(
+                    "formatPopupCorpusTitle", corpusObj.title || "", corpusObj)
                 let output = `\
                     <b>
                         <img class="popup_icon" src="${korpIconImg}" />
-                        ${corpusObj.title}
+                        ${corpusTitle}
                     </b>
                     ${maybeInfo}
                     <br/><br/>${baseLangTokenHTML}

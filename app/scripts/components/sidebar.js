@@ -21,6 +21,7 @@ export const sidebarComponent = {
                     {{'corpus' | loc:$root.lang}}
                 </h4>
                 <div class="text-lg">{{$ctrl.corpusObj.title}}</div>
+                <div id="selected_corpus" />
             </div>
             <div class="openReadingMode" ng-show="!$ctrl.inReadingMode && $ctrl.corpusObj.readingMode">
                 <span ng-click="$ctrl.openReadingMode()" class="link">
@@ -133,6 +134,21 @@ export const sidebarComponent = {
                     )
                     $("#selected_word").append(posData)
                     $("#selected_sentence").append(structData)
+
+                    // TODO: Update corpusInfo only when moving to a
+                    // match from a different corpus.
+
+                    // Let plugins format corpus information to be
+                    // displayed, based on corpusObj
+                    const corpusInfo = plugins.callFilters(
+                        "formatSidebarCorpusInfo", "", corpusObj)
+                    $("#selected_corpus").html(corpusInfo)
+
+                    // Allow plugins to modify sidebar content; $ctrl
+                    // refers to sentenceData, corpusObj and tokens
+                    // and can be used to call controller methods
+                    plugins.callActions(
+                        "modifySidebarContent", $ctrl, wordData, customData)
 
                     $element.localize()
                     this.applyEllipse()

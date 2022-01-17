@@ -133,6 +133,12 @@ var hp_corpusChooser = {
             header_text_2 = "corpselector_allselected"
         } else if (num_checked_checkboxes == 1) {
             var currentCorpusName = checked_checkboxes.parent().parent().attr("data")
+            // Let plugins filter the name of the single selected
+            // corpus, typically to remove HTML formatting or added
+            // information
+            currentCorpusName = plugins.callFilters(
+                "filterCorpusChooserSingleSelectedCorpusName",
+                currentCorpusName)
             if (currentCorpusName.length > 37) {
                 // Ellipsis
                 currentCorpusName = _.trim(currentCorpusName.substr(0, 37)) + "..."
@@ -178,6 +184,8 @@ var hp_corpusChooser = {
             .append($("<span>").localeKey("corpselector_sentences_long"))
     },
     triggerChange: function () {
+        // Allow plugins to modify the corpus chooser
+        plugins.callActions("onCorpusChooserChange")
         this._trigger("change", null, [this.selectedItems()])
     },
 

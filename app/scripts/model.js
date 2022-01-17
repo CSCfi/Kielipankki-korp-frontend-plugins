@@ -413,6 +413,7 @@ model.AuthenticationProxy = class AuthenticationProxy {
     }
 
     makeRequest(usr, pass, saveLogin) {
+        // c.log("authProxy.makeRequest", usr, pass, saveLogin)
         let auth
         const self = this
         if (window.btoa) {
@@ -429,6 +430,7 @@ model.AuthenticationProxy = class AuthenticationProxy {
             },
         })
             .done(function (data, status, xhr) {
+                // c.log("authProxy.makeRequest.done", data, status, xhr)
                 if (!data.corpora) {
                     dfd.reject()
                     return
@@ -438,6 +440,11 @@ model.AuthenticationProxy = class AuthenticationProxy {
                     credentials: data.corpora,
                     auth,
                 }
+                // Let plugins filter self.loginObj, possibly
+                // modifying it based on the data returned by the
+                // authentication proxy
+                self.loginObj = plugins.callFilters(
+                    "filterLoginInfo", self.loginObj, data)
                 if (saveLogin) {
                     jStorage.set("creds", self.loginObj)
                 }

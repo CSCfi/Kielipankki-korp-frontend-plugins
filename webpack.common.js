@@ -5,18 +5,69 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin")
 
-function getKorpConfigDir() {
+function getKorpConfigDirs() {
     fs = require("fs")
     let config = "app"
+    let plugins = "app/plugins"
     try {
         json = fs.readFileSync("run_config.json", { encoding: "utf-8" })
-        config = JSON.parse(json).configDir || "app"
+        json_parsed = JSON.parse(json)
+        config = json_parsed.configDir || "app"
         console.log('Using "' + config + '" as config directory.')
+        plugins = json_parsed.pluginDir || config + "/plugins"
+        console.log('Using "' + plugins + '" as plugin directory.')
     } catch (err) {
         console.error(err)
-        console.log('No run_config.json given, using "app" as config directory (default).')
+        console.log('No run_config.json given, using "app" as config and plugin directory (default).')
     }
-    return config
+    return [config, plugins]
+}
+
+const [korpConfigDir, korpPluginDir] = getKorpConfigDirs()
+
+// Return an array of all the locale (language) codes LG from
+// localization files filename-LG.json in the directories listed in
+// array translDirs.
+function getLocales(translDirs) {
+    fg = require("fast-glob")
+    let locales = new Set()
+    for (let translDir of translDirs) {
+        let fnames = fg.sync(translDir + "/*.json")
+        // console.log("getLocales", translDir, fnames)
+        for (let fname of fnames) {
+            let basename = path.basename(fname, ".json")
+            if (basename.indexOf("-") != -1) {
+                locales.add(basename.split("-").slice(-1)[0])
+            }
+        }
+    }
+    // Return an array
+    return [...locales]
+}
+
+// Return a value for the groupBy output specification of
+// MergeJsonWebpackPlugin: merge into <filenamePrefix>-LG.json all
+// JSON files <filenamePrefix>*-LG.json with the same language code LG
+// found under "translations" subdirectories of the directories listed
+// in array translBasedirs.
+function makeMergeJsonGroupBy(filenamePrefix, translBasedirs) {
+    const translDirs = translBasedirs.map(dir => dir + "/translations")
+    const multipleDirs = translDirs.length > 1
+    const pattBegin = multipleDirs ? "{" : ""
+    const pattEnd = multipleDirs ? "}" : ""
+    // console.log(translDirs)
+    const groupBy = getLocales(translDirs).map(locale => (
+        {
+            pattern:
+                pattBegin +
+                translDirs.map(
+                    dir => `${dir}/${filenamePrefix}*-${locale}.json`)
+                .join(",") +
+                pattEnd,
+            fileName: `translations/${filenamePrefix}-${locale}.json`,
+        }))
+    // console.log(groupBy)
+    return groupBy
 }
 
 const {accessSync, constants: {R_OK}} = require('fs');
@@ -172,52 +223,6 @@ function PugMultiplePathsPlugin ({paths = []}) {
 }
 
 
-// Return an array of all the locale (language) codes LG from
-// localization files filename-LG.json in the directories listed in
-// array translDirs.
-function getLocales(translDirs) {
-    fg = require("fast-glob")
-    let locales = new Set()
-    for (let translDir of translDirs) {
-        let fnames = fg.sync(translDir + "/*.json")
-        // console.log("getLocales", translDir, fnames)
-        for (let fname of fnames) {
-            let basename = path.basename(fname, ".json")
-            if (basename.indexOf("-") != -1) {
-                locales.add(basename.split("-").slice(-1)[0])
-            }
-        }
-    }
-    // Return an array
-    return [...locales]
-}
-
-// Return a value for the groupBy output specification of
-// MergeJsonWebpackPlugin: merge into <filenamePrefix>-LG.json all
-// JSON files <filenamePrefix>*-LG.json with the same language code LG
-// found under "translations" subdirectories of the directories listed
-// in array translBasedirs.
-function makeMergeJsonGroupBy(filenamePrefix, translBasedirs) {
-    const translDirs = translBasedirs.map(dir => dir + "/translations")
-    const multipleDirs = translDirs.length > 1
-    const pattBegin = multipleDirs ? "{" : ""
-    const pattEnd = multipleDirs ? "}" : ""
-    // console.log(translDirs)
-    const groupBy = getLocales(translDirs).map(locale => (
-        {
-            pattern:
-                pattBegin +
-                translDirs.map(
-                    dir => `${dir}/${filenamePrefix}*-${locale}.json`)
-                .join(",") +
-                pattEnd,
-            fileName: `translations/${filenamePrefix}-${locale}.json`,
-        }))
-    // console.log(groupBy)
-    return groupBy
-}
-
-
 module.exports = {
     resolve: {
         alias: {
@@ -230,6 +235,8 @@ module.exports = {
             defaultmode: path.resolve(korpConfigDir, "modes/default_mode.js"),
             custom: path.resolve(korpConfigDir, "custom/"),
             '@': path.resolve(__dirname, "app/scripts"),
+            customplugins: path.resolve(korpPluginDir),
+            configplugins: path.resolve(korpConfigDir, "plugins/"),
         },
     },
     module: {
@@ -299,9 +306,12 @@ module.exports = {
                             pretty: true,
                             basedir: path.resolve(__dirname, "app"),
                             plugins: PugMultiplePathsPlugin({
-                                // TODO: Add all Korp plugin directories
                                 paths: [
                                     path.resolve(korpConfigDir),
+                                    // Search under all plugin directories
+                                    path.resolve(`${korpConfigDir}/plugins/**`),
+                                    path.resolve(`${korpPluginDir}/**`),
+                                    path.resolve("app/plugins/**"),
                                     "app",
                                 ]
                             }),
@@ -426,12 +436,14 @@ module.exports = {
                 },
             ],
         }),
-        // Merge the locale-LG.json files in app/translations,
-        // app/plugins/**/translations, <korpConfigDir>/translations
-        // and <korpConfigDir>/plugins/**/translations into
-        // translations/locale-LG.json, so that the configuration may
-        // contain additional translations for plugins (and may
-        // override default translations).
+        // Merge the locale*-LG.json files in app/translations,
+        // app/plugins/**/translations,
+        // <korpPluginDir>/**/translations,
+        // <korpConfigDir>/translations and
+        // <korpConfigDir>/plugins/**/translations into
+        // translations/locale-LG.json, so that plugins may contain
+        // translations and the configuration may override default
+        // translations.
         new MergeJsonWebpackPlugin({
             // "debug": true,
             "output": {
@@ -440,7 +452,12 @@ module.exports = {
                     [
                         "app",
                         "app/plugins/**",
+                        `${korpPluginDir}/**`,
                         korpConfigDir,
+                        // Plugin translations could also be
+                        // overridden in korpConfigDir/translations,
+                        // but this may make it easier to separate
+                        // plugin translations in the configuration.)
                         `${korpConfigDir}/plugins/**`,
                     ]),
             },
