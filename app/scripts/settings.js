@@ -18,4 +18,9 @@ export function setDefaultConfigValues() {
         // some safety margin
         settings.backendURLMaxLength = 8100
     }
+    if (! settings.handleUnavailableCorpora) {
+        // A corpus defined in the configuration but not found by the
+        // backend causes an error that stops loading Korp
+        settings.handleUnavailableCorpora = "fatal"
+    }
 }
