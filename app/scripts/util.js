@@ -22,6 +22,15 @@ window.CorpusListing = class CorpusListing {
         this.struct = corpora
         this.corpora = _.values(corpora)
         this.selected = _.filter(this.corpora, (corp) => !corp.limitedAccess)
+        // Memoize the methods getting attributes objects of the
+        // selected corpora, to avoid recomputing the result if the
+        // corpus selection is changed back and forth
+        this._memoizeMethodsForSelectedCorpora([
+            "getCurrentAttributes",
+            "getCurrentAttributesIntersection",
+            "getStructAttrsIntersection",
+            "getStructAttrs",
+        ])
     }
 
     get(key) {
@@ -62,8 +71,11 @@ window.CorpusListing = class CorpusListing {
 
     // takes an array of mapping objs and returns their intersection
     _mapping_intersection(mappingArray) {
+        // Uniquify mappingArray before reducing it to improve the
+        // speed for large mapping arrays, in particular if the array
+        // contains many references to the same objects
         return _.reduce(
-            mappingArray,
+            _.uniqWith(mappingArray, _.isEqual),
             function (a, b) {
                 const keys_intersect = _.intersection(_.keys(a), _.keys(b))
                 const to_mergea = _.pick(a, ...keys_intersect)
@@ -74,7 +86,44 @@ window.CorpusListing = class CorpusListing {
     }
 
     _mapping_union(mappingArray) {
-        return _.reduce(mappingArray, (a, b) => _.merge(a, b), {})
+        // Uniquify mappingArray first to improve speed
+        return _.reduce(
+            _.uniqWith(mappingArray, _.isEqual),
+            (a, b) => _.merge(a, b), {})
+    }
+
+    // Memoize the methods of this class whose names are listed in
+    // array methodNames for the selected corpora. This approach works
+    // around the difficulty (or impossibility) of calling the
+    // memoization function directly when declaring a method in a
+    // class.
+    _memoizeMethodsForSelectedCorpora (methodNames) {
+        for (let methodName of methodNames) {
+            // Save the original, unmemoized method with a different name
+            let savedMethodName = "_memoizeOrig_" + methodName
+            // Memoize only if the method is not already memoized
+            // (method with the saved name does not exist) or if the
+            // method is overridden in a subclass
+            if (this[methodName] &&
+                    (! this[savedMethodName] ||
+                     (this[methodName] != super[methodName] &&
+                      this[savedMethodName] == super[savedMethodName]))) {
+                this[savedMethodName] = this[methodName]
+                this[methodName] =
+                    this._memoizeForSelectedCorpora(this[savedMethodName])
+            }
+        }
+    }
+
+    // Return a memoized function for func, where the key for the
+    // memoized values consist of the selected corpora as well as all
+    // the arguments to func.
+    _memoizeForSelectedCorpora (func) {
+        return _.memoize(
+            func,
+            (...args) => JSON.stringify(
+                [args, this.mapSelectedCorpora((corpus) => corpus.id)])
+        )
     }
 
     getCurrentAttributes(lang) {
