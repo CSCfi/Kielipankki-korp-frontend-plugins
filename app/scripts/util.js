@@ -1363,3 +1363,82 @@ util.adjustPreselectedCorpora = function () {
     }
     settings.preselectedCorpora = adjusted
 }
+
+
+// Functions related to saving and restoring hash parameters for the
+// page session when switching modes
+
+// Get a URLSearchParams object for hash parameters
+util._getHashParams = function (hash) {
+    return new URLSearchParams(hash.replace(/^[#?]*/, ""))
+}
+
+// Save hash parameters for the current mode to sessionStorage, if
+// settings.modeSwitchRestoreParams is true. Exclude parameters listed
+// in settings.modeSwitchRestoreParamsExclude.
+util.saveModeParams = function () {
+    if (settings.modeSwitchRestoreParams) {
+        let hash = window.location.hash
+        if (settings.modeSwitchRestoreParamsExclude &&
+                settings.modeSwitchRestoreParamsExclude.length > 0) {
+            let params = util._getHashParams(hash)
+            for (let omitParam of settings.modeSwitchRestoreParamsExclude) {
+                params.delete(omitParam)
+            }
+            hash = params.toString()
+            hash = hash ? "#?" + hash : "#"
+        }
+        sessionStorage.setItem(`Korp-params-${currentMode}`, hash)
+    }
+}
+
+// Return hashParams with restore_params=true added if parameters
+// should be restored on mode switch
+util.addRestoreParam = function (hashParams) {
+    if (settings.modeSwitchRestoreParams) {
+        return (hashParams ? hashParams + "&" : "#?") + "restore_params=true"
+    } else {
+        return hashParams
+    }
+}
+
+// Restore hash parameters for the current mode from sessionStorage,
+// if settings.modeSwitchRestoreParams is true and the current hash
+// parameters contain "restore_params". Delete "restore_params" but
+// retain other current hash parameters not included in the saved
+// parameters.
+util.restoreModeParams = function () {
+
+    // Return true if hash contains parameter "restore_params".
+    const hasRestoreParams = function (hash) {
+        return util._getHashParams(hash).has("restore_params")
+    }
+
+    // Return hash without parameter "restore_params".
+    const deleteRestoreParams = function (hash) {
+        const params = util._getHashParams(hash)
+        params.delete("restore_params")
+        return "#?" + params.toString()
+    }
+
+    // Return hash with parameters from overrideHash added to
+    // baseHash, overriding possibly existing values.
+    const combineHashes = function (baseHash, overrideHash) {
+        const baseParams = util._getHashParams(baseHash)
+        const overrideParams = util._getHashParams(overrideHash)
+        for (const [key, val] of overrideParams) {
+            baseParams.set(key, val)
+        }
+        baseParams.delete("restore_params")
+        return "#?" + baseParams.toString()
+    }
+
+    if (settings.modeSwitchRestoreParams && hasRestoreParams(location.hash)) {
+        const savedHash = sessionStorage.getItem(`Korp-params-${currentMode}`)
+        if (savedHash) {
+            location.hash = combineHashes(location.hash, savedHash)
+        } else {
+            location.hash = deleteRestoreParams(location.hash)
+        }
+    }
+}

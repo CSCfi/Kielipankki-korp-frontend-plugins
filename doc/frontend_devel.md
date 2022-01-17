@@ -686,6 +686,10 @@ __hitsPerPageDefault__ - The number of hits per page that Korp should select by 
 
 __startLang__ - The default in the language dropdown for parallel Korp, for example: `"swe"`
 
+__modeSwitchRestoreParams__ - Boolean (default: `false`). Save and restore Korp parameters when switching modes within a page session, so the user can return to the same search after visiting another mode. The parameters listed in `modeSwitchRestoreParamsExclude` are not restored.
+
+__modeSwitchRestoreParamsExclude__ - Array of strings. Do not save and restore the parameters whose names are listed in this array when switching modes even if `modeSwitchRestoreParams` is `true`. The default is `["lang"]`: the user interface language is not saved or restored.
+
 # Developing the Korp Frontend
 
 Here is where we present details on how to install development dependencies for the Korp frontend and how to build and distribute the frontend code.
