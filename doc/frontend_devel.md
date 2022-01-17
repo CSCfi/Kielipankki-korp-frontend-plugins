@@ -447,6 +447,8 @@ attributes configured to use `autoc`-directive (see <#ref autoc|autoc-section>).
 ngular.js directive `autoc` that calls Karp's autocompletion function. Using Karp, Korp can autocomplete senses 
 and lemgrams. To disable autocompletion use `settings.autocomplete = false`.
 
+Also see `settings.lemgramComplete` for specifying an alternative lemgram autocompletion for the Simple Search.
+
 ## Word picture
 
 The word picture-config object looks like this:
@@ -519,6 +521,22 @@ By setting `newsDeskUrl`, the news widget is enabled. The widget simply fetches 
 Settings are required unless specified to be optional.
 
 __autocomplete__ - Boolean. Enable autocomplete (see **autoc**-directive) for simple search.
+
+__lemgramComplete__ - An alternative lemgram autocompletion for the simple search, overriding the default Karp-based completion. If specified, it should be an object containing two functions:
+
+- `makeHTTPArgs (wf, resources, corporaIDs, httpArgs)` → `{ method: ..., url: ..., params: ... }`
+
+  Create HTTP arguments for the lemgram completion call based on the given arguments. Arguments:
+    - `wf`: the word form (prefix) to complete
+    - `resources`: completion resources to use (need not be used)
+    - `corporaIDs`: ids of selected corpora
+    - `httpArgs`: default HTTP arguments object containing `method`, `url` and `params`
+  Return value: HTTP arguments object containing `method`, `url` and `params`
+
+- `makeLemgramList (data)` → `[lemgram]`
+
+  Extract lemgrams from data returned by the lemgram completion call.
+  Return value: array of lemgrams as strings
 
 __languages__ - Array of supported interface language codes s.a. `["en", "sv"]`
 
