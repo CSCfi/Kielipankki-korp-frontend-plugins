@@ -99,38 +99,71 @@ const selectController = (autocomplete) => [
     },
 ]
 
-// Select-element. Use the following settings in the corpus:
-// - dataset: an object or an array of values
-// - escape: boolean, will be used by the escaper-directive
+const datasetSelectController = (grouping) => [
+    "$scope",
+    "$rootScope",
+    function ($scope, $rootScope) {
+        let dataset
+        const original = $scope.dataset
+
+        $rootScope.$watch("lang", (newVal, oldVal) => {
+            if (newVal != oldVal) {
+                initialize()
+            }
+        })
+        function initialize() {
+            const localizer = localize($scope)
+            let sorter
+            if (! grouping) {
+                if (_.isArray(original)) {
+                    dataset = _.map(original, (item) => [item, localizer(item)])
+                } else {
+                    dataset = _.map(original, (v, k) => [k, localizer(v)])
+                }
+                sorter = (tuple) => tuple[1]
+            } else {
+                dataset = _.flatten(
+                    _.map(original, (groupVals, group) =>
+                        _.isArray(groupVals)
+                            // {"g1": ["v11", "v12"], "g2": ["v21", "v22"]}
+                            // -> [["v11", "v11", "g1"], ["v12", "v12", "g1"], ...]
+                            ? _.map(groupVals, (item) =>
+                                [item, localizer(item), localizer(group)])
+                            // {"g1": {"k11": "v11", "k12": "v12"}, "g2": ...}
+                            // -> [["v11", "k11", "g1"], ["v12", "k12", "g1"], ...]
+                            : _.map(groupVals, (v, k) =>
+                                [k, localizer(v), localizer(group)])
+                    ))
+                sorter = (tuple) => tuple[2] + "\x01" + tuple[1]
+            }
+            $scope.dataset = _.sortBy(dataset, sorter)
+            $scope.model = $scope.model || $scope.dataset[0][0]
+        }
+        initialize()
+    },
+]
+
 export default _.merge(
     {
+        // Select-element. Use the following settings in the corpus:
+        // - dataset: an object or an array of values
+        // - escape: boolean, will be used by the escaper-directive
         datasetSelect: {
             template: selectTemplate,
-            controller: [
-                "$scope",
-                "$rootScope",
-                function ($scope, $rootScope) {
-                    let dataset
-                    const original = $scope.dataset
+            controller: datasetSelectController(false),
+        },
 
-                    $rootScope.$watch("lang", (newVal, oldVal) => {
-                        if (newVal != oldVal) {
-                            initialize()
-                        }
-                    })
-                    function initialize() {
-                        const localizer = localize($scope)
-                        if (_.isArray(original)) {
-                            dataset = _.map(original, (item) => [item, localizer(item)])
-                        } else {
-                            dataset = _.map(original, (v, k) => [k, localizer(v)])
-                        }
-                        $scope.dataset = _.sortBy(dataset, (tuple) => tuple[1])
-                        $scope.model = $scope.model || $scope.dataset[0][0]
-                    }
-                    initialize()
-                },
-            ],
+        // Select-element with groups. Use the following settings in the corpus:
+        // - dataset: an object with keys as group names and values as
+        //   objects or arrays of values within the group
+        // - escape: boolean, will be used by the escaper-directive
+        groupedDatasetSelect: {
+            // TODO: Modifying selectTemplate like below is a bit
+            // ugly; maybe use a common template with a placeholder
+            // for the grouping clause, or have a function to return
+            // the object containing both the template and controller.
+            template: selectTemplate.replace(/(for tuple)/, "group by tuple[2] $1"),
+            controller: datasetSelectController(true),
         },
 
         // Select-element. Gets values from "struct_values"-command. Use the following settings in the corpus:
