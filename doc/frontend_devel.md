@@ -630,7 +630,18 @@ __corporafolders__ - Create a directory-structure in corpus chooser. Example:
     }
 
 __preselectedCorpora__ - An array of corpus (internal) names or folder names. Given corpora and corpora in folders will be selected on load. To select only a subfolder write `folder.subfolder`.
- 
+
+__handleUnavailableCorpora__ - Specify how to handle corpora defined in the configuration but not found by the backend. Supported values are:
+
+- `"none"` or `"fatal"`: no handling: an undefined corpus causes an error that stops loading Korp; the default if no value is specified;
+- `"error"`: error on the console;
+- `"warn"`: warning on the console; and
+- `"log"`: normal log message on the console.
+
+Note that filtering out unavailable corpora requires that the backend command `/corpus_info` understands the parameter `report_undefined_corpora`.
+
+Handling unavailable corpora results in a somewhat slower startup of Korp, so it could be enabled only for development environments, so that the production environment would have a slightly faster startup.
+
 __mapEnabled__ - See [Map](#map).
 
 __newMapEnabled__ - Renamed to `mapEnabled`.
