@@ -336,7 +336,9 @@ window.CorpusListing = class CorpusListing {
             })
         )
         if (_.isEmpty(withins)) {
-            return { sentence: { label: { sv: "mening", en: "sentence" } } }
+            return { sentence: { label: (
+                _.fromPairs(_.map(settings.languages,
+                                  (lang) => [lang, loc_data[lang].within_sentence]))) } }
         }
         return withins
     }
@@ -588,7 +590,7 @@ util.getLocaleString = (key, lang) => util.getLocaleStringUndefined(key, lang) |
 
 util.getLocaleStringUndefined = function (key, lang) {
     if (!lang) {
-        lang = window.lang || settings.defaultLanguage || "sv"
+        lang = window.lang || settings.defaultLanguage
     }
     try {
         return window.loc_data[lang][key]
@@ -1052,7 +1054,7 @@ util.formatDecimalString = function (x, mode, statsmode, stringOnly) {
 
 util.translateAttribute = (lang, translations, value) => {
     if (!lang) {
-        lang = window.lang || settings.defaultLanguage || "sv"
+        lang = window.lang || settings.defaultLanguage
     }
 
     if (translations && translations[value]) {

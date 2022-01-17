@@ -4,10 +4,7 @@ const pieChartImg = require("../img/stats2.png")
 
 const createStatisticsService = function () {
     const createColumns = function (corpora, reduceVals, reduceValLabels) {
-        const loc = {
-            sv: "sv-SE",
-            en: "gb-EN",
-        }[$("body").scope().lang]
+        const loc = settings.locales[$("body").scope().lang]
 
         const valueFormatter = function (row, cell, value, columnDef, dataContext) {
             const valTup = dataContext[columnDef.id + "_value"]

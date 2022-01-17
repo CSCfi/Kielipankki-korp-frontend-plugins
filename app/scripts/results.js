@@ -1812,10 +1812,7 @@ view.GraphResults = class GraphResults extends BaseResults {
                     name: timestamp,
                     field: timestamp,
                     formatter(row, cell, value, columnDef, dataContext) {
-                        const loc = {
-                            sv: "sv-SE",
-                            en: "gb-EN",
-                        }[$("body").scope().lang]
+                        const loc = settings.locales[$("body").scope().lang]
                         const fmt = function (valTup) {
                             if (typeof valTup[0] === "undefined") {
                                 return ""
