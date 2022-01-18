@@ -39,6 +39,11 @@
 // If settings.pluginsEnabled is defined, only the plugins listed in
 // it are enabled.
 //
+// A plugin may contain method "initialize", which is called (without
+// arguments) only for enabled plugins, unlike "constructor", which is
+// called at object creation time, regardless of whether the plugin is
+// enabled or not.
+//
 // TODO: Allow specifying the order in which individual callbacks are
 // called, as callback A of plugin X might need to be called before
 // that of plugin Y, but callback B of plugin Y before that of plugin
@@ -227,6 +232,9 @@ const Plugins = class Plugins {
         if (! isEnabled(plugin) || ! checkRequiredFeatures(plugin)) {
             return
         }
+        if (_.isFunction(plugin.initialize)) {
+            plugin.initialize()
+        }
         if (plugin.callbacks) {
             for (let propname of Object.getOwnPropertyNames(plugin.callbacks)) {
                 let callbacks = plugin.callbacks[propname]
@@ -244,7 +252,8 @@ const Plugins = class Plugins {
             for (let propname of getMethods(plugin)) {
                 c.log(propname, plugin[propname],
                       _.isFunction(plugin[propname]))
-                if (propname != "constructor" && ! propname.startsWith("_")
+                if (propname != "constructor" && propname != "initialize"
+                        && ! propname.startsWith("_")
                         && ! propname.endsWith("_")
                         && _.isFunction(plugin[propname])) {
                     this.addCallback(propname, plugin[propname], plugin)
@@ -302,6 +311,8 @@ const Plugins = class Plugins {
     // Create and return an AngularJS module name with args and
     // register it to be added as a depencency to the Korp app.
     // Plugins should typically use this instead of "angular.module".
+    // This should be called from the initialize method of a plugin to
+    // allow enabling and disabling the plugin.
     // Inspired by https://stackoverflow.com/a/17944566
     registerAngularModule (name, ...args) {
         // c.log("plugins.registerAngularModule", name, ...args)
