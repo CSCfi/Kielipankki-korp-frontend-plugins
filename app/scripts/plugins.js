@@ -33,6 +33,12 @@
 // of a registered plugin, registering it is deferred until a plugin
 // providing the feature has been registered.
 //
+// If a plugin has the property "name" (a string), it can be
+// explicitly enabled or disabled by including the name in the array
+// settings.pluginsEnabled or settings.pluginsDisabled, respectively.
+// If settings.pluginsEnabled is defined, only the plugins listed in
+// it are enabled.
+//
 // TODO: Allow specifying the order in which individual callbacks are
 // called, as callback A of plugin X might need to be called before
 // that of plugin Y, but callback B of plugin Y before that of plugin
@@ -63,6 +69,29 @@ const Plugins = class Plugins {
         // Names of AngularJS modules defined by plugins, to be added
         // as dependencies to the Korp app
         this.angularModules = []
+        // Normalize plugin names in settings.pluginsEnabled and
+        // settings.pluginsDisabled
+        for (const setting of ["pluginsEnabled", "pluginsDisabled"]) {
+            if (settings[setting]) {
+                settings[setting] =
+                    settings[setting].map((val) => this.normalizePluginName(val))
+            }
+        }
+    }
+
+    // Return pluginName normalized to an underscored, lower-cased
+    // variant: PluginName -> plugin_name, plugin-name -> plugin_name
+    normalizePluginName (pluginName) {
+        if (pluginName) {
+            return (pluginName
+                    .replaceAll(/([A-Z])/g, "_$1")
+                    .replaceAll("-", "_")
+                    .replaceAll(/_+/g, "_")
+                    .replace(/^_/, "")
+                    .toLowerCase())
+        } else {
+            return pluginName
+        }
     }
 
     // Add (append) callback function func in object plugin to hook point
@@ -83,6 +112,29 @@ const Plugins = class Plugins {
     // this.callbacks, each to the array of the property with the name
     // of the hook point.
     register (plugin) {
+
+        // Return true if the plugin is enabled, by checking if its
+        // name is contained in settings.pluginsEnabled (enable only
+        // the listed plugins) or settings.pluginsDisabled (enable all
+        // plugins except the listed ones)
+        const isEnabled = (plugin) => {
+            // The plugin name has to be specified explicitly, as
+            // plugin.constructor.name is not the original class name
+            // in minified code
+            const pluginName = this.normalizePluginName(plugin.name)
+            const enabled =
+                  (! pluginName ||
+                   (settings.pluginsEnabled
+                    && settings.pluginsEnabled.includes(pluginName)) ||
+                   (settings.pluginsDisabled
+                    && ! settings.pluginsDisabled.includes(pluginName)) ||
+                   (! settings.pluginsEnabled && ! settings.pluginsDisabled))
+            if (! enabled) {
+                c.log("Plugin", plugin.name || plugin.constructor.name,
+                      "is disabled")
+            }
+            return enabled
+        }
 
         // Return the names of methods in obj and its direct
         // prototype. Modified from
@@ -172,7 +224,7 @@ const Plugins = class Plugins {
         }
 
         c.log("Plugins.register", plugin.constructor.name, plugin)
-        if (! checkRequiredFeatures(plugin)) {
+        if (! isEnabled(plugin) || ! checkRequiredFeatures(plugin)) {
             return
         }
         if (plugin.callbacks) {
