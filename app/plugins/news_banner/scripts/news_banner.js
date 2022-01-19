@@ -27,7 +27,10 @@ class NewsBanner {
         // Register AngularJS module as a dependency to the Korp app
         plugins.registerAngularModule("newsbanner", []).directive(
             "newsBanner",
-            ($window, $location) => ({
+            // The injected dependencies appear to need to be named
+            // explicitly for the code to work minified. But why does
+            // newsdesk.js work without that?
+            ["$window", "$location", ($window, $location) => ({
                 template: `
                     <div id="news_banner" ng-if="showBanner">
                         <div id="news_banner_content">
@@ -144,7 +147,7 @@ class NewsBanner {
                     initData()
 
                 },
-            })
+            })]
         )
 
     }
