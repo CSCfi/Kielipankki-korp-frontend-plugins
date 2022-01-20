@@ -38,6 +38,11 @@
 // settings.pluginsEnabled or settings.pluginsDisabled, respectively.
 // If settings.pluginsEnabled is defined, only the plugins listed in
 // it are enabled.
+
+// A plugin can also be disabled by setting its property "disabled" to
+// true in the plugin class constructor. This can be used to disable a
+// plugin if the configuration does not contain settings required by
+// the plugin, for example.
 //
 // A plugin may contain method "initialize", which is called (without
 // arguments) only for enabled plugins, unlike "constructor", which is
@@ -121,19 +126,21 @@ const Plugins = class Plugins {
         // Return true if the plugin is enabled, by checking if its
         // name is contained in settings.pluginsEnabled (enable only
         // the listed plugins) or settings.pluginsDisabled (enable all
-        // plugins except the listed ones)
+        // plugins except the listed ones) and if its property
+        // "disabled" is falsey.
         const isEnabled = (plugin) => {
             // The plugin name has to be specified explicitly, as
             // plugin.constructor.name is not the original class name
             // in minified code
             const pluginName = this.normalizePluginName(plugin.name)
             const enabled =
-                  (! pluginName ||
-                   (settings.pluginsEnabled
-                    && settings.pluginsEnabled.includes(pluginName)) ||
-                   (settings.pluginsDisabled
-                    && ! settings.pluginsDisabled.includes(pluginName)) ||
-                   (! settings.pluginsEnabled && ! settings.pluginsDisabled))
+                  (! plugin.disabled &&
+                   (! pluginName ||
+                    (settings.pluginsEnabled
+                     && settings.pluginsEnabled.includes(pluginName)) ||
+                    (settings.pluginsDisabled
+                     && ! settings.pluginsDisabled.includes(pluginName)) ||
+                    (! settings.pluginsEnabled && ! settings.pluginsDisabled)))
             if (! enabled) {
                 c.log("Plugin", plugin.name || plugin.constructor.name,
                       "is disabled")
