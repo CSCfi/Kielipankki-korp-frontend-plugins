@@ -355,7 +355,7 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
             about: require("../markup/about.html"),
             login: require("../markup/login.html"),
         }[key]
-        const params = {
+        let params = {
             template: tmpl,
             scope: s,
             windowClass: key,
@@ -363,6 +363,8 @@ korpApp.controller("headerCtrl", function ($scope, $uibModal, utils) {
         if (key === "login") {
             params.size = "sm"
         }
+        // Let plugins modify params
+        params = plugins.callFilters("filterModalParams", params, key)
         modal = $uibModal.open(params)
 
         modal.result.then(
