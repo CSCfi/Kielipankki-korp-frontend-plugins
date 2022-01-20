@@ -170,6 +170,14 @@ function PugMultiplePathsPlugin ({paths = []}) {
     };
 }
 
+const pugMultiplePathsPlugin = PugMultiplePathsPlugin({
+    // TODO: Add all Korp plugin directories
+    paths: [
+        path.resolve(korpConfigDir),
+        "app",
+    ]
+})
+
 
 module.exports = {
     resolve: {
@@ -251,13 +259,7 @@ module.exports = {
                             // and need to be fixed with CSS
                             pretty: true,
                             basedir: path.resolve(__dirname, "app"),
-                            plugins: PugMultiplePathsPlugin({
-                                // TODO: Add all Korp plugin directories
-                                paths: [
-                                    path.resolve(korpConfigDir),
-                                    "app",
-                                ]
-                            }),
+                            plugins: pugMultiplePathsPlugin,
                         },
                     },
                 ],
