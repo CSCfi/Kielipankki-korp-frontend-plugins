@@ -18,5 +18,8 @@
     "terms_of_use": "Servicevillkor",
     "terms_of_use_urn": "urn:nbn:fi:lb-20150304100",
 
+    "about_body": "Korp är Språkbankens konkordansverktyg, anpassad till Finska språkbanken. För mer information, kommentarer, förslag, buggrapporter eller annan feedback, kontakta oss via <a id='feedback' class='follow_link' href='https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv' target='_blank'>feedbackformuläret</a> eller skicka e-post till <i>fin-clarin (at) helsinki.fi</i>.",
+    "about_adapt": "Anpassning till Finska språkbanken",
+
     "*** SENTINEL ***": "!!! ADD TRANSLATIONS ONLY *ABOVE* THIS LINE, to avoid trailing-comma errors. !!!"
 }

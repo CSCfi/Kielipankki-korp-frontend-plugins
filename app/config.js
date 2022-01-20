@@ -799,3 +799,18 @@ settings.formatCorpusChooserItem = {
 settings.modeSwitchRestoreParams = true
 // But keep the active "lang" (UI language)
 settings.modeSwitchRestoreParamsExclude = ["lang"]
+
+// Add information specific to the Language Bank of Finland to the
+// "about Korp" modal
+settings.aboutTemplateModifier = function (template) {
+    // The value of lbfExtension is the name of a file containing the
+    // HTML generated from markup/about_lbf.pug; this is determined by
+    // the loaders for Pug files in webpack.common.js of the main Korp
+    // codebase
+    const lbfExtension = require("./markup/about_lbf.pug")
+    // Include the content of the file to the template using
+    // ng-include
+    return template.replace(
+        /(<\/div>\s*<\/div>\s*)/,
+        `<ng-include src="'${lbfExtension}'"></ng-include> $1`)
+}
