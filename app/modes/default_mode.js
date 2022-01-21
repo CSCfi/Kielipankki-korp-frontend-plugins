@@ -9694,7 +9694,6 @@ settings.corpora.reittidemo = {
                 "TA"
             ],
             opts: liteOptions,
-            extendedComponent: "datasetSelect",
             escape: false,
         },
         utterance_begin_time: {
@@ -15179,7 +15178,6 @@ settings.corpora.eduskunta = {
             label: "speaker_parl_group",
             extendedComponent: "datasetSelect",
             opts: liteOptions,
-            extendedComponent: "datasetSelect",
             escape: false,
             dataset: [
                 "kd",
@@ -15256,7 +15254,6 @@ settings.corpora.eduskunta = {
             label: "speakerrole",
             extendedComponent: "datasetSelect",
             opts: liteOptions,
-            extendedComponent: "datasetSelect",
             escape: false,
             dataset: [
                 "puhemies",
@@ -15525,7 +15522,6 @@ settings.corpora.eduskunta = {
             label: "speech_type",
             extendedComponent: "datasetSelect",
             opts: liteOptions,
-            extendedComponent: "datasetSelect",
             escape: false,
             dataset: [
                 "ryhmapuheenvuoro",

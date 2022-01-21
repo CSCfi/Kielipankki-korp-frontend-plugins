@@ -4705,7 +4705,6 @@ attrs.pos_ud_fi_ud1.order = 13;
 attrs.pos_klk = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    extendedComponent: "datasetSelect",
     escape: false,
     opts: liteOptions,
     dataset: {
@@ -4874,7 +4873,6 @@ attrs.deprel_ftb2 = {
 };
 attrs.deprel_tdt = {
     label: "deprel",
-    // extendedComponent: "datasetSelect",
     extendedComponent: "datasetSelect",
     opts: liteOptions,
     dataset: {
@@ -6094,7 +6092,6 @@ sattrlist.klk = {
     text_language: {
         label: "lang",
         extendedComponent: "datasetSelect",
-        extendedComponent: "datasetSelect",
         escape: false,
         opts: liteOptions,
         dataset: {
@@ -6128,7 +6125,6 @@ sattrlist.klk = {
     },
     text_publ_type: {
         label: "publication_type",
-        extendedComponent: "datasetSelect",
         extendedComponent: "datasetSelect",
         escape: false,
         opts: liteOptions,
@@ -6175,7 +6171,6 @@ sattrlist.klk2 = $.extend(
                 "1",
                 "2",
             ],
-            extendedComponent: "datasetSelect",
             escape: false,
         },
     }
