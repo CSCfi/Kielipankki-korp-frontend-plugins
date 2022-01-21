@@ -13,15 +13,14 @@
 // authentication and authorization code by Jyrki Niemi.
 
 
-console.log("plugin shibboleth_auth")
-
-
 // Plugin class
 
 class ShibbolethAuth {
 
     // Initialize object
     constructor () {
+        // Plugin name
+        this.name = "shibboleth_auth"
         // The AngularJS scope for header controller
         this._headerScope = null
         // Username as retrieved from authentication (is this needed?)
