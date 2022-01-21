@@ -115,6 +115,21 @@ class ShibbolethAuth {
         this._processShibbolethLogin(this._headerScope)
     }
 
+    // If some corpora listed in the corpus parameter require login,
+    // redirect to the Shibboleth login page, unless the user has
+    // already logged in. This is called when the Korp page is loaded
+    // with a non-empty corpus parameter.
+    filterLoginNeededFor (loginNeededFor) {
+        if (loginNeededFor.length > 0 &&
+                location.hash.indexOf("shib_logged_in=true") == -1) {
+            this._redirectSaveParams(settings.getShibbolethLoginURL,
+                                     "shib_logged_in=true")
+            // This is actually not executed, as the browser is
+            // redirected to the login page
+            return []
+        }
+    }
+
     // Internal methods
 
     // Save the current URI fragment and redirect to another URL
