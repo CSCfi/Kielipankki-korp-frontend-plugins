@@ -332,9 +332,10 @@ settings.newsDeskUrl =
     window.location.protocol + "//" + window.location.hostname + "/"
     + window.location.pathname + "news/json/korpnews.json";
 
-settings.newsBannerUrl =
-    settings.newsDeskUrl.replace("korpnews.json", "korpbannernews.json")
-//     "http://localhost/korp9/news/json/korpbannernews.json"
+settings.newsBannerUrl = (
+    isProductionServer
+    ? settings.newsDeskUrl.replace("korpnews.json", "korpbannernews.json")
+    : "http://localhost/korp9/news/json/korpbannernews.json")
 
 
 // authenticationType: "basic", "shibboleth" or "none"
