@@ -162,7 +162,9 @@ korpApp.run(function ($rootScope, $location, searches, tmhDynamicLocale, $q, $ti
                 }
             }
         }
-        s.loginNeededFor = loginNeededFor
+        // Let plugins filter (or otherwise act on) the list of the
+        // corpora for which login is needed
+        s.loginNeededFor = plugins.callFilters("filterLoginNeededFor", loginNeededFor)
 
         if (!_.isEmpty(s.loginNeededFor)) {
             s.savedState = $location.search()
