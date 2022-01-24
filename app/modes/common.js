@@ -4070,6 +4070,16 @@ settings.commonStructTypes = {
 var attrlist = {};   // List of positional attributes
 var sattrlist = {};  // List of structural attributes
 
+// Functions used in corpus configurations
+funcs = {};
+
+
+// Create a pattern for a link with the label as the link text
+funcs.makeLinkPattern = function (label, url) {
+    return `<a href="${url}" class="exturl sidebar_link" target="_blank"><span rel="localize[${label}]"></span></a>`
+}
+
+
 // TODO: Replace the corpus- or annotation-specific translationKeys in
 // pos and deprel attributes with the generic pos_ and deprel_, so
 // that the translations need not be specified twice in the
@@ -7713,10 +7723,6 @@ sattrlist.topling = {
 /* --------- */
 
 
-// Functions used in corpus configurations
-funcs = {};
-
-
 // Add corpusIds to the "contents" array of corpusfolder folderName.
 // Arguments:
 // - folderName: a string that is a property (folder) in
@@ -8232,12 +8238,6 @@ funcs.set_attr_order = function (attrstruct, attrnamelist) {
         attrstruct[attrnamelist[i]].order = i;
     }
 };
-
-
-// Create a pattern for a link with the label as the link text
-funcs.makeLinkPattern = function (label, url) {
-    return `<a href="${url}" class="exturl sidebar_link" target="_blank"><span rel="localize[${label}]"></span></a>`
-}
 
 
 // Functions for the video page
