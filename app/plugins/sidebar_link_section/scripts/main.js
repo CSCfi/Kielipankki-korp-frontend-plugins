@@ -47,6 +47,10 @@ class MakeSidebarLinkSection {
                 customLinkData)
             // console.log("rendered content", links)
             $("#selected_links").html(links)
+        } else {
+            // Empty the link section for a hit without links, so
+            // that links from the previously shown hit are not shown
+            $("#selected_links").empty()
         }
     }
 
