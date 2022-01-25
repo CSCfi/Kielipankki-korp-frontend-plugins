@@ -222,6 +222,17 @@ function PugMultiplePathsPlugin ({paths = []}) {
     };
 }
 
+const pugMultiplePathsPlugin = PugMultiplePathsPlugin({
+    paths: [
+        path.resolve(korpConfigDir),
+        // Search under all plugin directories
+        path.resolve(`${korpConfigDir}/plugins/**`),
+        path.resolve(`${korpPluginDir}/**`),
+        path.resolve("app/plugins/**"),
+        "app",
+    ]
+})
+
 
 module.exports = {
     resolve: {
@@ -305,16 +316,7 @@ module.exports = {
                             // and need to be fixed with CSS
                             pretty: true,
                             basedir: path.resolve(__dirname, "app"),
-                            plugins: PugMultiplePathsPlugin({
-                                paths: [
-                                    path.resolve(korpConfigDir),
-                                    // Search under all plugin directories
-                                    path.resolve(`${korpConfigDir}/plugins/**`),
-                                    path.resolve(`${korpPluginDir}/**`),
-                                    path.resolve("app/plugins/**"),
-                                    "app",
-                                ]
-                            }),
+                            plugins: pugMultiplePathsPlugin,
                         },
                     },
                 ],
