@@ -379,6 +379,7 @@ export const sidebarComponent = {
                                 val: str_value,
                                 pos_attrs: wordData,
                                 struct_attrs: sentenceData,
+                                tokens,
                             })
                         )
                     } else {

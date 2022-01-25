@@ -395,7 +395,7 @@ corpus is as simple as:
 * `structAttributes`: refers to higher level metadata attributes. Examples include author, publishing year, URL etc. Structural attributes support the same settings as the word attributes.
 * `customAttributes`: creates fields in the sidebar that have no corresponding attribute in the backend. Useful for combining two different attributes. All settings concerning sidebar format for normal attributes apply in addition to:
     * `customType`: `"struct"` / `"pos"` - decides if the attribute should be grouped under word attributes or text attributes.
-    * `pattern`: Same as pattern for normal attributes, but `struct_attrs` and `pos_attrs` also available. Example: `'<p style="margin-left: 5px;"><%=struct_attrs.text_title - struct_attrs.text_description%></p>'`
+    * `pattern`: Same as pattern for normal attributes, but `struct_attrs`, `pos_attrs` and `tokens` (all tokens in the hit) are also available. Example: `'<p style="margin-left: 5px;"><%=struct_attrs.text_title - struct_attrs.text_description%></p>'`.
 * `readingMode`: See [Reading mode](#reading-mode).
 
 ## Parallel Corpora
