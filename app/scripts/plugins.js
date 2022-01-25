@@ -33,6 +33,22 @@
 // of a registered plugin, registering it is deferred until a plugin
 // providing the feature has been registered.
 //
+// If a plugin has the property "name" (a string), it can be
+// explicitly enabled or disabled by including the name in the array
+// settings.pluginsEnabled or settings.pluginsDisabled, respectively.
+// If settings.pluginsEnabled is defined, only the plugins listed in
+// it are enabled.
+
+// A plugin can also be disabled by setting its property "disabled" to
+// true in the plugin class constructor. This can be used to disable a
+// plugin if the configuration does not contain settings required by
+// the plugin, for example.
+//
+// A plugin may contain method "initialize", which is called (without
+// arguments) only for enabled plugins, unlike "constructor", which is
+// called at object creation time, regardless of whether the plugin is
+// enabled or not.
+//
 // TODO: Allow specifying the order in which individual callbacks are
 // called, as callback A of plugin X might need to be called before
 // that of plugin Y, but callback B of plugin Y before that of plugin
@@ -63,6 +79,29 @@ const Plugins = class Plugins {
         // Names of AngularJS modules defined by plugins, to be added
         // as dependencies to the Korp app
         this.angularModules = []
+        // Normalize plugin names in settings.pluginsEnabled and
+        // settings.pluginsDisabled
+        for (const setting of ["pluginsEnabled", "pluginsDisabled"]) {
+            if (settings[setting]) {
+                settings[setting] =
+                    settings[setting].map((val) => this.normalizePluginName(val))
+            }
+        }
+    }
+
+    // Return pluginName normalized to an underscored, lower-cased
+    // variant: PluginName -> plugin_name, plugin-name -> plugin_name
+    normalizePluginName (pluginName) {
+        if (pluginName) {
+            return (pluginName
+                    .replaceAll(/([A-Z])/g, "_$1")
+                    .replaceAll("-", "_")
+                    .replaceAll(/_+/g, "_")
+                    .replace(/^_/, "")
+                    .toLowerCase())
+        } else {
+            return pluginName
+        }
     }
 
     // Add (append) callback function func in object plugin to hook point
@@ -83,6 +122,31 @@ const Plugins = class Plugins {
     // this.callbacks, each to the array of the property with the name
     // of the hook point.
     register (plugin) {
+
+        // Return true if the plugin is enabled, by checking if its
+        // name is contained in settings.pluginsEnabled (enable only
+        // the listed plugins) or settings.pluginsDisabled (enable all
+        // plugins except the listed ones) and if its property
+        // "disabled" is falsey.
+        const isEnabled = (plugin) => {
+            // The plugin name has to be specified explicitly, as
+            // plugin.constructor.name is not the original class name
+            // in minified code
+            const pluginName = this.normalizePluginName(plugin.name)
+            const enabled =
+                  (! plugin.disabled &&
+                   (! pluginName ||
+                    (settings.pluginsEnabled
+                     && settings.pluginsEnabled.includes(pluginName)) ||
+                    (settings.pluginsDisabled
+                     && ! settings.pluginsDisabled.includes(pluginName)) ||
+                    (! settings.pluginsEnabled && ! settings.pluginsDisabled)))
+            if (! enabled) {
+                c.log("Plugin", plugin.name || plugin.constructor.name,
+                      "is disabled")
+            }
+            return enabled
+        }
 
         // Return the names of methods in obj and its direct
         // prototype. Modified from
@@ -172,8 +236,11 @@ const Plugins = class Plugins {
         }
 
         c.log("Plugins.register", plugin.constructor.name, plugin)
-        if (! checkRequiredFeatures(plugin)) {
+        if (! isEnabled(plugin) || ! checkRequiredFeatures(plugin)) {
             return
+        }
+        if (_.isFunction(plugin.initialize)) {
+            plugin.initialize()
         }
         if (plugin.callbacks) {
             for (let propname of Object.getOwnPropertyNames(plugin.callbacks)) {
@@ -192,7 +259,8 @@ const Plugins = class Plugins {
             for (let propname of getMethods(plugin)) {
                 c.log(propname, plugin[propname],
                       _.isFunction(plugin[propname]))
-                if (propname != "constructor" && ! propname.startsWith("_")
+                if (propname != "constructor" && propname != "initialize"
+                        && ! propname.startsWith("_")
                         && ! propname.endsWith("_")
                         && _.isFunction(plugin[propname])) {
                     this.addCallback(propname, plugin[propname], plugin)
@@ -250,6 +318,8 @@ const Plugins = class Plugins {
     // Create and return an AngularJS module name with args and
     // register it to be added as a depencency to the Korp app.
     // Plugins should typically use this instead of "angular.module".
+    // This should be called from the initialize method of a plugin to
+    // allow enabling and disabling the plugin.
     // Inspired by https://stackoverflow.com/a/17944566
     registerAngularModule (name, ...args) {
         // c.log("plugins.registerAngularModule", name, ...args)
