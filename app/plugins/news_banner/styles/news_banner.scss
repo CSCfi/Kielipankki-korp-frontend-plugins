@@ -1,0 +1,58 @@
+
+// Style definitions for the news banner
+
+
+// The whole news banner
+#news_banner {
+    display: table;
+    overflow: auto;
+    clear: both;
+    width: 100%;
+    background-color: lightblue;
+    border-bottom-width: 2pt;
+    border-bottom-color: darkblue;
+    padding: 0.25em;
+    // The news content
+    #news_banner_content {
+        display: table-cell;
+        padding: 0.25em;
+        width: 100%;
+    }
+    // Closing "X"
+    #news_banner_close {
+        display: table-cell;
+        vertical-align: top;
+        font-size: 200%;
+        padding-right: 0.5em;
+        cursor: pointer;
+    }
+}
+
+// Individual news item
+.newsbanner-item {
+    line-height: 120%;
+}
+
+// News item content (div)
+.newsbanner-item-content {
+    padding: 0.25em;
+    p {
+        margin: 0;
+        padding: 0.1em;
+    }
+}
+
+// News item heading (p within content)
+.newsbanner-item-heading {
+}
+
+// News item date (span within heading)
+.newsbanner-item-date {
+    padding-right: 0.5em;
+    color: darkblue;
+}
+
+// News item title (span within heading)
+.newsbanner-item-title {
+    font-weight: bold;
+}
