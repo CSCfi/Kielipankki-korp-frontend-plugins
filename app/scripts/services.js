@@ -437,8 +437,8 @@ korpApp.factory("lexicons", function ($q, $http) {
                 params: args,
             }
             if (altComplete && altComplete.makeHTTPArgs) {
-                httpArgs = altComplete.makeHTTPArgs(
-                    wf, resources, corporaIDs, httpArgs)
+                httpArgs = util.httpConfAddMethod(altComplete.makeHTTPArgs(
+                    wf, resources, corporaIDs, httpArgs))
             }
             $http(httpArgs)
                 .then(function (response) {
