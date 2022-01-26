@@ -8461,6 +8461,7 @@ funcs.make_klk_corpus_settings = function(
         attributes: attrlist[attrs_key],
         structAttributes: sattrlist[attrs_key],
         customAttributes: sattrlist[attrs_key + "_custom"] || undefined,
+        defaultFilters: ["text_publ_title"],
     };
 }
 
