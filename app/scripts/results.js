@@ -339,7 +339,7 @@ view.KWICResults = class KWICResults extends BaseResults {
         }
 
         if (settings.enableBackendKwicDownload) {
-            util.setDownloadLinks(this.proxy.prevUrl, data)
+            util.setDownloadLinks(this.s.$root.jsonUrl, data)
         }
 
         this.$result.localize()
