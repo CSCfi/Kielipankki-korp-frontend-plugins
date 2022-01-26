@@ -13083,6 +13083,8 @@ sattrlist.klk_fi_parsed = $.extend(
 sattrlist.klk_fi_parsed_pagelinks = $.extend(
     {}, sattrlist.klk_fi_parsed, sattrlist.klk_pagelinks);
 
+sattrlist.klk_fi_parsed_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+
 attrlist.klk_fi = {
     ocr: {
         label: "OCR",

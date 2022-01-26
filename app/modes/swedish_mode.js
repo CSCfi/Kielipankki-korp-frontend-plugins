@@ -48,6 +48,8 @@ sattrlist.klk_sv_parsed = $.extend(
 sattrlist.klk_sv_parsed_pagelinks = $.extend(
     {}, sattrlist.klk_sv_parsed, sattrlist.klk_pagelinks);
 
+sattrlist.klk_sv_parsed_pagelinks_custom = sattrlist.klk_pagelinks_custom;
+
 attrlist.klk_sv = {
     ocr: {
         label: "OCR",

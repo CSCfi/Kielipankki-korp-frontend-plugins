@@ -6194,32 +6194,29 @@ sattrlist.klk_pagelinks = {
     text_binding_id: {
         displayType: "hidden"
     },
+};
+
+sattrlist.klk_pagelinks_custom = {
     text_page_image_url: {
-        label: "show_page_image",
-        type: "url",
+        pattern: funcs.makeLinkPattern(
+            "show_page_image",
+            "<%= funcs.make_klk_page_image_url({struct_attrs, pos_attrs, tokens}, 0) %>"),
+        customType: "struct",
         urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            return funcs.make_klk_page_image_url(token_data, 0);
-        }
     },
     text_page_image_context_url: {
-        label: "show_page_image_context",
-        type: "url",
+        pattern: funcs.makeLinkPattern(
+            "show_page_image_context",
+            "<%= funcs.make_klk_page_image_url({struct_attrs, pos_attrs, tokens}, 2) %>"),
+        customType: "struct",
         urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            return funcs.make_klk_page_image_url(token_data, 2);
-        }
     },
     text_download_pdf_url: {
-        label: "download_publ_pdf",
-        type: "url",
+        pattern: funcs.makeLinkPattern(
+            "download_publ_pdf",
+            "<%= funcs.make_klk_url_base({struct_attrs, pos_attrs, tokens}) %>/pdf"),
+        customType: "struct",
         urlOpts: sattrs.link_url_opts,
-        synthetic: true,
-        stringify_synthetic: function (token_data) {
-            return funcs.make_klk_url_base(token_data) + "/pdf";
-        }
     },
 };
 
@@ -8462,7 +8459,8 @@ funcs.make_klk_corpus_settings = function(
                  : settings[ctx_type + "Within"]),
         context: window[ctx_type + "Context"],
         attributes: attrlist[attrs_key],
-        structAttributes: sattrlist[attrs_key]
+        structAttributes: sattrlist[attrs_key],
+        customAttributes: sattrlist[attrs_key + "_custom"] || undefined,
     };
 }
 
