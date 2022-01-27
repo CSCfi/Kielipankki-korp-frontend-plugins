@@ -815,3 +815,8 @@ settings.aboutTemplateModifier = function (template) {
         /(<\/div>\s*<\/div>\s*)/,
         `<ng-include src="'${lbfExtension}'"></ng-include> $1`)
 }
+
+// Run as Korp Labs if the path contain "korplab" or "-test"
+settings.isKorpLabsURL = function (location) {
+    return location.pathname.split("/")[1].match(/korplabb?|-test/)
+}
