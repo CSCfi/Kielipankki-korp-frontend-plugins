@@ -688,6 +688,8 @@ __hitsPerPageDefault__ - The number of hits per page that Korp should select by 
 
 __startLang__ - The default in the language dropdown for parallel Korp, for example: `"swe"`
 
+__isKorpLabsURL__ - A function which returns `true` if Korp should run as Korp Labs, based on `window.location` passed as the argument. If the function is not defined, Korp runs as Korp Labs if the second component of `window.location.pathname` is `"korplabb"`. Korp Labs can be used to test upcoming changes to Korp and it may have a different mode selection than the production Korp.
+
 __modeSwitchRestoreParams__ - Boolean (default: `false`). Save and restore Korp parameters when switching modes within a page session, so the user can return to the same search after visiting another mode. The parameters listed in `modeSwitchRestoreParamsExclude` are not restored.
 
 __modeSwitchRestoreParamsExclude__ - Array of strings. Do not save and restore the parameters whose names are listed in this array when switching modes even if `modeSwitchRestoreParams` is `true`. The default is `["lang"]`: the user interface language is not saved or restored.

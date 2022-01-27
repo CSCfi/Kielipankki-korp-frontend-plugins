@@ -49,7 +49,6 @@ require("./lib/jquery.format.js")
 let deparam = require("jquery-deparam")
 
 window.c = console
-window.isLab = window.location.pathname.split("/")[1].match(/korplabb?|-test/)
 window.currentMode = deparam(window.location.search.slice(1)).mode || "default"
 
 // tmhDynamicLocale = require("angular-dynamic-locale/src/tmhDynamicLocale")
@@ -97,6 +96,10 @@ _.map(commonSettings, function(v, k) {
 })
 
 function requireAll(r) { r.keys().forEach(r) }
+
+window.isLab = (settings.isKorpLabsURL ?
+                settings.isKorpLabsURL(window.location) :
+                window.location.pathname.split("/")[1] == "korplabb")
 
 require("./scripts/components/sidebar.js")
 
