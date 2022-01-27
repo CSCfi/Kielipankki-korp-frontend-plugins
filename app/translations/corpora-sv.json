@@ -427,6 +427,8 @@
     "speakerregion": "talarregion",
     "speakergender": "talarkön",
     "participants": "deltagare",
+
+    "show_video_korp": "Visa video i Korp",
     "video": "video",
     "video_restart": "Starta om",
     "video_continue": "Fortsätt",

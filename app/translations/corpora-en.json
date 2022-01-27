@@ -605,6 +605,8 @@
     "speakerregion": "speaker region",
     "speakergender": "speaker gender",
     "participants": "participants",
+
+    "show_video_korp": "Show video in Korp",
     "video": "video",
     "video_restart": "Restart",
     "video_continue": "Continue",

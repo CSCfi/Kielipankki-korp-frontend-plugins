@@ -55,7 +55,7 @@ export default {
     //
     // options is an object containing (some of) the following
     // properties:
-    // - label: localizable label for the video link; default: "show_video"
+    // - label: localizable label for the video link; default: "show_video_korp"
     // - baseURL: base URL for the video
     // - startTime: start time of the video in milliseconds
     // - endTime: end time of the video in milliseconds
@@ -99,7 +99,7 @@ export default {
             const videoType = getValue(options.videoType) || "mp4"
             const height = getValue(options.height) || "auto"
             const width = getValue(options.width) || "auto"
-            $scope.label = getValue(options.label) || "show_video"
+            $scope.label = getValue(options.label) || "show_video_korp"
             // console.log("videoPlayer controller", $scope.sentenceData,
             //             baseURL, startTime, endTime, path, file, ext)
 
