@@ -62,6 +62,8 @@ export default {
     // - path: path of the video file, appended to baseURL
     // - file: filename of the video file, appended to baseURL + path
     // - ext: extension of the video file (without the leading dot)
+    // - height: video height (percentage or "auto"); default: "auto"
+    // - width: video width (percentage or "auto"); default: "auto"
     // - videoType: video type (appended to "video/"); default: "mp4"
     //
     // If file and ext are empty, path is considered to contain them;
@@ -95,6 +97,8 @@ export default {
             const file = getValue(options.file)
             const ext = getValue(options.ext)
             const videoType = getValue(options.videoType) || "mp4"
+            const height = getValue(options.height) || "auto"
+            const width = getValue(options.width) || "auto"
             $scope.label = getValue(options.label) || "show_video"
             // console.log("videoPlayer controller", $scope.sentenceData,
             //             baseURL, startTime, endTime, path, file, ext)
@@ -108,6 +112,8 @@ export default {
                                        : url.split("/").slice(-1)[0])
                 modalScope.startTime = startTime / 1000
                 modalScope.endTime = endTime / 1000
+                modalScope.height = height
+                modalScope.width = width
                 // console.log("videoLink", modalScope.videos,
                 //             modalScope.fileName, modalScope.startTime,
                 //             modalScope.endTime)
