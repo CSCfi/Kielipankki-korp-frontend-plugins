@@ -5574,13 +5574,6 @@ attrlist.finer = {
     nerbio: attrs.ner_bio,
 };
 
-// TDT + FiNER attributes
-attrlist.parsed_tdt_finer = $.extend(
-    true, {},
-    attrlist.parsed_tdt,
-    attrlist.finer);
-
-
 // Attributes produced by vrt-finnish-nertag (*not* FiNER version 2,
 // but Finnish NER *tags* version 2)
 attrlist.finer2 = {
@@ -5600,11 +5593,6 @@ attrlist.finer2 = {
         label: "ner_bio",
     },
 };
-
-attrlist.parsed_tdt_finer2 = $.extend(
-    true, {},
-    attrlist.parsed_tdt,
-    attrlist.finer);
 
 
 attrlist.ud2_fi = {
@@ -6060,6 +6048,18 @@ attrlist.parsed_tdt_spaces = $.extend(
     {
         spaces: attrs.spaces,
     });
+
+// TDT + FiNER attributes
+attrlist.parsed_tdt_finer = $.extend(
+    true, {},
+    attrlist.parsed_tdt,
+    attrlist.finer);
+
+// TDT + new FiNER attributes
+attrlist.parsed_tdt_finer2 = $.extend(
+    true, {},
+    attrlist.parsed_tdt,
+    attrlist.finer2);
 
 
 // KLK structural attributes, for both Finnish and Swedish
