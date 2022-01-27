@@ -8609,73 +8609,26 @@ settings.templ.lemmie_common = {
 // Make a custom (structural) attribute for showing the video popup,
 // based on other attribute values.
 //
-// If the values of (some of) the arguments baseURL, path, file, ext,
-// startTime and endTime begin with an "@", the rest of the value is
-// the name of the (structural) attribute from which to get the actual
-// value; otherwise, the value is used as a constant value as such.
-// The seventh argument is optional videoType: if not specified, its
-// value defaults to "mp4".
+// Arguments:
+// - options: an options object to be passed to the videoPlayer
+//   sidebar component; see app/custom/sidebar.js for more information
+//   on the options
+// - attrProps: properties of the attribute definition object,
+//   possibly overriding the defaults (urlOpts: sattrs.link_url_opts,
+//   customType: "struct")
 //
-// Generalized from ivipVideo in Språkbankens default_mode.js
+// Adapted and generalized from ivipVideo in Språkbankens default_mode.js
 
-funcs.makeVideoAttr = function (baseURL0, path0, file0, ext0, startTime0, endTime0) {
-    var videoType = (arguments[6] || "mp4");
-    console.log("makeVideoAttr", startTime0, endTime0);
-    return {
-        label: "video",
-        renderItem: function (key, value, attrs, wordData, sentenceData,
-                              tokens) {
-            var getValue = function (value) {
-                return (value.startsWith("@")
-                        ? sentenceData[value.slice(1)]
-                        : value);
-            };
-            var baseURL = getValue(baseURL0);
-            var startTime = getValue(startTime0);
-            var endTime = getValue(endTime0);
-            var path = getValue(path0);
-            var file = getValue(file0);
-            var ext = getValue(ext0);
-            console.log("video renderItem", sentenceData, baseURL, startTime,
-                        endTime, path, file, ext);
-            var videoLink
-                = $('<span class="link" rel="localize[show_video]"></span>');
-            videoLink.click(function () {
-                var url = baseURL + path + file + (ext ? "." + ext : "");
-                var scope = angular.element("#video-modal").scope();
-                scope.videos = [{"url": url, "type": "video/" + videoType}];
-                scope.fileName = (file
-                                  ? file + "." + ext
-                                  : url.split("/").slice(-1)[0]);
-                scope.startTime = startTime / 1000;
-                scope.endTime = endTime / 1000;
-                console.log("videoLink", scope.videos, scope.fileName,
-                            scope.startTime, scope.endTime);
-                // find start of sentence
-                var startIdx = 0
-                for (var i = wordData.position; i >= 0; i--) {
-                    if (_.includes(tokens[i]._open, "sentence")) {
-                        startIdx = i;
-                        break;
-                    }
-                }
-                // find end of sentence
-                var endIdx = tokens.length - 1
-                for (var i = wordData.position; i < tokens.length; i++) {
-                    if (_.includes(tokens[i]._close, "sentence")) {
-                        endIdx = i;
-                        break;
-                    }
-                }
-                scope.sentence =
-                    _.map(tokens.slice(startIdx, endIdx + 1), "word").join(" ")
-                scope.open();
-                scope.$apply();
-            });
-            return videoLink;
+funcs.makeVideoAttr = function (options, attrProps) {
+    const attrDefaults = {
+        sidebarComponent: {
+            name: "videoPlayer",
+            options: options,
         },
+        urlOpts: sattrs.link_url_opts,
         customType: "struct",
-    }
+    };
+    return $.extend({}, attrDefaults, attrProps || {});
 };
 
 
