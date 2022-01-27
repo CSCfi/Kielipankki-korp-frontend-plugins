@@ -8302,7 +8302,13 @@ funcs.make_videopage_url = function (corpus_id, token_data, video_url,
         // change single quotes to double ones. FIXME: This assumes
         // that single quotes are used only to delimit attribute
         // values.
-        var licence_text = util.formatCorpusExtraInfo(
+        // FIXME: Avoid calling the method _formatCorpusExtraInfo
+        // internal to the corpusinfo_formatter plugin
+        var corpusinfoFormatter = plugins.getPlugin("corpusinfo_formatter");
+        if (! corpusinfoFormatter) {
+            return "";
+        }
+        var licence_text = corpusinfoFormatter._formatCorpusExtraInfo(
             corpus_conf, { info_items: ["licence"],
                            static_localization: true })
             .replace(/'/g, "\"");
