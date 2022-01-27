@@ -9708,7 +9708,7 @@ settings.corpora.reittidemo = {
         utterance_annex_link: sattrs.link_show_video_annex,
     },
     customAttributes: {
-        video: makeVideoAttr(
+        video: funcs.makeVideoAttr(
             "http://localhost/corpusdata/", "reittidemo/", "reitti_a-siipeen", "mp4",
             "@utterance_begin_time", "@utterance_end_time"),
     },
@@ -15631,7 +15631,7 @@ settings.corpora.eduskunta = {
         //     "utterance_end_time", "utterance_end_time"),
         // utterance_duration_hms: funcs.make_hms_custom_attr(
         //     "utterance_duration", "utterance_duration"),
-        video: makeVideoAttr(
+        video: funcs.makeVideoAttr(
             "@text_original_video", "", "", "",
             "@utterance_begin_time", "@utterance_end_time"),
     },

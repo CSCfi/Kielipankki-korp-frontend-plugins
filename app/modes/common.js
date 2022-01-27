@@ -8618,7 +8618,7 @@ settings.templ.lemmie_common = {
 //
 // Generalized from ivipVideo in Språkbankens default_mode.js
 
-var makeVideoAttr = function (baseURL0, path0, file0, ext0, startTime0, endTime0) {
+funcs.makeVideoAttr = function (baseURL0, path0, file0, ext0, startTime0, endTime0) {
     var videoType = (arguments[6] || "mp4");
     console.log("makeVideoAttr", startTime0, endTime0);
     return {
@@ -8693,5 +8693,4 @@ module.exports = {
     setOptions,
     fullSetOptions,
     liteOptions,
-    makeVideoAttr,
 }
