@@ -9705,7 +9705,9 @@ settings.corpora.reittidemo = {
         utterance_duration: {
             label: "utterance_duration"
         },
-        utterance_annex_link: sattrs.link_show_video_annex,
+        // TODO: Should this be replaced with something else, or is
+        // the Korp video link below enough?
+        // utterance_annex_link: sattrs.link_show_video_annex,
     },
     customAttributes: {
         video: funcs.makeVideoAttr({
