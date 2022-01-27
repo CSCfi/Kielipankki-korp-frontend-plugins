@@ -9708,9 +9708,15 @@ settings.corpora.reittidemo = {
         utterance_annex_link: sattrs.link_show_video_annex,
     },
     customAttributes: {
-        video: funcs.makeVideoAttr(
-            "http://localhost/corpusdata/", "reittidemo/", "reitti_a-siipeen", "mp4",
-            "@utterance_begin_time", "@utterance_end_time"),
+        video: funcs.makeVideoAttr({
+            label: "show_video",
+            baseURL: "http://localhost/corpusdata/",
+            path: "reittidemo/",
+            file: "reitti_a-siipeen",
+            ext: "mp4",
+            startTime: "@utterance_begin_time",
+            endTime: "@utterance_end_time",
+        }),
     },
 };
 
@@ -15631,9 +15637,13 @@ settings.corpora.eduskunta = {
         //     "utterance_end_time", "utterance_end_time"),
         // utterance_duration_hms: funcs.make_hms_custom_attr(
         //     "utterance_duration", "utterance_duration"),
-        video: funcs.makeVideoAttr(
-            "@text_original_video", "", "", "",
-            "@utterance_begin_time", "@utterance_end_time"),
+        // Link to show Korp video modal
+        video: funcs.makeVideoAttr({
+            label: "show_video",
+            baseURL: "@text_original_video",
+            startTime: "@utterance_begin_time",
+            endTime: "@utterance_end_time",
+        }),
     },
 };
 
