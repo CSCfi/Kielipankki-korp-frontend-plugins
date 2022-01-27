@@ -820,3 +820,6 @@ settings.aboutTemplateModifier = function (template) {
 settings.isKorpLabsURL = function (location) {
     return location.pathname.split("/")[1].match(/korplabb?|-test/)
 }
+
+// The Korp version shown in the Korp logo: "v9" also in Korp Labs
+settings.logoKorpVersion = "v9"
