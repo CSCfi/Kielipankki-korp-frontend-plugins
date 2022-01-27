@@ -9711,7 +9711,6 @@ settings.corpora.reittidemo = {
     },
     customAttributes: {
         video: funcs.makeVideoAttr({
-            label: "show_video",
             baseURL: "http://localhost/corpusdata/",
             path: "reittidemo/",
             file: "reitti_a-siipeen",
@@ -15641,7 +15640,6 @@ settings.corpora.eduskunta = {
         //     "utterance_duration", "utterance_duration"),
         // Link to show Korp video modal
         video: funcs.makeVideoAttr({
-            label: "show_video",
             baseURL: "@text_original_video",
             startTime: "@utterance_begin_time",
             endTime: "@utterance_end_time",
