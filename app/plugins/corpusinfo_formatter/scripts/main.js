@@ -13,6 +13,11 @@ c.log("plugin corpusinfo_formatter")
 
 class CorpusInfoFormatter {
 
+    constructor () {
+        // Plugin name
+        this.name = "corpusinfo_formatter"
+    }
+
     // Callback methods
 
     // Format extra corpus info in corpusObj for the corpus info popup,
