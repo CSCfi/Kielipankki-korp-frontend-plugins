@@ -84,6 +84,7 @@ korpApp.run(function ($rootScope, $location, searches, tmhDynamicLocale, $q, $ti
     window.lang = s.lang = $location.search().lang || settings.defaultLanguage
     s.word_selected = null
     s.isLab = window.isLab
+    s.logoKorpVersion = settings.logoKorpVersion || (isLab ? "v10" : "v9")
 
     // s.sidebar_visible = false
 

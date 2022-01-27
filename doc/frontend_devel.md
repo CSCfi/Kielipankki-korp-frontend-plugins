@@ -643,6 +643,8 @@ __hitsPerPageDefault__ - The number of hits per page that Korp should select by 
 
 __startLang__ - The default in the language dropdown for parallel Korp, for example: `"swe"`
 
+__logoKorpVersion__ - The Korp version number string to be shown in the Korp logo; default: the current version for production Korp (non-Korp Labs) and the current version plus one for Korp Labs, prefixed with a `v`.
+
 # Developing the Korp Frontend
 
 Here is where we present details on how to install development dependencies for the Korp frontend and how to build and distribute the frontend code.
