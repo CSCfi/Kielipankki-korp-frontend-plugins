@@ -66,6 +66,10 @@ const Plugins = class Plugins {
         // they have been registered and in which their callbacks are
         // called
         this.registeredPlugins = []
+        // Registered plugin objects with their name as the key
+        // (object property name); this lists only plugins with a
+        // "name" property
+        this.registeredPluginsByName = {}
         // The features provided by the plugins registered this far
         // (array of strings)
         this.providedFeatures = []
@@ -270,6 +274,19 @@ const Plugins = class Plugins {
         // c.log("callbacks", this.callbacks)
         checkProvidedFeatures(plugin)
         this.registeredPlugins.push(plugin)
+        if (plugin.name) {
+            const pluginName = this.normalizePluginName(plugin.name)
+            if (pluginName in this.registeredPluginsByName) {
+                c.warn("Duplicate plugin name:", pluginName)
+            }
+            this.registeredPluginsByName[pluginName] = plugin
+        }
+    }
+
+    // Return the plugin with the given name if it has been registered
+    // (and has the "name" property).
+    getPlugin (name) {
+        return this.registeredPluginsByName[this.normalizePluginName(name)]
     }
 
     // Call plugin callback functions (actions) registered for
