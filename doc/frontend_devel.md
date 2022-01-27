@@ -643,6 +643,8 @@ __hitsPerPageDefault__ - The number of hits per page that Korp should select by 
 
 __startLang__ - The default in the language dropdown for parallel Korp, for example: `"swe"`
 
+__isKorpLabsURL__ - A function which returns `true` if Korp should run as Korp Labs, based on `window.location` passed as the argument. If the function is not defined, Korp runs as Korp Labs if the second component of `window.location.pathname` is `"korplabb"`. Korp Labs can be used to test upcoming changes to Korp and it may have a different mode selection than the production Korp.
+
 # Developing the Korp Frontend
 
 Here is where we present details on how to install development dependencies for the Korp frontend and how to build and distribute the frontend code.
