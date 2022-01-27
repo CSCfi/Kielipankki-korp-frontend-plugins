@@ -28,6 +28,12 @@ korpApp.controller("VideoCtrl", function ($scope, $uibModal) {
                 sentence() {
                     return $scope.sentence
                 },
+                height () {
+                    return $scope.height
+                },
+                width () {
+                    return $scope.width
+                },
             },
         })
     }
@@ -44,10 +50,14 @@ korpApp.controller("VideoInstanceCtrl", function (
     startTime,
     endTime,
     fileName,
-    sentence
+    sentence,
+    height,
+    width,
 ) {
     $scope.fileName = fileName
     $scope.sentence = sentence
+    $scope.height = height || "auto"
+    $scope.width = width || "auto"
 
     const transformSeconds = function (seconds) {
         let sHours
