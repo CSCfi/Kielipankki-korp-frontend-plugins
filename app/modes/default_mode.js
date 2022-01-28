@@ -15536,7 +15536,6 @@ settings.templ.s24_2018_2020 = {
     cite_id: "urn:nbn:fi:lb-2021101522",
     shortname: "suomi24-2018-2020-korp",
     features: ["paragraphs", "parsed_tdt", "spaces"],
-    labels: ["beta"],
     struct_attributes: sattrlist.s24_2018_2020,
 };
 
