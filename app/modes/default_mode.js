@@ -15105,13 +15105,7 @@ funcs.make_hms_custom_attr = function (label, base_attr) {
     return {
         customType: "struct",
         label: label,
-        // order: 6,
-        renderItem: function (key, value, attrs, wordData, sentenceData,
-                              tokens) {
-            // console.log(base_attr + "_hms", key, value, attrs, wordData,
-            //          sentenceData, tokens);
-            return funcs.ms_to_hms(sentenceData[base_attr]);
-        }
+        pattern: `<span><%= funcs.ms_to_hms(struct_attrs.${base_attr}) %></span>`,
     };
 };
 
@@ -15628,15 +15622,15 @@ settings.corpora.eduskunta = {
         //     }),
     },
     customAttributes: {
-        // FIXME: Make these work
-        // text_session_duration: funcs.make_hms_custom_attr(
-        //     "session_duration", "text_session_duration"),
-        // utterance_begin_time_hms: funcs.make_hms_custom_attr(
-        //     "utterance_begin_time", "utterance_begin_time"),
-        // utterance_end_time_hms: funcs.make_hms_custom_attr(
-        //     "utterance_end_time", "utterance_end_time"),
-        // utterance_duration_hms: funcs.make_hms_custom_attr(
-        //     "utterance_duration", "utterance_duration"),
+        // Times in hh.mm.ss,mss format
+        text_session_duration_hms: funcs.make_hms_custom_attr(
+            "session_duration", "text_session_duration"),
+        utterance_begin_time_hms: funcs.make_hms_custom_attr(
+            "utterance_begin_time", "utterance_begin_time"),
+        utterance_end_time_hms: funcs.make_hms_custom_attr(
+            "utterance_end_time", "utterance_end_time"),
+        utterance_duration_hms: funcs.make_hms_custom_attr(
+            "utterance_duration", "utterance_duration"),
         // Link to show Korp video modal
         video: funcs.makeVideoAttr({
             baseURL: "@text_original_video",
