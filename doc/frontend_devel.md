@@ -365,6 +365,7 @@ corpus is as simple as:
     * `pattern`: HTML snippet with placeholders for replacing values. Available is `key` (attribute name) and `value`. Also works for sets. Example: `'<p style="margin-left: 5px;"><%=val.toLowerCase()%></p>'`
     * `sidebarComponent`: See <# ref customizing-sidebar|customizing sidebar>
     * `sidebarInfoUrl`: `string` (URL). If defined and non-empty, add an info symbol ⓘ for the attribute in the sidebar, linking to the given URL. This can be used to link to an explanation page for morphosyntactic tags, for example.
+    * `sidebarHideLabel`: `boolean`. If `true`, do not show the localized attribute label and the colon following it in the sidebar, only the attribute value. This can be used, for example, if the `pattern` for the attribute includes the label but the label should be shown in the attribute lists of the extended search or statistics.
     * `stats_cqp`: See [Custom statistics functions](#custom-statistics-functions).  
     * `stats_stringify`: See [Custom statistics functions](#custom-statistics-functions).
     * `stringify`: *DEPRECATED*, use <# ref stringify-functions | stringify>
