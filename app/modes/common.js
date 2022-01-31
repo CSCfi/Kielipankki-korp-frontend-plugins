@@ -8259,15 +8259,15 @@ funcs.ms_to_hms = function (ms0) {
 // Make the URL to the video page with information encoded in
 // parameters.
 //
-// This function is tailored to generate the value for a synthetic
+// This function is tailored to generate the value for a custom
 // attribute. This function was developed for the Eduskunta corpus,
 // but it aims to be more general-purpose. However, it might need to
 // be modified (generalized further) when used for other corpora.
 //
 // Arguments:
 // - corpus_id: the id of the corpus linking to the video page
-// - token_data: the token data passed to the stringify_synthetic
-//   function
+// - token_data: the token data passed to the pattern of a custom
+//   attribute
 // - video_url: the URL of the original video shown on the video page
 // - msec2sec_attrs: ids of structural attributes whose values should
 //   be converted from milliseconds to seconds
@@ -8285,10 +8285,14 @@ funcs.make_videopage_url = function (corpus_id, token_data, video_url,
         if (name) {
             if (msec2sec_attrs.includes(key)) {
                 val = msec_to_sec(val);
-            } else if (attrdef.renderItem) {
-                val = attrdef.renderItem(
-                    key, val, attrdef, token_data.pos_attrs,
-                    token_data.struct_attrs, token_data.tokens);
+            } else if (attrdef.pattern) {
+                val = _.template(attrdef.pattern)({
+                    key,
+                    val,
+                    pos_attrs: token_data.pos_attrs,
+                    struct_attrs: token_data.struct_attrs,
+                    tokens: token_data.tokens,
+                });
             } else if (attrdef.translation != null) {
                 val = util.translateAttribute(null, attrdef.translation, val);
             } else if (val == "") {
