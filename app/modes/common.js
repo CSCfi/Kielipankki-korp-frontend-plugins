@@ -8319,7 +8319,7 @@ funcs.make_videopage_url = function (corpus_id, token_data, video_url,
         // A kludge to put the video licence first: assumes that its
         // localized label contains the string "video"
         return licence_text.replace(
-            /^(.*?)(<br\s*\/?>)(Li.*?video.*)$/, "$3$2$1");
+            /^(.*?)(<br\s*\/?>)(.*Li.*?video.*)$/, "$3$2$1");
     };
     // Would it be better to declare the base URL (prefix) somewhere
     // else?
