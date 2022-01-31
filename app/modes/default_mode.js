@@ -15119,6 +15119,33 @@ funcs.make_hms_custom_attr = function (label, base_attr) {
 // Prepend to get Eduskunnan täysistunnot above FTB3 EuroParl
 funcs.addCorporaToFolder("parliament", ["eduskunta"], {prepend: true});
 
+// Construct a URL to the separate video page for Eduskunnan
+// täysistunnot
+funcs.makeVideoPageUrlEduskunta = function (token_data) {
+    // c.log("funcs.makeVideoPageUrlEduskunta video times",
+    //       token_data.struct_attrs.utterance_valid_video_times);
+    if (token_data.struct_attrs.utterance_valid_video_times == "no") {
+        return undefined;
+    } else {
+        const r = funcs.make_videopage_url(
+            "eduskunta",
+            token_data,
+            token_data.struct_attrs.text_original_video
+            // Temporary fix for ä's missing from URL attribute
+            // values; this is probably not needed any more, but it
+            // does not hurt, either.
+                .replace(/Kevt/, "Kevät")
+                .replace(/keskuu/, "kesäkuu")
+                .replace(/heinkuu/, "heinäkuu"),
+            [],
+            ["utterance_videopage_link",
+             "utterance_annex_link",
+             "utterance_annex_link_synth",]);
+        // c.log("funcs.makeVideoPageUrlEduskunta return", r);
+        return r;
+    }
+};
+
 settings.corpora.eduskunta = {
     title: "Eduskunnan täysistunnot",
     description: "Eduskunnan täysistunnot, Kielipankin Korp-versio 1.5<br/><br/>Aineisto sisältää 10.9.2008–1.7.2016 pidettyjen eduskunnan täysistuntojen videotallenteista tehdyt transkriptiot.<br/>Hakutuloksissa kustakin puhunnoksesta on linkki vastaavaan kohtaan alkuperäisessä videossa (muutamia poikkeuksia lukuun ottamatta). Osa aineistosta on tarjolla myös <a href=\"https://lat.csc.fi\" target=\"_blank\">Kielipankin LAT-palvelussa</a>, jolloin hakutuloksissa on linkki myös istunnon LAT-versioon.<br/><br/>Huomaa, että kohdistetussa pöytäkirjaversiossa esiintyy virheitä ja siihen on lisätty ylimääräisiä merkkauksia automaattisen tunnistusprosessin yhteydessä. Ne äänitteen kohdat, joille ei ole automaattisessa kohdistuksessa löytynyt hyvää vastinetta pöytäkirjan tekstistä, on tunnistettu kokonaan automaattisesti, joten tällaisissa kohdissa saattaa olla kummallista tai virheellistä sisältöä.<br/>Teksti on jäsennetty suomen kielen jäsentimellä, joten alkuperäisten pöytäkirjojen ruotsinkieliset kohdat on yleensä merkitty sanaluokaltaan vierassanoiksi.",
@@ -15585,48 +15612,20 @@ settings.corpora.eduskunta = {
         // The valid_video_times attribute needs to be retrieved, as
         // it is used to determine if the video page link is shown.
         utterance_valid_video_times: sattrs.hidden,
-        utterance_videopage_link: {
-            label: "show_video",
-            type: "url",
-            urlOpts: sattrs.link_url_opts,
-            synthetic: true,
-            order: 50,
-            stringify_synthetic: function (token_data) {
-                if (token_data.struct_attrs.utterance_valid_video_times
-                    == "no") {
-                    return undefined;
-                } else {
-                    return funcs.make_videopage_url(
-                        "eduskunta",
-                        token_data,
-                        token_data.struct_attrs.text_original_video
-                        // Temporary fix for ä's missing from URL
-                        // attribute values; this is probably not
-                        // needed any more, but it does not hurt,
-                        // either.
-                            .replace(/Kevt/, "Kevät")
-                            .replace(/keskuu/, "kesäkuu")
-                            .replace(/heinkuu/, "heinäkuu"),
-                        [],
-                        ["utterance_videopage_link",
-                         "utterance_annex_link",
-                         "utterance_annex_link_synth",]);
-                }
-            },
-        },
-        // Kludge to get the LAT/Annex link after the other video
-        // link, as synthetic attributes are currently shown after
-        // non-synthetic ones.
-        utterance_annex_link: sattrs.hidden,
-        utterance_annex_link_synth: $.extend(
-            {}, sattrs.link_show_video_annex,
-            {
-                synthetic: true,
-                order: 60,
-                stringify_synthetic: function (token_data) {
-                    return token_data.struct_attrs.utterance_annex_link;
-                },
-            }),
+        // TODO: Should the Annex links be replaced with something else?
+        // // Kludge to get the LAT/Annex link after the other video
+        // // link, as synthetic attributes are currently shown after
+        // // non-synthetic ones.
+        // utterance_annex_link: sattrs.hidden,
+        // utterance_annex_link_synth: $.extend(
+        //     {}, sattrs.link_show_video_annex,
+        //     {
+        //         synthetic: true,
+        //         order: 60,
+        //         stringify_synthetic: function (token_data) {
+        //             return token_data.struct_attrs.utterance_annex_link;
+        //         },
+        //     }),
     },
     customAttributes: {
         // FIXME: Make these work
@@ -15644,6 +15643,14 @@ settings.corpora.eduskunta = {
             startTime: "@utterance_begin_time",
             endTime: "@utterance_end_time",
         }),
+        // Link to an external video page
+        utterance_videopage_link: {
+            pattern: funcs.makeLinkPattern(
+                "show_video_page",
+                "<%= funcs.makeVideoPageUrlEduskunta({struct_attrs, pos_attrs, tokens}) %>"),
+            customType: "struct",
+            urlOpts: sattrs.link_url_opts,
+        },
     },
 };
 
