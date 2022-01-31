@@ -15146,7 +15146,6 @@ settings.corpora.eduskunta = {
     id: "eduskunta",
     context: spContext,
     within: spWithin,
-    attributes: attrlist.parsed_tdt,
     urn: "urn:nbn:fi:lb-2019112221",
     metadata_urn: "urn:nbn:fi:lb-2019101621",
     licence: [
