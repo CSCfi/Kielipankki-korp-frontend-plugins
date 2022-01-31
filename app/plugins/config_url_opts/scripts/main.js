@@ -47,8 +47,10 @@ class ConfigUrlOpts {
                     let pattBegin = `<a href="<%= val %>" class="exturl sidebar_link"${target}>`
                     if (urlOpts.hideUrl && attr.label) {
                         attr.pattern = `${pattBegin}<span rel="localize[${attr.label}]"></span></a>`
-                        // Prevent sidebar from adding a separate label
-                        attr.label = ""
+                        // Prevent sidebar from adding a separate
+                        // label but allow using it in the attribute
+                        // lists of the extended search and statistics
+                        attr.sidebarHideLabel = true
                         // Change type, as type === "url" is tested
                         // before pattern when rendering attributes in
                         // the sidebar; "urlPattern" allows this to be
