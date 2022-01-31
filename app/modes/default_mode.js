@@ -15201,7 +15201,8 @@ settings.corpora.eduskunta = {
             },
         },
         paragraph_speaker: {
-            label: "speaker_name"
+            label: "speaker_name",
+            extendedComponent: "structServiceAutocomplete",
         },
         paragraph_speaker_parl_group: {
             label: "speaker_parl_group",
@@ -15588,7 +15589,8 @@ settings.corpora.eduskunta = {
             },
         },
         paragraph_participant: {
-            label: "speaker"
+            label: "speaker",
+            extendedComponent: "structServiceAutocomplete",
         },
         utterance_id: {
             label: "utterance_num",
