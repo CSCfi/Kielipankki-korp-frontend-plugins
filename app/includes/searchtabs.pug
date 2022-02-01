@@ -64,7 +64,7 @@ div(ng-controller="SearchCtrl", click-cover="noCorporaSelected")
       span(rel='localize[statistics]') 
       | : 
       reduce-select.ml-2.relative.-top-px(reduce-items="statCurrentAttrs", reduce-selected="statSelectedAttrs", 
-        reduce-insensitive="statInsensitiveAttrs" reduce-lang="lang", style='width: 200px')
+        reduce-insensitive="statInsensitiveAttrs" reduce-lang="lang")
     div(ng-show="settings.statistics !== false")
       input#show_stats(type="checkbox", ng-model="showStatistics", ng-disabled="inOrder")
       label(for="show_stats") {{'show_stats' | loc:lang}}
