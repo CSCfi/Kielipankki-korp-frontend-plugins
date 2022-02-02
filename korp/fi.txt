@@ -1,4 +1,23 @@
 
+<!-- Korp-päivitys 14.2.2022 2022-02-02 -->
+
+Korp päivitetään viimein uuteen versioon 14.2.2022, jollei vakavia
+puutteita ilmene. Uutta Korp-versiota voi jo käyttää osoitteessa <a
+href="https://korp.csc.fi/korplab/"
+target="_blank">https://korp.csc.fi/korplab/</a>.
+
+Kaikki nykyisen Korpin ominaisuudet eivät ole heti käytettävissä
+uudessa Korp-versiossa, mutta niitä lisätään ajan myötä. Toivomme
+palautetta uuden Korpin puutteista ja vioista joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+Päivityksen jälkeen nykyinen Korp-versio jää toistaiseksi
+käytettäväksi osoitteessa <a href="https://korp.csc.fi/korp-old/"
+target="_blank">https://korp.csc.fi/korp-old/</a>.
+
+
 <!-- Lyhyt käyttökatko 2.12.2021 aamulla 2021-12-01b 2021-12-02 -->
 
 Korp-palvelussa on muutaman minuutin käyttökatko 2.12.2021 klo 6–9
@@ -6,7 +25,7 @@ välillä palvelimen kapasiteetin kasvattamisen vuoksi. Pahoittelemme
 lyhyttä varoitusaikaa.
 
 
-<!-- Korp-päivitys joulukuun 2021 alkupuolella 2021-12-01a -->
+<!-- Korp-päivitys joulukuun 2021 alkupuolella 2021-12-01a 2022-02-01 -->
 
 Korp päivitetään uuteen versioon viimein joulukuun 2021 alkupuolella.
 Uutta Korp-versiota voi jo käyttää osoitteessa <a

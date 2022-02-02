@@ -1,4 +1,24 @@
 
+<!-- Korp upgrade on 14 February 2022 2022-02-02 -->
+
+Korp is finally to be upgraded to a new version on 14 February 2022,
+unless serious deficiencies are noticed. The new Korp can already be
+used at <a href="https://korp.csc.fi/korplab/#?lang=en"
+target="_blank">https://korp.csc.fi/korplab/#?lang=en</a>.
+
+Not all the features of the current Korp are immediately present in
+the new Korp version, but they will eventually be added. Please report
+any deficiencies and bugs either via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+After the upgrade, the current Korp version will remain available at
+<a href="https://korp.csc.fi/korp-old/#?lang=en"
+target="_blank">https://korp.csc.fi/korp-old/#?lang=en</a> for the
+time being.
+
+
 <!-- Short service break on 2 December 2021 in the morning 2021-12-01b 2021-12-02 -->
 
 The Korp service will have a break of a few minutes on 2 December 2021
@@ -6,7 +26,7 @@ between 6 and 9 to increase the capacity of the server. We apologize
 for the short notice.
 
 
-<!-- Korp upgrade on the first half of December 2021 2021-12-01a -->
+<!-- Korp upgrade on the first half of December 2021 2021-12-01a 2022-02-01 -->
 
 Korp will finally be upgraded to a new version on the first half of
 December 2021. The new Korp can already be used at <a
