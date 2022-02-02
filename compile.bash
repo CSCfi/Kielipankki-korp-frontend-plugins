@@ -28,3 +28,4 @@
 # python skript/compile.py karp sv 100 --secondary general > json/karpnews.json
 python skript/compile.py korp en 100 --secondary general > json/korpnews.json
 python skript/compile.py korpbeta en 100 --secondary general > json/korpbetanews.json
+python skript/compile.py korpbanner en 100 --callback newsbannerdata > json/korpbannernews.json
