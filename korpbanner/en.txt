@@ -1,0 +1,13 @@
+
+<!-- Test version of the new Korp 2022-02-02 2022-02-13 -->
+
+This is a test version of the new Korp that is to be brought into
+production use on 14 February 2022. Please report any deficiencies
+either via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+The old Korp version will remain available for the time being at <a
+href="https://korp.csc.fi/korp-old/#?lang=en"
+target="_blank">https://korp.csc.fi/korp-old/#?lang=en</a>.

@@ -1,0 +1,13 @@
+
+<!-- Uuden Korpin testiversio 2022-02-02 2022-02-13 -->
+
+Tämä on uuden Korpin testiversio, joka on tarkoitus ottaa
+tuotantokäyttöön 14.2.2022. Toivomme palautetta uuden Korpin
+puutteista joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+Vanha Korp-versio jää toistaiseksi käytettäväksi osoitteessa <a
+href="https://korp.csc.fi/korp-old/"
+target="_blank">https://korp.csc.fi/korp-old/</a>.
