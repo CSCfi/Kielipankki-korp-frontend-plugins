@@ -11826,9 +11826,10 @@ settings.templ.la_murre = {
         paragraph_duration: {
             label: "speech_duration"
         },
-        paragraph_annex_link: sattrs.link_prefixed(
-            "listen_speech",
-            "https://lat.csc.fi/ds/annex/runLoader?"),
+        // TODO: Replace with a working link or Korp audio player
+        // paragraph_annex_link: sattrs.link_prefixed(
+        //     "listen_speech",
+        //     "https://lat.csc.fi/ds/annex/runLoader?"),
         sentence_clnum: {
             label: "sentence_clnum",
         },
@@ -11845,9 +11846,10 @@ settings.templ.la_murre = {
         sentence_duration: {
             label: "sentence_duration"
         },
-        sentence_annex_link: sattrs.link_prefixed(
-            "listen_sentence",
-            "https://lat.csc.fi/ds/annex/runLoader?"),
+        // TODO: Replace with a working link or Korp audio player
+        // sentence_annex_link: sattrs.link_prefixed(
+        //     "listen_sentence",
+        //     "https://lat.csc.fi/ds/annex/runLoader?"),
     },
     customAttributes: {
         sentence_fulltext_link:  {
