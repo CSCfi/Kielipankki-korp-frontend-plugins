@@ -11458,7 +11458,123 @@ settings.templ.la_murre = {
             label: "note",
             opts: settings.defaultOptions
         },
-        lex: attrs.lemgram_hidden
+        lex: attrs.lemgram_hidden,
+        clause_clnum: {
+            label: "clause_clnum",
+            isStructAttr: true,
+        },
+        clause_num: {
+            label: "clause_num",
+            isStructAttr: true,
+        },
+        clause_hier: {
+            label: "clause_hier",
+            isStructAttr: true,
+            extendedComponent: "datasetSelect",
+            opts: liteOptions,
+            dataset: [
+                "irrall",
+                "main",
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "muu",
+            ],
+            translation: {
+                "irrall": {
+                    // "en": "irrall",
+                    "fi": "irrallinen lause",
+                    // "sv": "irrall",
+                },
+                "main": {
+                    // "en": "main",
+                    "fi": "päälause",
+                    // "sv": "main",
+                },
+                "muu": {
+                    // "en": "muu",
+                    "fi": "muu",
+                    // "sv": "muu",
+                },
+                "sub1": {
+                    // "en": "sub1",
+                    "fi": "alisteinen lause taso 1",
+                    // "sv": "sub1",
+                },
+                "sub2": {
+                    // "en": "sub2",
+                    "fi": "alisteinen lause taso 2",
+                    // "sv": "sub2",
+                },
+                "sub3": {
+                    // "en": "sub3",
+                    "fi": "alisteinen lause taso 3",
+                    // "sv": "sub3",
+                },
+                "sub4": {
+                    // "en": "sub4",
+                    "fi": "alisteinen lause taso 4",
+                    // "sv": "sub4",
+                },
+                "sub5": {
+                    // "en": "sub5",
+                    "fi": "alisteinen lause taso 5",
+                    // "sv": "sub5",
+                },
+            },
+        },
+        clause_type: {
+            label: "clause_type",
+            isStructAttr: true,
+            extendedComponent: "datasetSelect",
+            opts: liteOptions,
+            dataset: [
+                "affdecl",
+                "negdecl",
+                "affint",
+                "negint",
+                "affopt",
+                "negopt",
+                "muu",
+            ],
+            translation: transl.clauseTypeLa,
+        },
+        clause_hallnum: {
+            label: "clause_hallnum",
+            isStructAttr: true,
+        },
+        clause_ora: {
+            label: "clause_ora",
+            isStructAttr: true,
+            extendedComponent: "datasetSelect",
+            opts: liteOptions,
+            dataset: {
+                "dir": "dir",
+                "": "other",
+            },
+            translation: {
+                "dir": {
+                    // "en": "dir",
+                    "fi": "suora esitys",
+                    // "sv": "dir",
+                },
+                "other": {
+                    // "en": "other",
+                    "fi": "muu kuin suora esitys",
+                    // "sv": "other",
+                },
+            },
+        },
+        clause_depth: {
+            label: "clause_depth",
+            isStructAttr: true,
+        },
+        clause_partnum: {
+            label: "clause_partnum",
+            isStructAttr: true,
+        },
     },
     structAttributes: {
         text_header: {
@@ -11738,114 +11854,6 @@ settings.templ.la_murre = {
             synthetic: true,
             stringify_synthetic: funcs.make_la_murre_fulltext_url,
         },
-        clause_clnum: {
-            label: "clause_clnum",
-        },
-        clause_num: {
-            label: "clause_num",
-        },
-        clause_hier: {
-            label: "clause_hier",
-            extendedComponent: "datasetSelect",
-            opts: liteOptions,
-            dataset: [
-                "irrall",
-                "main",
-                "sub1",
-                "sub2",
-                "sub3",
-                "sub4",
-                "sub5",
-                "muu",
-            ],
-            translation: {
-                "irrall": {
-                    // "en": "irrall",
-                    "fi": "irrallinen lause",
-                    // "sv": "irrall",
-                },
-                "main": {
-                    // "en": "main",
-                    "fi": "päälause",
-                    // "sv": "main",
-                },
-                "muu": {
-                    // "en": "muu",
-                    "fi": "muu",
-                    // "sv": "muu",
-                },
-                "sub1": {
-                    // "en": "sub1",
-                    "fi": "alisteinen lause taso 1",
-                    // "sv": "sub1",
-                },
-                "sub2": {
-                    // "en": "sub2",
-                    "fi": "alisteinen lause taso 2",
-                    // "sv": "sub2",
-                },
-                "sub3": {
-                    // "en": "sub3",
-                    "fi": "alisteinen lause taso 3",
-                    // "sv": "sub3",
-                },
-                "sub4": {
-                    // "en": "sub4",
-                    "fi": "alisteinen lause taso 4",
-                    // "sv": "sub4",
-                },
-                "sub5": {
-                    // "en": "sub5",
-                    "fi": "alisteinen lause taso 5",
-                    // "sv": "sub5",
-                },
-            },
-        },
-        clause_type: {
-            label: "clause_type",
-            extendedComponent: "datasetSelect",
-            opts: liteOptions,
-            dataset: [
-                "affdecl",
-                "negdecl",
-                "affint",
-                "negint",
-                "affopt",
-                "negopt",
-                "muu",
-            ],
-            translation: transl.clauseTypeLa,
-        },
-        clause_hallnum: {
-            label: "clause_hallnum",
-        },
-        clause_ora: {
-            label: "clause_ora",
-            extendedComponent: "datasetSelect",
-            opts: liteOptions,
-            dataset: {
-                "dir": "dir",
-                "": "other",
-            },
-            translation: {
-                "dir": {
-                    // "en": "dir",
-                    "fi": "suora esitys",
-                    // "sv": "dir",
-                },
-                "other": {
-                    // "en": "other",
-                    "fi": "muu kuin suora esitys",
-                    // "sv": "other",
-                },
-            },
-        },
-        clause_depth: {
-            label: "clause_depth"
-        },
-        clause_partnum: {
-            label: "clause_partnum",
-        }
     },
     sidebar_display_order: {
         attributes: [
