@@ -11381,8 +11381,8 @@ var la_murre_fulltext_url_prefix =
 
 // Make LA-murre fulltext URLs with the sentence id as a fragment
 // identifier and the number of the first and last token of the match
-// as the query string. This function is used as a stringify_synthetic
-// function for the fulltext URLs.
+// as the query string. This function is used in the pattern of a
+// custom link attribute.
 funcs.make_la_murre_fulltext_url = function (token_data) {
     var tokencnt = token_data.tokens.length;
     var match_start = 0;
@@ -11847,12 +11847,14 @@ settings.templ.la_murre = {
         sentence_annex_link: sattrs.link_prefixed(
             "listen_sentence",
             "https://lat.csc.fi/ds/annex/runLoader?"),
+    },
+    customAttributes: {
         sentence_fulltext_link:  {
-            label: "show_fulltext",
-            type: "url",
+            pattern: funcs.makeLinkPattern(
+                "show_fulltext",
+                "<%= funcs.make_la_murre_fulltext_url({struct_attrs, pos_attrs, tokens}) %>"),
+            customType: "struct",
             urlOpts: sattrs.link_url_opts,
-            synthetic: true,
-            stringify_synthetic: funcs.make_la_murre_fulltext_url,
         },
     },
     sidebar_display_order: {
