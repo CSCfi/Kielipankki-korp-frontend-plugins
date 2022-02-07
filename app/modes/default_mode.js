@@ -14776,26 +14776,27 @@ settings.corpora.skn = {
         paragraph_role: {
             label: "murre_role"
         },
-        sentence_urlview: {
-            label: "murre_urlview",
-            type: "url",
-            urlOpts: sattrs.link_url_opts
-        },
-        text_urlvaw: {
-            label: "murre_urlwav",
-            type: "url",
-            urlOpts: sattrs.link_url_opts
-        },
-        text_urltextgrid: {
-            label: "murre_urltextgrid",
-            type: "url",
-            urlOpts: sattrs.link_url_opts
-        },
-        text_urleaf: {
-            label: "murre_urleaf",
-            type: "url",
-            urlOpts: sattrs.link_url_opts
-        }
+        // TODO: Replace these links with working ones
+        // sentence_urlview: {
+        //     label: "murre_urlview",
+        //     type: "url",
+        //     urlOpts: sattrs.link_url_opts
+        // },
+        // text_urlvaw: {
+        //     label: "murre_urlwav",
+        //     type: "url",
+        //     urlOpts: sattrs.link_url_opts
+        // },
+        // text_urltextgrid: {
+        //     label: "murre_urltextgrid",
+        //     type: "url",
+        //     urlOpts: sattrs.link_url_opts
+        // },
+        // text_urleaf: {
+        //     label: "murre_urleaf",
+        //     type: "url",
+        //     urlOpts: sattrs.link_url_opts
+        // }
     }
 };
 
