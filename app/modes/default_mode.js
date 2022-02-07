@@ -15132,9 +15132,7 @@ funcs.makeVideoPageUrlEduskunta = function (token_data) {
                 .replace(/keskuu/, "kesäkuu")
                 .replace(/heinkuu/, "heinäkuu"),
             [],
-            ["utterance_videopage_link",
-             "utterance_annex_link",
-             "utterance_annex_link_synth",]);
+            ["utterance_videopage_link",]);
         // c.log("funcs.makeVideoPageUrlEduskunta return", r);
         return r;
     }
