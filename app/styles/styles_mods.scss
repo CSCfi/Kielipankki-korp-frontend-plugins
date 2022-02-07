@@ -8,3 +8,11 @@
 .reduce-attr-select {
     width: 250px;
 }
+
+// Full-width text in context view
+.results_table.reading {
+    margin-left: initial;
+    p {
+        width: 100%;
+    }
+}
