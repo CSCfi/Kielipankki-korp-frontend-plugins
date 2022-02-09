@@ -12,11 +12,6 @@
 // by Språkbanken's Korp, this might make the transition easier.
 
 
-// Class ConfigSidebarOrder does not have internal state, but a class
-// is defined so that the callback functions can call internal methods
-// containing the actual implementation and for allowing the plugin to
-// be disabled.
-
 class ConfigSidebarOrder {
 
     constructor () {
@@ -29,6 +24,17 @@ class ConfigSidebarOrder {
             "customAttributes",
             "linkAttributes",
         ]
+        // The attribute list objects (by attribute type) in which the
+        // order for all attributes has already been set. This is used
+        // to avoid recomputing the order values for attribute list
+        // objects used in multiple corpora. Note that this cannot be
+        // added as an additional property to the attribute list
+        // object, as Korp expects all the objects in it to be
+        // attribute objects.
+        this._attributeOrderSet = {}
+        for (const attrType of this.attributeTypes) {
+            this._attributeOrderSet[attrType] = new Set()
+        }
     }
 
     // Callback method called at a hook point
@@ -81,6 +87,14 @@ class ConfigSidebarOrder {
             // c.log("_setAttrDisplayOrder", corpusInfo, order_spec)
             if (order_spec) {
                 let attr_info = corpusInfo[attr_type]
+                // If the corpus does not have this attribute type or
+                // if order values have already set for this type of
+                // attributes (when the same attribute list object is
+                // used for several corpora), skip
+                if (! attr_info ||
+                        this._attributeOrderSet[attr_type].has(attr_info)) {
+                    continue
+                }
                 // If all the attributes already have an order property,
                 // nothing needs to be done here.
                 const existing_orders = _.map(attr_info, "order");
@@ -115,6 +129,7 @@ class ConfigSidebarOrder {
                         }
                     }
                 }
+                this._attributeOrderSet[attr_type].add(attr_info)
             }
         }
     }
