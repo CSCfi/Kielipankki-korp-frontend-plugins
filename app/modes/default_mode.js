@@ -11860,7 +11860,7 @@ settings.templ.la_murre = {
             urlOpts: sattrs.link_url_opts,
         },
     },
-    sidebar_display_order: {
+    sidebarDisplayOrder: {
         attributes: [
             "cleanword",
             "lemma",
@@ -11869,6 +11869,7 @@ settings.templ.la_murre = {
             "func",
             "cow",
             "note",
+            /^clause_/,
         ],
         structAttributes: [
             "text_dialect_region",
@@ -11877,7 +11878,6 @@ settings.templ.la_murre = {
             /^text_/,
             /^paragraph_/,
             /^sentence_/,
-            /^clause_/,
         ],
     },
     // Ignore any number of punctuation tokens between tokens in the
