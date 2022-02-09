@@ -26,6 +26,7 @@ class ConfigSidebarOrder {
         this.attributeTypes = [
             "attributes",
             "structAttributes",
+            "customAttributes",
             "linkAttributes",
         ]
     }
@@ -45,12 +46,12 @@ class ConfigSidebarOrder {
     // Initialize the "order" property of each attribute of corpusInfo to
     // contain the order number in which the attribute is to be shown in
     // the sidebar (smallest first), separately for (positional) attributes,
-    // structAttributes and linkAttributes.
+    // structAttributes, customAttributes and linkAttributes.
     //
     // The order may be specified in corpusInfo.sidebar_display_order or
     // the default settings.default_sidebar_display_order. These are
-    // objects with the keys attributes, structAttributes and
-    // linkAttributes, whose values are lists of attribute names or
+    // objects with the keys attributes, structAttributes, customAttributes
+    // and linkAttributes, whose values are lists of attribute names or
     // regular expressions matching attribute names, in the order in which
     // the attributes should be shown. Attributes with an explicit order
     // property in the definitions are shown first, and unlisted attributes
