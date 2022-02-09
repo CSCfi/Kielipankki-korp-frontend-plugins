@@ -241,25 +241,34 @@ korpApp.controller("SimpleCtrl", function (
             })
             val = tokenArray.join(" ")
         } else if (s.lemgram) {
-            const lemgram = s.lemgram
-            val = `[lex contains \"${lemgram}\"`
-            // Add conditions on complemgram only if it exists in
-            // any of the selected corpora, since otherwise the
-            // result would be empty due to CQP complaining about
-            // a missing attribute (error suppressed by the backend)
-            if ((s.prefix || s.mid_comp || s.suffix) &&
-                "complemgram" in settings.corpusListing.getCurrentAttributes()) {
-                if (s.prefix) {
-                    val += ` | complemgram contains \"${lemgram}\\+.*\"`
+            if (settings.simpleSearchGetLemgramCQP) {
+                // If settings.simpleSearchGetLemgramCQP is defined,
+                // call it to get the CQP query
+                val = settings.simpleSearchGetLemgramCQP(unregescape(s.lemgram),
+                                                         { prefix: s.prefix,
+                                                           mid_comp: s.mid_comp,
+                                                           suffix: s.suffix, })
+            } else {
+                const lemgram = s.lemgram
+                val = `[lex contains \"${lemgram}\"`
+                // Add conditions on complemgram only if it exists in
+                // any of the selected corpora, since otherwise the
+                // result would be empty due to CQP complaining about
+                // a missing attribute (error suppressed by the backend)
+                if ((s.prefix || s.mid_comp || s.suffix) &&
+                    "complemgram" in settings.corpusListing.getCurrentAttributes()) {
+                    if (s.prefix) {
+                        val += ` | complemgram contains \"${lemgram}\\+.*\"`
+                    }
+                    if (s.mid_comp) {
+                        val += ` | complemgram contains \".*\\+${lemgram}\\+.*\"`
+                    }
+                    if (s.suffix) {
+                        val += ` | complemgram contains \".*\\+${lemgram}:.*\"`
+                    }
                 }
-                if (s.mid_comp) {
-                    val += ` | complemgram contains \".*\\+${lemgram}\\+.*\"`
-                }
-                if (s.suffix) {
-                    val += ` | complemgram contains \".*\\+${lemgram}:.*\"`
-                }
+                val += "]"
             }
-            val += "]"
         }
 
         if ($rootScope.globalFilter) {
