@@ -38,7 +38,7 @@ class ConfigSidebarOrder {
 
     // Initialize the "order" property of each attribute of corpusInfo to
     // contain the order number in which the attribute is to be shown in
-    // the sidebar (largest first), separately for (positional) attributes,
+    // the sidebar (smallest first), separately for (positional) attributes,
     // structAttributes and linkAttributes.
     //
     // The order may be specified in corpusInfo.sidebar_display_order or
@@ -82,31 +82,31 @@ class ConfigSidebarOrder {
                 if (_.every(existing_orders)) {
                     continue;
                 }
-                let min_existing_order = _.min(existing_orders);
-                if (min_existing_order == undefined) {
-                    min_existing_order = 100;
+                let max_existing_order = _.max(existing_orders);
+                if (max_existing_order == undefined) {
+                    max_existing_order = 0;
                 }
                 const attr_names = _(attr_info)
                              .keys()
                              .filter(key => attr_info[key].order == null)
                              .value();
-                // Add order values in a decreasing order below the minimum
-                // existing one.
-                let next_order = min_existing_order - 1;
+                // Add order values in an increasing order above the
+                // maximum existing one.
+                let next_order = max_existing_order + 1;
                 for (let pattern of order_spec) {
                     if ($.type(pattern) === "regexp") {
                         for (let attr_name of attr_names) {
                             if (attr_name.match(pattern) &&
                                     (attr_info[attr_name].order == null)) {
                                 set_order(attr_info, attr_name, next_order);
-                                next_order -= 1;
+                                next_order += 1;
                             }
                         }
                     } else if ($.type(pattern) === "string") {
                         const index = $.inArray(pattern, attr_names);
                         if (index !== -1) {
                             set_order(attr_info, attr_names[index], next_order);
-                            next_order -= 1;
+                            next_order += 1;
                         }
                     }
                 }
