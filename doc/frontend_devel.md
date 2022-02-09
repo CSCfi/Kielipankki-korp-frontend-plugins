@@ -549,6 +549,15 @@ __lemgramComplete__ - An alternative lemgram autocompletion for the simple searc
   Extract lemgrams from data returned by the lemgram completion call.
   Return value: array of lemgrams as strings
 
+__simpleSearchGetLemgramCQP__ - `function (lemgram, options)` → `cqp`. A function for constructing the CQP query expression for a lemgram selected in the simple search, overriding the default based on the values of attributes `lex` (lemgram) and `complemgram` (compound lemgram). Arguments:
+
+- `lemgram`: lemgram string, regular expression metacharacters _not_ escaped
+- `options.prefix`: if `true`, also search for prefixes (initial parts of compounds)
+- `options.mid_comp`: if `true`, also search for infixes (middle parts of compounds)
+- `options.suffix`: if `true`, also search for suffixes (final parts of compounds)
+
+The function must return a valid CQP expression as a string, with regular expression metacharacters escaped as appropriate with function `regescape`.
+
 __languages__ - Array of supported interface language codes s.a. `["en", "sv"]`
 
 __defaultLanguage__ - The default interface language. Example: `"sv"`
