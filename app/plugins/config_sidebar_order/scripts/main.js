@@ -4,8 +4,8 @@
 // Callback method to initialize the "order" property (supported
 // natively by Språkbanken's Korp) of all attributes of all the
 // corpora in settings.corpora based on
-// settings.default_sidebar_display_order and the corpus-specific
-// sidebar_display_order properties.
+// settings.defaultSidebarDisplayOrder and the corpus-specific
+// sidebarDisplayOrder properties.
 //
 // Even though might be better to move eventually to specifying order
 // directly in the attribute definitions, as it is supported natively
@@ -48,8 +48,8 @@ class ConfigSidebarOrder {
     // the sidebar (smallest first), separately for (positional) attributes,
     // structAttributes, customAttributes and linkAttributes.
     //
-    // The order may be specified in corpusInfo.sidebar_display_order or
-    // the default settings.default_sidebar_display_order. These are
+    // The order may be specified in corpusInfo.sidebarDisplayOrder or
+    // the default settings.defaultSidebarDisplayOrder. These are
     // objects with the keys attributes, structAttributes, customAttributes
     // and linkAttributes, whose values are lists of attribute names or
     // regular expressions matching attribute names, in the order in which
@@ -74,10 +74,10 @@ class ConfigSidebarOrder {
 
         for (let attr_type of this.attributeTypes) {
             const order_spec = (
-                (corpusInfo.sidebar_display_order &&
-                 corpusInfo.sidebar_display_order[attr_type]) ||
-                    (settings.default_sidebar_display_order &&
-                     settings.default_sidebar_display_order[attr_type]))
+                (corpusInfo.sidebarDisplayOrder &&
+                 corpusInfo.sidebarDisplayOrder[attr_type]) ||
+                    (settings.defaultSidebarDisplayOrder &&
+                     settings.defaultSidebarDisplayOrder[attr_type]))
             // c.log("_setAttrDisplayOrder", corpusInfo, order_spec)
             if (order_spec) {
                 let attr_info = corpusInfo[attr_type]
