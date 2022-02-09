@@ -22,6 +22,12 @@ class ConfigSidebarOrder {
     constructor () {
         // Plugin name
         this.name = "config_sidebar_order"
+        // Types of attributes (corpus configuration property names)
+        this.attributeTypes = [
+            "attributes",
+            "structAttributes",
+            "linkAttributes",
+        ]
     }
 
     // Callback method called at a hook point
@@ -65,9 +71,7 @@ class ConfigSidebarOrder {
         const set_order = (attr_info, attr_name, order) =>
               attr_info[attr_name] = $.extend({}, attr_info[attr_name], {order})
 
-        for (let attr_type of ["attributes",
-                               "structAttributes",
-                               "linkAttributes"]) {
+        for (let attr_type of this.attributeTypes) {
             const order_spec = (
                 (corpusInfo.sidebar_display_order &&
                  corpusInfo.sidebar_display_order[attr_type]) ||
