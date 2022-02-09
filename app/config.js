@@ -823,3 +823,29 @@ settings.isKorpLabsURL = function (location) {
 
 // The Korp version shown in the Korp logo: "v9" also in Korp Labs
 settings.logoKorpVersion = "v9"
+
+// Construct a CQP query for a lemgram in the simple search, taking
+// into account possible prefix, middle part and suffix searches. This
+// overrides the default of using complemgram if available for the
+// affix searches.
+settings.simpleSearchGetLemgramCQP = function (lemgram, opts) {
+    let val = `[lex contains "${regescape(lemgram)}"`
+    if (opts.prefix || opts.mid_comp || opts.suffix) {
+        const matches = lemgram.match(/^(.+)(\.\.\w+\.\d+(?::.*)?)$/)
+        // c.log("simpleSearchGetLemgramCQP", lemgram, lemgram, opts, matches)
+        if (matches) {
+            const base = regescape(matches[1])
+            const suffix = regescape(matches[2])
+            if (opts.prefix) {
+                val += ` | lex contains "${base}.+${suffix}"`
+            }
+            if (opts.mid_comp) {
+                val += ` | lex contains ".+${base}.+${suffix}"`
+            }
+            if (opts.suffix) {
+                val += ` | lex contains ".+${base}${suffix}"`
+            }
+        }
+    }
+    return val + "]"
+}
