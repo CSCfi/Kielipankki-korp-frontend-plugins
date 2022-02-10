@@ -32,7 +32,7 @@ html
                     index=0
                 )
                   uib-tab-heading(ng-class="{not_loading: progress > 99, loading : loading}")
-                    | KWIC
+                    | {{'kwic' | loc:lang}}
                     tab-preloader(ng-if="loading", value="progress", spinner="instance.countCorpora() < 2")
                   .results-kwic(ng-class="{reading_mode : reading_mode, loading: loading}", constr='KWICResults', constr-name='kwicResults')
                     include includes/kwicresult

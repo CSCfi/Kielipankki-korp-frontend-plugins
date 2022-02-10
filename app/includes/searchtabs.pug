@@ -56,7 +56,7 @@ div(ng-controller="SearchCtrl", click-cover="noCorporaSelected")
           button.btn.btn-sm.btn-default.search(ng-click='sendCompare()') {{'compare_vb' | loc:lang}}
   #search_options.flex.items-baseline.bg-blue-100.border.border-blue-200.shadow-inner(click-cover="isCompareSelected")
     div
-      span.inline-block.mr-2(style='font-size: .9em;') KWIC: 
+      span.inline-block.mr-2(style='font-size: .9em;') {{'kwic' | loc:lang}}: 
       select(ng-model='hitsPerPage' ng-options='getHppFormat(val) for val in hitsPerPageValues track by val')
       select(ng-model='kwicSort' ng-options='getSortFormat(val) for val in kwicSortValues track by val')
 
