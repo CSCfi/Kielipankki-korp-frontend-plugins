@@ -278,6 +278,8 @@ export const sidebarComponent = {
                 renderItem(type, key, value, attrs, wordData, sentenceData, tokens) {
                     let output, pattern, ul
                     let val, inner, li, address
+                    // sidebarHideLabel hides the label in the sidebar
+                    // but keeps it available in other contexts
                     if (attrs.label && ! attrs.sidebarHideLabel) {
                         output = $(`<p><span rel='localize[${attrs.label}]'></span>: </p>`)
                     } else {
