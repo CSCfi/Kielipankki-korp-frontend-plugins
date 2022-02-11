@@ -188,6 +188,7 @@
     "map": "Karta",
     "sort_default": "sortera inom korpus på",
     "within": "inom",
+    "within_postp": "",
     "context": "kontext",
     "only_support": "Endast för korpusar med stöd för utökad kontext.",
     "no_context_support": "stödjer ej utökad kontext",

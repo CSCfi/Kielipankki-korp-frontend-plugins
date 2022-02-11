@@ -11,3 +11,8 @@ div(ng-controller='ExtendedSearch')
 
   select.within_select(ng-model="within"
       ng-options="item.value as ('within_' + item.value | loc:lang) for item in withins")
+
+  //- Show only if the localization of within_postp is non-empty;
+  //- empty localization value is replaced with the key
+  span(ng-if="('within_postp' | loc:lang) != 'within_postp'")
+    | {{'within_postp' | loc:lang}}
