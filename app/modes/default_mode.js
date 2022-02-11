@@ -149,7 +149,7 @@ settings.corporafolders.academic.ethesis.phdtheses = {
 
 funcs.addCorporaToFolder("parliament", "ftb3_europarl");
 funcs.addCorporaToFolder("legal", "ftb3_jrcacquis");
-funcs.addCorporaToFolder("other", "ftb2");
+funcs.addCorporaToFolder("manual", "ftb2");
 
 // settings.corporafolders.other.ftb = {
 //     title: "FinnTreeBank: suomen puupankki",
