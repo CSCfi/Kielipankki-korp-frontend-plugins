@@ -26,6 +26,10 @@ settings.corporafolders = {};
 settings.corporafolders.english = {
     title: "English / Englanti",
     description: "Texts in English<br/>Englanninkielisiä tekstejä",
+    cmc: {
+        title: "Computer-mediated communications corpora / Tietokonevälitteistä viestintää",
+        description: "Corpora containing computer-mediated communications<br/>Tietokonevälitteistä viestintää sisätläviä aineistoja",
+    },
     academic: {
         title: "Academic texts / Akateemisia tekstejä",
         description: "Corpora containing academic texts<br/>Akateemisia tekstejä sisältäviä aineistoja",
@@ -43,6 +47,10 @@ settings.corporafolders.english = {
         contents: [
             "topling_en",
         ],
+    },
+    reference: {
+        title: "Reference corpora / Referenssiaineistoja",
+        description: "Reference corpora<br/>Referenssiaineistoja",
     },
     spoken: {
         title: "Spoken language / Puheaineistoja",
@@ -205,7 +213,7 @@ settings.corporafolders.english.academic.ethesis.matheses = {
 
 var byu_fulltext_note = "<br/><br/><strong>Note:</strong> To follow the US Fair Use Law, every 200 words, ten words have been removed and replaced with “@” (<a href='http://corpus.byu.edu/full-text/limitations.asp' target='_blank'>more information</a>).";
 
-settings.corporafolders.english.other.coca = {
+settings.corporafolders.english.reference.coca = {
     title: "COCA: Corpus of Contemporary American English",
     description: "COCA: Corpus of Contemporary American English – Kielipankki Korp version 2017H1<br/><br/>The COCA corpus contains about 520 million words in 220,000 texts of US English from the years 1990–2015. The corpus is evenly divided into spoken, fiction, magazine, newspaper and academic genres." + byu_fulltext_note,
     // contents will be added further below
@@ -245,7 +253,7 @@ settings.corporafolders.english.historical.coha = {
     },
 };
 
-settings.corporafolders.english.other.glowbe = {
+settings.corporafolders.english.cmc.glowbe = {
     title: "GloWbE: Global Web-based English",
     description: "GloWbE: Global Web-based English – Kielipankki Korp version 2017H1<br/><br/>The GloWbE corpus contains about 1.8 billion words on 1.8 million Web pages of English from the United States, Great Britain, Australia, India and 16 other countries, collected in 2013. About 60% of the text is from blogs." + byu_fulltext_note,
     // contents will be added futher below
@@ -4534,7 +4542,7 @@ var coca_hierarchy = [
 ];
 
 funcs.make_folder_hierarchy(
-    settings.corporafolders.english.other.coca, coca_hierarchy,
+    settings.corporafolders.english.reference.coca, coca_hierarchy,
     {
         id_prefix: "coca_",
         title_prefix: "COCA: ",
@@ -4853,7 +4861,7 @@ function make_glowbe_hierarchy (countries) {
 }
 
 funcs.make_folder_hierarchy(
-    settings.corporafolders.english.other.glowbe,
+    settings.corporafolders.english.cmc.glowbe,
     make_glowbe_hierarchy(glowbe_countries),
     {
         id_prefix: "glowbe_",
