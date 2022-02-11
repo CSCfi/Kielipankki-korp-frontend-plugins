@@ -102,6 +102,10 @@ settings.corporafolders = {
         title: "Tidnings-, tidskrifts- och nyhetskorpusar",
         description: "Tidnings-, tidskrifts- och nyhetskorpusar",
     },
+    reference: {
+        title: "Referenskorpusar",
+        description: "Referenskorpusar",
+    },
     legal: {
         title: "Juridiska korpusar",
         description: "Juridiska korpusar",
@@ -675,7 +679,7 @@ settings.corpora.parole_sv = $.extend(true, {}, settings.templ.fstc, {
     },
 });
 
-funcs.addCorporaToFolder("other", "parole_sv");
+funcs.addCorporaToFolder("reference", "parole_sv");
 
 
 /* Svenska YLE */
