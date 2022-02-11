@@ -13,6 +13,8 @@
 .results_table.reading {
     margin-left: initial;
     p {
-        width: 100%;
+        // FIXME: 100% would add a scrollbar, which should be fixed
+        // somewhere else
+        width: 95%;
     }
 }
