@@ -1,4 +1,17 @@
 
+<!-- Korp päivitetty 2022-02-14 2022-04-30 -->
+
+Korp päivitettiin uuteen versioon 14.2.2022. Lisätietoja päivityksestä
+on Korpin uutisikkunassa. Toivomme palautetta uuden Korpin puutteista
+joko <a href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+Vanha Korp-versio on toistaiseksi käytettävissä osoitteessa <a
+href="https://korp.csc.fi/korp-old/"
+target="_blank">https://korp.csc.fi/korp-old/</a>.
+
+
 <!-- Uuden Korpin testiversio 2022-02-02 2022-02-13 -->
 
 Tämä on uuden Korpin testiversio, joka on tarkoitus ottaa

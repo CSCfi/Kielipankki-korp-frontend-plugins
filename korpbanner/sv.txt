@@ -1,4 +1,17 @@
 
+<!-- Korp uppdaterats 2022-02-14 2022-04-30 -->
+
+Korp uppdaterades till en ny version den 14 februari 2022. Vänligen ge
+feedback om den nya Korpens brister antingen via <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv"
+target="_blank">feedbackformuläret</a> eller per e-post till
+`fin-clarin (at) helsinki.fi`.
+
+Den gamla Korpen kommer att förbli tillgänglig för tillfället i <a
+href="https://korp.csc.fi/korp-old/#?lang=sv"
+target="_blank">https://korp.csc.fi/korp-old/#?lang=sv</a>.
+
+
 <!-- Nya Korps testversion 2022-02-02 2022-02-13 -->
 
 Denna är testversionen av den nya Korpen, som kommer att tas i bruk den 14
