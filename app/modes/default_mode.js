@@ -1610,54 +1610,6 @@ settings.corpora.semfinlex_kho_fi_2018 = {
 }
 
 
-/* FINSTUD */
-
-funcs.addCorporaToFolder("other", "finstud");
-
-sattrlist.finstud = {
-    sentence_id: sattrs.sentence_id_hidden,
-    text_textnumber: {
-        label: "studentsvenska_textnumber"
-    },
-    text_gradeexam: {
-        label: "studentsvenska_gradeexam"
-    },
-    text_subject: {
-        label: "studentsvenska_subject"
-    }
-};
-
-attrlist.finstud = {
-    code: {
-        label: "studentsvenska_code",
-        opts: settings.defaultOptions
-    },
-    properties: {
-        label: "studentsvenska_properties",
-        opts: settings.defaultOptions
-    }
-};
-
-settings.corpora.finstud = {
-    id: "finstud",
-    title: "Finstud 86",
-    description: "Finstud 86",
-    urn: "urn:nbn:fi:lb-2016090610",
-    metadata_urn: "urn:nbn:fi:lb-20140730158",
-    licence: {
-        name: "CLARIN RES +PLAN +NC +PRIV 1.0",
-        urn: "urn:nbn:fi:lb-2016041802",
-    },
-    cite_id: "FinStud86",
-    limitedAccess: true,
-    licenceType: "RES",
-    context: defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.finstud,
-    structAttributes: sattrlist.finstud
-};
-
-
 settings.corpora.ftb2 = {
     title: "FinnTreeBank 2",
     description: "Finnish tree bank, version 2",
@@ -12403,6 +12355,25 @@ settings.corpora.sks_kivi_fi = {
 };
 
 
+// KFSPC
+
+funcs.addCorporaToFolder("other", ["kfspc_fi"]);
+
+settings.corpora.kfspc_fi = {
+    title: "KFSPC suomi",
+    description: "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
+    id: "kfspc_fi",
+    cite_id: "kfspc-korp-fi",
+    lang: "fin",
+    context: defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.parsed_tdt_finer,
+    structAttributes: sattrlist.kfspc
+};
+
+funcs.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
+
+
 funcs.addCorporaToFolder("other", ["opensub_fi_2017"]);
 
 settings.corpora.opensub_fi_2017 = {
@@ -12922,23 +12893,53 @@ sattrlist.s24_update = {
 };
 
 
-// KFSPC
+/* FINSTUD */
 
-funcs.addCorporaToFolder("other", ["kfspc_fi"]);
+funcs.addCorporaToFolder("other", "finstud");
 
-settings.corpora.kfspc_fi = {
-    title: "KFSPC suomi",
-    description: "Kotus Finnish-Swedish Parallel Corpus, suomenkielinen osuus",
-    id: "kfspc_fi",
-    cite_id: "kfspc-korp-fi",
-    lang: "fin",
-    context: defaultContext,
-    within: settings.defaultWithin,
-    attributes: attrlist.parsed_tdt_finer,
-    structAttributes: sattrlist.kfspc
+sattrlist.finstud = {
+    sentence_id: sattrs.sentence_id_hidden,
+    text_textnumber: {
+        label: "studentsvenska_textnumber"
+    },
+    text_gradeexam: {
+        label: "studentsvenska_gradeexam"
+    },
+    text_subject: {
+        label: "studentsvenska_subject"
+    }
 };
 
-funcs.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_fi"]);
+attrlist.finstud = {
+    code: {
+        label: "studentsvenska_code",
+        opts: settings.defaultOptions
+    },
+    properties: {
+        label: "studentsvenska_properties",
+        opts: settings.defaultOptions
+    }
+};
+
+settings.corpora.finstud = {
+    id: "finstud",
+    title: "Finstud 86",
+    description: "Finstud 86",
+    urn: "urn:nbn:fi:lb-2016090610",
+    metadata_urn: "urn:nbn:fi:lb-20140730158",
+    licence: {
+        name: "CLARIN RES +PLAN +NC +PRIV 1.0",
+        urn: "urn:nbn:fi:lb-2016041802",
+    },
+    cite_id: "FinStud86",
+    limitedAccess: true,
+    licenceType: "RES",
+    context: defaultContext,
+    within: settings.defaultWithin,
+    attributes: attrlist.finstud,
+    structAttributes: sattrlist.finstud
+};
+
 
 // Ylioppilasaineet
 
