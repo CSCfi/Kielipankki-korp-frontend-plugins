@@ -1,4 +1,71 @@
 
+<!-- Merkittävä Korp-päivitys 2022-02-14 -->
+
+Korp on päivitetty versioon 9. Uudessa Korp-versiossa on korjausten
+lisäksi joitain uusia ominaisuuksia, joskin osa niistä tulee käyttöön
+vasta, kun aineistoihin lisätään niille tarvittava tuki.
+
+Uudesta Korpista puuttuu toistaiseksi joitain vanhan Korpin
+ominaisuuksia, mutta niitä lisätään ajan myötä. **Toivomme palautetta
+uuden Korpin puutteista ja vioista** (sekä toiveista) joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+**Vanha Korp-versio** jää toistaiseksi käytettäväksi osoitteessa **<a
+href="https://korp.csc.fi/korp-old/"
+target="_blank">https://korp.csc.fi/korp-old/</a>**.
+
+**Muutoksia ja uusia ominaisuuksia:**
+
+* Aineistovalikossa aineistot on ryhmitelty ”aineistoperheittäin”,
+  karkean tekstityypin mukaan.
+* Mitään aineistoa ei ole oletuksena valittuna.
+* Useissa aineistoissa on enemmän piirteitä, joiden arvon voi valita
+  laajennetussa haussa valintalistasta, usein automaattitäydennystä
+  käyttäen.
+* Joissain aineistoissa on mahdollisuus rajata hakua joidenkin tekstin
+  piirteiden perusteella yksinkertaisessakin haussa (_suodatin_).
+* Aineistovalinta ja muut hakuparametrit säilyvät, kun vaihtaa osastoa
+  edestakaisin, esimerkiksi _Suomi_ → _Muut kielet_ → _Suomi_.
+* Karttaominaisuus on aiempaa monipuolisempi. Se on toistaiseksi
+  käytössä vain murreaineistoissa, joissa kartta näyttää osumat
+  paikkakunnan mukaan. Kartan saa näkyviin tilastotulosvälilehden
+  kautta.
+* Korp-API on käytettävissä osoitteessa <a
+href="https://korp.csc.fi/korp/api8/"
+target="_blank">https://korp.csc.fi/korp/api8/</a> ja siinä on joitain
+  muutoksia vanhaan verrattuna.
+
+**Tiedossa olevia puutteita:**
+
+* Vanha, tekstissä esiintyviin nimiin perustuva karttaominaisuus ei
+  enää toimi, mutta aineistoihin on tarkoitus lisätä tietoja, joiden
+  perusteella vastaavan tuloksen voi saada uudessa Korpissa.
+* Jos Korp-osoite viittaa rajoitettuihin (kirjautumista vaativiin)
+  aineistoihin eikä käyttäjä ole kirjautunut, rajoitetut aineistot
+  eivät välttämättä tule valituiksi kirjautumisen jälkeen. Tämä
+  riippuu selaimestakin: Chrome saattaa toimia paremmin kuin Firefox.
+* Jos yrittää valita rajoitetun aineiston aineistovalikossa, ei avaudu
+  ponnahdusikkunaa, josta pääsisi kirjautumaan.
+* Jos kirjautuminen on vanhentunut ja yrittää hakea rajoitetuista
+  aineistoista, Korp ei näytä kirjautumisen vanhentumisesta kertovaa
+  ponnahdusikkunaa, jossa on linkki kirjautumiseen, vaan vain yleisen
+  virheilmoituksen.
+* Yksinkertaisessa haussa ei voi hakea valituista rakenteista, jotka
+  sisältävät tietyt sanat tai perusmuodot.
+* Edistyneessä haussa ei voi valita rakennetta, jonka sisällä haetaan.
+* Konkordanssin latausmuodon valintalista on alkeellisempi.
+* Virheilmoituksessa ei ole virheen tarkempaa kuvausta.
+* Jotkin aineistokohtaiset erityisominaisuudet eivät toimi. Tämä
+  koskee ainakin Lauseopin arkiston murreaineistoa ja
+  ScotsCorr-aineistoa.
+
+Osaltaan päivityksen tarkoitus on helpottaa ja nopeuttaa
+Språkbankenissa Korpiin toteutettavien uusien ominaisuuksien ja
+korjauksien ottamista käyttöön myös Kielipankin Korpissa.
+
+
 <!-- Korp-päivitys 14.2.2022 2022-02-02 -->
 
 Korp päivitetään viimein uuteen versioon 14.2.2022, jollei vakavia

@@ -1,4 +1,70 @@
 
+<!-- Major Korp update 2022-02-14 -->
+
+Korp has been updated to version 9. In addition to bug fixes, the new
+Korp has some new features, although some of them will be activated
+only when the required support for them has been added to corpora
+
+For the time being, the new Korp also lacks some features of the old
+Korp, but they will be added gradually. **Please report any bugs and
+deficiencies** in the new Korp (and also wishes) either via <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+**The old Korp version** will remain available for the time being at **<a
+href="https://korp.csc.fi/korp-old/#?lang=en"
+target="_blank">https://korp.csc.fi/korp-old/#?lang=en</a>**.
+
+**Changes and new features:**
+
+* In the corpus selector, corpora have been grouped by their “resource
+  family”, a rough type of text.
+* No corpus is selected by default.
+* Several corpora have more attributes whose value can be selected
+  from a selection list in the extended search, often using
+  autocompletion.
+* Some corpora support filtering the search by the values of some text
+  attributes also in the simple search.
+* The corpus selection and other search parameters are retained when
+  switching from one mode to another and back, for example, _Finnish_
+  → _Other languages_ → _Finnish_.
+* The map feature has been improved. It is at present active only in
+  Finnish dialect corpora, for which the map shows hits by the parish.
+  The map is activated from the statistics result tab.
+* The Korp API is available at <a
+href="https://korp.csc.fi/korp/api8/"
+target="_blank">https://korp.csc.fi/korp/api8/</a>, and it has some
+  changes compared with the old one.
+
+**Known deficiencies:**
+
+* The old map feature, which was based on names occurring in text, no
+  longer works, but we intend to add to corpora information which
+  would allow a similar result in the new Korp.
+* If a Korp URL refers to restricted corpora requiring login and the
+  user is not logged in, the restricted corpora might not be selected
+  even after login. This also depends on the browser: Chrome may work
+  better than Firefox.
+* When you try to choose a restricted corpus in the corpus selector,
+  no popup window with a login link is opened.
+* If the login has expired and you try to search from restricted
+  corpora, Korp does not show a popup with a login link but only a
+  generic error message.
+* In the simple search, you cannot search in selected structures
+  containing given word forms or base forms.
+* In the advanced search, you cannot choose the structure within which
+  to search.
+* The selection list for the KWIC result download is more primitive.
+* The error message has no details about the error.
+* Some corpus-specific special features do not work. This is true at
+  least for the Finnish Dialect Syntax Archive and ScotsCorr.
+
+The aim of the update is in part to make it easier and faster to take
+into use new features and bug fixes implemented for Korp at
+Språkbanken also in the Korp of the Language Bank of Finland.
+
+
 <!-- Korp upgrade on 14 February 2022 2022-02-02 -->
 
 Korp is finally to be upgraded to a new version on 14 February 2022,
