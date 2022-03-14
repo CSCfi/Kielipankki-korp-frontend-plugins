@@ -26,6 +26,14 @@ var probabilitySetOptions = {
     "contains_not": "not_rank_contains",
 };
 
+var options = {
+    "default": settings.defaultOptions,
+    "lite": liteOptions,
+    "set": setOptions,
+    "fullSet": fullSetOptions,
+    "probabilitySet": probabilitySetOptions,
+};
+
 var defaultContext = {
     "1 sentence": "1 sentence"
 };
@@ -34,6 +42,25 @@ var spContext = {
     "1 sentence": "1 sentence",
     "1 paragraph": "1 paragraph"
 };
+
+var context = {
+    "default": defaultContext,
+    "sp": spContext,
+    "sentLink": {
+        "1 sentence": "1 sentence",
+        "1 link": "1 link",
+    },
+    "defaultAligned": {
+        "1 sentence": "1 sentence"
+    },
+    "linkAligned": {
+        "1 link": "1 link"
+    },
+    "alignAligned": {
+        "1 align": "1 align"
+    },
+};
+
 var spWithin = {
     "sentence": "sentence",
     "paragraph": "paragraph"
@@ -45,10 +72,30 @@ var spcWithin = {
     "paragraph": "paragraph"
 };
 
+var within = {
+    "default": settings.defaultWithin,
+    "sentence": {
+        "sentence": "sentence",
+    },
+    "sp": spWithin,
+    "spc": spcWithin,
+    "sc": {
+        "sentence": "sentence",
+        "clause": "clause",
+    },
+    "sentLink": {
+        "sentence": "sentence",
+        "link": "link",
+    },
+    "link": {
+        "link": "link",
+    },
+};
+
 
 settings.corpusFeatures.paragraphs = {
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
 };
 
 
@@ -3674,7 +3721,7 @@ attrs.pos = {
         "VB": "VB"
     },
     translation: transl.pos,
-    opts: liteOptions,
+    opts: options.lite,
     extendedComponent: "datasetSelect",
     escape: false,
     order: 0,
@@ -3682,7 +3729,7 @@ attrs.pos = {
 
 attrs.msd_sv = {
     label: "msd",
-    opts: settings.defaultOptions,
+    opts: options.default,
     extendedTemplate: '<input ng-model="input" class="arg_value" escaper ng-model-options=\'{debounce : {default : 300, blur : 0}, updateOn: "default blur"}\'>' +
     '<span ng-click="onIconClick()" class="fa fa-info-circle"></span>',
     extendedController: function($scope, $uibModal) {
@@ -3715,14 +3762,14 @@ attrs.msd_sv = {
 attrs.baseform_sv = {
     label: "baseform",
     type: "set",
-    opts: settings.defaultOptions,
+    opts: options.default,
     extendedTemplate: "<input ng-model='model' >",
     order: 1
 };
 attrs.lemgram = {
     label: "lemgram",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(lemgram) {
         // TODO: what if we're getting more than one consequtive lemgram back?
         return util.lemgramToString(_.trim(lemgram), true);
@@ -3743,7 +3790,7 @@ attrs.lemgram = {
 attrs.saldo = {
     label: "saldo",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(saldo) {
         return util.saldoToString(saldo, true);
     },
@@ -3832,12 +3879,12 @@ attrs.deprel = {
         "ROOT": "ROOT"
     },
     translation: transl.deprel,
-    opts: liteOptions
+    opts: options.lite
 };
 attrs.prefix = {
     label: "prefix",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
@@ -3848,7 +3895,7 @@ attrs.prefix = {
 attrs.suffix = {
     label: "suffix",
     type: "set",
-    opts: setOptions,
+    opts: options.set,
     stringify: function(lemgram) {
         return util.lemgramToString(lemgram, true);
     },
@@ -4088,7 +4135,7 @@ funcs.makeLinkPattern = function (label, url) {
 attrs.pos_ftb2 = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4112,7 +4159,7 @@ attrs.pos_ftb2 = {
 attrs.ner_tags = {
     label: "ner_tags",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "_": "_",
         // CQP gave an error if the values ended in /? instead of
@@ -4371,7 +4418,7 @@ attrs.namecat_omorfi = {
     label: "name_category_omorfi",
     type: "set",
     extendedComponent: "datasetSelect",
-    opts: setOptions,
+    opts: options.set,
     dataset: [
         "ARTWORK",
         "CULTGRP",
@@ -4440,7 +4487,7 @@ attrs.namecat_omorfi = {
 attrs.pos_ftb31 = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4469,7 +4516,7 @@ attrs.pos_ftb31 = {
 attrs.pos_kotus = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         // Some of the following POS codes might be coding errors in
@@ -4517,7 +4564,7 @@ attrs.pos_kotus = {
 attrs.pos_mulcold_fi = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4542,7 +4589,7 @@ attrs.pos_mulcold_fi = {
 attrs.pos_mulcold_ru = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "Adj": "Adj",
@@ -4567,7 +4614,7 @@ attrs.pos_mulcold_ru = {
 attrs.pos_mulcold_en = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4596,7 +4643,7 @@ attrs.pos_mulcold_en = {
 attrs.pos_mulcold_sv = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     // TODO: Map to generic keys for PoS translations
     dataset: {
         "A": "A",
@@ -4618,7 +4665,7 @@ attrs.pos_mulcold_sv = {
 attrs.pos_uta_ru = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "-": "Punct",
         ",": "Punct",
@@ -4687,7 +4734,7 @@ attrs.pos_ud2_fi = {
 attrs.pos_ud_fi = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "ADJ": "A",
         "ADP": "Adp",
@@ -4716,7 +4763,7 @@ attrs.pos_klk = {
     label: "pos",
     extendedComponent: "datasetSelect",
     escape: false,
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "": "",
         "A": "A",
@@ -4741,7 +4788,7 @@ attrs.pos_klk_ordered.order = 18;
 attrs.pos_textmorfo = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "-|null": "Unknown",
         "Abbrev": "Abbr",
@@ -4768,7 +4815,7 @@ attrs.pos_textmorfo = {
 attrs.pos_swecg = {
     label: "pos",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     localize: false,
     dataset: [
         "A",
@@ -4802,7 +4849,7 @@ attrs.pos_swecg = {
 
 attrs.msd = {
     label: "msd",
-    opts: settings.defaultOptions,
+    opts: options.default,
     // Add a <wbr> tag after each vertical bar to allow breaking the
     // line there in the sidebar, while retaining the ability to copy
     // and paste to a further search expression (unlike if we added a
@@ -4819,7 +4866,7 @@ attrs.baseform = {
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions,
+    opts: options.default,
     stats_cqp: "cqpPlainWordAttr",
     stats_stringify: "stringifyPlainWordAttr",
 };
@@ -4833,14 +4880,14 @@ attrs.baseform_ftb2 = {
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.baseform_compound = {
     label: "baseform_compound",
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.baseform_compound_ordered = JSON.parse(JSON.stringify(attrs.baseform_compound));
 attrs.baseform_compound_ordered.order = 19;
@@ -4850,7 +4897,7 @@ attrs.baseform_compound_ud1_ordered = {
     stringify: function(baseform) {
         return baseform.replace(/:\d+$/,'').replace(/_/g,' ');
     },
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.lemgram_hidden = {
     label: "lemgram",
@@ -4860,7 +4907,7 @@ attrs.lemgram_hidden = {
 attrs.deprel_ftb2 = {
     label: "deprel",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "advl": "advl",
         "attr": "attr",
@@ -4884,7 +4931,7 @@ attrs.deprel_ftb2 = {
 attrs.deprel_tdt = {
     label: "deprel",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "_": "_",
         "acomp": "acomp",
@@ -4949,7 +4996,7 @@ attrs.deprel_tdt_ordered.order = 16;
 attrs.deprel_ud2 = {
     label: "deprel",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "acl": "acl",
         "acl:relcl": "acl:relcl",
@@ -5002,7 +5049,7 @@ attrs.deprel_ud2 = {
 attrs.deprel_ud_fi = {
     label: "deprel",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "_": "_",
         "acl": "acl",
@@ -5059,7 +5106,7 @@ attrs.deprel_uta_ru = {
     label: "deprel",
     extendedComponent: "datasetSelect",
     localize: false,
-    opts: liteOptions,
+    opts: options.lite,
     dataset: [
         "1-компл",
         "1-несобст-компл",
@@ -5140,39 +5187,39 @@ attrs.text = {
 };
 attrs.spoken = {
     label: "spoken",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.origword = {
     label: "word_orig",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.tildeword = {
     label: "word_tilde",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.complword = {
     label: "word_completed",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.id_hidden = {
     label: "id",
     displayType: "hidden",
-    opts: settings.defaultOptions
+    opts: options.default
 };
 attrs.ambiguous_lemma = {
     label: "ambiguous_lemma",
     type: "set",
-    opts: setOptions
+    opts: options.set
 };
 attrs.ambiguous_pos = {
     label: "ambiguous_pos",
     type: "set",
-    opts: setOptions
+    opts: options.set
 };
 attrs.ambiguous_msd = {
     label: "ambiguous_msd",
     type: "set",
-    opts: setOptions
+    opts: options.set
 };
 
 var mulcold_pos_langs = ["fi", "ru", "en", "sv"];
@@ -5186,7 +5233,7 @@ for (var i = 0; i < mulcold_pos_langs.length; i++) {
 attrs.wordtype = {
     label: "type",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "text": "text",
         "to": "to",
@@ -5583,7 +5630,7 @@ attrlist.finer2 = {
     nertags: {
         label: "ner_tags",
         type: "set",
-        opts: setOptions,
+        opts: options.set,
         // Hide the tags containing nesting information (a digit
         // suffix) until it can be represented and searched for in a
         // more user-friendly way (in Korp 9)
@@ -5663,7 +5710,7 @@ sattrs.author_deathyear = {
 sattrs.sex = {
     label: "sex",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "f": "female",
         "m": "male",
@@ -5676,7 +5723,7 @@ sattrs.sex = {
 sattrs.author_name_type = {
     label: "author_name_type",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "candidate id": "candidate_id",
     },
@@ -5816,7 +5863,7 @@ sattrs.part_num = {
 sattrs.mikhailov_text_genre = {
     label: "text_genre",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "fiction": "fiction",
         "law": "law",
@@ -5887,7 +5934,7 @@ sattrs.sentence_lang = {
 sattrs.sentence_polarity = {
     label: "sentence_polarity",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: [
         "pos",
         "neut",
@@ -6103,7 +6150,7 @@ sattrlist.klk = {
         label: "lang",
         extendedComponent: "datasetSelect",
         escape: false,
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "fi": "fin",
             "sv": "swe",
@@ -6114,7 +6161,7 @@ sattrlist.klk = {
     /*
     text_page_id: {
         label: "page_id",
-        opts: settings.defaultOptions,
+        opts: options.default,
     },
     */
     text_page_no: {
@@ -6137,7 +6184,7 @@ sattrlist.klk = {
         label: "publication_type",
         extendedComponent: "datasetSelect",
         escape: false,
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "aikakausi": "journal",
             "sanomalehti": "newspaper"
@@ -6176,7 +6223,7 @@ sattrlist.klk2 = $.extend(
         text_add_version: {
             label: "added_in_version",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "1",
                 "2",
@@ -6388,7 +6435,7 @@ sattrlist.parfin_fi = $.extend(
                 "Tuuri Antti",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6409,7 +6456,7 @@ sattrlist.parfin_fi = $.extend(
                 "Zoštšenko Mihail",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -6432,7 +6479,7 @@ sattrlist.parfin_fi = $.extend(
                 "Tulitikkuja lainaamassa",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6445,7 +6492,7 @@ sattrlist.parfin_fi = $.extend(
                 "WSOY": "WSOY",
             },
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6474,7 +6521,7 @@ sattrlist.parfin_ru = $.extend(
                 "Улица окопная",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6492,7 +6539,7 @@ sattrlist.parfin_ru = $.extend(
                 "Художественная литература",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6541,7 +6588,7 @@ sattrlist.parrus_fi = $.extend(
                 "Шолохов М.А.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6572,7 +6619,7 @@ sattrlist.parrus_fi = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -6671,7 +6718,7 @@ sattrlist.parrus_fi = $.extend(
                 "Yö hautausmaalla / Valitut novellit 1.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6688,7 +6735,7 @@ sattrlist.parrus_fi = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6722,7 +6769,7 @@ sattrlist.parrus_ru = $.extend(
                 "Шолохов М.А.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6746,7 +6793,7 @@ sattrlist.parrus_ru = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -6844,7 +6891,7 @@ sattrlist.parrus_ru = $.extend(
                 "Шинель",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6877,7 +6924,7 @@ sattrlist.parrus_ru = $.extend(
                 "Эксо, 2008",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -6952,7 +6999,7 @@ sattrlist.parfin_2016_fi = $.extend(
                 "Tuuri Antti",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -6981,7 +7028,7 @@ sattrlist.parfin_2016_fi = $.extend(
                 "Tuntematon sotilas",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -6994,7 +7041,7 @@ sattrlist.parfin_2016_fi = $.extend(
                 "WSOY",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_year_orig: {
             label: "year",
@@ -7029,7 +7076,7 @@ sattrlist.parfin_2016_ru = $.extend(
                 "Улица окопная",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -7051,7 +7098,7 @@ sattrlist.parfin_2016_ru = $.extend(
                 "Урецкий, Илья",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -7071,7 +7118,7 @@ sattrlist.parfin_2016_ru = $.extend(
                 "Художественная литература",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -7137,7 +7184,7 @@ sattrlist.parrus_2016_ru = $.extend(
                 "Шукшин В.М.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -7243,7 +7290,7 @@ sattrlist.parrus_2016_ru = $.extend(
                 "Явление природы / Сквозная линия",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -7253,7 +7300,7 @@ sattrlist.parrus_2016_ru = $.extend(
                 "Эксмо",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -7298,7 +7345,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "Шукшин В.М.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_translator: {
             label: "translator",
@@ -7350,7 +7397,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "c.-s.",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_title: {
             label: "title",
@@ -7500,7 +7547,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "Äidin sydän",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         link_text_publisher: {
             label: "publisher",
@@ -7529,7 +7576,7 @@ sattrlist.parrus_2016_fi = $.extend(
                 "null",
             ],
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
     }
 );
@@ -7567,7 +7614,7 @@ sattrlist.europarl_v7 = {
     sentence_type: {
         label: "sentence_type",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "meta": "meta",
             "speech": "speech"
@@ -7618,7 +7665,7 @@ sattrlist.europarl_v7 = {
     speaker_lang: {
         label: "speech_language",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "BG": "bg",
             "CS": "cs",
@@ -8074,7 +8121,7 @@ funcs.make_bool_attr = function (label, yes_no) {
     return {
         label: label,
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: dataset,
         translation: transl.yesno,
     };
@@ -8463,11 +8510,8 @@ funcs.make_klk_corpus_settings = function(
     return {
         title: title_format.replace("{year}", year_str),
         description: descr_format.replace("{year}", year_str),
-        // Korp 9 has window.spWithin but settings.defaultWithin
-        within: (ctx_type == "sp"
-                 ? window[ctx_type + "Within"]
-                 : settings[ctx_type + "Within"]),
-        context: window[ctx_type + "Context"],
+        within: within[ctx_type],
+        context: context[ctx_type],
         attributes: attrlist[attrs_key],
         structAttributes: sattrlist[attrs_key],
         customAttributes: sattrlist[attrs_key + "_custom"] || undefined,
@@ -8548,8 +8592,8 @@ settings.templ.lemmie_common = {
     title: "",
     description: "",
     id: "",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     limitedAccess: true,
     licenceType: "RES",
     attributes: {
@@ -8567,7 +8611,7 @@ settings.templ.lemmie_common = {
         text_lang: {
             label: "lang",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "fin",
                 "eng",
@@ -8589,7 +8633,7 @@ settings.templ.lemmie_common = {
             label: "source",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
         },
         text_lemmie_corpus: {
             label: "lemmie_corpus",
@@ -8604,7 +8648,7 @@ settings.templ.lemmie_common = {
         paragraph_type: {
             label: "paragraph_type",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {},
             translation: transl.paragraphType,
         },
@@ -8643,6 +8687,8 @@ funcs.makeVideoAttr = function (options, attrProps) {
 
 
 module.exports = {
+    within,
+    context,
     spWithin,
     spContext,
     spcWithin,
@@ -8653,6 +8699,7 @@ module.exports = {
     sattrlist,
     funcs,
     transl,
+    options,
     setOptions,
     fullSetOptions,
     liteOptions,

@@ -482,23 +482,23 @@ sattrlist.hc = {
 attrlist.hc = {
     page: {
         label: "page_num",
-        opts: settings.defaultOptions
+        opts: options.default
     },
     note: {
         label: "note",
-        opts: settings.defaultOptions
+        opts: options.default
     },
     unit: {
         label: "unit",
-        opts: settings.defaultOptions
+        opts: options.default
     },
     type: {
         label: "type",
-        opts: settings.defaultOptions
+        opts: options.default
     },
     supplement: {
         label: "supplement",
-        opts: settings.defaultOptions
+        opts: options.default
     }
 };
 
@@ -518,8 +518,8 @@ settings.corpora.hc = {
         urn: "urn:nbn:fi:lb-2019061301",
     },
     cite_id: "HC-TEI-XML",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.hc,
     structAttributes: sattrlist.hc
 };
@@ -537,7 +537,7 @@ sattrlist.oracc = {
     text_language: {
         label: "oracc_textlang",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "Akkadian",
             "AkkadianAramaic",
@@ -666,7 +666,7 @@ sattrlist.oracc = {
     text_genre: {
         label: "oracc_genre",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "administrativerecord",
             "astrologicalastronomical",
@@ -759,7 +759,7 @@ sattrlist.oracc = {
     text_period: {
         label: "oracc_period",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "Achaemenid",
             "Archaic",
@@ -946,7 +946,7 @@ attrlist.oracc = {
     pos: {
         label: "pos",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "adjective",
             "adverb",
@@ -1059,7 +1059,7 @@ attrlist.oracc = {
     lang: {
         label: "oracc_lang",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "Akkadian",
             "Aramaic",
@@ -1239,8 +1239,8 @@ settings.corpora.oracc_adsd = {
     id: "oracc_adsd",
     title: "Astronomical Diaries Digital",
     description: "ADsD: Astronomical Diaries Digital",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1248,8 +1248,8 @@ settings.corpora.oracc_ario = {
     id: "oracc_ario",
     title: "Achaemenid Royal Inscriptions online",
     description: "ARIo: Achaemenid Royal Inscriptions online",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1257,8 +1257,8 @@ settings.corpora.oracc_blms = {
     id: "oracc_blms",
     title: "Bilinguals in Late Mesopotamian Scholarship",
     description: "blms: Bilinguals in Late Mesopotamian Scholarship",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1266,8 +1266,8 @@ settings.corpora.oracc_cams = {
     id: "oracc_cams",
     title: "Corpus of Ancient Mesopotamian Scholarship",
     description: "CAMS: Corpus of Ancient Mesopotamian Scholarship",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1275,8 +1275,8 @@ settings.corpora.oracc_caspo = {
     id: "oracc_caspo",
     title: "Corpus of Akkadian Shuila-Prayers online",
     description: "CASPo: Corpus of Akkadian Shuila-Prayers online",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1284,8 +1284,8 @@ settings.corpora.oracc_ctij = {
     id: "oracc_ctij",
     title: "Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
     description: "CTIJ: Cuneiform Texts Mentioning Israelites, Judeans, and Other Related Groups",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1293,8 +1293,8 @@ settings.corpora.oracc_dcclt = {
     id: "oracc_dcclt",
     title: "Digital Corpus of Cuneiform Lexical Texts",
     description: "DCCLT: Digital Corpus of Cuneiform Lexical Texts",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1302,8 +1302,8 @@ settings.corpora.oracc_dccmt = {
     id: "oracc_dccmt",
     title: "Digital Corpus of Cuneiform Mathematical Texts",
     description: "DCCMT: Digital Corpus of Cuneiform Mathematical Texts",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1311,8 +1311,8 @@ settings.corpora.oracc_ecut = {
     id: "oracc_ecut",
     title: "Electronic Corpus of Urartian Texts",
     description: "eCUT: Electronic Corpus of Urartian Texts",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1320,8 +1320,8 @@ settings.corpora.oracc_etcsri = {
     id: "oracc_etcsri",
     title: "Electronic Text Corpus of Sumerian Royal Inscriptions",
     description: "ETCSRI: Electronic Text Corpus of Sumerian Royal Inscriptions",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1329,8 +1329,8 @@ settings.corpora.oracc_hbtin = {
     id: "oracc_hbtin",
     title: "Hellenistic Babylonia",
     description: "HBTIN: Hellenistic Babylonia: Texts, Iconography, Names",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1338,8 +1338,8 @@ settings.corpora.oracc_obmc = {
     id: "oracc_obmc",
     title: "Old Babylonian Model Contracts",
     description: "OBMC: Old Babylonian Model Contracts",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1347,8 +1347,8 @@ settings.corpora.oracc_others = {
     id: "oracc_others",
     title: "Other projects",
     description: "Other projects",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1356,8 +1356,8 @@ settings.corpora.oracc_riao = {
     id: "oracc_riao",
     title: "Royal Inscriptions of Assyria online",
     description: "RIAo: Royal Inscriptions of Assyria online",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1365,8 +1365,8 @@ settings.corpora.oracc_ribo = {
     id: "oracc_ribo",
     title: "Royal Inscriptions of Babylonia online",
     description: "RIBo: Royal Inscriptions of Babylonia online",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1374,8 +1374,8 @@ settings.corpora.oracc_rimanum = {
     id: "oracc_rimanum",
     title: "The House of Prisoners",
     description: "Rīm-Anum: The House of Prisoners",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1383,8 +1383,8 @@ settings.corpora.oracc_rinap = {
     id: "oracc_rinap",
     title: "Royal Inscriptions of the Neo-Assyrian Period",
     description: "RINAP: Royal Inscriptions of the Neo-Assyrian Period",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1392,8 +1392,8 @@ settings.corpora.oracc_saao = {
     id: "oracc_saao",
     title: "State Archives of Assyria Online",
     description: "SAAo: State Archives of Assyria Online",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.oracc,
     structAttributes: sattrlist.oracc
 };
@@ -1404,8 +1404,8 @@ settings.corpora.ethesis_ru = {
     description: "E-thesis. Corpus of theses and dissertations (2005–2016)",
     id: "ethesis_ru",
     cite_id: "e-thesis-ru",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -1416,8 +1416,8 @@ settings.corpora.ethesis_es = {
     description: "E-thesis. Corpus of theses and dissertations (2003–2015)",
     id: "ethesis_es",
     cite_id: "e-thesis-es",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -1428,8 +1428,8 @@ settings.corpora.ethesis_fr = {
     description: "E-thesis. Corpus of theses and dissertations (2000–2016)",
     id: "ethesis_fr",
     cite_id: "e-thesis-fr",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -1440,8 +1440,8 @@ settings.corpora.ethesis_de = {
     description: "E-thesis. Corpus of theses and dissertations (1997–2016)",
     id: "ethesis_de",
     cite_id: "e-thesis-de",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -1452,7 +1452,7 @@ sattrlist.sust_common = {
     text_lang: {
         label: "lang",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "kpv",
             "mdf",
@@ -1571,7 +1571,7 @@ attrlist.sust_tagged = $.extend(true, attrlist.sust_common, {
     pos: {
         label: "pos",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "A": "A",
             "Adv": "Adv",
@@ -1597,8 +1597,8 @@ settings.corpora.sust_mdf = {
     id: "sust_mdf",
     title: "SUS-kenttätyö: mokša (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus: mokša (näyte)",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.sust_tagged,
     structAttributes: sattrlist.sust_common
 };
@@ -1607,8 +1607,8 @@ settings.corpora.sust_myv = {
     id: "sust_myv",
     title: "SUS-kenttätyö: ersä (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus: ersä (näyte)",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.sust_tagged,
     structAttributes: sattrlist.sust_common
 };
@@ -1617,8 +1617,8 @@ settings.corpora.sust_kpv = {
     id: "sust_kpv",
     title: "SUS-kenttätyö: komisyrjääni (näyte)",
     description: "Suomalais-Ugrilaisen Seuran kenttätyökorpus: komisyrjääni (näyte)",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.sust_tagged,
     structAttributes: sattrlist.sust_common
 };
@@ -1655,8 +1655,8 @@ settings.corpora.wanca_2016_fit_multili = {
     title: "Wanca 2016: Tornedalen Finnish (meänkieli)",
     description: "A collection of web corpora in small Uralic languages: Tornedalen Finnish (meänkieli)",
     lang: "fit",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1666,8 +1666,8 @@ settings.corpora.wanca_2016_fkv_multili = {
     title: "Wanca 2016: Kven (kvääni)",
     description: "A collection of web corpora in small Uralic languages: Kven (kvääni)",
     lang: "fkv",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1677,8 +1677,8 @@ settings.corpora.wanca_2016_izh = {
     title: "Wanca 2016: Ingrian (ižoran keel)",
     description: "A collection of web corpora in small Uralic languages: Ingrian (ižoran keel)",
     lang: "izh",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1688,8 +1688,8 @@ settings.corpora.wanca_2016_kca_multili = {
     title: "Wanca 2016: Khanty (ханты ясанг)",
     description: "A collection of web corpora in small Uralic languages: Khanty (ханты ясанг)",
     lang: "kca",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1699,8 +1699,8 @@ settings.corpora.wanca_2016_koi_multili = {
     title: "Wanca 2016: Komi-Permyak (перем коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Permyak (перем коми кыв)",
     lang: "koi",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1710,8 +1710,8 @@ settings.corpora.wanca_2016_kpv_multili = {
     title: "Wanca 2016: Komi-Zyrian (Коми кыв)",
     description: "A collection of web corpora in small Uralic languages: Komi-Zyrian (Коми кыв)",
     lang: "kpv",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1721,8 +1721,8 @@ settings.corpora.wanca_2016_krl_multili = {
     title: "Wanca 2016: Karelian (karjal)",
     description: "A collection of web corpora in small Uralic languages: Karelian (karjal)",
     lang: "krl",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1732,8 +1732,8 @@ settings.corpora.wanca_2016_liv = {
     title: "Wanca 2016: Liv (līvõ kēļ)",
     description: "A collection of web corpora in small Uralic languages: Liv (līvõ kēļ)",
     lang: "liv",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1743,8 +1743,8 @@ settings.corpora.wanca_2016_lud = {
     title: "Wanca 2016: Ludian (lüüdin kiel')",
     description: "A collection of web corpora in small Uralic languages: Ludian (lüüdin kiel')",
     lang: "lud",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1754,8 +1754,8 @@ settings.corpora.wanca_2016_mdf_multili = {
     title: "Wanca 2016: Moksha (мокшень)",
     description: "A collection of web corpora in small Uralic languages: Moksha (мокшень)",
     lang: "mdf",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1765,8 +1765,8 @@ settings.corpora.wanca_2016_mhr_multili = {
     title: "Wanca 2016: Eastern and Meadow Mari (марий йылме)",
     description: "A collection of web corpora in small Uralic languages: Eastern and Meadow Mari (марий йылме)",
     lang: "mhr",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1776,8 +1776,8 @@ settings.corpora.wanca_2016_mns_multili = {
     title: "Wanca 2016: Mansi (мāньси лāтыӈ)",
     description: "A collection of web corpora in small Uralic languages: Mansi (мāньси лāтыӈ)",
     lang: "mns",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1787,8 +1787,8 @@ settings.corpora.wanca_2016_mrj_multili = {
     title: "Wanca 2016: Western or Hill Mari (Кырык мары)",
     description: "A collection of web corpora in small Uralic languages: Western or Hill Mari (Кырык мары)",
     lang: "mrj",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1798,8 +1798,8 @@ settings.corpora.wanca_2016_myv_multili = {
     title: "Wanca 2016: Erzya (эрзянь)",
     description: "A collection of web corpora in small Uralic languages: Erzya (эрзянь)",
     lang: "myv",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1809,8 +1809,8 @@ settings.corpora.wanca_2016_nio = {
     title: "Wanca 2016: Nganasan (ня”)",
     description: "A collection of web corpora in small Uralic languages: Nganasan (ня”)",
     lang: "nio",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1820,8 +1820,8 @@ settings.corpora.wanca_2016_olo_multili = {
     title: "Wanca 2016: Livvi (Olonets / livvin karjal)",
     description: "A collection of web corpora in small Uralic languages: Livvi (Olonets / livvin karjal)",
     lang: "olo",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1831,8 +1831,8 @@ settings.corpora.wanca_2016_sjd = {
     title: "Wanca 2016: Kildin Sami (Кӣллт са̄мь кӣлл)",
     description: "A collection of web corpora in small Uralic languages: Kildin Sami (Кӣллт са̄мь кӣлл)",
     lang: "sjd",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1842,8 +1842,8 @@ settings.corpora.wanca_2016_sjk = {
     title: "Wanca 2016: Kemi Sami (samääškiela)",
     description: "A collection of web corpora in small Uralic languages: Kemi Sami (samääškiela)",
     lang: "sjk",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1853,8 +1853,8 @@ settings.corpora.wanca_2016_sju = {
     title: "Wanca 2016: Ume Sami (uumajanlappi)",
     description: "A collection of web corpora in small Uralic languages: Ume Sami (uumajanlappi)",
     lang: "sju",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1864,8 +1864,8 @@ settings.corpora.wanca_2016_sma_multili = {
     title: "Wanca 2016: Southern Sami (åarjel-saemien)",
     description: "A collection of web corpora in small Uralic languages: Southern Sami (åarjel-saemien)",
     lang: "sma",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1875,8 +1875,8 @@ settings.corpora.wanca_2016_sme_multili = {
     title: "Wanca 2016: Northern Sami (davvisámi, davvisámegiella)",
     description: "A collection of web corpora in small Uralic languages: Northern Sami (davvisámi, davvisámegiella)",
     lang: "sme",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1886,8 +1886,8 @@ settings.corpora.wanca_2016_smj_multili = {
     title: "Wanca 2016: Lule Sami (julevsábme)",
     description: "A collection of web corpora in small Uralic languages: Lule Sami (julevsábme)",
     lang: "smj",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1897,8 +1897,8 @@ settings.corpora.wanca_2016_smn_multili = {
     title: "Wanca 2016: Inari Sami (anarâškielâ)",
     description: "A collection of web corpora in small Uralic languages: Inari Sami (anarâškielâ)",
     lang: "smn",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1908,8 +1908,8 @@ settings.corpora.wanca_2016_sms_multili = {
     title: "Wanca 2016: Skolt Sami (sää´mǩiõll)",
     description: "A collection of web corpora in small Uralic languages: Skolt Sami (sää´mǩiõll)",
     lang: "sms",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1919,8 +1919,8 @@ settings.corpora.wanca_2016_udm_multili = {
     title: "Wanca 2016: Udmurt (удмурт кыл)",
     description: "A collection of web corpora in small Uralic languages: Udmurt (удмурт кыл)",
     lang: "udm",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1930,8 +1930,8 @@ settings.corpora.wanca_2016_vep_multili = {
     title: "Wanca 2016: Veps (vepsän kel')",
     description: "A collection of web corpora in small Uralic languages: Veps (vepsän kel')",
     lang: "vep",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1941,8 +1941,8 @@ settings.corpora.wanca_2016_vot = {
     title: "Wanca 2016: Votic (vad̕d̕a ceeli)",
     description: "A collection of web corpora in small Uralic languages: Votic (vad̕d̕a ceeli)",
     lang: "vot",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1952,8 +1952,8 @@ settings.corpora.wanca_2016_vro_multili = {
     title: "Wanca 2016: Võro (võro kiil)",
     description: "A collection of web corpora in small Uralic languages: Võro (võro kiil)",
     lang: "vro",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1963,8 +1963,8 @@ settings.corpora.wanca_2016_yrk = {
     title: "Wanca 2016: Nenets (ненэцяʼ вада)",
     description: "A collection of web corpora in small Uralic languages: Nenets (ненэцяʼ вада)",
     lang: "yrk",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.wanca_common,
     structAttributes: sattrlist.wanca_common
 };
@@ -1975,8 +1975,8 @@ settings.corpora.wanca_2016_yrk = {
 sattrlist.fennougrica_veps = {
     sentence_id: sattrs.sentence_id_hidden,
     sentence_page: { label: "klk_page"},
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     text_datefrom: sattrs.date,
     text_year: {
         label: "year"
@@ -1999,8 +1999,8 @@ attrlist.fennougrica_veps = {
 attrlist.fennougrica = {};
 
 sattrlist.fennougrica = {
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     text_datefrom: sattrs.date,
     text_author: {
         label: "text_author"
@@ -2014,7 +2014,7 @@ sattrlist.fennougrica = {
     text_lang: {
         label: "klk_lang",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "izh": "izh",
             "kca": "kca",
@@ -2042,8 +2042,8 @@ settings.corpora.fennougrica_izh = {
     description: "Fenno-Ugrica, inkeroinen",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2055,8 +2055,8 @@ settings.corpora.fennougrica_mhr = {
     description: "Fenno-Ugrica, itämari",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2068,8 +2068,8 @@ settings.corpora.fennougrica_kca = {
     description: "Fenno-Ugrica, hanti",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2081,8 +2081,8 @@ settings.corpora.fennougrica_mdf = {
     description: "Fenno-Ugrica, mokša",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2094,8 +2094,8 @@ settings.corpora.fennougrica_mns = {
     description: "Fenno-Ugrica, mansi",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2107,8 +2107,8 @@ settings.corpora.fennougrica_mrj = {
     description: "Fenno-Ugrica, länsimari",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2120,8 +2120,8 @@ settings.corpora.fennougrica_myv = {
     description: "Fenno-Ugrica, ersä",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2133,8 +2133,8 @@ settings.corpora.fennougrica_sel = {
     description: "Fenno-Ugrica, selkuppi",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2146,8 +2146,8 @@ settings.corpora.fennougrica_vep = {
     description: "Fenno-Ugrica, vepsä",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2159,8 +2159,8 @@ settings.corpora.fennougrica_yrk = {
     description: "Fenno-Ugrica, tundranenetsi",
     metadata_urn: "urn:nbn:fi:lb-2014073056",
     homepage_url: "http://fennougrica.kansalliskirjasto.fi/",
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.fennougrica,
     structAttributes: sattrlist.fennougrica,
     unselected: true
@@ -2170,8 +2170,8 @@ settings.corpora.mulcold_en = {
     id: "mulcold_en",
     title: "MULCOLD englanti",
     description: "Multilingual Corpus of Legal Documents, englanninkielinen osa",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.mulcold_en,
     structAttributes: sattrlist.mulcold,
 };
@@ -2180,8 +2180,8 @@ settings.corpora.mulcold_de = {
     id: "mulcold_de",
     title: "MULCOLD saksa",
     description: "Multilingual Corpus of Legal Documents, saksankielinen osa",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.mulcold_de,
     structAttributes: sattrlist.mulcold,
 };
@@ -2190,8 +2190,8 @@ settings.corpora.mulcold_ru = {
     id: "mulcold_ru",
     title: "MULCOLD venäjä",
     description: "Multilingual Corpus of Legal Documents, venäjänkielinen osa",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.mulcold_ru,
     structAttributes: sattrlist.mulcold,
 };
@@ -2203,8 +2203,8 @@ settings.corpora.legal_ru = {
     id: "legal_ru",
     title: "FiRuLex venäjä",
     description: "Jurdisia tekstejä (venäjä)",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.mulcold_ru,
     structAttributes: sattrlist.legal
 };
@@ -2219,8 +2219,8 @@ settings.corpora.ethesis_en_ma_ot = {
     title: "E-thesis: Master’s theses: Law",
     description: "E-thesis: Master’s theses: Faculty of Law (2010–2015)",
     id: "ethesis_en_ma_ot",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2229,8 +2229,8 @@ settings.corpora.ethesis_en_ma_med = {
     title: "E-thesis: Master’s theses: Medicine",
     description: "E-thesis: Master’s theses: Faculty of Medicine (2009–2015)",
     id: "ethesis_en_ma_med",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2239,8 +2239,8 @@ settings.corpora.ethesis_en_ma_el = {
     title: "E-thesis: Master’s theses: Veterinary Medicine",
     description: "E-thesis: Master’s theses: Faculty of Veterinary Medicine (2003–2016)",
     id: "ethesis_en_ma_el",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2250,8 +2250,8 @@ settings.corpora.ethesis_en_ma_hum = {
     title: "E-thesis: Master’s theses: Arts",
     description: "E-thesis: Master’s theses: Faculty of Arts (1997–2016)",
     id: "ethesis_en_ma_hum",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2261,8 +2261,8 @@ settings.corpora.ethesis_en_ma_beh = {
     title: "E-thesis: Master’s theses: Behavioural Sciences",
     description: "E-thesis: Master’s theses: Faculty of Behavioural Sciences (2000–2016)",
     id: "ethesis_en_ma_beh",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2271,8 +2271,8 @@ settings.corpora.ethesis_en_ma_bio = {
     title: "E-thesis: Master’s theses: Biological and Environmental Sciences",
     description: "E-thesis: Master’s theses: Faculty of Biological and Environmental Sciences (2006–2015)",
     id: "ethesis_en_ma_bio",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2281,8 +2281,8 @@ settings.corpora.ethesis_en_ma_far = {
     title: "E-thesis: Master’s theses: Pharmacy",
     description: "E-thesis: Master’s theses: Faculty of Pharmacy (2003, 2010–2016)",
     id: "ethesis_en_ma_far",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2291,8 +2291,8 @@ settings.corpora.ethesis_en_ma_mm = {
     title: "E-thesis: Master’s theses: Agriculture and Forestry",
     description: "E-thesis: Master’s theses: Agriculture and Forestry (2002–2016)",
     id: "ethesis_en_ma_mm",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2301,8 +2301,8 @@ settings.corpora.ethesis_en_ma_sci = {
     title: "E-thesis: Master’s theses: Science",
     description: "E-thesis: Master’s theses: Faculty of Science (1999–2016)",
     id: "ethesis_en_ma_sci",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2311,8 +2311,8 @@ settings.corpora.ethesis_en_ma_teo = {
     title: "E-thesis: Master’s theses: Theology",
     description: "E-thesis: Master’s theses: Faculty of Theology (2006–2016)",
     id: "ethesis_en_ma_teo",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2321,8 +2321,8 @@ settings.corpora.ethesis_en_ma_valt = {
     title: "E-thesis: Master’s theses: Social Sciences",
     description: "E-thesis: Master’s theses: Faculty of Social Sciences (1999–2016)",
     id: "ethesis_en_ma_valt",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2331,8 +2331,8 @@ settings.corpora.ethesis_en_ma_ai = {
     title: "E-thesis: Master’s theses: Aleksanteri Institute",
     description: "E-thesis: Master’s theses: Aleksanteri Institute (2009–2015)",
     id: "ethesis_en_ma_ai",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2341,8 +2341,8 @@ settings.corpora.ethesis_en_maabs = {
     title: "Master's thesis abstracts",
     description: "Master's thesis abstracts (1999–2016)",
     id: "ethesis_en_maabs",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -2352,8 +2352,8 @@ settings.corpora.ethesis_en_dissabs = {
     title: "Doctoral dissertation abstracts",
     description: "Doctoral disseration abstracts (2006–2016)",
     id: "ethesis_en_dissabs",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -2363,8 +2363,8 @@ settings.corpora.ethesis_en_phd_beh = {
     title: "E-thesis: Doctoral dissertations: Behavioural Sciences",
     description: "E-thesis: Doctoral dissertations: Faculty of Behavioural Sciences (1999–2016)",
     id: "ethesis_en_phd_beh",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2373,8 +2373,8 @@ settings.corpora.ethesis_en_phd_bio = {
     title: "E-thesis: Doctoral dissertations: Biological and Environmental Sciences",
     description: "E-thesis: Doctoral dissertations: Faculty of Biological and Environmental Sciences (1997–2016)",
     id: "ethesis_en_phd_bio",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2383,8 +2383,8 @@ settings.corpora.ethesis_en_phd_el = {
     title: "E-thesis: Doctoral dissertations: Veterinary Medicine",
     description: "E-thesis: Doctoral dissertations: Faculty of Veterinary Medicine (1999–2016)",
     id: "ethesis_en_phd_el",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2393,8 +2393,8 @@ settings.corpora.ethesis_en_phd_far = {
     title: "E-thesis: Doctoral dissertations: Pharmacy",
     description: "E-thesis: Doctoral dissertations: Faculty of Pharmacy (1999–2016)",
     id: "ethesis_en_phd_far",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2403,8 +2403,8 @@ settings.corpora.ethesis_en_phd_mm = {
     title: "E-thesis: Doctoral dissertations: Agriculture and Forestry",
     description: "E-thesis: Doctoral dissertations: Agriculture and Forestry (1999–2016)",
     id: "ethesis_en_phd_mm",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2413,8 +2413,8 @@ settings.corpora.ethesis_en_phd_hum = {
     title: "E-thesis: Doctoral dissertations: Arts",
     description: "E-thesis: Doctoral dissertations: Faculty of Arts (1989, 1998–2016)",
     id: "ethesis_en_phd_hum",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2423,8 +2423,8 @@ settings.corpora.ethesis_en_phd_sci = {
     title: "E-thesis: Doctoral dissertations: Science",
     description: "E-thesis: Doctoral dissertations: Faculty of Science (1992, 1995–2016)",
     id: "ethesis_en_phd_sci",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2433,8 +2433,8 @@ settings.corpora.ethesis_en_phd_ot = {
     title: "E-thesis: Doctoral dissertations: Law",
     description: "E-thesis: Doctoral dissertations: Faculty of Law (2002, 2004–2016)",
     id: "ethesis_en_phd_ot",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2443,8 +2443,8 @@ settings.corpora.ethesis_en_phd_teo = {
     title: "E-thesis: Doctoral dissertations: Theology",
     description: "E-thesis: Doctoral dissertations: Faculty of Theology (2002–2016)",
     id: "ethesis_en_phd_teo",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2453,8 +2453,8 @@ settings.corpora.ethesis_en_phd_med = {
     title: "E-thesis: Doctoral dissertations: Medicine",
     description: "E-thesis: Doctoral dissertations: Faculty of Medicine (1998–2016)",
     id: "ethesis_en_phd_med",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2463,8 +2463,8 @@ settings.corpora.ethesis_en_phd_valt = {
     title: "E-thesis: Doctoral dissertations: Social Sciences",
     description: "E-thesis: Doctoral dissertations: Faculty Social Sciences (1999–2016)",
     id: "ethesis_en_phd_valt",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.ud2_en,
     structAttributes: sattrlist.ethesis
 };
@@ -2480,8 +2480,8 @@ settings.corpora.parrus_2016_ru = {
     metadata_urn: "urn:nbn:fi:lb-2016121614",
     licence: settings.licenceinfo.ParFinRus_2016_en,
     cite_id: "ParRus2016",
-    context: settings.sentLinkContext,
-    within: settings.sentLinkWithin,
+    context: context.sentLink,
+    within: within.sentLink,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.parrus_2016_ru,
@@ -2501,8 +2501,8 @@ settings.corpora.parfin_2016_ru = {
     metadata_urn: "urn:nbn:fi:lb-2016121612",
     licence: settings.licenceinfo.ParFinRus_2016_en,
     cite_id: "ParFin2016",
-    context: settings.sentLinkContext,
-    within: settings.sentLinkWithin,
+    context: context.sentLink,
+    within: within.sentLink,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.parfin_2016_ru,
@@ -2527,8 +2527,8 @@ settings.corpora.topling_en = {
     cite_id: "topling-en",
     limitedAccess: true,
     licenceType: "RES",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.topling,
     structAttributes: sattrlist.topling
 };
@@ -2547,15 +2547,15 @@ settings.corpora.elfa = {
         name: "Professor Anna Mauranen, University of Helsinki",
     },
     cite_id: "ELFA-korp",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     ignore_between_tokens_cqp: '[type != "word"]*',
     attributes: {
         type: {
             label: "token_type",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "word": "word",
                 "hesitation": "hesitation",
@@ -2587,7 +2587,7 @@ settings.corpora.elfa = {
             label: "token_subtype",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "overlap": "overlap",
                 "unfinished": "unfinished",
@@ -2604,7 +2604,7 @@ settings.corpora.elfa = {
             label: "action_type",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "speaking": "speaking",
                 "reading_aloud": "reading aloud",
@@ -2616,7 +2616,7 @@ settings.corpora.elfa = {
             label: "speaking_mode",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "normal": "normal",
                 "laugh": "laugh",
@@ -2656,7 +2656,7 @@ settings.corpora.elfa = {
         text_domain: {
             label: "academic_domain",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "behavioural_sciences",
                 "economics_and_administration",
@@ -2714,7 +2714,7 @@ settings.corpora.elfa = {
             label: "academic_discipline",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "accounting",
                 "automation engineering",
@@ -2762,7 +2762,7 @@ settings.corpora.elfa = {
             label: "event_type",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "conference discussion",
                 "conference presentation",
@@ -2782,7 +2782,7 @@ settings.corpora.elfa = {
         text_event_purpose: {
             label: "event_purpose",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "discuss",
                 "inform",
@@ -2815,7 +2815,7 @@ settings.corpora.elfa = {
         text_preparedness: {
             label: "preparedness",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "true",
                 "false",
@@ -2836,7 +2836,7 @@ settings.corpora.elfa = {
         text_interaction_degree: {
             label: "interaction_degree",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "complete",
                 "partial",
@@ -2867,7 +2867,7 @@ settings.corpora.elfa = {
             label: "recording_type",
             extendedComponent: "datasetSelect",
             localize: false,
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "conference",
                 "university degree programme",
@@ -2888,7 +2888,7 @@ settings.corpora.elfa = {
         paragraph_speaker_type: {
             label: "speaker_identification",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "identified",
                 "several",
@@ -2916,7 +2916,7 @@ settings.corpora.elfa = {
             label: "speaker_l1",
             type: "set",
             extendedComponent: "datasetSelect",
-            opts: setOptions,
+            opts: options.set,
             dataset: {
                 "ada-GH": "ada-GH",
                 "aka.*": "aka",
@@ -3011,7 +3011,7 @@ settings.corpora.elfa = {
         paragraph_speaker_role: {
             label: "academic_role",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "junior staff",
                 "junior staff and research student",
@@ -3068,7 +3068,7 @@ settings.corpora.elfa = {
         paragraph_speaker_age: {
             label: "age",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "17-23",
                 "24-30",
@@ -3107,7 +3107,7 @@ settings.corpora.elfa = {
         paragraph_speaker_sex: {
             label: "gender",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "male": "male",
                 "female": "female",
@@ -3121,7 +3121,7 @@ settings.corpora.elfa = {
         paragraph_type: {
             label: "speech_event_type",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "utterance",
                 "incident",
@@ -3163,7 +3163,7 @@ sattrlist.scotscorr = {
     text_lcinf: {
         label: "scotscorr_lcinf",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: {
             // The control characters \x01–\x08 are used to get the
@@ -3199,7 +3199,7 @@ sattrlist.scotscorr = {
     text_largeregion: {
         label: "scotscorr_largeregion",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: {
             // The control characters \x01–\x08 are used to get the
@@ -3220,7 +3220,7 @@ sattrlist.scotscorr = {
     text_wgr: {
         label: "scotscorr_srg",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: [
             "female",
@@ -3232,7 +3232,7 @@ sattrlist.scotscorr = {
     text_agr: {
         label: "scotscorr_arg",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: [
             "female",
@@ -3244,7 +3244,7 @@ sattrlist.scotscorr = {
     text_lettertype: {
         label: "scotscorr_hand",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: [
             "autograph",
@@ -3255,7 +3255,7 @@ sattrlist.scotscorr = {
     text_scripttype: {
         label: "scotscorr_scripttype",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: [
             "information unavailable",
@@ -3276,7 +3276,7 @@ sattrlist.scotscorr = {
     text_lettertype2: {
         label: "scotscorr_hand2",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: [
             "autograph",
@@ -3287,7 +3287,7 @@ sattrlist.scotscorr = {
     text_scripttype2: {
         label: "scotscorr_scripttype",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         localize: false,
         dataset: [
             "copy",
@@ -3311,7 +3311,7 @@ sattrlist.scotscorr = {
 // generalized, maybe to an Angular directive.
 attrs.scotscorr_word = {
     label: "word",
-    opts: settings.defaultOptions,
+    opts: options.default,
     // The input field also has "list" icon, which is a link opening a
     // list of words with checkboxes from which the user can select.
     // This has been copied and modified from the code for the the
@@ -3713,7 +3713,7 @@ funcs.extend_corpus_settings(
             // is the default "reading mode" context.
             "1 paragraph": "1 paragraph"
         },
-        within: settings.defaultWithin,
+        within: within.default,
         limitedAccess: settings.isPublicServer,
         licenceType: "ACA",
         attributes: {
@@ -3792,7 +3792,7 @@ sattrlist.testerzya = {
     text_lang: {
         label: "klk_lang",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "izh": "izh",
             "kca": "kca",
@@ -3826,8 +3826,8 @@ settings.corpora.erme_myv = {
     title: "Ersä/Erzya",
     description: "ERME: Ersä/Erzya",
     licence: settings.licenceinfo.CC_BY,
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.testerzya,
     structAttributes: sattrlist.erme,
     unselected: true
@@ -3838,8 +3838,8 @@ settings.corpora.erme_mdf = {
     title: "Mokša/Moksha",
     description: "ERME: Mokša/Moksha",
     licence: settings.licenceinfo.CC_BY,
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.testerzya,
     structAttributes: sattrlist.erme,
     unselected: true
@@ -3852,14 +3852,14 @@ settings.corpora.kildin_sample = {
     description: "A test sample of the Corpus of Written Kildin Saami (2015)",
     metadata_urn: "urn:nbn:fi:lb-2015102001",
     licence: settings.licenceinfo.CC_BY,
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: {},
     structAttributes: {
         text_style: {
             label: "style",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "fiction",
                 "non-fiction",
@@ -3880,7 +3880,7 @@ settings.corpora.kildin_sample = {
         text_medium: {
             label: "medium",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "book",
                 "periodical",
@@ -3907,7 +3907,7 @@ settings.corpora.kildin_sample = {
         text_language: {
             label: "lang",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "sjd",
             ],
@@ -3931,7 +3931,7 @@ settings.corpora.kildin_sample = {
         text_modus: {
             label: "text_modus",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "written",
             ],
@@ -3949,7 +3949,7 @@ settings.corpora.kildin_sample = {
         text_genre: {
             label: "genre",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "biography",
                 "novel",
@@ -3966,7 +3966,7 @@ settings.corpora.kildin_sample = {
         text_channel: {
             label: "channel",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "original",
                 "translation",
@@ -3996,7 +3996,7 @@ settings.corpora.kildin_sample = {
         sentence_transl_lang: {
             label: "translation_lang",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "eng",
                 "rus",
@@ -4008,7 +4008,7 @@ settings.corpora.kildin_sample = {
         sentence_paragraph_boundary: {
             label: "in_paragraph",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "begin": "begin",
                 "end": "end",
@@ -4050,8 +4050,8 @@ settings.templ.hcs2_common = {
     description: "",
     limitedAccess: true,
     licenceType: "ACA",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: {
         lemma: attrs.baseform,
         pos: {
@@ -4093,7 +4093,7 @@ settings.templ.hcs2_common = {
                 "V-DEF",
                 "_",
             ],
-            opts: liteOptions,
+            opts: options.lite,
         },
         msd: {
             label: "msd",
@@ -4147,7 +4147,7 @@ settings.templ.hcs2_common = {
                 "@SUBJ+rel",
                 "_",
             ],
-            opts: liteOptions,
+            opts: options.lite,
         },
         msdextra: {
             label: "extra_features",
@@ -4224,8 +4224,8 @@ settings.corpora.besercorp = {
     id: "besercorp",
     metadata_urn: "urn:nbn:fi:lb-2015081401",
     cite_id: "BeserCorp",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: attrlist.besercorp,
     structAttributes: {}
 };
@@ -4243,7 +4243,7 @@ attrlist.byu = {
         label: "major_pos",
         type: "set",
         extendedComponent: "datasetSelect",
-        opts: setOptions,
+        opts: options.set,
         order: 49,
         // TODO: Map the UD2 PoS codes below to existing PoS keys
         dataset: {
@@ -4270,7 +4270,7 @@ attrlist.byu = {
         label: "detailed_pos",
         type: "set",
         extendedComponent: "datasetSelect",
-        opts: setOptions,
+        opts: options.set,
         order: 48,
         // PoS tags from http://ucrel.lancs.ac.uk/claws7tags.html,
         // with some additions of BYU.
@@ -4475,7 +4475,7 @@ sattrlist.byu_common = {
     paragraph_type: {
         label: "paragraph_type",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "paragraph",
             "heading",
@@ -4487,7 +4487,7 @@ sattrlist.byu_common = {
     sentence_gaps: {
         label: "sentence_part_deleted",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "yes",
             "no",
@@ -4505,7 +4505,7 @@ sattrlist.coca = $.extend(
         text_genre: {
             label: "genre",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "ACAD": "academic",
                 "FIC": "fiction",
@@ -4527,8 +4527,8 @@ sattrlist.coca = $.extend(
     });
 
 settings.templ.coca_common = {
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.byu,
     structAttributes: sattrlist.coca,
 };
@@ -4565,7 +4565,7 @@ sattrlist.coha =  $.extend(
         text_genre: {
             label: "genre",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "FIC": "fiction",
                 "MAG": "popular_magazine",
@@ -4585,7 +4585,7 @@ sattrlist.coha =  $.extend(
         text_lcc: {
             label: "lib_congress_classif",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "A": "A – General Works",
                 "B": "B – Philosophy. Psychology. Religion",
@@ -4614,8 +4614,8 @@ sattrlist.coha =  $.extend(
     });
 
 settings.templ.coha_common = {
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.byu,
     structAttributes: sattrlist.coha,
 };
@@ -4712,7 +4712,7 @@ sattrlist.glowbe = $.extend(
         text_country: {
             label: "country",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             // Uppercase country codes
             dataset: (_.unzip(glowbe_countries)[0]
                       .map(function (s) { return s.toUpperCase(); })),
@@ -4822,7 +4822,7 @@ sattrlist.glowbe = $.extend(
         text_genre: {
             label: "genre",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: {
                 "B": "blog",
                 "G": "general",
@@ -4836,8 +4836,8 @@ sattrlist.glowbe = $.extend(
     });
 
 settings.templ.glowbe_common = {
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     attributes: attrlist.byu,
     structAttributes: sattrlist.glowbe,
 };

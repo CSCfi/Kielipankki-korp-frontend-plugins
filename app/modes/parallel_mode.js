@@ -7,18 +7,6 @@ settings.hitsPerPageValues = [10,25,50,75,100,500,1000]
 settings.primaryColor = "#CAD2E6";
 settings.primaryLight = "#CAD2E6";
 
-var context = {
-    "defaultAligned": {
-        "1 sentence": "1 sentence"
-    },
-    "linkAligned": {
-        "1 link": "1 link"
-    },
-    "alignAligned": {
-        "1 align": "1 align"
-    }
-};
-
 settings.preselectedCorpora = [
     // "europarl_v7_enfi_fi",
     // "mulcold_fi",
@@ -26,9 +14,6 @@ settings.preselectedCorpora = [
 
 settings.defaultOverviewContext = "1 link";
 settings.defaultReadingContext = "1 link";
-
-settings.defaultWithin = { "sentence": "sentence" };
-settings.linkWithin = { "link": "link" };
 
 settings.corporafolders = {};
 
@@ -461,7 +446,7 @@ sattrlist.ceal_common = {
         label: "author",
         extendedComponent: "datasetSelect",
         localize: false,
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "Jane Austen",
             "Charles Dickens",
@@ -489,7 +474,7 @@ settings.corpora.ceal_s_fi = {
     title: "CEAL (sekoitettu)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
-    within: settings.linkWithin,
+    within: within.link,
     id: "ceal_s_fi",
     shortname: "ceal-par-s-korp",
     lang: "fin",
@@ -511,7 +496,7 @@ settings.corpora.ceal_s_en = {
     title: "CEAL (sekoitettu)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti–suomi-rinnakkaiskorpus, sekoitetut kappaleet<br/>ceal-par-s: Classics of English and American Literature as translated by Kersti Juva, English–Finnish parallel corpus, scrambled paragraphs<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
-    within: settings.linkWithin,
+    within: within.link,
     id: "ceal_s_en",
     shortname: "ceal-par-s-korp",
     lang: "eng",
@@ -535,7 +520,7 @@ settings.corpora.ceal_o_fi = {
     title: "CEAL (alkuperäinen)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti-suomi-rinnakkaiskorpus<br/>ceal-par-korp: Classics of English and American Literature as translated by Kersti Juva, English-Finnish parallel corpus, Korp<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
-    within: settings.linkWithin,
+    within: within.link,
     id: "ceal_o_fi",
     shortname: "ceal-par-korp",
     lang: "fin",
@@ -557,7 +542,7 @@ settings.corpora.ceal_o_en = {
     title: "CEAL (alkuperäinen)",
     description: "Englantilaisen ja amerikkalaisen kirjallisuuden klassikoita Kersti Juvan suomentamina, englanti-suomi-rinnakkaiskorpus, Korp<br/>ceal-par-korp: Classics of English and American Literature as translated by Kersti Juva, English-Finnish parallel corpus<br/><br/>" + ceal_work_list,
     context: context.linkAligned,
-    within: settings.linkWithin,
+    within: within.link,
     id: "ceal_o_en",
     shortname: "ceal-par-korp",
     lang: "eng",
@@ -588,7 +573,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
     title : "Semfinlex: Alkuperäisiä säädöksiä (suomi–ruotsi)",
     description: "Eduskunnan alkuperäisiä säädöksiä vuosilta 1918–2018.",
     context: context.linkAligned,
-    within: settings.linkWithin,
+    within: within.link,
     licence : settings.licenceinfo.CC_BY,
     features: ["parsed_tdt"],
     structAttributes : {
@@ -600,7 +585,7 @@ settings.corpora.semfinlex_asd_par_2018_fi = {
         text_parl_statute_type: {
             label: "parl_statute_type",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "laki",
                 "asetus",
@@ -628,7 +613,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
     title : "Semfinlex: Ursprungliga författningar (finska–svenska)",
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920–2018.",
     context: context.linkAligned,
-    within: settings.linkWithin,
+    within: within.link,
     licence : settings.licenceinfo.CC_BY,
     attributes : attrlist.parsed_sv,
     structAttributes : {
@@ -640,7 +625,7 @@ settings.corpora.semfinlex_asd_par_2018_sv = {
         text_parl_statute_type: {
             label: "parl_statute_type",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "laki",
                 "asetus",
@@ -679,11 +664,9 @@ settings.corpora.opus_opensubtitles2011_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_opensubtitles2011_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -699,11 +682,9 @@ settings.corpora.opus_opensubtitles2011_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -718,11 +699,9 @@ settings.corpora.opus_opensubtitles2012_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_opensubtitles2012_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -738,11 +717,9 @@ settings.corpora.opus_opensubtitles2012_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -757,11 +734,9 @@ settings.corpora.opus_opensubtitles2013_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_opensubtitles2013_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -777,11 +752,9 @@ settings.corpora.opus_opensubtitles2013_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -796,11 +769,9 @@ settings.corpora.opus_opensubtitles_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_opensubtitles_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -816,11 +787,9 @@ settings.corpora.opus_opensubtitles_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -835,11 +804,9 @@ settings.corpora.opus_eubookshop_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_eubookshop_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -855,11 +822,9 @@ settings.corpora.opus_eubookshop_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -874,11 +839,9 @@ settings.corpora.opus_kde4_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_kde4_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -894,11 +857,9 @@ settings.corpora.opus_kde4_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -913,11 +874,9 @@ settings.corpora.opus_gnome_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_gnome_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -933,11 +892,9 @@ settings.corpora.opus_gnome_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -952,11 +909,9 @@ settings.corpora.opus_php_fitr_tr = {
     lang: "tur",
     linkedTo: ["opus_php_fitr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -972,11 +927,9 @@ settings.corpora.opus_php_fitr_fi = {
     lang: "fin",
     linkedTo: ["opus_php_fitr_tr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -991,11 +944,9 @@ settings.corpora.opus_books_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_books_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1011,11 +962,9 @@ settings.corpora.opus_books_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_books_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1030,11 +979,9 @@ settings.corpora.opus_opensubtitles2012_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_opensubtitles2012_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1050,11 +997,9 @@ settings.corpora.opus_opensubtitles2012_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1069,11 +1014,9 @@ settings.corpora.opus_opensubtitles_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_opensubtitles_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1089,11 +1032,9 @@ settings.corpora.opus_opensubtitles_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1108,11 +1049,9 @@ settings.corpora.opus_kde4_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_kde4_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1128,11 +1067,9 @@ settings.corpora.opus_kde4_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1147,11 +1084,9 @@ settings.corpora.opus_gnome_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_gnome_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1167,11 +1102,9 @@ settings.corpora.opus_gnome_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1186,11 +1119,9 @@ settings.corpora.opus_euconst_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_euconst_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1206,11 +1137,9 @@ settings.corpora.opus_euconst_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1225,11 +1154,9 @@ settings.corpora.opus_php_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_php_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1245,11 +1172,9 @@ settings.corpora.opus_php_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_php_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1264,11 +1189,9 @@ settings.corpora.opus_ubuntu_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_ubuntu_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1284,11 +1207,9 @@ settings.corpora.opus_ubuntu_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1303,11 +1224,9 @@ settings.corpora.opus_tatoeba_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_tatoeba_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1323,11 +1242,9 @@ settings.corpora.opus_tatoeba_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_tatoeba_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1342,11 +1259,9 @@ settings.corpora.opus_opensubtitles2011_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1361,11 +1276,9 @@ settings.corpora.opus_opensubtitles2011_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_opensubtitles2011_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1381,11 +1294,9 @@ settings.corpora.opus_opensubtitles_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1400,11 +1311,9 @@ settings.corpora.opus_opensubtitles_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_opensubtitles_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1420,11 +1329,9 @@ settings.corpora.opus_kde4_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1439,11 +1346,9 @@ settings.corpora.opus_kde4_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_kde4_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1459,11 +1364,9 @@ settings.corpora.opus_gnome_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1478,11 +1381,9 @@ settings.corpora.opus_gnome_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_gnome_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1498,11 +1399,9 @@ settings.corpora.opus_euconst_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1517,11 +1416,9 @@ settings.corpora.opus_euconst_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_euconst_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1537,11 +1434,9 @@ settings.corpora.opus_php_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_php_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1556,11 +1451,9 @@ settings.corpora.opus_php_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_php_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1576,11 +1469,9 @@ settings.corpora.opus_ubuntu_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1595,11 +1486,9 @@ settings.corpora.opus_ubuntu_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_ubuntu_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1615,11 +1504,9 @@ settings.corpora.opus_tatoeba_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_tatoeba_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1634,11 +1521,9 @@ settings.corpora.opus_tatoeba_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_tatoeba_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1654,11 +1539,9 @@ settings.corpora.opus_books_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_books_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1673,11 +1556,9 @@ settings.corpora.opus_books_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_books_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1693,11 +1574,9 @@ settings.corpora.opus_europarl_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_europarl_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1712,11 +1591,9 @@ settings.corpora.opus_europarl_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_europarl_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1732,11 +1609,9 @@ settings.corpora.opus_gnome_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_gnome_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1752,11 +1627,9 @@ settings.corpora.opus_gnome_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1771,11 +1644,9 @@ settings.corpora.opus_euconst_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_euconst_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1791,11 +1662,9 @@ settings.corpora.opus_euconst_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1810,11 +1679,9 @@ settings.corpora.opus_php_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_php_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1830,11 +1697,9 @@ settings.corpora.opus_php_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_php_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1849,11 +1714,9 @@ settings.corpora.opus_ubuntu_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_ubuntu_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1869,11 +1732,9 @@ settings.corpora.opus_ubuntu_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1888,11 +1749,9 @@ settings.corpora.opus_tatoeba_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_tatoeba_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1908,11 +1767,9 @@ settings.corpora.opus_tatoeba_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_tatoeba_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1927,11 +1784,9 @@ settings.corpora.opus_opensubtitles_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_opensubtitles_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -1947,11 +1802,9 @@ settings.corpora.opus_opensubtitles_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1966,11 +1819,9 @@ settings.corpora.opus_opensubtitles2011_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -1985,11 +1836,9 @@ settings.corpora.opus_opensubtitles2011_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_opensubtitles2011_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2005,11 +1854,9 @@ settings.corpora.opus_opensubtitles2012_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2024,11 +1871,9 @@ settings.corpora.opus_opensubtitles2012_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_opensubtitles2012_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2044,11 +1889,9 @@ settings.corpora.opus_opensubtitles2013_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2063,11 +1906,9 @@ settings.corpora.opus_opensubtitles2013_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_opensubtitles2013_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2083,11 +1924,9 @@ settings.corpora.opus_opensubtitles_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2102,11 +1941,9 @@ settings.corpora.opus_opensubtitles_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_opensubtitles_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2122,11 +1959,9 @@ settings.corpora.opus_dgt_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2141,11 +1976,9 @@ settings.corpora.opus_dgt_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_dgt_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2161,11 +1994,9 @@ settings.corpora.opus_eubookshop_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2180,11 +2011,9 @@ settings.corpora.opus_eubookshop_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_eubookshop_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2200,11 +2029,9 @@ settings.corpora.opus_emea_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2219,11 +2046,9 @@ settings.corpora.opus_emea_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_emea_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2239,11 +2064,9 @@ settings.corpora.opus_ecb_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2258,11 +2081,9 @@ settings.corpora.opus_ecb_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_ecb_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2278,11 +2099,9 @@ settings.corpora.opus_kde4_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2297,11 +2116,9 @@ settings.corpora.opus_kde4_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_kde4_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2317,11 +2134,9 @@ settings.corpora.opus_gnome_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2336,11 +2151,9 @@ settings.corpora.opus_gnome_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_gnome_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2356,11 +2169,9 @@ settings.corpora.opus_euconst_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2375,11 +2186,9 @@ settings.corpora.opus_euconst_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_euconst_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2395,11 +2204,9 @@ settings.corpora.opus_ubuntu_elfi_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_elfi_el"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2414,11 +2221,9 @@ settings.corpora.opus_ubuntu_elfi_el = {
     lang: "gre",
     linkedTo: ["opus_ubuntu_elfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2434,11 +2239,9 @@ settings.corpora.opus_opensubtitles_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2453,11 +2256,9 @@ settings.corpora.opus_opensubtitles_defi_de = {
     lang: "deu",
     linkedTo: ["opus_opensubtitles_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2473,11 +2274,9 @@ settings.corpora.opus_gnome_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2492,11 +2291,9 @@ settings.corpora.opus_gnome_defi_de = {
     lang: "deu",
     linkedTo: ["opus_gnome_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2512,11 +2309,9 @@ settings.corpora.opus_euconst_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2531,11 +2326,9 @@ settings.corpora.opus_euconst_defi_de = {
     lang: "deu",
     linkedTo: ["opus_euconst_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2551,11 +2344,9 @@ settings.corpora.opus_php_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_php_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2570,11 +2361,9 @@ settings.corpora.opus_php_defi_de = {
     lang: "deu",
     linkedTo: ["opus_php_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2590,11 +2379,9 @@ settings.corpora.opus_ubuntu_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2609,11 +2396,9 @@ settings.corpora.opus_ubuntu_defi_de = {
     lang: "deu",
     linkedTo: ["opus_ubuntu_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2629,11 +2414,9 @@ settings.corpora.opus_tatoeba_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_tatoeba_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2648,11 +2431,9 @@ settings.corpora.opus_tatoeba_defi_de = {
     lang: "deu",
     linkedTo: ["opus_tatoeba_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2668,11 +2449,9 @@ settings.corpora.opus_opensubtitles2011_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2687,11 +2466,9 @@ settings.corpora.opus_opensubtitles2011_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_opensubtitles2011_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2707,11 +2484,9 @@ settings.corpora.opus_opensubtitles2012_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2726,11 +2501,9 @@ settings.corpora.opus_opensubtitles2012_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_opensubtitles2012_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2746,11 +2519,9 @@ settings.corpora.opus_opensubtitles2013_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2765,11 +2536,9 @@ settings.corpora.opus_opensubtitles2013_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_opensubtitles2013_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2785,11 +2554,9 @@ settings.corpora.opus_dgt_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2804,11 +2571,9 @@ settings.corpora.opus_dgt_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_dgt_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2824,11 +2589,9 @@ settings.corpora.opus_eubookshop_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2843,11 +2606,9 @@ settings.corpora.opus_eubookshop_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_eubookshop_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2863,11 +2624,9 @@ settings.corpora.opus_emea_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2882,11 +2641,9 @@ settings.corpora.opus_emea_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_emea_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2902,11 +2659,9 @@ settings.corpora.opus_ecb_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2921,11 +2676,9 @@ settings.corpora.opus_ecb_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_ecb_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2941,11 +2694,9 @@ settings.corpora.opus_kde4_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2960,11 +2711,9 @@ settings.corpora.opus_kde4_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_kde4_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -2980,11 +2729,9 @@ settings.corpora.opus_gnome_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -2999,11 +2746,9 @@ settings.corpora.opus_gnome_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_gnome_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3019,11 +2764,9 @@ settings.corpora.opus_euconst_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3038,11 +2781,9 @@ settings.corpora.opus_euconst_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_euconst_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3058,11 +2799,9 @@ settings.corpora.opus_php_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_php_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3077,11 +2816,9 @@ settings.corpora.opus_php_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_php_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3097,11 +2834,9 @@ settings.corpora.opus_ubuntu_csfi_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_csfi_cs"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3116,11 +2851,9 @@ settings.corpora.opus_ubuntu_csfi_cs = {
     lang: "cze",
     linkedTo: ["opus_ubuntu_csfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3136,11 +2869,9 @@ settings.corpora.opus_opensubtitles2011_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_opensubtitles2011_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3156,11 +2887,9 @@ settings.corpora.opus_opensubtitles2011_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3175,11 +2904,9 @@ settings.corpora.opus_opensubtitles2012_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_opensubtitles2012_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3195,11 +2922,9 @@ settings.corpora.opus_opensubtitles2012_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3214,11 +2939,9 @@ settings.corpora.opus_opensubtitles2013_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_opensubtitles2013_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3234,11 +2957,9 @@ settings.corpora.opus_opensubtitles2013_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3253,11 +2974,9 @@ settings.corpora.opus_dgt_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_dgt_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3273,11 +2992,9 @@ settings.corpora.opus_dgt_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3292,11 +3009,9 @@ settings.corpora.opus_eubookshop_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_eubookshop_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3312,11 +3027,9 @@ settings.corpora.opus_eubookshop_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3331,11 +3044,9 @@ settings.corpora.opus_emea_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_emea_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3351,11 +3062,9 @@ settings.corpora.opus_emea_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3370,11 +3079,9 @@ settings.corpora.opus_ecb_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_ecb_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3390,11 +3097,9 @@ settings.corpora.opus_ecb_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3409,11 +3114,9 @@ settings.corpora.opus_kde4_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_kde4_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3429,11 +3132,9 @@ settings.corpora.opus_kde4_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3448,11 +3149,9 @@ settings.corpora.opus_gnome_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_gnome_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3468,11 +3167,9 @@ settings.corpora.opus_gnome_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3487,11 +3184,9 @@ settings.corpora.opus_euconst_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_euconst_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3507,11 +3202,9 @@ settings.corpora.opus_euconst_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3526,11 +3219,9 @@ settings.corpora.opus_php_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_php_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3546,11 +3237,9 @@ settings.corpora.opus_php_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_php_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3565,11 +3254,9 @@ settings.corpora.opus_ubuntu_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_ubuntu_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3585,11 +3272,9 @@ settings.corpora.opus_ubuntu_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3604,11 +3289,9 @@ settings.corpora.opus_tatoeba_finl_nl = {
     lang: "dut",
     linkedTo: ["opus_tatoeba_finl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3624,11 +3307,9 @@ settings.corpora.opus_tatoeba_finl_fi = {
     lang: "fin",
     linkedTo: ["opus_tatoeba_finl_nl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3643,11 +3324,9 @@ settings.corpora.opus_opensubtitles2011_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_opensubtitles2011_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3663,11 +3342,9 @@ settings.corpora.opus_opensubtitles2011_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3682,11 +3359,9 @@ settings.corpora.opus_kde4_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_kde4_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3702,11 +3377,9 @@ settings.corpora.opus_kde4_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3721,11 +3394,9 @@ settings.corpora.opus_eubookshop_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_eubookshop_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3741,11 +3412,9 @@ settings.corpora.opus_opensubtitles2012_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_opensubtitles2012_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3761,11 +3430,9 @@ settings.corpora.opus_opensubtitles2012_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3780,11 +3447,9 @@ settings.corpora.opus_eubookshop_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3799,11 +3464,9 @@ settings.corpora.opus_php_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_php_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3819,11 +3482,9 @@ settings.corpora.opus_php_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_php_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3838,11 +3499,9 @@ settings.corpora.opus_opensubtitles_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_opensubtitles_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3858,11 +3517,9 @@ settings.corpora.opus_opensubtitles_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3877,11 +3534,9 @@ settings.corpora.opus_tatoeba_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_tatoeba_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3897,11 +3552,9 @@ settings.corpora.opus_tatoeba_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_tatoeba_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3916,11 +3569,9 @@ settings.corpora.opus_ubuntu_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_ubuntu_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3936,11 +3587,9 @@ settings.corpora.opus_ubuntu_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3955,11 +3604,9 @@ settings.corpora.opus_gnome_firu_ru = {
     lang: "rus",
     linkedTo: ["opus_gnome_firu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -3975,11 +3622,9 @@ settings.corpora.opus_gnome_firu_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_firu_ru"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -3994,11 +3639,9 @@ settings.corpora.opus_gnome_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_gnome_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4013,11 +3656,9 @@ settings.corpora.opus_gnome_enfi_en = {
     lang: "en",
     linkedTo: ["opus_gnome_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4033,11 +3674,9 @@ settings.corpora.opus_euconst_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_euconst_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4052,11 +3691,9 @@ settings.corpora.opus_euconst_enfi_en = {
     lang: "en",
     linkedTo: ["opus_euconst_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4072,11 +3709,9 @@ settings.corpora.opus_books_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_books_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4091,11 +3726,9 @@ settings.corpora.opus_books_enfi_en = {
     lang: "en",
     linkedTo: ["opus_books_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4111,11 +3744,9 @@ settings.corpora.opus_php_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_php_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4130,11 +3761,9 @@ settings.corpora.opus_php_enfi_en = {
     lang: "en",
     linkedTo: ["opus_php_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4150,11 +3779,9 @@ settings.corpora.opus_ubuntu_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_ubuntu_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4169,11 +3796,9 @@ settings.corpora.opus_ubuntu_enfi_en = {
     lang: "en",
     linkedTo: ["opus_ubuntu_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4189,11 +3814,9 @@ settings.corpora.opus_opensubtitles2012_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_opensubtitles2012_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4209,11 +3832,9 @@ settings.corpora.opus_opensubtitles2012_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4228,11 +3849,9 @@ settings.corpora.opus_opensubtitles2013_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_opensubtitles2013_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4248,11 +3867,9 @@ settings.corpora.opus_opensubtitles2013_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4267,11 +3884,9 @@ settings.corpora.opus_opensubtitles2011_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_opensubtitles2011_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4287,11 +3902,9 @@ settings.corpora.opus_opensubtitles2011_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4306,11 +3919,9 @@ settings.corpora.opus_dgt_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_dgt_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4326,11 +3937,9 @@ settings.corpora.opus_dgt_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4345,11 +3954,9 @@ settings.corpora.opus_ecb_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_ecb_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4365,11 +3972,9 @@ settings.corpora.opus_ecb_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4384,11 +3989,9 @@ settings.corpora.opus_emea_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_emea_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4404,11 +4007,9 @@ settings.corpora.opus_emea_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4423,11 +4024,9 @@ settings.corpora.opus_eubookshop_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_eubookshop_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4443,11 +4042,9 @@ settings.corpora.opus_eubookshop_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4462,11 +4059,9 @@ settings.corpora.opus_kde4_fihu_hu = {
     lang: "hun",
     linkedTo: ["opus_kde4_fihu_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4482,11 +4077,9 @@ settings.corpora.opus_kde4_fihu_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_fihu_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4501,11 +4094,9 @@ settings.corpora.opus_emea_fiit_it = {
     lang: "ita",
     linkedTo: ["opus_emea_fiit_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4521,11 +4112,9 @@ settings.corpora.opus_emea_fiit_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_fiit_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4540,11 +4129,9 @@ settings.corpora.opus_ecb_fiit_it = {
     lang: "ita",
     linkedTo: ["opus_ecb_fiit_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4560,11 +4147,9 @@ settings.corpora.opus_ecb_fiit_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_fiit_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4579,11 +4164,9 @@ settings.corpora.opus_opensubtitles2011_fiit_it = {
     lang: "por",
     linkedTo: ["opus_opensubtitles2011_fiit_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4599,11 +4182,9 @@ settings.corpora.opus_opensubtitles2011_fiit_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_fiit_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4618,11 +4199,9 @@ settings.corpora.opus_opensubtitles2013_fiit_it = {
     lang: "ita",
     linkedTo: ["opus_opensubtitles2013_fiit_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4638,11 +4217,9 @@ settings.corpora.opus_opensubtitles2013_fiit_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_fiit_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4657,11 +4234,9 @@ settings.corpora.opus_opensubtitles2012_fiit_it = {
     lang: "ita",
     linkedTo: ["opus_opensubtitles2012_fiit_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4677,11 +4252,9 @@ settings.corpora.opus_opensubtitles2012_fiit_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_fiit_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4696,11 +4269,9 @@ settings.corpora.opus_eubookshop_fiit_it = {
     lang: "ita",
     linkedTo: ["opus_eubookshop_fiit_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4716,11 +4287,9 @@ settings.corpora.opus_eubookshop_fiit_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_fiit_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4735,11 +4304,9 @@ settings.corpora.opus_dgt_fiit_it = {
     lang: "ita",
     linkedTo: ["opus_dgt_fiit_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4755,11 +4322,9 @@ settings.corpora.opus_dgt_fiit_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_fiit_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4774,11 +4339,9 @@ settings.corpora.opus_ecb_fipt_pt = {
     lang: "por",
     linkedTo: ["opus_ecb_fipt_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4794,11 +4357,9 @@ settings.corpora.opus_ecb_fipt_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_fipt_pt"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4813,11 +4374,9 @@ settings.corpora.opus_emea_fipt_pt = {
     lang: "por",
     linkedTo: ["opus_emea_fipt_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4833,11 +4392,9 @@ settings.corpora.opus_emea_fipt_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_fipt_pt"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4852,11 +4409,9 @@ settings.corpora.opus_opensubtitles2011_fipt_pt = {
     lang: "por",
     linkedTo: ["opus_opensubtitles2011_fipt_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4872,11 +4427,9 @@ settings.corpora.opus_opensubtitles2011_fipt_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_fipt_pt"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4891,11 +4444,9 @@ settings.corpora.opus_opensubtitles2013_fipt_pt = {
     lang: "por",
     linkedTo: ["opus_opensubtitles2013_fipt_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4911,11 +4462,9 @@ settings.corpora.opus_opensubtitles2013_fipt_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_fipt_pt"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4932,11 +4481,9 @@ settings.corpora.opus_eubookshop_fipt_pt = {
     lang: "por",
     linkedTo: ["opus_eubookshop_fipt_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4952,11 +4499,9 @@ settings.corpora.opus_eubookshop_fipt_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_fipt_pt"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -4971,11 +4516,9 @@ settings.corpora.opus_opensubtitles_fipt_pt = {
     lang: "por",
     linkedTo: ["opus_opensubtitles_fipt_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -4991,11 +4534,9 @@ settings.corpora.opus_opensubtitles_fipt_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles_fipt_pt"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5010,11 +4551,9 @@ settings.corpora.opus_dgt_fipt_pt = {
     lang: "por",
     linkedTo: ["opus_dgt_fipt_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5030,11 +4569,9 @@ settings.corpora.opus_dgt_fipt_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_fipt_pt"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5049,11 +4586,9 @@ settings.corpora.opus_opensubtitles2011_etfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_etfi_et"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5068,11 +4603,9 @@ settings.corpora.opus_opensubtitles2011_etfi_et = {
     lang: "est",
     linkedTo: ["opus_opensubtitles2011_etfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5088,11 +4621,9 @@ settings.corpora.opus_emea_etfi_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_etfi_et"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5106,11 +4637,9 @@ settings.corpora.opus_kde4_etfi_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_etfi_et"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5125,11 +4654,9 @@ settings.corpora.opus_kde4_etfi_et = {
     lang: "est",
     linkedTo: ["opus_kde4_etfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5145,11 +4672,9 @@ settings.corpora.opus_emea_etfi_et = {
     lang: "est",
     linkedTo: ["opus_emea_etfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5165,11 +4690,9 @@ settings.corpora.opus_dgt_etfi_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_etfi_et"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5184,11 +4707,9 @@ settings.corpora.opus_dgt_etfi_et = {
     lang: "est",
     linkedTo: ["opus_dgt_etfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5204,11 +4725,9 @@ settings.corpora.opus_opensubtitles2012_etfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_etfi_et"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5223,11 +4742,9 @@ settings.corpora.opus_opensubtitles2012_etfi_et = {
     lang: "est",
     linkedTo: ["opus_opensubtitles2012_etfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5242,11 +4759,9 @@ settings.corpora.opus_opensubtitles2013_etfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_etfi_et"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5261,11 +4776,9 @@ settings.corpora.opus_opensubtitles2013_etfi_et = {
     lang: "est",
     linkedTo: ["opus_opensubtitles2013_etfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5281,11 +4794,9 @@ settings.corpora.opus_emea_fipl_pl = {
     lang: "pol",
     linkedTo: ["opus_emea_fipl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5301,11 +4812,9 @@ settings.corpora.opus_emea_fipl_fi = {
     lang: "fim",
     linkedTo: ["opus_emea_fipl_pl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5320,11 +4829,9 @@ settings.corpora.opus_ecb_fipl_pl = {
     lang: "pol",
     linkedTo: ["opus_ecb_fipl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5340,11 +4847,9 @@ settings.corpora.opus_ecb_fipl_fi = {
     lang: "fim",
     linkedTo: ["opus_ecb_fipl_pl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5359,11 +4864,9 @@ settings.corpora.opus_dgt_fipl_pl = {
     lang: "pol",
     linkedTo: ["opus_dgt_fipl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5379,11 +4882,9 @@ settings.corpora.opus_dgt_fipl_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_fipl_pl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5398,11 +4899,9 @@ settings.corpora.opus_opensubtitles2012_fipl_pl = {
     lang: "pol",
     linkedTo: ["opus_opensubtitles2012_fipl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5418,11 +4917,9 @@ settings.corpora.opus_opensubtitles2012_fipl_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_fipl_pl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5437,11 +4934,9 @@ settings.corpora.opus_opensubtitles2013_fipl_pl = {
     lang: "pol",
     linkedTo: ["opus_opensubtitles2013_fipl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5457,11 +4952,9 @@ settings.corpora.opus_opensubtitles2013_fipl_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_fipl_pl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5476,11 +4969,9 @@ settings.corpora.opus_opensubtitles2011_fipl_pl = {
     lang: "pol",
     linkedTo: ["opus_opensubtitles2011_fipl_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5496,11 +4987,9 @@ settings.corpora.opus_opensubtitles2011_fipl_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_fipl_pl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5515,11 +5004,9 @@ settings.corpora.opus_dgt_dafi_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_dafi_da"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5534,11 +5021,9 @@ settings.corpora.opus_dgt_dafi_da = {
     lang: "dan",
     linkedTo: ["opus_dgt_dafi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5554,11 +5039,9 @@ settings.corpora.opus_eubookshop_dafi_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_dafi_da"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5573,11 +5056,9 @@ settings.corpora.opus_eubookshop_dafi_da = {
     lang: "dan",
     linkedTo: ["opus_eubookshop_dafi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5593,11 +5074,9 @@ settings.corpora.opus_opensubtitles2012_dafi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_dafi_da"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5612,11 +5091,9 @@ settings.corpora.opus_opensubtitles2012_dafi_da = {
     lang: "dan",
     linkedTo: ["opus_opensubtitles2012_dafi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5632,11 +5109,9 @@ settings.corpora.opus_opensubtitles2013_dafi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_dafi_da"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5651,11 +5126,9 @@ settings.corpora.opus_opensubtitles2013_dafi_da = {
     lang: "dan",
     linkedTo: ["opus_opensubtitles2013_dafi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5671,11 +5144,9 @@ settings.corpora.opus_kde4_dafi_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_dafi_da"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5690,11 +5161,9 @@ settings.corpora.opus_kde4_dafi_da = {
     lang: "dan",
     linkedTo: ["opus_kde4_dafi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5710,11 +5179,9 @@ settings.corpora.opus_ecb_dafi_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_dafi_da"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5729,11 +5196,9 @@ settings.corpora.opus_ecb_dafi_da = {
     lang: "dan",
     linkedTo: ["opus_ecb_dafi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5750,11 +5215,9 @@ settings.corpora.opus_dgt_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5769,11 +5232,9 @@ settings.corpora.opus_dgt_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_dgt_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5789,11 +5250,9 @@ settings.corpora.opus_opensubtitles2012_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5808,11 +5267,9 @@ settings.corpora.opus_opensubtitles2012_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_opensubtitles2012_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5828,11 +5285,9 @@ settings.corpora.opus_opensubtitles2013_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5847,11 +5302,9 @@ settings.corpora.opus_opensubtitles2013_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_opensubtitles2013_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5867,11 +5320,9 @@ settings.corpora.opus_eubookshop_esfi_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5886,11 +5337,9 @@ settings.corpora.opus_eubookshop_esfi_es = {
     lang: "spa",
     linkedTo: ["opus_eubookshop_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5906,11 +5355,9 @@ settings.corpora.opus_ecb_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_ecb_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5926,11 +5373,9 @@ settings.corpora.opus_ecb_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5945,11 +5390,9 @@ settings.corpora.opus_emea_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_emea_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -5965,11 +5408,9 @@ settings.corpora.opus_emea_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -5984,11 +5425,9 @@ settings.corpora.opus_opensubtitles2013_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_opensubtitles2013_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6004,11 +5443,9 @@ settings.corpora.opus_opensubtitles2013_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6023,11 +5460,9 @@ settings.corpora.opus_opensubtitles2011_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_opensubtitles2011_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6043,11 +5478,9 @@ settings.corpora.opus_opensubtitles2011_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6062,11 +5495,9 @@ settings.corpora.opus_eubookshop_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_eubookshop_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6082,11 +5513,9 @@ settings.corpora.opus_eubookshop_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6101,11 +5530,9 @@ settings.corpora.opus_dgt_fifr_fr = {
     lang: "fra",
     linkedTo: ["opus_dgt_fifr_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6121,11 +5548,9 @@ settings.corpora.opus_dgt_fifr_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_fifr_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6140,11 +5565,9 @@ settings.corpora.opus_kde4_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6159,11 +5582,9 @@ settings.corpora.opus_kde4_defi_de = {
     lang: "deu",
     linkedTo: ["opus_kde4_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6180,11 +5601,9 @@ settings.corpora.opus_emea_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6199,11 +5618,9 @@ settings.corpora.opus_emea_defi_de = {
     lang: "deu",
     linkedTo: ["opus_emea_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6219,11 +5636,9 @@ settings.corpora.opus_ecb_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6238,11 +5653,9 @@ settings.corpora.opus_ecb_defi_de = {
     lang: "deu",
     linkedTo: ["opus_ecb_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6258,11 +5671,9 @@ settings.corpora.opus_dgt_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6277,11 +5688,9 @@ settings.corpora.opus_dgt_defi_de = {
     lang: "deu",
     linkedTo: ["opus_dgt_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6297,11 +5706,9 @@ settings.corpora.opus_opensubtitles2013_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6316,11 +5723,9 @@ settings.corpora.opus_opensubtitles2013_defi_de = {
     lang: "deu",
     linkedTo: ["opus_opensubtitles2013_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6336,11 +5741,9 @@ settings.corpora.opus_opensubtitles2011_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6355,11 +5758,9 @@ settings.corpora.opus_opensubtitles2011_defi_de = {
     lang: "deu",
     linkedTo: ["opus_opensubtitles2011_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6375,11 +5776,9 @@ settings.corpora.opus_opensubtitles2012_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6394,11 +5793,9 @@ settings.corpora.opus_opensubtitles2012_defi_de = {
     lang: "deu",
     linkedTo: ["opus_opensubtitles2012_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6414,11 +5811,9 @@ settings.corpora.opus_eubookshop_defi_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6433,11 +5828,9 @@ settings.corpora.opus_eubookshop_defi_de = {
     lang: "deu",
     linkedTo: ["opus_eubookshop_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6453,11 +5846,9 @@ settings.corpora.opus_dgt_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_dgt_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6473,11 +5864,9 @@ settings.corpora.opus_dgt_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6492,11 +5881,9 @@ settings.corpora.opus_eubookshop_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_eubookshop_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6512,11 +5899,9 @@ settings.corpora.opus_eubookshop_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6529,10 +5914,10 @@ settings.corpora.opus_opensubtitles2012_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2012_fisv_sv"],
     context: context.alignAligned,
-    within: {"sentence":"sentence"},
+    within: within.sentence,
     attributes: {},
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus
 };
 
@@ -6543,10 +5928,10 @@ settings.corpora.opus_opensubtitles2012_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_opensubtitles2012_fisv_fi"],
     context: context.alignAligned,
-    within: {"sentence":"sentence"},
+    within: within.sentence,
     attributes: {},
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus,
     hide: true
 };
@@ -6558,10 +5943,10 @@ settings.corpora.opus_opensubtitles2013_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2013_fisv_sv"],
     context: context.alignAligned,
-    within: {"sentence":"sentence"},
+    within: within.sentence,
     attributes: {},
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus
 };
 
@@ -6572,10 +5957,10 @@ settings.corpora.opus_opensubtitles2013_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_opensubtitles2013_fisv_fi"],
     context: context.alignAligned,
-    within: {"sentence":"sentence"},
+    within: within.sentence,
     attributes: {},
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus,
     hide: true
 };
@@ -6587,10 +5972,10 @@ settings.corpora.opus_opensubtitles2011_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_opensubtitles2011_fisv_sv"],
     context: context.alignAligned,
-    within: {"sentence":"sentence"},
+    within: within.sentence,
     attributes: {},
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus
 };
 
@@ -6601,10 +5986,10 @@ settings.corpora.opus_opensubtitles2011_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_opensubtitles2011_fisv_fi"],
     context: context.alignAligned,
-    within: {"sentence":"sentence"},
+    within: within.sentence,
     attributes: {},
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus,
     hide: true
 };
@@ -6618,11 +6003,9 @@ settings.corpora.opus_kde4_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_kde4_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6638,11 +6021,9 @@ settings.corpora.opus_kde4_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_kde4_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6658,11 +6039,9 @@ settings.corpora.opus_dgt_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_dgt_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6677,11 +6056,9 @@ settings.corpora.opus_dgt_enfi_en = {
     lang: "eng",
     linkedTo: ["opus_dgt_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6697,11 +6074,9 @@ settings.corpora.opus_emea_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6716,13 +6091,11 @@ settings.corpora.opus_emea_enfi_en = {
     lang: "eng",
     linkedTo: ["opus_emea_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: {
     },
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus,
     hide: true
 };
@@ -6736,11 +6109,9 @@ settings.corpora.opus_emea_fisv_sv = {
     lang: "swe",
     linkedTo: ["opus_emea_fisv_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6756,11 +6127,9 @@ settings.corpora.opus_emea_fisv_fi = {
     lang: "fin",
     linkedTo: ["opus_emea_fisv_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6775,11 +6144,9 @@ settings.corpora.opus_opensub2013enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensub2013enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6794,9 +6161,7 @@ settings.corpora.opus_opensub2013enfi_en = {
     lang: "eng",
     linkedTo: ["opus_opensub2013enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6812,11 +6177,9 @@ settings.corpora.opus_opensub2015enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensub2015enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6831,11 +6194,9 @@ settings.corpora.opus_opensub2015enfi_en = {
     lang: "eng",
     linkedTo: ["opus_opensub2015enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6851,11 +6212,9 @@ settings.corpora.opus_opensub2011enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensub2011enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6870,11 +6229,9 @@ settings.corpora.opus_opensub2011enfi_en = {
     lang: "eng",
     linkedTo: ["opus_opensub2011enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6890,11 +6247,9 @@ settings.corpora.opus_opensub2012enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_opensub2012enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6909,11 +6264,9 @@ settings.corpora.opus_opensub2012enfi_en = {
     lang: "eng",
     linkedTo: ["opus_opensub2012enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6929,11 +6282,9 @@ settings.corpora.opus_ecb_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_ecb_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -6948,11 +6299,9 @@ settings.corpora.opus_ecb_enfi_en = {
     lang: "eng",
     linkedTo: ["opus_ecb_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6968,11 +6317,9 @@ settings.corpora.opus_eubookshop_enfi_en = {
     lang: "eng",
     linkedTo: ["opus_eubookshop_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus,
@@ -6988,11 +6335,9 @@ settings.corpora.opus_eubookshop_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_eubookshop_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -7007,11 +6352,9 @@ settings.corpora.opus_tatoeba_enfi_fi = {
     lang: "fin",
     linkedTo: ["opus_tatoeba_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.opus
@@ -7026,13 +6369,11 @@ settings.corpora.opus_tatoeba_enfi_en = {
     lang: "eng",
     linkedTo: ["opus_tatoeba_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: {
     },
-    within: spWithin,
-    context: spContext,
+    within: within.sp,
+    context: context.sp,
     structAttributes: sattrlist.opus,
     hide: true
 };
@@ -7048,11 +6389,9 @@ settings.corpora.europarl_v7_enfi_en = {
     lang: "eng",
     linkedTo: ["europarl_v7_enfi_fi"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7,
@@ -7069,11 +6408,9 @@ settings.corpora.europarl_v7_etfi_et = {
     lang: "est",
     linkedTo: ["europarl_v7_etfi_fi"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7,
@@ -7089,11 +6426,9 @@ settings.corpora.europarl_v7_esfi_es = {
     lang: "spa",
     linkedTo: ["europarl_v7_esfi_fi"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7,
@@ -7109,11 +6444,9 @@ settings.corpora.europarl_v7_frfi_fr = {
     lang: "fra",
     linkedTo: ["europarl_v7_frfi_fi"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7,
@@ -7129,11 +6462,9 @@ settings.corpora.europarl_v7_defi_de = {
     lang: "deu",
     linkedTo: ["europarl_v7_defi_fi"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7,
@@ -7149,11 +6480,9 @@ settings.corpora.europarl_v7_svfi_sv = {
     lang: "swe",
     linkedTo: ["europarl_v7_svfi_fi"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7,
@@ -7169,11 +6498,9 @@ settings.corpora.europarl_v7_etfi_fi = {
     lang: "fin",
     linkedTo: ["europarl_v7_etfi_et"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7
@@ -7188,11 +6515,9 @@ settings.corpora.europarl_v7_esfi_fi = {
     lang: "fin",
     linkedTo: ["europarl_v7_esfi_es"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7
@@ -7207,11 +6532,9 @@ settings.corpora.europarl_v7_frfi_fi = {
     lang: "fin",
     linkedTo: ["europarl_v7_frfi_fr"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7
@@ -7226,11 +6549,9 @@ settings.corpora.europarl_v7_defi_fi = {
     lang: "fin",
     linkedTo: ["europarl_v7_defi_de"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7
@@ -7245,11 +6566,9 @@ settings.corpora.europarl_v7_enfi_fi = {
     lang: "fin",
     linkedTo: ["europarl_v7_enfi_en"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7
@@ -7264,11 +6583,9 @@ settings.corpora.europarl_v7_svfi_fi = {
     lang: "fin",
     linkedTo: ["europarl_v7_svfi_sv"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.europarl_v7
@@ -7286,11 +6603,9 @@ settings.corpora.jrc_acquis_enfi_en = {
     lang: "eng",
     linkedTo: ["jrc_acquis_enfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7306,11 +6621,9 @@ settings.corpora.jrc_acquis_enfi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_enfi_en"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7326,11 +6639,9 @@ settings.corpora.jrc_acquis_hufi_hu = {
     lang: "hun",
     linkedTo: ["jrc_acquis_hufi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7346,11 +6657,9 @@ settings.corpora.jrc_acquis_hufi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_hufi_hu"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7365,11 +6674,9 @@ settings.corpora.jrc_acquis_frfi_fr = {
     lang: "fra",
     linkedTo: ["jrc_acquis_frfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7385,11 +6692,9 @@ settings.corpora.jrc_acquis_frfi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_frfi_fr"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7404,11 +6709,9 @@ settings.corpora.jrc_acquis_plfi_pl = {
     lang: "pol",
     linkedTo: ["jrc_acquis_plfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7424,11 +6727,9 @@ settings.corpora.jrc_acquis_plfi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_plfi_pl"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7443,11 +6744,9 @@ settings.corpora.jrc_acquis_itfi_it = {
     lang: "ita",
     linkedTo: ["jrc_acquis_itfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7463,11 +6762,9 @@ settings.corpora.jrc_acquis_itfi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_itfi_it"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7482,11 +6779,9 @@ settings.corpora.jrc_acquis_esfi_es = {
     lang: "spa",
     linkedTo: ["jrc_acquis_esfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7502,11 +6797,9 @@ settings.corpora.jrc_acquis_esfi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_esfi_es"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7521,11 +6814,9 @@ settings.corpora.jrc_acquis_etfi_et = {
     lang: "est",
     linkedTo: ["jrc_acquis_etfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7541,11 +6832,9 @@ settings.corpora.jrc_acquis_etfi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_etfi_et"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7560,11 +6849,9 @@ settings.corpora.jrc_acquis_defi_de = {
     lang: "deu",
     linkedTo: ["jrc_acquis_defi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7580,11 +6867,9 @@ settings.corpora.jrc_acquis_defi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_defi_de"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7599,11 +6884,9 @@ settings.corpora.jrc_acquis_svfi_sv = {
     lang: "swe",
     linkedTo: ["jrc_acquis_svfi_fi"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis,
@@ -7619,11 +6902,9 @@ settings.corpora.jrc_acquis_svfi_fi = {
     lang: "fin",
     linkedTo: ["jrc_acquis_svfi_sv"],
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
-    within: spWithin,
-    context: spContext,
+    within: within.sentence,
+    within: within.sp,
+    context: context.sp,
     attributes: {
     },
     structAttributes: sattrlist.jrc_acquis
@@ -7640,9 +6921,7 @@ settings.corpora.kfspc_fi = {
     lang: "fin",
     linkedTo: ["kfspc_sv"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-        },
+    within: within.sentence,
     features: ["parsed_tdt", "finer"],
     structAttributes: sattrlist.kfspc
 };
@@ -7655,9 +6934,7 @@ settings.corpora.kfspc_sv = {
     lang: "swe",
     linkedTo: ["kfspc_fi"],
     context: context.defaultAligned,
-    within: {
-        "sentence": "sentence"
-        },
+    within: within.sentence,
     attributes: {
     },
     structAttributes: sattrlist.kfspc,
@@ -7677,9 +6954,7 @@ settings.corpora.mulcold_fi = {
     title: "MULCOLD – Multilingual Corpus of Legal Documents (suomi)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: attrlist.mulcold_fi,
     structAttributes: sattrlist.mulcold
 };
@@ -7691,9 +6966,7 @@ settings.corpora.mulcold_en = {
     title: "MULCOLD – Multilingual Corpus of Legal Documents (englanti)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: attrlist.mulcold_en,
     structAttributes: sattrlist.mulcold,
     hide: true
@@ -7706,9 +6979,7 @@ settings.corpora.mulcold_sv = {
     title: "MULCOLD – Multilingual Corpus of Legal Documents (ruotsi)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: attrlist.mulcold_sv,
     structAttributes: sattrlist.mulcold,
     hide: true
@@ -7721,9 +6992,7 @@ settings.corpora.mulcold_ru = {
     title: "MULCOLD – Multilingual Corpus of Legal Documents (venäjä)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: attrlist.mulcold_ru,
     structAttributes: sattrlist.mulcold,
     hide: true
@@ -7736,9 +7005,7 @@ settings.corpora.mulcold_de = {
     title: "MULCOLD – Multilingual Corpus of Legal Documents (saksa)",
     description: "Monikielinen juridisten tekstien korpus: suomi–venäjä, suomi–ruotsi–englanti–venäjä, suomi–ruotsi–englanti–saksa, suomi–saksa",
     context: context.alignAligned,
-    within: {
-        "sentence": "sentence"
-    },
+    within: within.sentence,
     attributes: attrlist.mulcold_de,
     structAttributes: sattrlist.mulcold,
     hide: true
@@ -7780,8 +7047,8 @@ funcs.extend_corpus_settings(
         licence: settings.licenceinfo.ParFinRus_2016_fi,
         cite_id: "ParFin2016",
         context: context.linkAligned,
-        // TODO: Make sure that sentLinkWithin works in all cases.
-        within: settings.sentLinkWithin,
+        // TODO: Make sure that within.sentLink works in all cases.
+        within: within.sentLink,
         limitedAccess: true,
         licenceType: "RES",
     },
@@ -7872,8 +7139,8 @@ funcs.extend_corpus_settings(
         licence: settings.licenceinfo.ParFinRus_2016_fi,
         cite_id: "ParRus2016",
         context: context.linkAligned,
-        // TODO: Make sure that sentLinkWithin works in all cases.
-        within: settings.sentLinkWithin,
+        // TODO: Make sure that within.sentLink works in all cases.
+        within: within.sentLink,
         limitedAccess: true,
         licenceType: "RES"
     },

@@ -625,28 +625,6 @@ settings.defaultReadingContext = "1 paragraph"
 settings.defaultWithin = {
     "sentence": "sentence"
 };
-// TODO: Move these to modes/common.js
-settings.spWithin = {
-    "sentence": "sentence",
-    "paragraph": "paragraph"
-};
-settings.spcWithin = {
-    "sentence": "sentence",
-    "paragraph": "paragraph",
-    "clause": "clause",
-};
-settings.scWithin = {
-    "sentence": "sentence",
-    "clause": "clause",
-};
-settings.sentLinkContext = {
-    "1 sentence": "1 sentence",
-    "1 link": "1 link"
-};
-settings.sentLinkWithin = {
-    "sentence": "sentence",
-    "link": "link"
-};
 
 // Corpus id alias mapping: aliases as property keys and actual corpus
 // ids as values. (Jyrki Niemi 2015-04-23)

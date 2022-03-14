@@ -53,7 +53,7 @@ sattrlist.klk_sv_parsed_pagelinks_custom = sattrlist.klk_pagelinks_custom;
 attrlist.klk_sv = {
     ocr: {
         label: "OCR",
-        opts: settings.defaultOptions,
+        opts: options.default,
     }
 };
 
@@ -266,8 +266,8 @@ settings.corpora.semfinlex_asd_sv_2018 = {
     description: "Ett urval av ursprungliga författningar av Riksdagen från 1920̣–2018.",
     urn: "urn:nbn:fi:lb-2019042604",
     metadata_urn: "urn:nbn:fi:lb-2019042603",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     licence: settings.licenceinfo.CC_BY,
     attributes: attrlist.parsed_sv,
     structAttributes: {
@@ -279,7 +279,7 @@ settings.corpora.semfinlex_asd_sv_2018 = {
         text_parl_statute_type: {
             label: "parl_statute_type",
             extendedComponent: "datasetSelect",
-            opts: liteOptions,
+            opts: options.lite,
             dataset: [
                 "laki",
                 "asetus",
@@ -304,8 +304,8 @@ settings.corpora.semfinlex_kko_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta domstolen (KKO) från 1980̣–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     licence: settings.licenceinfo.CC_BY,
     attributes: attrlist.parsed_sv,
     structAttributes: {
@@ -325,8 +325,8 @@ settings.corpora.semfinlex_kho_sv_2018 = {
     description: "Ett urval av avgöranden av Högsta förvaltningsdomstolen (KHO) från 2001–2018.",
     urn: "urn:nbn:fi:lb-2019042610",
     metadata_urn: "urn:nbn:fi:lb-2019042609",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     licence: settings.licenceinfo.CC_BY,
     attributes: attrlist.parsed_sv,
     structAttributes: {
@@ -345,8 +345,8 @@ settings.corpora.ethesis_sv_ma = {
     title: "Masteruppsatser",
     description: "Masteruppsatser (1997–2016)",
     id: "ethesis_sv_ma",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -356,8 +356,8 @@ settings.corpora.ethesis_sv_maabs = {
     title: "Masteruppsatser (abstrakt)",
     description: "Masteruppsatser (abstrakt) (1999–2016)",
     id: "ethesis_sv_maabs",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -367,8 +367,8 @@ settings.corpora.ethesis_sv_dissabs = {
     title: "Doktorsavhandlingar (abstrakt)",
     description: "Doktorsavhandlingar (abstrakt) (2006–2016)",
     id: "ethesis_sv_dissabs",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -378,8 +378,8 @@ settings.corpora.ethesis_sv_phd = {
     title: "Doktorsavhandlingar",
     description: "Doktorsavhandlingar (2000–2016)",
     id: "ethesis_sv_phd",
-    within: settings.defaultWithin,
-    context: defaultContext,
+    within: within.default,
+    context: context.default,
     attributes: {
     },
     structAttributes: sattrlist.ethesis
@@ -392,11 +392,11 @@ attrlist.studentsvenska = {
     lemma: attrs.baseform,
     code: {
         label: "studentsvenska_code",
-        opts: settings.defaultOptions
+        opts: options.default
     },
     properties: {
         label: "studentsvenska_properties",
-        opts: settings.defaultOptions
+        opts: options.default
     }
 };
 
@@ -446,8 +446,8 @@ settings.corpora.studentsvenska = {
         urn: "urn:nbn:fi:lb-2016040410",
     },
     cite_id: "Studentsvenska",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.studentsvenska,
@@ -462,8 +462,8 @@ settings.corpora.mulcold_sv = {
     title: "MULCOLD svenska",
     description: "Multilingual Corpus of Legal Documents, svenskspråkiga delen",
     cite_id: "MULCOLD",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.mulcold_sv,
     structAttributes: sattrlist.mulcold,
 };
@@ -487,8 +487,8 @@ settings.corpora.topling_sv = {
     },
     homepage_url: "https://www.jyu.fi/topling",
     cite_id: "topling-sv",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     limitedAccess: true,
     licenceType: "RES",
     attributes: attrlist.topling,
@@ -506,8 +506,8 @@ settings.corpora.kfspc_sv = {
     id: "kfspc_sv",
     cite_id: "kfspc-korp-sv",
     lang: "swe",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: {
     },
     structAttributes: sattrlist.kfspc,
@@ -523,8 +523,8 @@ settings.corpora.sinebrychoff_orig = {
     metadata_urn: "urn:nbn:fi:lb-201407303",
     licence: settings.licenceinfo.CC_BY_30,
     cite_id: "sinebrychoff-sv",
-    context: spContext,
-    within: spWithin,
+    context: context.sp,
+    within: within.sp,
     attributes: attrlist.sinebrychoff,
     structAttributes: sattrlist.sinebrychoff
 };
@@ -688,7 +688,7 @@ sattrlist.ylenews_sv_common = {
     text_main_department: {
         label: "main_section",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: [
             "#NiVetIngenting",
             "Abimix",
@@ -807,7 +807,7 @@ sattrlist.ylenews_sv_common = {
     text_departments: {
         label: "sections",
         type: "set",
-        opts: setOptions,
+        opts: options.set,
         extendedComponent: "datasetSelect",
         dataset: [
             "#NiVetIngenting",
@@ -985,7 +985,7 @@ sattrlist.ylenews_sv_common = {
     sentence_type: {
         label: "sentence_type",
         extendedComponent: "datasetSelect",
-        opts: liteOptions,
+        opts: options.lite,
         dataset: {
             "alt": "image_alt",
             "by": "byline",
@@ -1002,7 +1002,7 @@ sattrlist.ylenews_sv_common = {
 sattrs.ylenews_sv_paragraph_type = {
     label: "paragraph_type",
     extendedComponent: "datasetSelect",
-    opts: liteOptions,
+    opts: options.lite,
     dataset: {
         "by": "byline",
         "heading": "heading",
@@ -1047,8 +1047,8 @@ settings.templ.ylenews_sv_s = {
     title: "Yle svenska webbartiklar {} (för alla)",
     description: "Yle svenska webbartiklar 2012–2018, blandad, Korp: år {}<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning",
     id: "ylenews_sv_{}_s",
-    context: defaultContext,
-    within: settings.defaultWithin,
+    context: context.default,
+    within: within.default,
     attributes: attrlist.parsed_sv_lemmaset,
     structAttributes: $.extend(
         {}, sattrlist.ylenews_sv_common,
