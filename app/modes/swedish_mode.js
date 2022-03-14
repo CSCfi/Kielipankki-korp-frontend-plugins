@@ -179,7 +179,7 @@ settings.corporafolders.news.ylenews_sv = {
 settings.corporafolders.news.ylenews_sv.a = {
     title: "Yle svenska webbartiklar 2012–2018 (för forskare)",
     description: "Yle svenska webbartiklar 2012–2018, Korp<br/>Variant tillgänglig för forskare: meningarna i den ursprungliga ordningen och stöd för utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with funcs.add_corpus_settings
+    // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019120405",
@@ -192,7 +192,7 @@ settings.corporafolders.news.ylenews_sv.a = {
 settings.corporafolders.news.ylenews_sv.s = {
     title: "Yle svenska webbartiklar 2012–2018 (för alla)",
     description: "Yle svenska webbartiklar 2012–2018, blandad, Korp<br/>Variant öppen för alla: meningarna i en blandad ordning inom varje text och ingen utökad kontextvisning<br/><br/>Korpusen är indelad i delkorpusar enligt år, och artiklarna är ordnade enligt redigeringsdatumet.",
-    // Contents are added later with funcs.add_corpus_settings
+    // Contents are added later with funcs.addCorpusSettings
     contents: [],
     info: {
         urn: "urn:nbn:fi:lb-2019120406",
@@ -229,19 +229,19 @@ settings.corporafolders.other.fstc_other = {
 };
 
 
-var klk_sv_parsed_years = funcs.make_yearlist(1771, 1948);
+var klk_sv_parsed_years = funcs.makeYearlist(1771, 1948);
 
 
 // Generate settings.corpora and settings.corporafolders for the
 // Swedish KLK corpora by using functions defined in config.js
 
-funcs.make_corpus_settings_by_year_decade(
+funcs.makeCorpusSettingsByYearDecade(
     settings.corporafolders.news.klk_sv, "sv_{decade}", "klk_sv_{year}",
     function(decade) {
         return { title: decade.toString() + "-talet" };
     },
     function(year) {
-        return funcs.make_klk_corpus_settings(
+        return funcs.makeKlkCorpusSettings(
             "Nationalbiblioteket svenska {year}",
             "Nationalbibliotekets svenskspråkiga tidningar och tidskrifter från {year}",
             "klk",
@@ -249,7 +249,7 @@ funcs.make_corpus_settings_by_year_decade(
             year,
             klk_sv_parsed_years.indexOf(year) != -1);
     },
-    funcs.make_yearlist(
+    funcs.makeYearlist(
         1771, 1948,
         {descending: true,
          omit: [1779, 1780, 1781, 1786, 1787, 1788, 1790]}
@@ -468,8 +468,8 @@ settings.corpora.mulcold_sv = {
     structAttributes: sattrlist.mulcold,
 };
 
-funcs.extend_corpus_settings(settings.corpusinfo.mulcold,
-                                   ["mulcold_sv"]);
+funcs.extendCorpusSettings(settings.corpusinfo.mulcold,
+                           ["mulcold_sv"]);
 
 funcs.addCorporaToFolder("legal", "mulcold_sv");
 
@@ -532,7 +532,7 @@ settings.corpora.sinebrychoff_orig = {
 funcs.addCorporaToFolder("historical", "sinebrychoff_orig");
 
 
-funcs.extend_corpus_settings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
+funcs.extendCorpusSettings(settings.corpusinfo.kfspc, ["kfspc_sv"]);
 
 
 /* FSTC (Finland-Swedish Text Corpus) aka FISC */
@@ -639,7 +639,7 @@ for (const [key, label] of [
     ["literary", "litteratur"],
     ["other", "andra"],
 ]) {
-    funcs.make_folder_hierarchy(
+    funcs.makeFolderHierarchy(
         settings.corporafolders[key]["fstc_" + key], fstc_hierarchy[key],
         {
             id_prefix: "fstc_",
@@ -970,15 +970,15 @@ sattrlist.ylenews_sv_common = {
     text_url: sattrs.link_original,
     text_datetime_published: {
         label: "datetime_published",
-        stringify: funcs.stringify_iso_datetime,
+        stringify: funcs.stringifyIsoDatetime,
     },
     text_datetime_content_modified: {
         label: "datetime_content_modified",
-        stringify: funcs.stringify_iso_datetime,
+        stringify: funcs.stringifyIsoDatetime,
     },
     text_datetime_json_modified: {
         label: "datetime_json_modified",
-        stringify: funcs.stringify_iso_datetime,
+        stringify: funcs.stringifyIsoDatetime,
     },
     paragraph_id: sattrs.hidden,
     sentence_id: sattrs.hidden,
@@ -1032,7 +1032,7 @@ settings.templ.ylenews_sv_a = {
         }),
 };
 
-funcs.add_corpus_settings(
+funcs.addCorpusSettings(
     settings.templ.ylenews_sv_a,
     [2012, 2018],
     settings.corporafolders.news.ylenews_sv.a,
@@ -1057,7 +1057,7 @@ settings.templ.ylenews_sv_s = {
         }),
 };
 
-funcs.add_corpus_settings(
+funcs.addCorpusSettings(
     settings.templ.ylenews_sv_s,
     [2012, 2018],
     settings.corporafolders.news.ylenews_sv.s,
@@ -1105,7 +1105,7 @@ settings.corpora.nlfcl_sv = {
 funcs.addCorporaToFolder("literary", "nlfcl_sv");
 
 
-funcs.add_attr_extra_properties(settings.corpora);
+funcs.addAttrExtraProperties(settings.corpora);
 
 
 settings.corpusListing = new CorpusListing(settings.corpora);
