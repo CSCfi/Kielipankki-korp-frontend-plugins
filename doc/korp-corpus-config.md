@@ -1,5 +1,5 @@
 
-[\[Importing corpus data to Korp: technical documentation\]](../)
+[\[Importing corpus data to Korp: technical documentation\]](https://www.kielipankki.fi/development/korp/)
 
 # Adding a corpus to the Korp frontend (configuration)
 
@@ -29,7 +29,9 @@ branch) with the commands:
 When the corpus is to be deployed into production, the corpus-specific
 configuration branch is merged to the `master` branch of the
 repository. For more information on using branches in Git, please see
-the [Git instructions](../git/#Branches). (Note that when eventually
+the
+[Git instructions](https://www.kielipankki.fi/development/korp//git/#Branches).
+(Note that when eventually
 upgrading Korp to version 7 or 8, the corpus configurations will be
 separated from other Korp frontend code, possibly to a separate branch
 or set of branches in the Kielipankki-korp-frontend repository.)
@@ -1000,11 +1002,12 @@ described in the comments of the following example:
 
 Instead of writing the configuration for a corpus (completely) by
 hand, you can use the script `scripts/korp-make-config` in the [GitHub
-repository Kielipankki-utilities. It may be helpful when generating a
+repository Kielipankki-utilities.](https://github.com/CSCfi/Kielipankki-utilities)
+It may be helpful when generating a
 large number of similar configurations if you do not wish to generate
 them with JavaScript code. However, the script does not (yet) support
 many of the features available in corpus
-configurations.](https://github.com/CSCfi/Kielipankki-utilities)
+configurations.
 
 *\[TODO: Describe the usage of `korp-make-config`.\]*
 
