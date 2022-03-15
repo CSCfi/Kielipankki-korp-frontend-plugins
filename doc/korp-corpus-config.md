@@ -1,8 +1,7 @@
-<div lang="en">
 
 [\[Importing corpus data to Korp: technical documentation\]](../)
 
-# Adding a corpus to the Korp frontend (configuration) {#adding-a-corpus-to-the-korp-frontend-configuration .first}
+# Adding a corpus to the Korp frontend (configuration)
 
 ## General principles
 
@@ -1060,5 +1059,3 @@ sure that every translation key–value pair *except the last one in the
 file* ends in a comma. A comma missing from the end of a non-final
 translation line or a comma at the end of a translation file causes
 Korp not to work, with little or no indication of the place of error.
-
-</div>
