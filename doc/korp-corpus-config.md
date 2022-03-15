@@ -1,6 +1,7 @@
 <div lang="en">
 
 [\[Importing corpus data to Korp: technical documentation\]](../)
+
 # Adding a corpus to the Korp frontend (configuration) {#adding-a-corpus-to-the-korp-frontend-configuration .first}
 
 ## General principles
@@ -22,6 +23,7 @@ name is of the form `corp-corpusname` where corpusname is the name of
 the corpus (or its abbreviation). After cloning the repository, you
 can make a new branch and check it out (make it the current working
 branch) with the commands:
+
     git branch branch_name
     git checkout branch_name
 
@@ -50,6 +52,7 @@ is `app/` (relative to the root of the repository) and in the various
 test instances of Korp on `korp.csc.fi` it is
 `/var/www/html/test-version/`, where version may be a corpus name (or
 abbreviation), or e.g. `jn` or `ute`.
+
 ## Adding corpus configuration to a Korp configuration file
 
 ### The “mode” of a corpus
@@ -58,6 +61,7 @@ The corpora visible in Korp (Finnish corpora) are configured in the
 files `modes/modename_mode.js`. Definitions common to several modes
 should be added to `modes/common.js`. The following modes are
 currently available:
+
   modename            Corpora in the mode
   ------------------- -----------------------------------------------------
   `default`           Finnish-language corpora
@@ -68,10 +72,12 @@ currently available:
 \[2017-12-01: **Please note** that before Korp version 5.0.10, the
 configurations for Finnish corpora were in `config.js`, along with
 definitions common to several modes.\]
+
 ### Corpus folder in the corpus selector
 
 If a corpus should have its own subtree (folder) in Korp’s corpus
 selector, it is defined as follows:
+
     settings.corporafolders.folder = {
         title: "Folder title",
         description: "Description of the folder",
@@ -84,6 +90,7 @@ selector, it is defined as follows:
 Defined as above, `folder` contains at the leaf-node level the corpora
 `corpus1` and `corpus2`. More levels of nested folders can be defined
 as follows:
+
     settings.corporafolders.folder1 = {
         title: "Folder1 title"
         description: "Description of folder1",
@@ -128,6 +135,7 @@ to logical corpora split into several physical (sub)corpora, and not
 for folders grouping together different corpora of the same kind. The
 `info` property may contain the properties shown and described in the
 following:
+
     settings.corporafolders.folder1 = {
         title: "Folder1 title"
         description: "Description of folder1",
@@ -165,6 +173,7 @@ The configuration for a corpus is defined as a property of
 information, and the comments following `//` contain further details.
 Further below are separate instructions on certain special types of
 attributes and on the special features parallel corpora.
+
     settings.corpora.corpus = {
         // The name shown in the corpus selector; often the short name of the corpus<
         title: "Corpus",
@@ -256,6 +265,7 @@ in a different way in Kielipankki’s Korp from what has been later
 added to Språkbanken’s Korp, so they may change. If you need these
 features now, please ask, or search `modes/default_mode.js` for
 `sidebar_display_order` or `displayOnly`.
+
 ### Special types of attributes
 
 #### Selection lists
@@ -270,16 +280,19 @@ extended search. (Although, that can be worked around by adding
 disjunctive conditions on the same attribute, it is somewhat
 cumbersome.) An attribute is declared as a selection list by adding to
 it the property
+
                 displayType: "select",
 
 If the values of the attribute should be localized, you need to define
 the prefix prepended to the attribute values in the translation files:
+
                 translationKey: "pos_",
 
 The values of the attribute and the translation keys corresponding to
 them are defined as the property `dataset` of the attribute
 declaration. Its value may be either a JavaScript object or array. In
 an abject, values may have translation keys differing from the values:
+
                 dataset: {
                     "N": "N",
                     "A": "A",
@@ -293,6 +306,7 @@ attribute values mapping.\]* If the translation keys are always the
 same as the values or if the values should not be translated, it is
 simpler to use an array, in which case it suffices to write each value
 once:
+
                 dataset: [
                     "N",
                     "A",
@@ -302,17 +316,20 @@ once:
 If the values of an attribute should not be translated (for example,
 names of authors), the property `translationKey` is omitted and the
 property `localize` is set to `false`:
+
                 localize: false,
 
 Moreover, the value of the property `opts` of a selection list
 attribute should be `settings.liteOptions`, so that the user can only
 specify the conditions *is* and *is not* in the extended search:
+
                 opts: settings.liteOptions,
 
 #### Links (URLs)
 
 An attribute of type URL is specified by adding the property `type`
 with the value `url`:
+
             file_url: {
                 label: "file_url",
                 type: "url",
@@ -322,6 +339,7 @@ In this basic case, the KWIC sidebar shows the localized name of the
 attribute followed by the (possibly abbreviated) URL as the link text.
 You can specify that the localized attribute name is shown as the link
 text using the property `url_opts.hide_url`:
+
                 url_opts: {
                     hide_url: true
                 },
@@ -333,6 +351,7 @@ definitions have been collected to the pre-defined variable
 `sattrs.link_url_opts`. The code below defines the URL attribute
 `fulltext_url`, with the attribute name as the link text, link below
 other attributes and the linked page opening in a new window:
+
             fulltext_url: {
                 label: "show_fulltext",
                 type: "url",
@@ -344,6 +363,7 @@ In addition, the preceding definition contains the property
 `url_prefix` which defines a prefix to be prepended to attribute
 values, so that a constant URL prefix may be omitted from the
 attribute values in the corpus data.
+
 #### Feature-set values
 
 A Korp (CWB) corpus may have attributes with feature-set values, which
@@ -354,6 +374,7 @@ supported in both positional and structural attributes. In the sidebar
 of Korp’s concordance results, the values of a feature-set attribute
 are shown beneath each other. In a Korp corpus configuration, a
 feature-set attribute needs to be declared as follows:
+
         pos: {
             label: "pos",
             type: "set",
@@ -367,6 +388,7 @@ they appear the same in the extended search, with the latter, searches
 would not work. Moreover, `settings.defaultOptions` does not currently
 work with feature-set attributes, so value comparisons on feature-set
 attributes are limited to *is* and *is not* in the extended search.
+
 #### Synthetic (computed) attributes
 
 The sidebar of Korp’s concordance results may show attributes computed
@@ -376,6 +398,7 @@ with common parts and variable parts filled from other attributes. A
 synthetic attribute is defined by adding the definition of an
 attribute the property `synthetic: true` and a property
 `stringify_synthetic` for generating the value. For example:
+
         text_page_image_url: {
             label: "show_page_image",
             type: "url",
@@ -408,6 +431,7 @@ for an example of using the token data. Please be aware that
 Språkbanken’s Korp may now have other ways of achieving similar
 effects, so synthetic attribute definitions may eventually need to be
 changed.
+
 ### Special attribute properties
 
 #### Restricted corpora (licence category CLARIN ACA or CLARIN RES)
@@ -415,6 +439,7 @@ changed.
 If the use of the corpus is restricted and requires logging in to
 Korp, the following properties must be added to corpus settings
 (otherwise they can be left out):
+
          limited_content: true,
          licence_type: "RES",
 
@@ -424,6 +449,7 @@ corpora must be added to the Korp MySQL authorization database. When
 using `korp-make` that can be done with the options `--licence-type`
 and `--lbr-id`. You can also use the script `korp-make-auth-info.sh`
 with the same options before packaging the corpus.
+
 #### Information link
 
 It is possible to add a link to information on attribute values from
@@ -433,6 +459,7 @@ description which have a fixed set of values but too large to be
 enumerated in a value selection list. An information link for an
 attribute is specified by adding to the attribute definition the
 property `taginfo_url` with the URL as the value:
+
             sentence_signum: {
                 label: "signum",
                 // This URL is in the sidebar ⓘ link
@@ -449,6 +476,7 @@ line breaks. The value of an attribute is transformed with the
 function specified in the attribute property `transform`. The function
 takes the attribute value as the argument and it should return the
 value to be shown in the sidebar. For example:
+
     attrs.msd = {
         label: "msd",
         // ...
@@ -461,6 +489,7 @@ value to be shown in the sidebar. For example:
 
 Please be aware that this feature may change in the future, but
 similar functionality will nevertheless be available.
+
 #### Custom features in the extended search
 
 An attribute may have custom features in the extended search, such as
@@ -470,6 +499,7 @@ frontend instructions](https://github.com/spraakbanken/korp-frontend/)
 for some more information (although it describes a newer version of
 Korp with some changes), and `modes/default_mode.js` and
 `modes/other_languages_mode.js` for examples.
+
 ### Defining often-used attributes and other configuration properties
 
 You can (and should) define reusable definitions for often-used
@@ -480,6 +510,7 @@ parts are also used as monolingual corpora, the definitions of common
 attributes should be in `modes/common.js`. Reusable attribute
 definitions can be defined as follows (the following have already been
 defined):
+
     attrs.msd = {
         label: "msd",
         opts: settings.defaultOptions
@@ -493,6 +524,7 @@ defined):
 By convention, the `attrs` namespace contains definitions of
 positional attributes and `sattrs` structural attributes. They are
 used in the configurations as follows:
+
     settings.corpora.sample_corpus = 
         // ...
         attributes: {
@@ -509,6 +541,7 @@ used in the configurations as follows:
 In addition, complete lists of positional and structural attributes,
 to be used in multiple corpora, can be defined in `attrlist` and
 `sattrlist`, respectively:
+
     attrlist.corpus_common = {
         lemma: attrs.baseform,
         pos: attrs.pos,
@@ -536,6 +569,7 @@ interface are the same. Another way to refer to commonly used
 attributes and also other corpus settings properties is to use the
 `features` property. You can define and use such a corpus feature as
 follows:
+
     settings.corpus_features.paragraphs = {
         within: settings.spWithin,
         context: settings.spContext,
@@ -587,12 +621,14 @@ value is the CQP expression to be inserted between each two token
 expressions in the CQP expression formed from an extended search
 expression in Korp. For example, the following allows any number of
 tokens with the part of speech `punct` between other tokens:
+
         ignore_between_tokens_cqp: '[pos="punct"]*',
 
 However, please note that this takes effect only if all the selected
 corpora have the same value for the `ignore_between_tokens_cqp`.
 Moreover, the setting does not (at least currently) affect the simple
 nor the advanced search.
+
 ### Generating subcorpus configurations with JavaScript
 
 If a logical corpus has been divided into several (sub)corpora from
@@ -610,6 +646,7 @@ is often less transparent than explicit declarations for each
 `modes/common.js` contains a couple of functions for generating corpus
 configurations with common declarations. The functions are in the
 `settings.fn` namespace and they are described in the following.
+
 #### `settings.fn.add_corpus_settings`
 
 Function `settings.fn.add_corpus_settings` adds corpus settings based
@@ -618,6 +655,7 @@ properties added to the template. The corpora are added to a given
 corpus folder with an id with a given fixed prefix and variable suffix
 part in the corpus-specific property list. It is used for the corpus
 `kotus_ns_presidentti`, for example:
+
     settings.templ.kotus_ns_presidentti = {
        title: "",
        description: "",
@@ -669,6 +707,7 @@ Function `settings.fn.extend_corpus_settings` is used to add
 properties to the existing settings of multiple corpora. (The function
 does not actually generate corpus settings.) It can be used as
 follows:
+
     // The properties common to the corpora
     las2_common_props = {
         urn: "urn:nbn:fi:lb-2015050504",
@@ -710,6 +749,7 @@ for multiple corpora and creates a corpus folder hierarchy for them
 under a specified parent folder. It is used as follows for generating
 the two-level subcorpus hierarchy of the dialect corpus LA-murre
 (slightly modified for illustration):
+
     // Corpus grouping to folders
     var la_murre_grouping = [
         // First-level subfolder: base id and name
@@ -819,6 +859,7 @@ is used to generate corpus folders by decade. (However, the custom
 function could probably be replaced with
 `settings.fn.make_folder_hierarchy` and a function creating the folder
 hierarchy.
+
 ### Corpus aliases
 
 Corpus aliases are used to map a corpus id to another one or a list of
@@ -838,6 +879,7 @@ value is string containing a list of comma-separated corpus ids or
 regular expressions. Note that corpus aliases are not expanded
 recursively, so the value should not refer to corpus aliases. For
 example:
+
     // "las2" is expanded to the two corpora las2_tentit and las2_esseet
     settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
@@ -851,6 +893,7 @@ Note that the expansions of aliases containing regular expressions may
 change if new corpora are added to Korp. Such aliases may not be used
 for the Korp URNs of corpora, since the denotation of a corpus URN
 should be permanent.
+
 ### Special features of parallel corpus configurations
 
 For parallel corpora, the configuration of the corpus for each
@@ -861,6 +904,7 @@ The property `contents` of a corpus folder lists only this main
 corpus. In the configurations of individual corpora, the crucial
 attributes are `lang`, `linked_to`, `context` and `hide`. They are
 described in the comments of the following example:
+
     settings.corpora.parfin_2016_fi = {
         id: "parfin_2016_fi",
         title: "ParFin 2016",
@@ -905,7 +949,9 @@ large number of similar configurations if you do not wish to generate
 them with JavaScript code. However, the script does not (yet) support
 many of the features available in corpus
 configurations.](https://github.com/CSCfi/Kielipankki-utilities)
+
 *\[TODO: Describe the usage of `korp-make-config`.\]*
+
 ## Adding attribute name and value translations to translations files
 
 The texts shown for corpus attributes and their values are defined in
@@ -915,6 +961,7 @@ for Finnish, that is, in the file `translations/corpora-fi.json`.
 However, Swedish-language corpora should have translations at least in
 Swedish and corpora in other languages than Finnish or Swedish at
 least in English. Translations in the JSON files are of the form
+
         "translation_key": "translation",
 
 where translation\_key may be an attribute label (the value of the
@@ -922,6 +969,7 @@ property `label` in the configuration of a corpus attribute), or the
 value of an enumerated attribute in the form prefixvalue, where prefix
 is the value of the `translationKey` property of an attribute. For
 example:
+
         "pos": "part-of-speech",
 
         "pos_A": "adjective",
