@@ -444,19 +444,16 @@ attribute the property `synthetic: true` and a property
 The argument of the function value of `stringify_synthetic` is an
 object with the following properties:
 
-`pos_attrs`
-:   The positional attributes of the current token: an object with
-    each attribute as the property (name).
+- `pos_attrs`: The positional attributes of the current token: an
+   object with each attribute as the property (name).
 
-`struct_attrs`
-:   The structural attributes of the current token, similarly to
-    `pos_attrs`.
+- `struct_attrs`: The structural attributes of the current token,
+   similarly to `pos_attrs`.
 
-`tokens`
-:   An array of all the tokens of the sentence. Each token is an
-    object containing positional attributes as in `pos_attrs`. In
-    addition, the property `_match` is true for the tokens in the
-    actual match.
+- `tokens`: An array of all the tokens of the sentence. Each token is
+   an object containing positional attributes as in `pos_attrs`. In
+   addition, the property `_match` is true for the tokens in the
+   actual match.
 
 See the function `settings.fn.find_context_words` in `modes/common.js`
 for an example of using the token data. Please be aware that
@@ -643,17 +640,14 @@ definition, the `attributes` defined in
 commonly-used features have already been defined and should be used
 whenever appropriate:
 
-`paragraphs`
-:   The corpus contains paragraphs that can be shown as an extended
-    context in the concordance result.
+- `paragraphs`: The corpus contains paragraphs that can be shown as an
+   extended context in the concordance result.
 
-`parsed_tdt`
-:   The corpus has been parsed with the TDT parser and contains the
-    corresponding attributes.
+- `parsed_tdt`: The corpus has been parsed with the TDT parser and
+   contains the corresponding attributes.
 
-`finer`
-:   The names in the corpus has been tagged with FiNER and the corpus
-    has the corresponding positional and structural attributes.
+- `finer`: The names in the corpus has been tagged with FiNER and the
+   corpus has the corresponding positional and structural attributes.
 
 ### Special features of corpus settings
 
@@ -884,23 +878,23 @@ the two-level subcorpus hierarchy of the dialect corpus LA-murre
     properties in the configuration template specified in options.
 3.  Options: an object that may contain the following properties:
 
-    `folder_template`, `corpus_template`
-    :   An object to be used as the base configuration properties for
-        folders and corpora, respectively (default: `{}`).
+    - `folder_template`, `corpus_template`: An object to be used as
+       the base configuration properties for folders and corpora,
+       respectively (default: `{}`).
 
-    ({`folder`,`corpus`}`_`){`id`,`title`,`description`}`_`{`prefix`,`suffix`}
-    :   A string to be prefixed or suffixed to the id, title or
-        description of folders and/or corpora (default: empty).
+    - ({`folder`,`corpus`}`_`){`id`,`title`,`description`}`_`{`prefix`,`suffix`}:
+       A string to be prefixed or suffixed to the id, title or
+       description of folders and/or corpora (default: empty).
 
-    `make_`{`folder`,`corpus`}`_`{`id`,`title`,`description`}
-    :   A function to use to make the id, title or description of a
-        folder or corpus. The function takes the arguments `info` (the
-        folder or corpus data in subfolder\_tree), `parent_folder`
-        (settings.corporafolders subobject) and `ancestor_folder_ids`
-        (an array of strings containing the ancestor folder ids from
-        the top to the parent), and it should return a string. If
-        defined, the function is used in preference to the prefix and
-        suffix properties above.
+    - `make_`{`folder`,`corpus`}`_`{`id`,`title`,`description`}: A
+       function to use to make the id, title or description of a
+       folder or corpus. The function takes the arguments `info` (the
+       folder or corpus data in subfolder\_tree), `parent_folder`
+       (settings.corporafolders subobject) and `ancestor_folder_ids`
+       (an array of strings containing the ancestor folder ids from
+       the top to the parent), and it should return a string. If
+       defined, the function is used in preference to the prefix and
+       suffix properties above.
 
 #### Custom functions
 
