@@ -62,12 +62,12 @@ files `modes/modename_mode.js`. Definitions common to several modes
 should be added to `modes/common.js`. The following modes are
 currently available:
 
-  modename            Corpora in the mode
-  ------------------- -----------------------------------------------------
-  `default`           Finnish-language corpora
-  `swedish`           Swedish-language corpora
-  `other_languages`   corpora in other languages than Finnish and Swedish
-  `parallel`          parallel corpora
+| modename          | Corpora in the mode                                 |
+|-------------------|-----------------------------------------------------|
+| `default`         | Finnish-language corpora                            |
+| `swedish`         | Swedish-language corpora                            |
+| `other_languages` | corpora in other languages than Finnish and Swedish |
+| `parallel`        | parallel corpora                                    |
 
 \[2017-12-01: **Please note** that before Korp version 5.0.10, the
 configurations for Finnish corpora were in `config.js`, along with
