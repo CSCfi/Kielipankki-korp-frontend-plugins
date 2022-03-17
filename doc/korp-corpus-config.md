@@ -87,14 +87,14 @@ If a corpus should have its own subtree (folder) in Korp’s corpus
 selector, it is defined as follows:
 
 ```javascript
-    settings.corporafolders.folder = {
-        title: "Folder title",
-        description: "Description of the folder",
-        contents: [
-            "corpus1",
-            "corpus2",
-        ],
-    };
+settings.corporafolders.news.folder = {
+    title: "Folder title",
+    description: "Description of the folder",
+    contents: [
+        "corpus1",
+        "corpus2",
+    ],
+};
 ```
 
 Defined as above, `folder` contains at the leaf-node level the corpora
@@ -102,20 +102,20 @@ Defined as above, `folder` contains at the leaf-node level the corpora
 as follows:
 
 ```javascript
-    settings.corporafolders.folder1 = {
-        title: "Folder1 title"
-        description: "Description of folder1",
-    };
+settings.corporafolders.news.folder1 = {
+    title: "Folder1 title"
+    description: "Description of folder1",
+};
 
-    settings.corporafolders.folder1.folder2a = {
-        title: "Folder 2a title",
-        description: "Description of folder2a",
-        // Ids of the corpora directly under this folder; preferably list each id on a line of its own.
-        contents: [
-            "corpus1",
-            "corpus2",
-        ],
-    };
+settings.corporafolders.news.folder1.folder2a = {
+    title: "Folder 2a title",
+    description: "Description of folder2a",
+    // Ids of the corpora directly under this folder; preferably list each id on a line of its own.
+    contents: [
+        "corpus1",
+        "corpus2",
+    ],
+};
 ```
 
 Now `folder1` contains `folder2a` but no leaf-level corpora, and
@@ -153,37 +153,36 @@ physical (sub)corpora, and not for folders grouping together different
 corpora of the same kind. The `info` property may contain the
 properties shown and described in the following:
 
-
 ```javascript
-    settings.corporafolders.folder1 = {
-        title: "Folder1 title"
-        description: "Description of folder1",
-        info: {
-            // URN pointing to the corpus in Korp
-            urn: "urn:nbn:fi:lb-201406021",
-            // URN pointing to the META-SHARE record
-            metadata_urn: "urn:nbn:fi:lb-201406022",
-            // Licence information; settings.licenceinfo defined in modes/common.js
-            licence: settings.licenceinfo.CC_BY_30,
-            // A home page (information page) of the corpus
-            homepage: {
-                // The link text
-                name: "Information page",
-                // The link URL
-                url: "http://www.example.fi/",
-                // No "Home page" label shown in front of the link text
-                no_label: true,
-            },
-            // Link to information on the compiler of the corpus; the subproperties as above
-            compiler: {
-                name: "Kotimaisten kielten keskus",
-                url: "http://www.kotus.fi/",
-                no_label: true,
-            },
-            // The id for obtaining citation information
-            cite_id: "cite-key",
+settings.corporafolders.folder1 = {
+    title: "Folder1 title"
+    description: "Description of folder1",
+    info: {
+        // URN pointing to the corpus in Korp
+        urn: "urn:nbn:fi:lb-201406021",
+        // URN pointing to the META-SHARE record
+        metadata_urn: "urn:nbn:fi:lb-201406022",
+        // Licence information; settings.licenceinfo defined in modes/common.js
+        licence: settings.licenceinfo.CC_BY_30,
+        // A home page (information page) of the corpus
+        homepage: {
+            // The link text
+            name: "Information page",
+            // The link URL
+            url: "http://www.example.fi/",
+            // No "Home page" label shown in front of the link text
+            no_label: true,
         },
-    };
+        // Link to information on the compiler of the corpus; the subproperties as above
+        compiler: {
+            name: "Kotimaisten kielten keskus",
+            url: "http://www.kotus.fi/",
+            no_label: true,
+        },
+        // The id for obtaining citation information
+        cite_id: "cite-key",
+    },
+};
 ```
 
 ### The configuration for a corpus
@@ -195,80 +194,80 @@ Further below are separate instructions on certain special types of
 attributes and on the special features parallel corpora.
 
 ```javascript
-    settings.corpora.corpus = {
-        // The name shown in the corpus selector; often the short name of the corpus<
-        title: "Corpus",
-        // The description of the corpus shown when hovering the mouse over the corpus name in the corpus selector
-        description: "Corpus whose name is Corpus",
-        // The id of the corpus; the same as the last part of
-        // settings.corpora.corpus and the name of the corpus in CWB
-        id: "corpus",
-        // urn, metadata_urn, licence and cite_id should be specified at the corpus level if the physical corpus corresponds
-        // to the logical one (that is, if they are not specified at the corpus folder level). All the properties available
-        // in the info property of corpus folders can be added directly to the configuration of a corpus.
-        urn: "urn:nbn:fi:lb-2016090610",
-        metadata_urn: "urn:nbn:fi:lb-20140730158",
-        licence: {
-            name: "CLARIN RES +PLAN +NC +PRIV 1.0",
-            urn: "urn:nbn:fi:lb-2016041802",
+settings.corpora.corpus = {
+    // The name shown in the corpus selector; often the short name of the corpus<
+    title: "Corpus",
+    // The description of the corpus shown when hovering the mouse over the corpus name in the corpus selector
+    description: "Corpus whose name is Corpus",
+    // The id of the corpus; the same as the last part of
+    // settings.corpora.corpus and the name of the corpus in CWB
+    id: "corpus",
+    // urn, metadata_urn, licence and cite_id should be specified at the corpus level if the physical corpus corresponds
+    // to the logical one (that is, if they are not specified at the corpus folder level). All the properties available
+    // in the info property of corpus folders can be added directly to the configuration of a corpus.
+    urn: "urn:nbn:fi:lb-2016090610",
+    metadata_urn: "urn:nbn:fi:lb-20140730158",
+    licence: {
+        name: "CLARIN RES +PLAN +NC +PRIV 1.0",
+        urn: "urn:nbn:fi:lb-2016041802",
+    },
+    cite_id: "FinStud86",
+    // If the corpus has paragraphs marked with paragraph elements, the
+    // following are settings.spWithin and settings.spContext
+    within: settings.defaultWithin,
+    context: settings.defaultContext,
+    // The attributes of a token with the names as specified to korp-make --input-attributes
+    attributes: {
+        // Text input in the extended search: no displayType
+        lemma: {
+            // The translation key for the attribute name in the frontend; may be different from attribute name.
+            label: "baseform",
+            // Value comparison options for the extended search: in practice either
+            // settings.defaultOptions (for text input), settings.liteOptions (for selection lists)
+            // or settings.setOptions (for feature-set attributes)
+            opts: settings.defaultOptions
         },
-        cite_id: "FinStud86",
-        // If the corpus has paragraphs marked with paragraph elements, the
-        // following are settings.spWithin and settings.spContext
-        within: settings.defaultWithin,
-        context: settings.defaultContext,
-        // The attributes of a token with the names as specified to korp-make --input-attributes
-        attributes: {
-            // Text input in the extended search: no displayType
-            lemma: {
-                // The translation key for the attribute name in the frontend; may be different from attribute name.
-                label: "baseform",
-                // Value comparison options for the extended search: in practice either
-                // settings.defaultOptions (for text input), settings.liteOptions (for selection lists)
-                // or settings.setOptions (for feature-set attributes)
-                opts: settings.defaultOptions
+        // Selection list (fixed set of values; see further below)
+        pos: {
+            label: "pos",
+            // Selection list
+            displayType: "select",
+            // The prefix for the values of this attribute in the translations files
+            translationKey: "pos_",
+            // Values and their corresponding translation keys
+            dataset: {
+                "N": "N",
+                "A": "A",
+                "Unk": "Unknown"
             },
-            // Selection list (fixed set of values; see further below)
-            pos: {
-                label: "pos",
-                // Selection list
-                displayType: "select",
-                // The prefix for the values of this attribute in the translations files
-                translationKey: "pos_",
-                // Values and their corresponding translation keys
-                dataset: {
-                    "N": "N",
-                    "A": "A",
-                    "Unk": "Unknown"
-                },
-                opts: settings.liteOptions,
-            },
-            // Reference to an attribute defined earlier
-            msd: attrs.msd,
+            opts: settings.liteOptions,
         },
-        // Structural attributes: in practice, the attributes in the XML elements of the VRT files
-        // (only attributes of the form elem_attr, not structural attributes elem corresponding to plain elements)
-        struct_attributes: {
-            // The CWB structural attribute text_name corresponds to the attribute "name" of the element "text" in the VRT file
-            text_name: {
-                label: "text_name",
-                displayType: "select",
-                localize: false,
-                dataset: [
-                    "Korp1",
-                    "Korp2",
-                ],
-                opts: settings.liteOptions,
-            },
-            paragraph_id: {
-                label: "paragraph_id",
-                // An attribute whose value is not shown in the search interface
-                displayType: "hidden",
-            },
-            // Since in practice all corpora have sentence_id, it is best to use the common definition
-            sentence_id: sattrs.sentence_id_hidden,
-        }
-    };
+        // Reference to an attribute defined earlier
+        msd: attrs.msd,
+    },
+    // Structural attributes: in practice, the attributes in the XML elements of the VRT files
+    // (only attributes of the form elem_attr, not structural attributes elem corresponding to plain elements)
+    struct_attributes: {
+        // The CWB structural attribute text_name corresponds to the attribute "name" of the element "text" in the VRT file
+        text_name: {
+            label: "text_name",
+            displayType: "select",
+            localize: false,
+            dataset: [
+                "Korp1",
+                "Korp2",
+            ],
+            opts: settings.liteOptions,
+        },
+        paragraph_id: {
+            label: "paragraph_id",
+            // An attribute whose value is not shown in the search interface
+            displayType: "hidden",
+        },
+        // Since in practice all corpora have sentence_id, it is best to use the common definition
+        sentence_id: sattrs.sentence_id_hidden,
+    }
+};
 ```
 
 The titles of subcorpora of a corpus should contain the title of the
@@ -308,14 +307,14 @@ An attribute is declared as a selection list by adding to it the
 property
 
 ```javascript
-                displayType: "select",
+            displayType: "select",
 ```
 
 If the values of the attribute should be localized, you need to define
 the prefix prepended to the attribute values in the translation files:
 
 ```javascript
-                translationKey: "pos_",
+            translationKey: "pos_",
 ```
 
 The values of the attribute and the translation keys corresponding to
@@ -324,11 +323,11 @@ declaration. Its value may be either a JavaScript object or array. In
 an abject, values may have translation keys differing from the values:
 
 ```javascript
-                dataset: {
-                    "N": "N",
-                    "A": "A",
-                    "Unk": "Unknown"
-                },
+            dataset: {
+                "N": "N",
+                "A": "A",
+                "Unk": "Unknown"
+            },
 ```
 
 In an object, the name of the property is the value of the attribute
@@ -341,11 +340,11 @@ values should not be translated, it is simpler to use an array, in
 which case it suffices to write each value once:
 
 ```javascript
-                dataset: [
-                    "N",
-                    "A",
-                    "Unk"
-                ],
+            dataset: [
+                "N",
+                "A",
+                "Unk"
+            ],
 ```
 
 If the values of an attribute should not be translated (for example,
@@ -353,7 +352,7 @@ names of authors), the property `translationKey` is omitted and the
 property `localize` is set to `false`:
 
 ```javascript
-                localize: false,
+            localize: false,
 ```
 
 Moreover, the value of the property `opts` of a selection list
@@ -361,7 +360,7 @@ attribute should be `settings.liteOptions`, so that the user can only
 specify the conditions *is* and *is not* in the extended search:
 
 ```javascript
-                opts: settings.liteOptions,
+            opts: settings.liteOptions,
 ```
 
 #### Links (URLs)
@@ -370,10 +369,10 @@ An attribute of type URL is specified by adding the property `type`
 with the value `url`:
 
 ```javascript
-            file_url: {
-                label: "file_url",
-                type: "url",
-            },
+        file_url: {
+            label: "file_url",
+            type: "url",
+        },
 ```
 
 In this basic case, the KWIC sidebar shows the localized name of the
@@ -382,9 +381,9 @@ You can specify that the localized attribute name is shown as the link
 text using the property `url_opts.hide_url`:
 
 ```javascript
-                url_opts: {
-                    hide_url: true
-                },
+            url_opts: {
+                hide_url: true
+            },
 ```
 
 You can also specify via `url_opts` that a link should be shown under
@@ -396,12 +395,12 @@ definitions have been collected to the pre-defined variable
 other attributes and the linked page opening in a new window:
 
 ```javascript
-            fulltext_url: {
-                label: "show_fulltext",
-                type: "url",
-                url_opts: sattrs.link_url_opts,
-                url_prefix: "http://www.example.com/",
-            }
+        fulltext_url: {
+            label: "show_fulltext",
+            type: "url",
+            url_opts: sattrs.link_url_opts,
+            url_prefix: "http://www.example.com/",
+        }
 ```
 
 In addition, the preceding definition contains the property
@@ -491,8 +490,8 @@ Korp, the following properties must be added to corpus settings
 (otherwise they can be left out):
 
 ```javascript
-         limited_content: true,
-         licence_type: "RES",
+             limited_content: true,
+             licence_type: "RES",
 ```
 
 `licence_type` may be `RES` or `ACA` depending on the licence type.
@@ -516,12 +515,12 @@ attribute definition the property `taginfo_url` with the URL as the
 value:
 
 ```javascript
-            sentence_signum: {
-                label: "signum",
-                // This URL is in the sidebar ⓘ link
-                taginfo_url: "markup/dma_signumlist.html",
-                // ...
-            },
+        sentence_signum: {
+            label: "signum",
+            // This URL is in the sidebar ⓘ link
+            taginfo_url: "markup/dma_signumlist.html",
+            // ...
+        },
 ```
 
 #### Value transformation
@@ -537,15 +536,15 @@ attribute value as the argument and it should return the value to be
 shown in the sidebar. For example:
 
 ```javascript
-    attrs.msd = {
-        label: "msd",
-        // ...
-        // Add a zero-width space character after each vertical bar to
-        // allow breaking the line there in the sidebar.
-        transform: function(val) {
-            return val.replace(/\|/g, "|\u200b");
-        }
-    };
+attrs.msd = {
+    label: "msd",
+    // ...
+    // Add a zero-width space character after each vertical bar to
+    // allow breaking the line there in the sidebar.
+    transform: function(val) {
+        return val.replace(/\|/g, "|\u200b");
+    }
+};
 ```
 
 Please be aware that this feature may change in the future, but
@@ -574,15 +573,15 @@ Reusable attribute definitions can be defined as follows (the
 following have already been defined):
 
 ```javascript
-    attrs.msd = {
-        label: "msd",
-        opts: settings.defaultOptions
-    };
+attrs.msd = {
+    label: "msd",
+    opts: settings.defaultOptions
+};
 
-    sattrs.sentence_id_hidden = {
-        label: "sentence_id",
-        displayType: "hidden"
-    };
+sattrs.sentence_id_hidden = {
+    label: "sentence_id",
+    displayType: "hidden"
+};
 ```
 
 By convention, the `attrs` namespace contains definitions of
@@ -590,18 +589,18 @@ positional attributes and `sattrs` structural attributes. They are
 used in the configurations as follows:
 
 ```javascript
-    settings.corpora.sample_corpus = 
+settings.corpora.sample_corpus =
+    // ...
+    attributes: {
         // ...
-        attributes: {
-            // ...
-            msd: attrs.msd,
-            // ...
-        },
-        struct_attributes: {
-            // ...
-            sentence_id: sattrs.sentence_id_hidden,
-            // ...
-        },
+        msd: attrs.msd,
+        // ...
+    },
+    struct_attributes: {
+        // ...
+        sentence_id: sattrs.sentence_id_hidden,
+        // ...
+    },
 ```
 
 In addition, complete lists of positional and structural attributes,
@@ -609,26 +608,26 @@ to be used in multiple corpora, can be defined in `attrlist` and
 `sattrlist`, respectively:
 
 ```javascript
-    attrlist.corpus_common = {
-        lemma: attrs.baseform,
-        pos: attrs.pos,
-        // ...
-    };
+attrlist.corpus_common = {
+    lemma: attrs.baseform,
+    pos: attrs.pos,
+    // ...
+};
 
-    sattrlist.corpus_common = {
-        text_title: sattrs.title,
-        text_author: sattrs.author,
-        text_author_birthyear: {
-            label: "author_birthyear",
-        },
-        // ...
-    };
+sattrlist.corpus_common = {
+    text_title: sattrs.title,
+    text_author: sattrs.author,
+    text_author_birthyear: {
+        label: "author_birthyear",
+    },
+    // ...
+};
 
-    settings.corpora.sample_corpus2 = {
-        // ...
-        attributes: attrlist.corpus_common,
-        struct_attributes: sattrlist.corpus_common,
-    }
+settings.corpora.sample_corpus2 = {
+    // ...
+    attributes: attrlist.corpus_common,
+    struct_attributes: sattrlist.corpus_common,
+}
 ```
 
 You should use the same labels (translation keys) as in other corpora
@@ -640,23 +639,23 @@ settings properties is to use the `features` property. You can define
 and use such a corpus feature as follows:
 
 ```javascript
-    settings.corpus_features.paragraphs = {
-        within: settings.spWithin,
-        context: settings.spContext,
-    };
+settings.corpus_features.paragraphs = {
+    within: settings.spWithin,
+    context: settings.spContext,
+};
 
-    settings.corpus_features.parsed_tdt = {
-        attributes: {
-            lemma: attrs.baseform,
-            // ...
-        },
-    };
+settings.corpus_features.parsed_tdt = {
+    attributes: {
+        lemma: attrs.baseform,
+        // ...
+    },
+};
 
-    settings.corpora.sample_corpus = {
-        // ...
-        features: ["paragraphs", "parsed_tdt"],
-        // ...
-    }
+settings.corpora.sample_corpus = {
+    // ...
+    features: ["paragraphs", "parsed_tdt"],
+    // ...
+}
 ```
 
 The properties in `settings.corpus_features.paragraphs` and
@@ -692,7 +691,7 @@ expression in Korp. For example, the following allows any number of
 tokens with the part of speech `punct` between other tokens:
 
 ```javascript
-        ignore_between_tokens_cqp: '[pos="punct"]*',
+    ignore_between_tokens_cqp: '[pos="punct"]*',
 ```
 
 However, please note that this takes effect only if all the selected
@@ -730,38 +729,38 @@ part in the corpus-specific property list. It is used for the corpus
 `kotus_ns_presidentti`, for example:
 
 ```javascript
-    settings.templ.kotus_ns_presidentti = {
-       title: "",
-       description: "",
-       id: "",
-       within: settings.spWithin,
-       context: settings.spContext,
-       attributes: {
-           lemma: attrs.baseform,
-           // ...
-           lex: attrs.lemgram_hidden
-       },
-       struct_attributes: {
-           text_title: sattrs.text_title,
-           // ...
-           sentence_url: sattrs.context_url
-       }
-    };
+settings.templ.kotus_ns_presidentti = {
+   title: "",
+   description: "",
+   id: "",
+   within: settings.spWithin,
+   context: settings.spContext,
+   attributes: {
+       lemma: attrs.baseform,
+       // ...
+       lex: attrs.lemgram_hidden
+   },
+   struct_attributes: {
+       text_title: sattrs.text_title,
+       // ...
+       sentence_url: sattrs.context_url
+   }
+};
 
-    settings.fn.add_corpus_settings(
-       settings.templ.kotus_ns_presidentti,
-       [
-           { id: "ahtisaari",
-             title: "Presidentti Ahtisaaren uudenvuodenpuheet",
-             description: "Kokoelma sisältää presidentti Martti Ahtisaaren pitämät uudenvuodenpuheet (1995–2000). ..." },
-           // ...
-           { id: "svinhufvud",
-             title: "Presidentti Svinhufvudin uudenvuodenpuheet",
-             description: "Kokoelma sisältää presidentti P. E. Svinhufvudin pitämät uudenvuodenpuheet (1935–1937)." },
-       ],
-       settings.corporafolders.other_texts.kotus_ns_presidentti,
-       "kotus_ns_presidentti_"
-    );
+settings.fn.add_corpus_settings(
+   settings.templ.kotus_ns_presidentti,
+   [
+       { id: "ahtisaari",
+         title: "Presidentti Ahtisaaren uudenvuodenpuheet",
+         description: "Kokoelma sisältää presidentti Martti Ahtisaaren pitämät uudenvuodenpuheet (1995–2000). ..." },
+       // ...
+       { id: "svinhufvud",
+         title: "Presidentti Svinhufvudin uudenvuodenpuheet",
+         description: "Kokoelma sisältää presidentti P. E. Svinhufvudin pitämät uudenvuodenpuheet (1935–1937)." },
+   ],
+   settings.corporafolders.other_texts.kotus_ns_presidentti,
+   "kotus_ns_presidentti_"
+);
 ```
 
 `settings.fn.add_corpus_settings` takes the following arguments:
@@ -784,33 +783,33 @@ does not actually generate corpus settings.) It can be used as
 follows:
 
 ```javascript
-    // The properties common to the corpora
-    las2_common_props = {
-        urn: "urn:nbn:fi:lb-2015050504",
-        // ...
-        limited_access: true,
-        licence_type: "RES",
-        attributes: attrlist.las2,
-        struct_attributes: sattrlist.las2,
-    };
+// The properties common to the corpora
+las2_common_props = {
+    urn: "urn:nbn:fi:lb-2015050504",
+    // ...
+    limited_access: true,
+    licence_type: "RES",
+    attributes: attrlist.las2,
+    struct_attributes: sattrlist.las2,
+};
 
-    // The variable parts of the corpus settings
-    settings.corpora.las2_tentit = {
-        title: "LAS2 (tentit)",
-        description: "Edistyneiden suomenoppijoiden korpus (tentit)",
-        id: "las2_tentit",
-    };
-    settings.corpora.las2_esseet = {
-        title: "LAS2 (esseet)",
-        description: "Edistyneiden suomenoppijoiden korpus (esseet)",
-        id: "las2_esseet",
-    };
+// The variable parts of the corpus settings
+settings.corpora.las2_tentit = {
+    title: "LAS2 (tentit)",
+    description: "Edistyneiden suomenoppijoiden korpus (tentit)",
+    id: "las2_tentit",
+};
+settings.corpora.las2_esseet = {
+    title: "LAS2 (esseet)",
+    description: "Edistyneiden suomenoppijoiden korpus (esseet)",
+    id: "las2_esseet",
+};
 
-    // Add the common properties to the corpus settings
-    settings.fn.extend_corpus_settings(
-        las2_common_props, ["las2_tentit", "las2_esseet"]);
+// Add the common properties to the corpus settings
+settings.fn.extend_corpus_settings(
+    las2_common_props, ["las2_tentit", "las2_esseet"]);
 
-    delete las2_common_props;
+delete las2_common_props;
 ```
 
 `settings.fn.extend_corpus_settings` takes the following arguments:
@@ -828,71 +827,71 @@ the two-level subcorpus hierarchy of the dialect corpus LA-murre
 (slightly modified for illustration):
 
 ```javascript
-    // Corpus grouping to folders
-    var la_murre_grouping = [
-        // First-level subfolder: base id and name
-        ["LOU", "Lounaismurteet", [
-            // Second-level subfolder
-            ["VarE", "Eteläinen Varsinais-Suomi", [
-                // Corpus: base id and name
-                ["karuna", "Karuna"],
-                ["kisk", "Kisko"],
-                // ...
-            ] ],
-            ["VarP", "Pohjoinen Varsinais-Suomi", [
-                ["eura", "Eura"],
-                // ...
-            ] ],
+// Corpus grouping to folders
+var la_murre_grouping = [
+    // First-level subfolder: base id and name
+    ["LOU", "Lounaismurteet", [
+        // Second-level subfolder
+        ["VarE", "Eteläinen Varsinais-Suomi", [
+            // Corpus: base id and name
+            ["karuna", "Karuna"],
+            ["kisk", "Kisko"],
+            // ...
         ] ],
-        ["LVÄ", "Lounaiset välimurteet", [
-            ["SatE", "Etelä-Satakunta", [
-                ["koke", "Kokemäki"],
-                // ...
-            ] ],
-            ["SatL", "Länsi-Satakunta", [
-                ["ahla", "Ahlainen", {
-                    // Modify corpus settings with these properties
-                    context: settings.defaultContext,
-                    within: settings.scWithin
-                }],
-                // ...
-            ] ],
+        ["VarP", "Pohjoinen Varsinais-Suomi", [
+            ["eura", "Eura"],
+            // ...
+        ] ],
+    ] ],
+    ["LVÄ", "Lounaiset välimurteet", [
+        ["SatE", "Etelä-Satakunta", [
+            ["koke", "Kokemäki"],
+            // ...
+        ] ],
+        ["SatL", "Länsi-Satakunta", [
+            ["ahla", "Ahlainen", {
+                // Modify corpus settings with these properties
+                context: settings.defaultContext,
+                within: settings.scWithin
+            }],
             // ...
         ] ],
         // ...
-    ];
+    ] ],
+    // ...
+];
 
-    // A template of common corpus properties
-    settings.templ.la_murre = {
-        within: settings.spcWithin,
-        context: settings.spContext,
-        attributes: {
-            cleanword: {
-                label: "cleanword",
-                opts: settings.defaultOptions
-            },
-            // ...
+// A template of common corpus properties
+settings.templ.la_murre = {
+    within: settings.spcWithin,
+    context: settings.spContext,
+    attributes: {
+        cleanword: {
+            label: "cleanword",
+            opts: settings.defaultOptions
         },
-        struct_attributes: {
-            text_header: {
-                label: "text_header"
-            },
-            // ...
-        }
-    };
+        // ...
+    },
+    struct_attributes: {
+        text_header: {
+            label: "text_header"
+        },
+        // ...
+    }
+};
 
-    // Actually create the folder hierarchy
-    settings.fn.make_folder_hierarchy(
-        settings.corporafolders.spoken.la_murre, la_murre_grouping,
-        {
-            id_prefix: la_murre_corpus_prefix,
-            folder_description_prefix: "Lauseopin arkiston murrekorpus: ",
-            corpus_title_suffix: " (LA-murre)",
-            make_corpus_description: function (data) {
-                return "Lauseopin arkiston murrekorpus: " + data[1];
-            },
-            corpus_template: settings.templ.la_murre,
-        });
+// Actually create the folder hierarchy
+settings.fn.make_folder_hierarchy(
+    settings.corporafolders.spoken.la_murre, la_murre_grouping,
+    {
+        id_prefix: la_murre_corpus_prefix,
+        folder_description_prefix: "Lauseopin arkiston murrekorpus: ",
+        corpus_title_suffix: " (LA-murre)",
+        make_corpus_description: function (data) {
+            return "Lauseopin arkiston murrekorpus: " + data[1];
+        },
+        corpus_template: settings.templ.la_murre,
+    });
 ```
 
 `settings.fn.make_folder_hierarchy` takes the following arguments:
@@ -965,14 +964,14 @@ recursively, so the value should not refer to corpus aliases. For
 example:
 
 ```javascript
-    // "las2" is expanded to the two corpora las2_tentit and las2_esseet
-    settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
+// "las2" is expanded to the two corpora las2_tentit and las2_esseet
+settings.corpus_aliases.las2 = "las2_tentit,las2_esseet";
 
-    // "lehdet_ks" has been renamed as "karjalansuomi", but allow the old id via an alias
-    settings.corpus_aliases.lehdet_ks = "karjalansuomi";
+// "lehdet_ks" has been renamed as "karjalansuomi", but allow the old id via an alias
+settings.corpus_aliases.lehdet_ks = "karjalansuomi";
 
-    // "ftc" refers to the list of all the corpora whose id begins with "ftc_"
-    settings.corpus_aliases.ftc = "ftc_.*";
+// "ftc" refers to the list of all the corpora whose id begins with "ftc_"
+settings.corpus_aliases.ftc = "ftc_.*";
 ```
 
 Note that the expansions of aliases containing regular expressions may
@@ -994,40 +993,40 @@ are `lang`, `linked_to`, `context` and `hide`. They are described in
 the comments of the following example:
 
 ```javascript
-    settings.corpora.parfin_2016_fi = {
-        id: "parfin_2016_fi",
-        title: "ParFin 2016",
-        description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus ...",
-        // ..
-        // The corpus language code (a three-letter ISO language code)
-        lang: "fin",
-        // Information on the structure on which the corpora have been aligned; the value may be
-        // context.linkAligned if the alignment structure is "link", or context.defaultAligned
-        // if it is "sentence". If the alignment element is something else, it must be defined in the
-        // variable context.
-        context: context.linkAligned,
-        within: settings.sentLinkWithin,
-        // The other parts of the parallel corpus which this corpus has been liked to and aligned with.
-        linked_to: ["parfin_2016_ru"],
-        attributes: attrlist.parfin_2016_fi,
-        struct_attributes: sattrlist.parfin_2016_fi,
-        // The main corpus should be shown in the corpus selector, so no property "hide"
-    };
+settings.corpora.parfin_2016_fi = {
+    id: "parfin_2016_fi",
+    title: "ParFin 2016",
+    description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus ...",
+    // ..
+    // The corpus language code (a three-letter ISO language code)
+    lang: "fin",
+    // Information on the structure on which the corpora have been aligned; the value may be
+    // context.linkAligned if the alignment structure is "link", or context.defaultAligned
+    // if it is "sentence". If the alignment element is something else, it must be defined in the
+    // variable context.
+    context: context.linkAligned,
+    within: settings.sentLinkWithin,
+    // The other parts of the parallel corpus which this corpus has been liked to and aligned with.
+    linked_to: ["parfin_2016_ru"],
+    attributes: attrlist.parfin_2016_fi,
+    struct_attributes: sattrlist.parfin_2016_fi,
+    // The main corpus should be shown in the corpus selector, so no property "hide"
+};
 
-    settings.corpora.parfin_2016_ru = {
-        id: "parfin_2016_ru",
-        title: "ParFin 2016",
-        description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus ...",
-        // ..
-        lang: "rus",
-        context: context.linkAligned,
-        within: settings.sentLinkWithin,
-        linked_to: ["parfin_2016_fi"],
-        attributes: attrlist.parfin_2016_ru,
-        struct_attributes: sattrlist.parfin_2016_ru,
-        // Setting the property hide to true hides this corpus from the corpus selector, since this is not the main corpus.
-        hide: true,
-    };
+settings.corpora.parfin_2016_ru = {
+    id: "parfin_2016_ru",
+    title: "ParFin 2016",
+    description: "ParFin 2016 – suomi–venäjä kaunokirjallisten tekstien rinnakkaiskorpus ...",
+    // ..
+    lang: "rus",
+    context: context.linkAligned,
+    within: settings.sentLinkWithin,
+    linked_to: ["parfin_2016_fi"],
+    attributes: attrlist.parfin_2016_ru,
+    struct_attributes: sattrlist.parfin_2016_ru,
+    // Setting the property hide to true hides this corpus from the corpus selector, since this is not the main corpus.
+    hide: true,
+};
 ```
 
 ### Generating corpus configuration with `korp-make-config`
@@ -1057,7 +1056,7 @@ other languages than Finnish or Swedish at least in English.
 Translations in the JSON files are of the form
 
 ```javascript
-        "translation_key": "translation",
+    "translation_key": "translation",
 ```
 
 where translation\_key may be an attribute label (the value of the
@@ -1067,11 +1066,11 @@ is the value of the `translationKey` property of an attribute. For
 example:
 
 ```javascript
-        "pos": "part-of-speech",
+    "pos": "part-of-speech",
 
-        "pos_A": "adjective",
-        "pos_Abbr": "abbreviation",
-        "pos_Adp": "adposition",
+    "pos_A": "adjective",
+    "pos_Abbr": "abbreviation",
+    "pos_Adp": "adposition",
 ```
 
 The following lists current best practices for translation keys and
