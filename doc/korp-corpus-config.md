@@ -12,8 +12,8 @@ frontend (JavaScript files). In addition, you may need to add
 translations of attribute names (and possibly values) if they are not
 already present.
 
-The Korp configuration files reside in the
-[Kielipankki-korp-frontend Git(Hub)
+The Korp configuration files reside in the [Kielipankki-korp-frontend
+Git(Hub)
 repository](https://github.com/CSCfi/Kielipankki-korp-frontend/),
 along with other Korp frontend code. As several corpora may be in the
 configuration stage at the same time and as their configurations may
@@ -31,13 +31,13 @@ branch) with the commands:
 When the corpus is to be deployed into production, the corpus-specific
 configuration branch is merged to the `master` branch of the
 repository. For more information on using branches in Git, please see
-the
-[Git instructions](https://www.kielipankki.fi/development/korp//git/#Branches).
+the [Git
+instructions](https://www.kielipankki.fi/development/korp//git/#Branches).
 
-(Note that when eventually
-upgrading Korp to version 7 or 8, the corpus configurations will be
-separated from other Korp frontend code, possibly to a separate branch
-or set of branches in the Kielipankki-korp-frontend repository.)
+(Note that when eventually upgrading Korp to version 7 or 8, the
+corpus configurations will be separated from other Korp frontend code,
+possibly to a separate branch or set of branches in the
+Kielipankki-korp-frontend repository.)
 
 Further information on Korp configuration is available on [the Korp
 frontend information page of
@@ -47,14 +47,13 @@ version that does not have all the features of Språkbanken’s Korp, but
 on the other hand, the former has some extensions that the latter does
 not.
 
-If the Korp Web page does not open after the startup screen or if
-it does not work after modifying configuration or translation files,
-very likely a modification contained a (syntax) error. The developer’s
+If the Korp Web page does not open after the startup screen or if it
+does not work after modifying configuration or translation files, very
+likely a modification contained a (syntax) error. The developer’s
 tools of a Web browser may help in debugging.
 
-In the following
-instructions, the references to the files of the Korp frontend are
-relative to the root of the Korp installation. In the
+In the following instructions, the references to the files of the Korp
+frontend are relative to the root of the Korp installation. In the
 [Kielipankki-korp-frontend Git
 repository](https://github.com/CSCfi/Kielipankki-korp-frontend/), it
 is `app/` (relative to the root of the repository) and in the various
@@ -122,40 +121,37 @@ as follows:
 Now `folder1` contains `folder2a` but no leaf-level corpora, and
 `folder2a` contains the corpora `corpus1` and `corpus2`.
 
-Corpora
-should be divided into folders (primarily) logically, for example, by
-genre, not by corpus owner. If a folder would have only one corpus, it
-might not need a folder of its own, unless other corpora are expected
-that could be added to the same folder.
+Corpora should be divided into folders (primarily) logically, for
+example, by genre, not by corpus owner. If a folder would have only
+one corpus, it might not need a folder of its own, unless other
+corpora are expected that could be added to the same folder.
 
-The folders in a configuration
-file should be sorted alphabetically by the title of the folder. Also
-subfolders within a folder should be sorted alphabetically, unless
-another order is more logical. (The order in the file does not
-actually guarantee the order in Korp’s corpus selector, but it is
-often the same.)
+The folders in a configuration file should be sorted alphabetically by
+the title of the folder. Also subfolders within a folder should be
+sorted alphabetically, unless another order is more logical. (The
+order in the file does not actually guarantee the order in Korp’s
+corpus selector, but it is often the same.)
 
-Note that the title and description of corpus folders
-and corpora cannot currently be localized according to the Korp
-interface language. The titles and descriptions of corpora and folders
-should in general follow the language of the corpus: Finnish for
-Finnish corpora and Swedish for Swedish. For corpora in other
-languages and for parallel corpora, the description may be in the
-language of the corpus, in English or in Finnish, or in two or three
-of these languages as deemed appropriate. The titles and descriptions
-of the language-specific folders in the other-languages mode are in
-the language of the corpus, English and Finnish. Please see
+Note that the title and description of corpus folders and corpora
+cannot currently be localized according to the Korp interface
+language. The titles and descriptions of corpora and folders should in
+general follow the language of the corpus: Finnish for Finnish corpora
+and Swedish for Swedish. For corpora in other languages and for
+parallel corpora, the description may be in the language of the
+corpus, in English or in Finnish, or in two or three of these
+languages as deemed appropriate. The titles and descriptions of the
+language-specific folders in the other-languages mode are in the
+language of the corpus, English and Finnish. Please see
 `modes/other_languages_mode.js` for examples: search for
 `settings.corporafolders.german`, for example.
 
-In addition to the
-properties `title`, `description` and `content`, a corpus folder may
-have the property `info` containing further (metadata) information on
-the corpus. It should (usually) be used only for folders corresponding
-to logical corpora split into several physical (sub)corpora, and not
-for folders grouping together different corpora of the same kind. The
-`info` property may contain the properties shown and described in the
-following:
+In addition to the properties `title`, `description` and `content`, a
+corpus folder may have the property `info` containing further
+(metadata) information on the corpus. It should (usually) be used only
+for folders corresponding to logical corpora split into several
+physical (sub)corpora, and not for folders grouping together different
+corpora of the same kind. The `info` property may contain the
+properties shown and described in the following:
 
 
 ```javascript
@@ -285,13 +281,13 @@ year”. In contrast, intermediate folders in the corpus selector need
 not have full corpus names, for example, the decades in the KLK
 corpus.
 
-It is also possible to control the order in which attributes
-are shown in the sidebar of Korp’s concordance results and whether an
-attribute should be shown in the sidebar or in the attribute selector
-of the extended search. However, these features have been implemented
-in a different way in Kielipankki’s Korp from what has been later
-added to Språkbanken’s Korp, so they may change. If you need these
-features now, please ask, or search `modes/default_mode.js` for
+It is also possible to control the order in which attributes are shown
+in the sidebar of Korp’s concordance results and whether an attribute
+should be shown in the sidebar or in the attribute selector of the
+extended search. However, these features have been implemented in a
+different way in Kielipankki’s Korp from what has been later added to
+Språkbanken’s Korp, so they may change. If you need these features
+now, please ask, or search `modes/default_mode.js` for
 `sidebar_display_order` or `displayOnly`.
 
 ### Special types of attributes
@@ -308,8 +304,8 @@ extended search. (Although, that can be worked around by adding
 disjunctive conditions on the same attribute, it is somewhat
 cumbersome.)
 
-An attribute is declared as a selection list by adding to
-it the property
+An attribute is declared as a selection list by adding to it the
+property
 
 ```javascript
                 displayType: "select",
@@ -340,10 +336,9 @@ in the corpus (e.g., `Unk` above) and the value is the name of the
 translation key (`Unknown` above). *\[TODO: Regular expressions in the
 attribute values mapping.\]*
 
-If the translation keys are always the
-same as the values or if the values should not be translated, it is
-simpler to use an array, in which case it suffices to write each value
-once:
+If the translation keys are always the same as the values or if the
+values should not be translated, it is simpler to use an array, in
+which case it suffices to write each value once:
 
 ```javascript
                 dataset: [
@@ -424,8 +419,8 @@ supported in both positional and structural attributes. In the sidebar
 of Korp’s concordance results, the values of a feature-set attribute
 are shown beneath each other.
 
-In a Korp corpus configuration, a
-feature-set attribute needs to be declared as follows:
+In a Korp corpus configuration, a feature-set attribute needs to be
+declared as follows:
 
 ```javascript
         pos: {
@@ -450,8 +445,7 @@ based on the values of other attributes, without a corresponding
 attribute in the corpus data. They may be used for generating URLs
 with common parts and variable parts filled from other attributes.
 
-A
-synthetic attribute is defined by adding the definition of an
+A synthetic attribute is defined by adding the definition of an
 attribute the property `synthetic: true` and a property
 `stringify_synthetic` for generating the value. For example:
 
@@ -484,10 +478,9 @@ object with the following properties:
 See the function `settings.fn.find_context_words` in `modes/common.js`
 for an example of using the token data.
 
-Please be aware that
-Språkbanken’s Korp may now have other ways of achieving similar
-effects, so synthetic attribute definitions may eventually need to be
-changed.
+Please be aware that Språkbanken’s Korp may now have other ways of
+achieving similar effects, so synthetic attribute definitions may
+eventually need to be changed.
 
 ### Special attribute properties
 
@@ -518,9 +511,9 @@ can be useful in particular for attributes such as the morphosyntactic
 description which have a fixed set of values but too large to be
 enumerated in a value selection list.
 
-An information link for an
-attribute is specified by adding to the attribute definition the
-property `taginfo_url` with the URL as the value:
+An information link for an attribute is specified by adding to the
+attribute definition the property `taginfo_url` with the URL as the
+value:
 
 ```javascript
             sentence_signum: {
@@ -538,10 +531,10 @@ showing it in the concordance sidebar; for example, zero-width spaces
 may be added to a long string without spaces at places of preferred
 line breaks.
 
-The value of an attribute is transformed with the
-function specified in the attribute property `transform`. The function
-takes the attribute value as the argument and it should return the
-value to be shown in the sidebar. For example:
+The value of an attribute is transformed with the function specified
+in the attribute property `transform`. The function takes the
+attribute value as the argument and it should return the value to be
+shown in the sidebar. For example:
 
 ```javascript
     attrs.msd = {
@@ -577,9 +570,8 @@ file for the mode in which it is used. For parallel corpora whose
 parts are also used as monolingual corpora, the definitions of common
 attributes should be in `modes/common.js`.
 
-Reusable attribute
-definitions can be defined as follows (the following have already been
-defined):
+Reusable attribute definitions can be defined as follows (the
+following have already been defined):
 
 ```javascript
     attrs.msd = {
@@ -643,10 +635,9 @@ You should use the same labels (translation keys) as in other corpora
 as far as possible, so that the names appearing in the Korp user
 interface are the same.
 
-Another way to refer to commonly used
-attributes and also other corpus settings properties is to use the
-`features` property. You can define and use such a corpus feature as
-follows:
+Another way to refer to commonly used attributes and also other corpus
+settings properties is to use the `features` property. You can define
+and use such a corpus feature as follows:
 
 ```javascript
     settings.corpus_features.paragraphs = {
@@ -675,9 +666,8 @@ The properties in `settings.corpus_features.paragraphs` and
 definition, the `attributes` defined in
 `settings.corpus_features.parsed_tdt` are added to them.
 
-The following
-commonly-used features have already been defined and should be used
-whenever appropriate:
+The following commonly-used features have already been defined and
+should be used whenever appropriate:
 
 - `paragraphs`: The corpus contains paragraphs that can be shown as an
    extended context in the concordance result.
@@ -725,10 +715,10 @@ modified. A drawback is that the code generating corpus configurations
 is often less transparent than explicit declarations for each
 (sub)corpus.
 
-The main Korp frontend configuration file
-`modes/common.js` contains a couple of functions for generating corpus
-configurations with common declarations. The functions are in the
-`settings.fn` namespace and they are described in the following.
+The main Korp frontend configuration file `modes/common.js` contains a
+couple of functions for generating corpus configurations with common
+declarations. The functions are in the `settings.fn` namespace and
+they are described in the following.
 
 #### `settings.fn.add_corpus_settings`
 
@@ -907,8 +897,10 @@ the two-level subcorpus hierarchy of the dialect corpus LA-murre
 
 `settings.fn.make_folder_hierarchy` takes the following arguments:
 1.  Parent folder, under which the subfolders are added.
-2.  Subfolder tree: an array of the format:
-    `[[ folder1_data, [[ subfolder11_data, [ corpus111_data, corpus112_data ]], [ subfolder12_data, [ corpus121_data, corpus122_data ]]], [[ folder2_data, [ corpus21_data, corpus22_data, corpus23_data ]]]`
+2.  Subfolder tree: an array of the format: `[[ folder1_data, [[
+    subfolder11_data, [ corpus111_data, corpus112_data ]], [
+    subfolder12_data, [ corpus121_data, corpus122_data ]]], [[
+    folder2_data, [ corpus21_data, corpus22_data, corpus23_data ]]]`
     Folder and corpus data may be an object containing the essential
     properties for the item, or one to four array elements, the last
     of which may be a composite object and the preceding ones strings.
@@ -960,10 +952,10 @@ allow saved URLs referring to old corpus ids to continue to work.
 Corpus aliases are expanded in the URL, so the URL that the user sees
 in the end contains the actual corpus ids.
 
-Please note that the corpus
-alias mechanism works currently for the Korp frontend only. For the
-backend (Korp API), you currently need to copy a renamed corpus to the
-new name. An alias mechanism for the backend may be introduced later.
+Please note that the corpus alias mechanism works currently for the
+Korp frontend only. For the backend (Korp API), you currently need to
+copy a renamed corpus to the new name. An alias mechanism for the
+backend may be introduced later.
 
 Corpus aliases are defined in the object (namespace)
 `settings.corpus_aliases`. The property name is the alias, and the
@@ -997,9 +989,9 @@ is a kind of a main corpus that is shown in Korp’s corpus selector.
 The property `contents` of a corpus folder lists only this main
 corpus.
 
-In the configurations of individual corpora, the crucial
-attributes are `lang`, `linked_to`, `context` and `hide`. They are
-described in the comments of the following example:
+In the configurations of individual corpora, the crucial attributes
+are `lang`, `linked_to`, `context` and `hide`. They are described in
+the comments of the following example:
 
 ```javascript
     settings.corpora.parfin_2016_fi = {
@@ -1042,12 +1034,12 @@ described in the comments of the following example:
 
 Instead of writing the configuration for a corpus (completely) by
 hand, you can use the script `scripts/korp-make-config` in the [GitHub
-repository Kielipankki-utilities.](https://github.com/CSCfi/Kielipankki-utilities)
-It may be helpful when generating a
-large number of similar configurations if you do not wish to generate
-them with JavaScript code. However, the script does not (yet) support
-many of the features available in corpus
-configurations.
+repository
+Kielipankki-utilities.](https://github.com/CSCfi/Kielipankki-utilities)
+It may be helpful when generating a large number of similar
+configurations if you do not wish to generate them with JavaScript
+code. However, the script does not (yet) support many of the features
+available in corpus configurations.
 
 *\[TODO: Describe the usage of `korp-make-config`.\]*
 
@@ -1057,11 +1049,10 @@ The texts shown for corpus attributes and their values are defined in
 the JSON translation files `corpora-lg.json`, where lg is the language
 code `fi`, `sv` or `en`.
 
-Many corpora have translations currently on
-for Finnish, that is, in the file `translations/corpora-fi.json`.
-However, Swedish-language corpora should have translations at least in
-Swedish and corpora in other languages than Finnish or Swedish at
-least in English.
+Many corpora have translations currently on for Finnish, that is, in
+the file `translations/corpora-fi.json`. However, Swedish-language
+corpora should have translations at least in Swedish and corpora in
+other languages than Finnish or Swedish at least in English.
 
 Translations in the JSON files are of the form
 
