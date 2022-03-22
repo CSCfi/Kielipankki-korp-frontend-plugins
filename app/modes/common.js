@@ -5787,7 +5787,7 @@ sattrs.link_prefixed = function (label, url_prefix) {
         label: label,
         type: "url",
         urlOpts: sattrs.link_url_opts,
-        url_prefix: url_prefix
+        urlPrefix: url_prefix
     };
 };
 sattrs.link_show_video_prefixed = function (url_prefix) {
