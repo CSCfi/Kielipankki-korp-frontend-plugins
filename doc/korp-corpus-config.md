@@ -4,6 +4,49 @@
 
 # Adding a corpus to the Korp frontend (configuration)
 
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+## Table of contents
+
+- [Overview](#overview)
+- [General principles](#general-principles)
+- [Adding corpus configuration to a Korp configuration file](#adding-corpus-configuration-to-a-korp-configuration-file)
+  - [The “mode” of a corpus](#the-mode-of-a-corpus)
+  - [Corpus folder in the corpus selector](#corpus-folder-in-the-corpus-selector)
+  - [The configuration for a corpus](#the-configuration-for-a-corpus)
+  - [Special types of attributes](#special-types-of-attributes)
+    - [Selection lists](#selection-lists)
+    - [Selection lists with values from corpus data](#selection-lists-with-values-from-corpus-data)
+    - [Selection lists with autocompletion, values from corpus data](#selection-lists-with-autocompletion-values-from-corpus-data)
+    - [Links (URLs)](#links-urls)
+    - [Feature-set values](#feature-set-values)
+    - [Structural attributes within sentences](#structural-attributes-within-sentences)
+    - [Custom (computed) attributes](#custom-computed-attributes)
+  - [Special attribute properties](#special-attribute-properties)
+    - [Restricted corpora (licence category CLARIN ACA or CLARIN RES)](#restricted-corpora-licence-category-clarin-aca-or-clarin-res)
+    - [Information link](#information-link)
+    - [Value pattern](#value-pattern)
+    - [Custom features in the extended search](#custom-features-in-the-extended-search)
+  - [Defining often-used attributes and other configuration properties](#defining-often-used-attributes-and-other-configuration-properties)
+  - [Special features of corpus settings](#special-features-of-corpus-settings)
+    - [Attribute value filters](#attribute-value-filters)
+  - [Generating subcorpus configurations with JavaScript](#generating-subcorpus-configurations-with-javascript)
+    - [`funcs.addCorpusSettings`](#funcsaddcorpussettings)
+    - [`funcs.extendCorpusSettings`](#funcsextendcorpussettings)
+    - [`funcs.makeFolderHierarchy`](#funcsmakefolderhierarchy)
+    - [Custom functions](#custom-functions)
+  - [Corpus aliases](#corpus-aliases)
+  - [Special features of parallel corpus configurations](#special-features-of-parallel-corpus-configurations)
+  - [Utility functions](#utility-functions)
+- [Attribute name translations](#attribute-name-translations)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+## Overview
+
 This document contains instructions for adding corpus configuration to
 [Korp frontend](https://korp.csc.fi/korp/) of [the Language Bank of
 Finland (Kielipankki)](https://www.kielipankki.fi/language-bank/).
