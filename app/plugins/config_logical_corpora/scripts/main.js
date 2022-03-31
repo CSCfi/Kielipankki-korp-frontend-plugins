@@ -84,7 +84,11 @@ class ConfigLogicalCorpora {
                 continue;
             }
             const corpus = corpora[corpusId];
-            corpus.logicalCorpus = logicalCorpus || corpora[corpusId];
+            // If logicalCorpus is null, copy the corpus object to
+            // corpus.logicalCorpus: do not just use areference, as
+            // that would create a cyclic object, which cannot be
+            // converted to JSON
+            corpus.logicalCorpus = logicalCorpus || Object.assign({}, corpus);
             // If within a logical corpus, this is a subcorpus,
             // otherwise a stand-alone corpus
             corpus.corpusType = (
