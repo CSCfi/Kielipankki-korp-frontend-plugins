@@ -705,7 +705,9 @@ util.setDownloadLinks = function (query_url, result_data) {
     // Get the number (index) of the corpus of the query result hit
     // number hit_num in the corpus order information of the query
     // result.
-    const get_corpus_num = (hit_num) => result_data.corpus_order.indexOf(result_data.kwic[hit_num].corpus)
+    const get_corpus_num =
+          (hit_num) => result_data.corpus_order.indexOf(
+              result_data.kwic[hit_num].corpus.toUpperCase())
 
     c.log("setDownloadLinks data:", result_data)
     downloadLinksElem.empty()
