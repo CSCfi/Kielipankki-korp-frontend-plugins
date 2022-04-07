@@ -58,7 +58,8 @@ class ConfigLogicalCorpora {
         for (let corpusId in corpora) {
             const corpus = corpora[corpusId];
             if (! ("logicalCorpus" in corpus)) {
-                corpus.logicalCorpus = corpus;
+                // Make a shallow copy of corpus to avoid cyclicity
+                corpus.logicalCorpus = Object.assign({}, corpus);
                 // Top-level corpora are stand-alone corpora (a corpus
                 // without subcorpora)
                 corpus.corpusType = "standaloneCorpus";
@@ -74,6 +75,10 @@ class ConfigLogicalCorpora {
     // in the folder hierarchy or it is the same as the physical
     // corpus.
     _setFolderLogicalCorpora (folder, corpora, logicalCorpus = null) {
+
+        // Return a shallow copy of obj
+        let copyOf = (obj) => Object.assign({}, obj)
+
         // c.log("setFolderLogicalCorpora", folder,
         //       logicalCorpus != null ? logicalCorpus.title : undefined);
         if (logicalCorpus) {
@@ -84,11 +89,11 @@ class ConfigLogicalCorpora {
                 continue;
             }
             const corpus = corpora[corpusId];
-            // If logicalCorpus is null, copy the corpus object to
-            // corpus.logicalCorpus: do not just use areference, as
-            // that would create a cyclic object, which cannot be
-            // converted to JSON
-            corpus.logicalCorpus = logicalCorpus || Object.assign({}, corpus);
+            // If logicalCorpus is null, make a shallow copy of the
+            // corpus object to corpus.logicalCorpus: do not just use
+            // areference, as that would create a cyclic object, which
+            // cannot be converted to JSON
+            corpus.logicalCorpus = logicalCorpus || copyOf(corpus);
             // If within a logical corpus, this is a subcorpus,
             // otherwise a stand-alone corpus
             corpus.corpusType = (
@@ -102,11 +107,12 @@ class ConfigLogicalCorpora {
                 if (! subfolder.info) {
                     subfolder.info = {};
                 }
+                // Make a shallow copy to avoid cyclicity
                 const subfolderLogicalCorpus = (
-                    logicalCorpus ||
+                    copyOf(logicalCorpus) ||
                         ((subfolder.info.isLogicalCorpus ||
                           subfolder.info.urn)
-                         ? subfolder
+                         ? copyOf(subfolder)
                          : null));
                 // If this folder is (within) a logical corpus, a
                 // subfolder is a collection of subcorpora; otherwise,
