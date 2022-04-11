@@ -197,12 +197,18 @@ class CorpusInfoFormatter {
 
             let link_info = null;
             let label = makeLabel(info_item);
-            if (settings.makeCorpusExtraInfoItem &&
-                    info_item in settings.makeCorpusExtraInfoItem) {
-                link_info = settings.makeCorpusExtraInfoItem[info_item](
-                    corpusObj, label);
+            let makeInfoItem = settings.makeCorpusExtraInfoItem[info_item]
+            if (makeInfoItem && ! _.isFunction(makeInfoItem)) {
+                if (_.isFunction(makeInfoItem.makeLinkInfo)) {
+                    makeInfoItem = makeInfoItem.makeLinkInfo
+                } else {
+                    makeInfoItem = null
+                }
             }
-            if (!link_info) {
+            if (makeInfoItem) {
+                link_info = makeInfoItem(corpusObj, label)
+            }
+            if (! link_info) {
                 const corpus_info_item = corpusObj[info_item];
                 if (corpus_info_item) {
                     if (Array.isArray(corpus_info_item)) {
@@ -243,8 +249,13 @@ class CorpusInfoFormatter {
 
         const result = [];
         for (let info_item of info_items) {
+            let makeInfoItem = settings.makeCorpusExtraInfoItem[info_item]
             for (let link_info of makeLinkInfos(info_item)) {
-                result.push(makeLinkItem(link_info));
+                let html = makeLinkItem(link_info)
+                if (makeInfoItem && makeInfoItem.postprocess) {
+                    html = makeInfoItem.postprocess(corpusObj, html)
+                }
+                result.push(html)
             }
         }
         if (item_paragraphs) {

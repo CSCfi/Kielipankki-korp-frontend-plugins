@@ -78,6 +78,13 @@ settings.corpusExtraInfo = valueOrDefault(
 // least the property "url" or "text" (or both) and possibly "label"
 // and "tooltip", or undefined if the default handling should be
 // tried.
+//
+// Alternatively, the values can be objects with properties
+// "makeLinkInfo", whose value is a function as described above,
+// and/or "postprocess", whose value is a function of two arguments:
+// - corpusObj: corpus configuration
+// - html: the HTML generated for the whole info item
+// The function should return the final HTML for the whole info item.
 settings.makeCorpusExtraInfoItem = valueOrDefault(
     settings.makeCorpusExtraInfoItem,
     {
