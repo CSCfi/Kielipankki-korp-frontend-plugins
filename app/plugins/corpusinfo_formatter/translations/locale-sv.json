@@ -1,7 +1,7 @@
 {
     "corpus_credits": "Källa",
     "corpus_subcorpus_of": "Delkorpus av",
-    "corpus_pid": "Persistent identifierare (metadata)",
+    "corpus_pid": "Persistent identifierare",
     "corpus_urn": "Länk till korpusen i Korp",
     "corpus_licence": "Lisens",
     "corpus_licence_text": "Lisens (text)",
