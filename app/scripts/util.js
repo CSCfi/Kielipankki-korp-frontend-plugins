@@ -823,30 +823,30 @@ util.loadCorpora = function () {
         .corpusChooser({
             template: outStr,
             infoPopup(corpusID) {
-                let baseLangSentenceHTML, baseLangTokenHTML, lang
+                let linkedLangSentenceHTML = ""
+                let linkedLangTokenHTML = ""
+                let lang = ""
                 const corpusObj = settings.corpora[corpusID]
                 let maybeInfo = ""
                 if (corpusObj.description) {
                     maybeInfo = `<br/><br/>${corpusObj.description}`
                 }
                 const numTokens = corpusObj.info.Size
-                const baseLang = settings.corpora[corpusID] && settings.corpora[corpusID].linkedTo
-                if (baseLang) {
+                const linkedLang = settings.corpora[corpusID] && settings.corpora[corpusID].linkedTo
+                if (linkedLang) {
                     lang = ` (${util.getLocaleString(settings.corpora[corpusID].lang)})`
-                    baseLangTokenHTML = `${util.getLocaleString(
-                        "corpselector_numberoftokens"
-                    )}: <b>${util.prettyNumbers(settings.corpora[baseLang].info.Size)}
-</b> (${util.getLocaleString(settings.corpora[baseLang].lang)})<br/>\
-`
-                    baseLangSentenceHTML = `${util.getLocaleString(
-                        "corpselector_numberofsentences"
-                    )}: <b>${util.prettyNumbers(settings.corpora[baseLang].info.Sentences)}
-</b> (${util.getLocaleString(settings.corpora[baseLang].lang)})<br/>\
-`
-                } else {
-                    lang = ""
-                    baseLangTokenHTML = ""
-                    baseLangSentenceHTML = ""
+                    const numTokensStr = util.getLocaleString(
+                        "corpselector_numberoftokens")
+                    const numSentencesStr = util.getLocaleString(
+                        "corpselector_numberofsentences")
+                    const makeLinkedLangHtml = (linkedLang, label, infoItem) => {
+                        const linkedCorpus = settings.corpora[linkedLang]
+                        return `${label}: <b>${util.prettyNumbers(linkedCorpus.info[infoItem])}</b> (${util.getLocaleString(linkedCorpus.lang)})<br/>`
+                    }
+                    linkedLangTokenHTML += makeLinkedLangHtml(
+                        linkedLang, numTokensStr, "Size")
+                    linkedLangSentenceHTML += makeLinkedLangHtml(
+                        linkedLang, numSentencesStr, "Sentences")
                 }
 
                 const numSentences = corpusObj["info"]["Sentences"]
@@ -865,10 +865,10 @@ util.loadCorpora = function () {
                         ${corpusObj.title}
                     </b>
                     ${maybeInfo}
-                    <br/><br/>${baseLangTokenHTML}
+                    <br/><br/>${linkedLangTokenHTML}
                     ${util.getLocaleString("corpselector_numberoftokens")}:
                     <b>${util.prettyNumbers(numTokens)}</b>${lang}
-                    <br/>${baseLangSentenceHTML}
+                    <br/>${linkedLangSentenceHTML}
                     ${util.getLocaleString("corpselector_numberofsentences")}:
                     <b>${sentenceString}</b>${lang}
                     <br/>
