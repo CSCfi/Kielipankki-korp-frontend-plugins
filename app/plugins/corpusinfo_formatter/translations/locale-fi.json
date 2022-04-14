@@ -1,7 +1,7 @@
 {
     "corpus_credits": "Tekijät",
     "corpus_subcorpus_of": "Osa aineistoa",
-    "corpus_pid": "Aineiston pysyvä tunniste (kuvailutiedot)",
+    "corpus_pid": "Pysyvä tunniste",
     "corpus_urn": "Linkki aineistoon Korpissa",
     "corpus_licence": "Lisenssi",
     "corpus_licence_text": "Lisenssi (teksti)",
