@@ -832,8 +832,8 @@ util.loadCorpora = function () {
                     maybeInfo = `<br/><br/>${corpusObj.description}`
                 }
                 const numTokens = corpusObj.info.Size
-                const linkedLang = settings.corpora[corpusID] && settings.corpora[corpusID].linkedTo
-                if (linkedLang) {
+                const linkedLangs = settings.corpora[corpusID] && settings.corpora[corpusID].linkedTo
+                if (linkedLangs) {
                     lang = ` (${util.getLocaleString(settings.corpora[corpusID].lang)})`
                     const numTokensStr = util.getLocaleString(
                         "corpselector_numberoftokens")
@@ -843,10 +843,12 @@ util.loadCorpora = function () {
                         const linkedCorpus = settings.corpora[linkedLang]
                         return `${label}: <b>${util.prettyNumbers(linkedCorpus.info[infoItem])}</b> (${util.getLocaleString(linkedCorpus.lang)})<br/>`
                     }
-                    linkedLangTokenHTML += makeLinkedLangHtml(
-                        linkedLang, numTokensStr, "Size")
-                    linkedLangSentenceHTML += makeLinkedLangHtml(
-                        linkedLang, numSentencesStr, "Sentences")
+                    for (let linkedLang of linkedLangs) {
+                        linkedLangTokenHTML += makeLinkedLangHtml(
+                            linkedLang, numTokensStr, "Size")
+                        linkedLangSentenceHTML += makeLinkedLangHtml(
+                            linkedLang, numSentencesStr, "Sentences")
+                    }
                 }
 
                 const numSentences = corpusObj["info"]["Sentences"]
