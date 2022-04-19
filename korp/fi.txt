@@ -1,4 +1,15 @@
 
+<!-- Laajennettu aineisto (beta): Ylen suomenkielinen uutisarkisto 2019–2021 2022-04-19 -->
+
+*Ylen suomenkielistä uutisarkistoa* on laajennettu vuosien 2019–2021
+uutisilla (<a href="http://urn.fi/urn:nbn:fi:lb-2022031701"
+target="_blank">Ylen suomenkielinen uutisarkisto 2019-2021, Korp</a>
+ja <a href="http://urn.fi/urn:nbn:fi:lb-2022032201"
+target="_blank">Ylen suomenkielinen uutisarkisto 2019-2021,
+sekoitettu, Korp</a>). **Huomaa**, että laajennusosa on
+beetatestivaihessa, joten siihen voi tulla muutoksia ilman ilmoitusta.
+
+
 <!-- Merkittävä Korp-päivitys 2022-02-14 -->
 
 Korp on päivitetty versioon 9. Uudessa Korp-versiossa on korjausten

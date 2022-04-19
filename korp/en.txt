@@ -1,4 +1,15 @@
 
+<!-- Extended corpus (beta): Yle Finnish News Archive 2019–2021 2022-04-19 -->
+
+The *Yle Finnish News Archive* corpus has been extended with news from
+2019–2021 (<a href="http://urn.fi/urn:nbn:fi:lb-2022031701"
+target="_blank">Yle Finnish News Archive 2019-2021, Korp</a> and <a
+href="http://urn.fi/urn:nbn:fi:lb-2022032201" target="_blank">Yle
+Finnish News Archive 2019-2021, scrambled, Korp</a>). **Please note**
+that the extension is in beta testing, so it may be changed without
+notice.
+
+
 <!-- Major Korp update 2022-02-14 -->
 
 Korp has been updated to version 9. In addition to bug fixes, the new
