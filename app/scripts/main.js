@@ -82,6 +82,12 @@ $.when(loc_dfd, deferred_domReady).then(
             c.error(error)
         }
 
+        // Let plugins modify settings.corpora and
+        // settings.corporafolders. Having this before
+        // modifyLocationOnDomReady allows the latter to use the
+        // modified corpus and folder settings.
+        plugins.callActions("modifyCorpusConfigs",
+                            settings.corpora, settings.corporafolders)
         // Let plugins modify location after the DOM is ready
         plugins.callActions("modifyLocationOnDomReady", location)
 
@@ -143,9 +149,6 @@ $.when(loc_dfd, deferred_domReady).then(
             selected: settings.defaultLanguage,
         })
 
-        // Let plugins modify settings.corpora and settings.corporafolders
-        plugins.callActions("modifyCorpusConfigs",
-                            settings.corpora, settings.corporafolders)
         // Let plugins act when the DOM is ready
         plugins.callActions("onDomReady")
 
