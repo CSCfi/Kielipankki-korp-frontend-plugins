@@ -17,6 +17,8 @@ class ConfigLicenceCategory {
         // feature "logicalCorpus", so that its callback method is
         // called after the logicalCorpus property has been added.
         this.requiresFeatures = ["logicalCorpus"]
+        // This plugin provides feature "licenceCategory"
+        this.providesFeatures = ["licenceCategory"]
     }
 
     // Callback method
