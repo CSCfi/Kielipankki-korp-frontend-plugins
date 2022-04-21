@@ -49,4 +49,12 @@ export function setDefaultConfigValues() {
             en: "gb-EN",
         }
     }
+    if (! settings.defaultTranslationLanguages) {
+        // The codes of languages from which Korp tries to get
+        // translations for locale keys and attribute values if none
+        // found in the UI language (before defaulting to the raw
+        // translation key); by default, do not try any other
+        // languages but use the translation key immediately.
+        settings.defaultTranslationLanguages = []
+    }
 }
