@@ -972,7 +972,9 @@ util.translateAttribute = (lang, translations, value) => {
     }
 
     if (translations && translations[value]) {
-        return _.isObject(translations[value]) ? translations[value][lang] : translations[value]
+        return (_.isObject(translations[value])
+                ? (translations[value][lang] || value)
+                : translations[value])
     } else {
         return value
     }
