@@ -527,7 +527,32 @@ util.SelectionManager.prototype.hasSelected = function () {
     return this.selected.length > 0
 }
 
-util.getLocaleString = (key, lang) => util.getLocaleStringUndefined(key, lang) || key
+// Try to find a translation for key in the languages in
+// settings.defaultTranslationLanguages using translationFunc; return
+// the first found, or key if none found. translationFunc must be a
+// function (key, lang) returning the translation for key in language
+// lang or undefined if none found.
+// This function is used in translating both locale strings and
+// attribute values.
+util.getDefaultTranslation = function (key, translationFunc) {
+    for (let lang of settings.defaultTranslationLanguages) {
+        let result = translationFunc(key, lang)
+        if (result) {
+            c.log("getDefaultTranslation return", result)
+            return result
+        }
+    }
+    return key
+}
+
+util.getLocaleString = (key, lang) => (
+    util.getLocaleStringUndefined(key, lang) || util.getLocaleStringDefault(key))
+
+// Try to find a translation for key in the languages in
+// settings.defaultTranslationLanguages; return the first found, or
+// key if none found
+util.getLocaleStringDefault = (key) => (
+    util.getDefaultTranslation(key, util.getLocaleStringUndefined))
 
 util.getLocaleStringUndefined = function (key, lang) {
     if (!lang) {
@@ -973,12 +998,19 @@ util.translateAttribute = (lang, translations, value) => {
 
     if (translations && translations[value]) {
         return (_.isObject(translations[value])
-                ? (translations[value][lang] || value)
+                ? (translations[value][lang] ||
+                   util.translateAttributeDefault(translations, value))
                 : translations[value])
     } else {
         return value
     }
 }
+
+// Try to find a translation for value in translations in the
+// languages in settings.defaultTranslationLanguages; return the first
+// found, or value if none found
+util.translateAttributeDefault = (translations, value) => (
+    util.getDefaultTranslation(value, (val, lang) => translations[val][lang]))
 
 util.browserWarn = function () {
     $.reject({

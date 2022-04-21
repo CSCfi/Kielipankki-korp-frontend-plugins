@@ -524,6 +524,8 @@ __languages__ - Array of supported interface language codes s.a. `["en", "sv"]`
 
 __defaultLanguage__ - The default interface language. Example: `"sv"`
 
+__defaultTranslationLanguages__ - Array of languages (languages codes) from which translations are searched for if no translation is found in the interface language, before defaulting to the raw translation key. The first found translation is used. Example: `["en", "sv"]` (default: `[]`, i.e., if no translation found in the interface language, the translation key is used).
+
 __downloadFormats__ - Available formats of KWIC-download.
 
 __downloadFormatParams__ - Settings for KWIC-download.
