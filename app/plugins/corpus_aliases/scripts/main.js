@@ -18,6 +18,13 @@
 
 class CorpusAliasMapper {
 
+    constructor () {
+        // Require feature "licenceCategory", as checking if login is
+        // needed for the expanded corpora checks the limitedAccess
+        // property possibly set along with licence category
+        this.requiresFeatures = ["licenceCategory"]
+    }
+
     // Callback method called at a hook point
 
     // If settings.corpusAliases, map the corpus ids in the hash
@@ -34,6 +41,9 @@ class CorpusAliasMapper {
                     c.log("mapHashCorpusAliases", origCorpus, "->", corpus);
                     window.location.hash = window.location.hash.replace(
                         "corpus=" + origCorpus, "corpus=" + corpus);
+                    // Check if the expanded value contains corpora
+                    // requiring logging in
+                    this._checkLoginNeededFor(corpus)
                 }
             }
         }
@@ -103,6 +113,35 @@ class CorpusAliasMapper {
         }
         return result;
     };
+
+    // If the user is not logged in, check if any of corpora (a string
+    // of comma-separated corpus ids) requires logging in, and if they
+    // do, call the plugin callbacks "filterLoginNeededFor" that may
+    // redirect to the Shibboleth login page.
+    //
+    // Note that the function checks the limitedAccess property of
+    // corpus objects, so it needs to have been set appropriately in
+    // advance.
+    _checkLoginNeededFor (corpora) {
+        // KLUDGE: Refer to global authenticationProxy object
+        // c.log("loginObj", authenticationProxy.loginObj)
+        if (_.isEmpty(authenticationProxy.loginObj)) {
+            let loginNeededFor = []
+            for (let corpus of corpora.split(",")) {
+                const corpusObj = settings.corpora[corpus]
+                if (corpusObj.limitedAccess) {
+                    loginNeededFor.push(corpusObj)
+                }
+            }
+            // c.log("loginNeededFor", loginNeededFor)
+            // If loginNeededFor is empty and the shibboleth_auth
+            // plugin is active, the filterLoginNeededFor callback
+            // redirects the browser and the call does not return
+            loginNeededFor = plugins.callFilters(
+                "filterLoginNeededFor", loginNeededFor)
+            c.log("loginNeededFor filtered", loginNeededFor)
+        }
+    }
 
 };
 
