@@ -36,6 +36,14 @@ class ConfigLogicalCorpora {
             "logicalCorpus",
             "corpusItemType",
         ]
+        // The properties to copy from a corpus (folder) configuration
+        // to the value of the logicalCorpus property
+        this._logicalCorpusProps = [
+            "title",
+            "description",
+            "licence",
+            "info",
+        ]
     }
 
     // Callback method
@@ -73,21 +81,28 @@ class ConfigLogicalCorpora {
     // info.isLogicalCorpus or info.urn, the folder represents the
     // logical corpus; otherwise, the logical corpus is found deeper
     // in the folder hierarchy or it is the same as the physical
-    // corpus.
+    // corpus. To avoid cyclic objects (that cannot be converted to
+    // JSON), the value of the logicalCorpus property is a partial
+    // copy of the original object, containing only the properties
+    // listed in this._logicalCorpusProps.
     _setFolderLogicalCorpora (folder, corpora, logicalCorpus = null) {
 
-        // Return a shallow copy of obj and make the logicalCorpus (or
-        // info.logicalCorpus) property of the copy null to avoid
-        // cyclicity
-        let copyOf = function (obj) {
-            if (obj == null) {
-                return null
+        // Return an object with the properties named in
+        // this._logicalCorpusProps copied from obj (or obj if it is
+        // not an object), recursively calling this function on the
+        // property values.
+        let makeLogicalCorpusObj = (obj) => {
+            if (! _.isObject(obj)) {
+                return obj
             }
-            let result = Object.assign({}, obj)
-            if (result.logicalCorpus) {
-                result.logicalCorpus = null
-            } else if (result.info && result.info.logicalCorpus) {
-                result.info.logicalCorpus = null
+            let result = {}
+            for (let prop of this._logicalCorpusProps) {
+                if (prop in obj) {
+                    // Recursively call this function to handle the
+                    // corpus folder "info" property, to avoid
+                    // creating a cyclic object
+                    result[prop] = makeLogicalCorpusObj(obj[prop])
+                }
             }
             return result
         }
@@ -102,13 +117,11 @@ class ConfigLogicalCorpora {
                 continue;
             }
             const corpus = corpora[corpusId];
-            // If logicalCorpus is null, make a shallow copy of the
-            // corpus object to corpus.logicalCorpus: do not just use
-            // a reference, as that would create a cyclic object,
-            // which cannot be converted to JSON. It also appears that
-            // we need to make a copy of logicalCorpus here, too, to
-            // avoid cyclicity.
-            corpus.logicalCorpus = copyOf(logicalCorpus || corpus);
+            // If logicalCorpus is null, copy the relevant properties
+            // of the corpus object to corpus.logicalCorpus: do not
+            // just use a reference, as that would create a cyclic
+            // object, which cannot be converted to JSON.
+            corpus.logicalCorpus = logicalCorpus || makeLogicalCorpusObj(corpus);
             // If within a logical corpus, this is a subcorpus,
             // otherwise a stand-alone corpus
             corpus.corpusType = (
@@ -122,12 +135,11 @@ class ConfigLogicalCorpora {
                 if (! subfolder.info) {
                     subfolder.info = {};
                 }
-                // Make a shallow copy to avoid cyclicity
                 const subfolderLogicalCorpus = (
                     logicalCorpus ||
                         ((subfolder.info.isLogicalCorpus ||
                           subfolder.info.urn)
-                         ? copyOf(subfolder)
+                         ? makeLogicalCorpusObj(subfolder)
                          : null));
                 // If this folder is (within) a logical corpus, a
                 // subfolder is a collection of subcorpora; otherwise,
