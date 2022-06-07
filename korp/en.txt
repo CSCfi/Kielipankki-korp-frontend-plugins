@@ -1,4 +1,11 @@
 
+<!-- New corpus (beta): Parallel Bible Verses for Uralic Studies 2022-06-07 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2020021121"
+target="_blank">Parallel Bible Verses for Uralic Studies,
+Korp (pabivus-korp)</a> is now available in Korp as a beta test version.
+
+
 <!-- Extended corpus (beta): Yle Finnish News Archive 2019–2021 2022-04-19 -->
 
 The *Yle Finnish News Archive* corpus has been extended with news from

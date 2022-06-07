@@ -1,4 +1,12 @@
 
+<!-- Uusi aineisto (beta): Raamatun jakeita uralilaisille kielille, rinnakkaiskorpus 2022-06-07 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2020021121"
+target="_blank">Raamatun jakeita uralilaisille kielille, rinnakkaiskorpus,
+Korp (pabivus-korp)</a> on nyt
+käytettävissä beetatestiversiona Korpissa.
+
+
 <!-- Laajennettu aineisto (beta): Ylen suomenkielinen uutisarkisto 2019–2021 2022-04-19 -->
 
 *Ylen suomenkielistä uutisarkistoa* on laajennettu vuosien 2019–2021
