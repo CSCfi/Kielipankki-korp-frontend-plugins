@@ -1,4 +1,11 @@
 
+<!-- Uusi aineisto (beta): Uralic UD v2.10 2022-06-23 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2022061001"
+target="_blank">Uralic UD v2.10, Kielipankin Korp-versio,
+(uralic-ud-v2.10-korp)</a> on nyt käytettävissä beetatestiversiona Korpissa.
+
+
 <!-- Uusi aineisto (beta): Raamatun jakeita uralilaisille kielille, rinnakkaiskorpus 2022-06-07 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2020021121"

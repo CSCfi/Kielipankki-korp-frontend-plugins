@@ -1,4 +1,11 @@
 
+<!-- New corpus (beta): Uralic UD v2.10 2022-06-23 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2022061001"
+target="_blank">Uralic UD v2.10, Kielipankki Korp version,
+(uralic-ud-v2.10-korp)</a> is now available in Korp as a beta test version.
+
+
 <!-- New corpus (beta): Parallel Bible Verses for Uralic Studies 2022-06-07 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2020021121"
