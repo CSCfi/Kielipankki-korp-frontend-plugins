@@ -1,4 +1,13 @@
 
+<!-- Uusi aineistoversio: Oracc 2021 2022-09-09 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2022031705" target="_blank">Oracc
+2021 (Open Richly Annotated Cuneiform Corpus, Korp-versio, kesäkuu
+2021)</a> on nyt käytettävissä Korpissa <a
+href="http://urn.fi/urn:nbn:fi:lb-2019060601" target="_blank">Oracc
+2019</a>:n rinnalla.
+
+
 <!-- Uusi aineisto (beta): Uralic UD v2.10 2022-06-23 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2022061001"
