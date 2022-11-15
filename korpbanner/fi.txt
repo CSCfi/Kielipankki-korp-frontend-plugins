@@ -1,4 +1,11 @@
 
+<!-- Korpin tietokanta päivitetään 22.11.2022 2022-11-15 2022-11-22 -->
+
+Korpin tietokanta päivitetään 22.11.2022 klo 8–11 välisenä aikana.
+Päivityksen aikana osa Korpin ominaisuuksista ei toimi, erityisesti
+sanakuva sekä yksinkertaisen haun perusmuodon ja sanaluokan täydennys.
+
+
 <!-- Korp päivitetty 2022-02-14 2022-04-30 -->
 
 Korp päivitettiin uuteen versioon 14.2.2022. Lisätietoja päivityksestä
