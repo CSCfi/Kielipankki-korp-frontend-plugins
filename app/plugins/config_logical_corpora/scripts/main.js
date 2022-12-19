@@ -138,7 +138,7 @@ class ConfigLogicalCorpora {
                 const subfolderLogicalCorpus = (
                     logicalCorpus ||
                         ((subfolder.info.isLogicalCorpus ||
-                          subfolder.info.urn)
+                          subfolder.info.metadata_urn)
                          ? makeLogicalCorpusObj(subfolder)
                          : null));
                 // If this folder is (within) a logical corpus, a
