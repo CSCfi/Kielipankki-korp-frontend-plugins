@@ -1,4 +1,21 @@
 
+<!-- New corpus version: COCA 2020 (beta) 2022-12-19 -->
+
+The <a href="http://urn.fi/urn:nbn:fi:lb-2022111501"
+target="_blank">Corpus of Contemporary American English (COCA) –
+Kielipankki Korp version 2020</a> is now available in Korp as a beta
+test version alongside <a
+href="http://urn.fi/urn:nbn:fi:lb-2017061922" target="_blank">version
+2017H1</a>.
+
+COCA 2020 contains about 1,000 million tokens altogether in eight
+genres from the years 1990–2019. The metadata for individual texts are
+partly different and somewhat more concise than in version 2017H1.
+
+Using the corpus requires an active membership of a *Finnish* academic
+institution and logging in to Korp.
+
+
 <!-- Korp database update on 22 November 2022 2022-11-15 2022-11-22 -->
 
 Korp’s database will be updated on 22 November 2022 between 8 am and
