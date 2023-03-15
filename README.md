@@ -1,24 +1,16 @@
-[![Actions Status](https://github.com/{owner}/{repo}/workflows/{workflow_name}/badge.svg)](https://github.com/{owner}/{repo}/actions)
-
 This repo contains the frontend for [Korp](https://spraakbanken.gu.se/korp), 
-a frontend for the IMS Open Corpus Workbench (CWB). The Korp frontend is a great
-tool for searching and and visualising natural language corpus data. 
+a tool using the IMS Open Corpus Workbench (CWB). Korp is a great
+tool for searching and visualising natural language corpus data. 
 
-Korp is developed by [Språkbanken](https://spraakbanken.gu.se) at the 
-University of Gothenburg, Sweden. 
+Korp is mainly developed by [Språkbanken](https://spraakbanken.gu.se) at the 
+University of Gothenburg, Sweden. Contributions are also made from other
+organizations that use the software.
 
 Documentation:
 - [Frontend documentation](../master/doc/frontend_devel.md)
 - [Backend documentation](https://github.com/spraakbanken/korp-backend/)
-- Sparv - The pipeline used to tag and otherwise process raw Swedish-language corpus data is documented [here](https://github.com/spraakbanken/sparv-pipeline)
-- [Our Korp configuration directory](https://github.com/spraakbanken/korp-frontend-sb/) (supplement to documentation)
-
-# Breaking changes
-- In order to benefit from superior tooling Korp migrated away from Coffeescript
- and now uses plain Javascript instead. This has been done semi-automatically
- using [decaffeinate](https://decaffeinate-project.org). You should replace 
- any Coffeescript code in your fork with the equivalent Javascript. 
-
+- Sparv - The pipeline used to tag and otherwise process raw Swedish-language corpus data is documented [here](https://spraakbanken.gu.se/sparv)
+- [Språkbanken's Korp configuration directory](https://github.com/spraakbanken/korp-frontend-sb/) (supplement to documentation)
 
 # Getting started
 
@@ -30,14 +22,22 @@ Install `yarn`: `https://yarnpkg.com`
 - run development server: `yarn start`
 - build a dist-version: `yarn build`
 - run dist-version: `yarn start:dist`
-- run tests: `yarn test` or `yarn test:karma` or `yarn test:e2e` (tests are currently depending on Språkbankens setup).
+- run tests: `yarn test` or `yarn test:karma` or `yarn test:e2e` (tests currently depend on Språkbankens setup).
 
 Declare dependencies using `yarn add pkg`or `yarn add --dev pkg` for dev dependencies.
+
+`npm` has not worked previously, but the status is unknown right now.
 
 # webpack
 
 We use *webpack* to build Korp and *webpack-dev-server* to run a local server. To include new code or resources, require
-them where needed:
+or use import them where needed:
+
+```
+import { aFunction } from 'new-dependency'
+```
+
+or
 
 ```
 nd = require("new-dependency")
@@ -54,7 +54,7 @@ myTemplate = `<img src='${imgPath}'>`
 Most dependencies are only specified in `app/index.js` and where needed
 added to the `window`-object.
 
-About the current loaders in in `webpack.config.js`:
+About the current loaders in `webpack.config.js`:
 - `pug` and `html` files: all `src`-attributes in `<img>` tags and all `href`s in `<link>` tags will be
   loaded by webpack and replaced in the markup. Uses file loader so that requiring a `pug`
   or `html` file will give the path to the file back.
@@ -64,20 +64,42 @@ About the current loaders in in `webpack.config.js`:
 
 In addition to this, some specific files will simply be copied as is, for example Korp mode-files.
 
-## webpack and configuration
+## configuration
 
-We use `window.settings` to share needed configuration to `config.js` and `modes/common.js`.
+Use `config.yml` for settings needed in the frontend. In some cases, mode-files can be used. For example 
+it is possible to have different backends for modes.
 
-`config.js` and `modes/common.js` are included in Webpacks dependency graph. Therefore it works
-to use `require` for anything needed, but only things that are in the configured 
-location for settings.
+# Other instances
 
-`mode`-files are only loaded at runtime an any dependencies must be required in `modes/common.js` and
-then exported as a module as shown in the sample file `app/modes/common.js`.
+There are several instances of Korp, here are a list of some:
 
-# Earlier versions
+- [Språkbanken Text](https://spraakbanken.gu.se/korp/)
+- [The Language Bank of Finland (Kielipankki)](https://korp.csc.fi)
+- [Iceland / Stofnun Árna Magnússonar í íslenskum fræðum](https://malheildir.arnastofnun.is/)
+- [Tromsø / Giellatekno](https://gtweb.uit.no/korp/)
+- [Copenhagen / Institut for Nordiske Studier og Sprogvidenskab](https://alf.hum.ku.dk/korp/)
 
-## npm
+# The development server
 
-It is unfortunately not possible to develop Korp using *npm* anymore (*npm* can 
-not resolve all dependencies correctly). Use *yarn*.
+When developing, the frontend is served at http://localhost:9111 by default.
+
+Host and port can be changed by the environment variables:
+- `KORP_HOST=<host>`
+- `KORP_PORT=<port>`
+
+It is also possible to serve the frontend from HTTPS using the environment variables:
+- `KORP_HTTPS=true`
+- `KORP_KEY=<path_to_key>-key.pem`
+- `KORP_CERT=<path to cert>.pem`
+
+The key and cert can be created using [mkcert](https://github.com/FiloSottile/mkcert).
+
+```
+mkcert korp.spraakbanken.gu.se
+mkcert -install
+```
+
+Now use `korp.spraakbanken.gu.se` as the value for `KORP_HOST`. It must also be added
+to `/etc/hosts`.
+
+One way to set the environment variables automatically is to use [direnv](https://direnv.net/):

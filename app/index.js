@@ -1,4 +1,11 @@
 
+import settings from 'korp_config'
+
+window.settings = settings
+settings.markup = {
+  msd: require("./markup/msd.html")
+}
+
 let $ = require("jquery");
 window.jQuery = $;
 window.$ = $;
@@ -49,10 +56,17 @@ require("./lib/jquery.format.js")
 let deparam = require("jquery-deparam")
 
 window.c = console
-window.isLab = window.location.pathname.split("/")[1] == "korplabb"
+// __IS_LAB__ is defined in webpack and set to true if NODE_ENV is "staging"
+window.isLab = __IS_LAB__
 window.currentMode = deparam(window.location.search.slice(1)).mode || "default"
 
-// tmhDynamicLocale = require("angular-dynamic-locale/src/tmhDynamicLocale")
+try {
+  // modes-files are optional and have customizing code
+  require(`modes/${currentMode}_mode.js`)
+} catch (error) {
+  console.log("No mode file available for mode:", currentMode)
+}
+
 require("angular-dynamic-locale/dist/tmhDynamicLocale.js")
 window.Raphael = require("raphael")
 
@@ -64,6 +78,7 @@ require("slickgrid/slick.core")
 require("slickgrid/slick.grid")
 require("slickgrid/plugins/slick.checkboxselectcolumn")
 require("slickgrid/plugins/slick.rowselectionmodel")
+require("slickgrid/slick.interactions.js")
 
 require("./scripts/jq_extensions.js")
 
@@ -81,20 +96,7 @@ require("angular-filter/index.js")
 
 require("./lib/jquery.tooltip.pack.js")
 
-window.settings = {}
-settings.markup = {
-  msd: require("./markup/msd.html")
-}
-require("configjs")
-let commonSettings = require("commonjs")
-// we need to put the exports on window so that the non-webpacked modes modes files
-// can use the exports
-_.map(commonSettings, function(v, k) {
-  if (k in window) {
-    console.error("warning, overwriting setting" + k)
-  }
-  window[k] = v
-})
+
 
 require("./scripts/components/sidebar.js")
 
@@ -103,17 +105,21 @@ require("./scripts/cqp_parser/CQPParser.js")
 require("./scripts/cqp_parser/cqp.js")
 require("./scripts/util.js")
 require("./scripts/pie-widget.js")
-require("./scripts/search.js")
-require("./scripts/results.js")
 require("./scripts/model.js")
 require("./scripts/widgets.js")
 require("./scripts/main.js")
-require("./scripts/selector_widget.js")
 require("./scripts/app.js")
 require("./scripts/search_controllers.js")
 
 require("./scripts/kwic_download.js")
-require("./scripts/result_controllers.js")
+
+require("./scripts/controllers/comparison_controller.js")
+require("./scripts/controllers/kwic_controller.js")
+require("./scripts/controllers/example_controller.js")
+require("./scripts/controllers/statistics_controller.js")
+require("./scripts/controllers/trend_diagram_controller.js")
+require("./scripts/controllers/word_picture_controller.js")
+
 require("./scripts/map_controllers.js")
 require("./scripts/text_reader_controller.js")
 require("./scripts/video_controllers.js")
@@ -124,16 +130,3 @@ require("./scripts/directives.js")
 require("./scripts/directives/scroll.js")
 require("./scripts/filter_directives.js")
 require("./scripts/newsdesk.js")
-
-// only if the current mode is parallel, we load the special code required
-for(let mode of settings.modeConfig) {
-  if(currentMode === mode.mode && mode.parallel) {
-    require("./scripts/parallel/corpus_listing.js")
-    require("./scripts/parallel/search_ctrl.js")
-    require("./scripts/parallel/parallel_search.js")
-    require("./scripts/parallel/kwic_results.js")
-    require("./scripts/parallel/stats_proxy.js")
-  }
-}
-
-require("./index.pug")

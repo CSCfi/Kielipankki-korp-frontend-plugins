@@ -15,14 +15,6 @@ model.normalizeStatsData = function (data) {
     }
 }
 
-model.getAuthorizationHeader = function () {
-    if (typeof authenticationProxy !== "undefined" && !$.isEmptyObject(authenticationProxy.loginObj)) {
-        return { Authorization: `Basic ${authenticationProxy.loginObj.auth}` }
-    } else {
-        return {}
-    }
-}
-
 class BaseProxy {
     constructor() {
         this.prev = ""
@@ -64,14 +56,16 @@ class BaseProxy {
         if (baseUrl.indexOf("?") != -1) {
             return baseUrl
         }
-        return (baseUrl +
-                "?" +
-                _.toPairs(data)
+        return (
+            baseUrl +
+            "?" +
+            _.toPairs(data)
                 .map(function ([key, val]) {
                     val = encodeURIComponent(val)
                     return key + "=" + val
                 })
-                .join("&"))
+                .join("&")
+        )
     }
 
     abort() {
@@ -106,7 +100,7 @@ class BaseProxy {
     }
 
     addAuthorizationHeader(req) {
-        const pairs = _.toPairs(model.getAuthorizationHeader())
+        const pairs = _.toPairs(authenticationProxy.getAuthorizationHeader())
         if (pairs.length) {
             return req.setRequestHeader(...(pairs[0] || []))
         }
@@ -175,7 +169,10 @@ model.KWICProxy = class KWICProxy extends BaseProxy {
         const self = this
         this.foundKwic = false
         super.makeRequest()
-        kwicCallback = kwicCallback || $.proxy(kwicResults.renderResult, kwicResults)
+        if (!kwicCallback) {
+            console.error("No callback for query result")
+            return
+        }
         self.progress = 0
         var progressObj = {
             progress(data, e) {
@@ -197,12 +194,22 @@ model.KWICProxy = class KWICProxy extends BaseProxy {
         }
 
         const data = {
-            default_context: settings.defaultOverviewContext,
+            default_context: settings["default_overview_context"],
             show: [],
             show_struct: [],
         }
 
-        $.extend(data, kwicResults.getPageInterval(page), options.ajaxParams)
+        function getPageInterval(page) {
+            const hpp = locationSearch().hpp
+            const itemsPerPage = Number(hpp) || settings["hits_per_page_default"]
+            page = Number(page)
+            const output = {}
+            output.start = (page || 0) * itemsPerPage
+            output.end = output.start + itemsPerPage - 1
+            return output
+        }
+
+        $.extend(data, getPageInterval(page), options.ajaxParams)
         for (let corpus of settings.corpusListing.selected) {
             for (let key in corpus.within) {
                 // val = corpus.within[key]
@@ -213,12 +220,15 @@ model.KWICProxy = class KWICProxy extends BaseProxy {
                 data.show.push(key)
             }
 
-            if (corpus.structAttributes != null) {
-                $.each(corpus.structAttributes, function (key, val) {
+            if (corpus["struct_attributes"] != null) {
+                $.each(corpus["struct_attributes"], function (key, val) {
                     if ($.inArray(key, data.show_struct) === -1) {
                         return data.show_struct.push(key)
                     }
                 })
+                if (corpus["reading_mode"]) {
+                    data.show_struct.push("text__id")
+                }
             }
         }
 
@@ -229,7 +239,7 @@ model.KWICProxy = class KWICProxy extends BaseProxy {
         data.show = _.uniq(["sentence"].concat(data.show)).join(",")
         data.show_struct = _.uniq(data.show_struct).join(",")
 
-        if (locationSearch()["in_order"] === false) {
+        if (locationSearch()["in_order"] != null) {
             data.in_order = false
         }
 
@@ -237,25 +247,27 @@ model.KWICProxy = class KWICProxy extends BaseProxy {
         this.prevParams = data
         const command = data.command || "query"
         delete data.command
-        const def = $.ajax(util.httpConfAddMethod({
-            url: settings.korpBackendURL + "/" + command,
-            data,
-            beforeSend(req, settings) {
-                self.prevRequest = settings
-                self.addAuthorizationHeader(req)
-                self.prevUrl = self.makeUrlWithParams(this.url, data)
-            },
+        const def = $.ajax(
+            util.httpConfAddMethod({
+                url: settings["korp_backend_url"] + "/" + command,
+                data,
+                beforeSend(req, settings) {
+                    self.prevRequest = settings
+                    self.addAuthorizationHeader(req)
+                    self.prevUrl = self.makeUrlWithParams(this.url, data)
+                },
 
-            success(data, status, jqxhr) {
-                self.queryData = data.query_data
-                self.cleanup()
-                if (data.incremental === false || !this.foundKwic) {
-                    return kwicCallback(data)
-                }
-            },
+                success(data, status, jqxhr) {
+                    self.queryData = data.query_data
+                    self.cleanup()
+                    if (data.incremental === false || !this.foundKwic) {
+                        return kwicCallback(data)
+                    }
+                },
 
-            progress: progressObj.progress,
-        }))
+                progress: progressObj.progress,
+            })
+        )
         this.pendingRequests.push(def)
         return def
     }
@@ -273,29 +285,31 @@ model.LemgramProxy = class LemgramProxy extends BaseProxy {
             max: 1000,
         }
         this.prevParams = params
-        const def = $.ajax(util.httpConfAddMethod({
-            url: settings.korpBackendURL + "/relations",
-            data: params,
+        const def = $.ajax(
+            util.httpConfAddMethod({
+                url: settings["korp_backend_url"] + "/relations",
+                data: params,
 
-            success() {
-                self.prevRequest = params
-                self.cleanup()
-            },
+                success() {
+                    self.prevRequest = params
+                    self.cleanup()
+                },
 
-            progress(data, e) {
-                const progressObj = self.calcProgress(e)
-                if (progressObj == null) {
-                    return
-                }
-                return callback(progressObj)
-            },
+                progress(data, e) {
+                    const progressObj = self.calcProgress(e)
+                    if (progressObj == null) {
+                        return
+                    }
+                    return callback(progressObj)
+                },
 
-            beforeSend(req, settings) {
-                self.prevRequest = settings
-                self.addAuthorizationHeader(req)
-                self.prevUrl = self.makeUrlWithParams(this.url, params)
-            },
-        }))
+                beforeSend(req, settings) {
+                    self.prevRequest = settings
+                    self.addAuthorizationHeader(req)
+                    self.prevUrl = self.makeUrlWithParams(this.url, params)
+                },
+            })
+        )
         this.pendingRequests.push(def)
         return def
     }
@@ -313,7 +327,10 @@ model.StatsProxy = class StatsProxy extends BaseProxy {
         const groupBy = []
         const groupByStruct = []
         for (let reduceVal of reduceVals) {
-            if (structAttrs[reduceVal] && (structAttrs[reduceVal].groupBy || "group_by_struct") == "group_by_struct") {
+            if (
+                structAttrs[reduceVal] &&
+                (structAttrs[reduceVal]["group_by"] || "group_by_struct") == "group_by_struct"
+            ) {
                 groupByStruct.push(reduceVal)
             } else {
                 groupBy.push(reduceVal)
@@ -343,7 +360,7 @@ model.StatsProxy = class StatsProxy extends BaseProxy {
 
         const reduceValLabels = _.map(reduceVals, function (reduceVal) {
             if (reduceVal === "word") {
-                return "word"
+                return settings["word_label"]
             }
             const maybeReduceAttr = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())[
                 reduceVal
@@ -356,6 +373,8 @@ model.StatsProxy = class StatsProxy extends BaseProxy {
         })
 
         const data = this.makeParameters(reduceVals, cqp, ignoreCase)
+        // this is needed so that the statistics view will know what the original LINKED corpora was in parallel
+        const originalCorpora = settings.corpusListing.stringifySelected(false)
 
         const wordAttrs = settings.corpusListing.getCurrentAttributes(settings.corpusListing.getReduceLang())
         const structAttrs = settings.corpusListing.getStructAttrs(settings.corpusListing.getReduceLang())
@@ -377,96 +396,53 @@ model.StatsProxy = class StatsProxy extends BaseProxy {
         this.prevParams = data
         const def = $.Deferred()
         this.pendingRequests.push(
-            $.ajax(util.httpConfAddMethod({
-                url: settings.korpBackendURL + "/count",
-                data,
-                beforeSend(req, settings) {
-                    self.prevRequest = settings
-                    self.addAuthorizationHeader(req)
-                    self.prevUrl = self.makeUrlWithParams(this.url, data)
-                },
+            $.ajax(
+                util.httpConfAddMethod({
+                    url: settings["korp_backend_url"] + "/count",
+                    data,
+                    beforeSend(req, settings) {
+                        self.prevRequest = settings
+                        self.addAuthorizationHeader(req)
+                        self.prevUrl = self.makeUrlWithParams(this.url, data)
+                    },
 
-                error(jqXHR, textStatus, errorThrown) {
-                    c.log(`gettings stats error, status: ${textStatus}`)
-                    return def.reject(textStatus, errorThrown)
-                },
+                    error(jqXHR, textStatus, errorThrown) {
+                        c.log(`gettings stats error, status: ${textStatus}`)
+                        return def.reject(textStatus, errorThrown)
+                    },
 
-                progress(data, e) {
-                    const progressObj = self.calcProgress(e)
-                    if (progressObj == null) {
-                        return
-                    }
-                    if (typeof callback === "function") {
-                        callback(progressObj)
-                    }
-                },
+                    progress(data, e) {
+                        const progressObj = self.calcProgress(e)
+                        if (progressObj == null) {
+                            return
+                        }
+                        if (typeof callback === "function") {
+                            callback(progressObj)
+                        }
+                    },
 
-                success: (data) => {
-                    self.cleanup()
-                    if (data.ERROR != null) {
-                        c.log("gettings stats failed with error", data.ERROR)
-                        def.reject(data)
-                        return
-                    }
-                    model.normalizeStatsData(data)
-                    statisticsService.processData(def, data, reduceVals, reduceValLabels, ignoreCase)
-                },
-            }))
+                    success: (data) => {
+                        self.cleanup()
+                        if (data.ERROR != null) {
+                            c.log("gettings stats failed with error", data.ERROR)
+                            def.reject(data)
+                            return
+                        }
+                        model.normalizeStatsData(data)
+                        statisticsService.processData(
+                            def,
+                            originalCorpora,
+                            data,
+                            reduceVals,
+                            reduceValLabels,
+                            ignoreCase
+                        )
+                    },
+                })
+            )
         )
 
         return def.promise()
-    }
-}
-
-model.AuthenticationProxy = class AuthenticationProxy {
-    constructor() {
-        this.loginObj = {}
-    }
-
-    makeRequest(usr, pass, saveLogin) {
-        let auth
-        const self = this
-        if (window.btoa) {
-            auth = window.btoa(usr + ":" + pass)
-        } else {
-            throw Error("window.btoa is undefined")
-        }
-        const dfd = $.Deferred()
-        $.ajax({
-            url: settings.korpBackendURL + "/authenticate",
-            type: "GET",
-            beforeSend(req) {
-                return req.setRequestHeader("Authorization", `Basic ${auth}`)
-            },
-        })
-            .done(function (data, status, xhr) {
-                if (!data.corpora) {
-                    dfd.reject()
-                    return
-                }
-                self.loginObj = {
-                    name: usr,
-                    credentials: data.corpora,
-                    auth,
-                }
-                if (saveLogin) {
-                    jStorage.set("creds", self.loginObj)
-                }
-                return dfd.resolve(data)
-            })
-            .fail(function (xhr, status, error) {
-                c.log("auth fail", arguments)
-                return dfd.reject()
-            })
-
-        return dfd
-    }
-
-    hasCred(corpusId) {
-        if (!this.loginObj.credentials) {
-            return false
-        }
-        return this.loginObj.credentials.includes(corpusId.toUpperCase())
     }
 }
 
@@ -474,13 +450,15 @@ model.TimeProxy = class TimeProxy extends BaseProxy {
     makeRequest() {
         const dfd = $.Deferred()
 
-        const xhr = $.ajax(util.httpConfAddMethod({
-            url: settings.korpBackendURL + "/timespan",
-            data: {
-                granularity: "y",
-                corpus: settings.corpusListing.stringifyAll(),
-            },
-        }))
+        const xhr = $.ajax(
+            util.httpConfAddMethod({
+                url: settings["korp_backend_url"] + "/timespan",
+                data: {
+                    granularity: "y",
+                    corpus: settings.corpusListing.stringifyAll(),
+                },
+            })
+        )
 
         xhr.done((data) => {
             if (data.ERROR) {
@@ -574,6 +552,7 @@ model.GraphProxy = class GraphProxy extends BaseProxy {
             corpus: corpora,
             granularity: this.granularity,
             incremental: true,
+            per_corpus: false,
         }
 
         if (from) {
@@ -588,33 +567,34 @@ model.GraphProxy = class GraphProxy extends BaseProxy {
         this.prevParams = params
         const def = $.Deferred()
 
-        $.ajax(util.httpConfAddMethod({
-            url: settings.korpBackendURL + "/count_time",
-            dataType: "json",
-            data: params,
+        $.ajax(
+            util.httpConfAddMethod({
+                url: settings["korp_backend_url"] + "/count_time",
+                dataType: "json",
+                data: params,
 
-            beforeSend: (req, settings) => {
-                this.prevRequest = settings
-                this.addAuthorizationHeader(req)
-                self.prevUrl = self.makeUrlWithParams(this.url, params)
-            },
+                beforeSend: (req, settings) => {
+                    this.prevRequest = settings
+                    this.addAuthorizationHeader(req)
+                },
 
-            progress: (data, e) => {
-                const progressObj = this.calcProgress(e)
-                if (progressObj == null) {
-                    return
-                }
-                def.notify(progressObj)
-            },
+                progress: (data, e) => {
+                    const progressObj = this.calcProgress(e)
+                    if (progressObj == null) {
+                        return
+                    }
+                    def.notify(progressObj)
+                },
 
-            error(jqXHR, textStatus, errorThrown) {
-                def.reject(textStatus)
-            },
-            success(data) {
-                def.resolve(data)
-                self.cleanup()
-            },
-        }))
+                error(jqXHR, textStatus, errorThrown) {
+                    def.reject(textStatus)
+                },
+                success(data) {
+                    def.resolve(data)
+                    self.cleanup()
+                },
+            })
+        )
 
         return def.promise()
     }

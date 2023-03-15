@@ -5,8 +5,8 @@ const pieChartImg = require("../img/stats2.png")
 const createStatisticsService = function () {
     const createColumns = function (corpora, reduceVals, reduceValLabels) {
         const loc = {
-            sv: "sv-SE",
-            en: "gb-EN",
+            swe: "sv-SE",
+            eng: "gb-EN",
         }[$("body").scope().lang]
 
         const valueFormatter = function (row, cell, value, columnDef, dataContext) {
@@ -27,7 +27,7 @@ const createStatisticsService = function () {
         for (let [reduceVal, reduceValLabel] of _.zip(reduceVals, reduceValLabels)) {
             columns.push({
                 id: reduceVal,
-                name: reduceValLabel,
+                translation: reduceValLabel,
                 field: "hit_value",
                 sortable: true,
                 formatter(row, cell, value, columnDef, dataContext) {
@@ -45,7 +45,6 @@ const createStatisticsService = function () {
                 },
                 minWidth,
                 cssClass: "parameter-column",
-                headerCssClass: "localized-header",
             })
         }
 
@@ -77,7 +76,7 @@ const createStatisticsService = function () {
         $.each(corporaKeys.sort(), (i, corpus) => {
             return columns.push({
                 id: corpus,
-                name: settings.corpora[corpus.toLowerCase()].title,
+                translation: settings.corpora[corpus.toLowerCase()].title,
                 field: corpus + "_value",
                 sortable: true,
                 formatter: valueFormatter,
@@ -87,7 +86,7 @@ const createStatisticsService = function () {
         return columns
     }
 
-    const processData = function (def, data, reduceVals, reduceValLabels, ignoreCase) {
+    const processData = function (def, originalCorpora, data, reduceVals, reduceValLabels, ignoreCase) {
         const columns = createColumns(data.corpora, reduceVals, reduceValLabels)
 
         const statsWorker = new Worker("worker.js")
@@ -95,6 +94,7 @@ const createStatisticsService = function () {
             const searchParams = {
                 reduceVals,
                 ignoreCase,
+                originalCorpora,
                 corpora: _.keys(data.corpora),
             }
             def.resolve([e.data, columns, searchParams])
@@ -103,7 +103,7 @@ const createStatisticsService = function () {
         statsWorker.postMessage({
             data,
             reduceVals,
-            groupStatistics: settings.groupStatistics,
+            groupStatistics: settings["group_statistics"],
         })
     }
 

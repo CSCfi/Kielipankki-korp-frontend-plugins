@@ -8,6 +8,8 @@ try {
     console.log("No module for extended components available")
 }
 
+let html = String.raw
+
 const autocompleteTemplate = `\
 <div>
     <input type="text"
@@ -39,13 +41,19 @@ const selectController = (autocomplete) => [
         })
 
         function reloadValues() {
-            const attribute = $scope.$parent.tokenValue.value
+            // TODO this exploits the API
+            const attributeDefinition = $scope.$parent.$ctrl.attributeDefinition
+            if (!attributeDefinition) {
+                return
+            }
+
+            const attribute = attributeDefinition.value
             const selectedCorpora = settings.corpusListing.selected
 
             // check which corpora support attributes
             const corpora = []
             for (let corpusSettings of selectedCorpora) {
-                if (attribute in corpusSettings.structAttributes || attribute in corpusSettings.attributes) {
+                if (attribute in corpusSettings["struct_attributes"] || attribute in corpusSettings.attributes) {
                     corpora.push(corpusSettings.id)
                 }
             }
@@ -104,7 +112,7 @@ const selectController = (autocomplete) => [
 // - escape: boolean, will be used by the escaper-directive
 export default _.merge(
     {
-        datasetSelect: {
+        datasetSelect: (options) => ({
             template: selectTemplate,
             controller: [
                 "$scope",
@@ -125,13 +133,17 @@ export default _.merge(
                         } else {
                             dataset = _.map(original, (v, k) => [k, localizer(v)])
                         }
-                        $scope.dataset = _.sortBy(dataset, (tuple) => tuple[1])
+                        if (options == undefined || options.sort == undefined || options.sort) {
+                            $scope.dataset = _.sortBy(dataset, (tuple) => tuple[1])
+                        } else {
+                            $scope.dataset = dataset
+                        }
                         $scope.model = $scope.model || $scope.dataset[0][0]
                     }
                     initialize()
                 },
             ],
-        },
+        }),
 
         // Select-element. Gets values from "struct_values"-command. Use the following settings in the corpus:
         // - escape: boolean, will be used by the escaper-directive
@@ -160,8 +172,8 @@ export default _.merge(
             <span ng-class='{sensitive : case == "sensitive", insensitive : case == "insensitive"}'
                     class='val_mod' popper> Aa </span>
             <ul class='mod_menu popper_menu dropdown-menu'>
-                    <li><a ng-click='makeSensitive()'>{{'case_sensitive' | loc:lang}}</a></li>
-                    <li><a ng-click='makeInsensitive()'>{{'case_insensitive' | loc:lang}}</a></li>
+                    <li><a ng-click='makeSensitive()'>{{'case_sensitive' | loc:$root.lang}}</a></li>
+                    <li><a ng-click='makeInsensitive()'>{{'case_insensitive' | loc:$root.lang}}</a></li>
             </ul>
         `),
             controller: [
@@ -197,7 +209,7 @@ export default _.merge(
             is-raw-input="isRawInput"
             type='${options.type || "lemgram"}'
             on-change="onChange(output, isRawOutput)"
-            error-on-empty="${options.errorOnEmpty}"
+            error-on-empty="${options["error_on_empty"]}"
             error-message="choose_value">
         </autoc>`,
             controller: [
@@ -216,6 +228,132 @@ export default _.merge(
                 },
             ],
         }),
+        dateInterval: {
+            template: html`
+                <div class="date_interval_arg_type">
+                    <h3>{{'simple' | loc:$root.lang}}</h3>
+                    <form ng-submit="commitDateInput()">
+                        <div class="" style="margin-bottom: 1rem;">
+                            <span class="" style="display : inline-block; width: 32px; text-transform: capitalize;"
+                                >{{'from' | loc:$root.lang}}</span
+                            >
+                            <input
+                                type="text"
+                                ng-blur="commitDateInput()"
+                                ng-model="fromDateString"
+                                placeholder="'1945' {{'or' | loc:$root.lang}} '1945-08-06'"
+                            />
+                        </div>
+                        <div>
+                            <span class="" style="display : inline-block; width: 32px; text-transform: capitalize;"
+                                >{{'to' | loc:$root.lang}}</span
+                            >
+                            <input
+                                type="text"
+                                ng-blur="commitDateInput()"
+                                ng-model="toDateString"
+                                placeholder="'1968' {{'or' | loc:$root.lang}} '1968-04-04'"
+                            />
+                        </div>
+                        <button type="submit" class="hidden"></button>
+                    </form>
+
+                    <h3>{{'advanced' | loc:$root.lang}}</h3>
+                    <div class="section mt-4">
+                        <time-interval
+                            label="from"
+                            date-model="fromDate"
+                            time-model="fromTime"
+                            min-date="minDate"
+                            max-date="maxDate"
+                            update="update()"
+                        ></time-interval>
+                    </div>
+
+                    <div class="section">
+                        <time-interval
+                            label="to"
+                            date-model="toDate"
+                            time-model="toTime"
+                            min-date="minDate"
+                            max-date="maxDate"
+                            update="update()"
+                        ></time-interval>
+                    </div>
+                </div>
+            `,
+            controller: [
+                "$scope",
+                function ($scope) {
+                    let s = $scope
+                    let cl = settings.corpusListing
+
+                    let updateIntervals = function () {
+                        let moments = cl.getMomentInterval()
+                        if (moments.length) {
+                            let [fromYear, toYear] = _.invokeMap(moments, "toDate")
+                            s.minDate = fromYear
+                            s.maxDate = toYear
+                        } else {
+                            let [from, to] = cl.getTimeInterval()
+                            s.minDate = moment(from.toString(), "YYYY").toDate()
+                            s.maxDate = moment(to.toString(), "YYYY").toDate()
+                        }
+                    }
+                    s.commitDateInput = () => {
+                        if (s.fromDateString) {
+                            let simpleFrom = s.fromDateString.length == 4
+                            s.fromDate = moment(s.fromDateString, simpleFrom ? "YYYY" : "YYYY-MM-DD").toDate()
+                        }
+                        if (s.toDateString) {
+                            let simpleTo = s.toDateString.length == 4
+                            if (simpleTo) {
+                                var dateString = `${s.toDateString}-12-31`
+                            }
+                            s.toDate = moment(dateString || s.dateString).toDate()
+                            s.toTime = moment("235959", "HHmmss").toDate()
+                        }
+                    }
+                    s.$on("corpuschooserchange", function () {
+                        updateIntervals()
+                    })
+
+                    updateIntervals()
+
+                    let getYear = function (val) {
+                        return moment(val.toString(), "YYYYMMDD").toDate()
+                    }
+
+                    let getTime = function (val) {
+                        return moment(val.toString(), "HHmmss").toDate()
+                    }
+
+                    if (!s.model) {
+                        s.fromDate = s.minDate
+                        s.toDate = s.maxDate
+                        let [from, to] = _.invokeMap(cl.getMomentInterval(), "toDate")
+                        s.fromTime = from
+                        s.toTime = to
+                    } else if (s.model.length === 4) {
+                        let [fromYear, toYear] = _.map(s.model.slice(0, 3), getYear)
+                        s.fromDate = fromYear
+                        s.toDate = toYear
+                        let [fromTime, toTime] = _.map(s.model.slice(2), getTime)
+                        s.fromTime = fromTime
+                        s.toTime = toTime
+                    }
+
+                    s.update = () => {
+                        s.model = [
+                            moment(s.fromDate).format("YYYYMMDD"),
+                            moment(s.toDate).format("YYYYMMDD"),
+                            moment(s.fromTime).format("HHmmss"),
+                            moment(s.toTime).format("HHmmss"),
+                        ]
+                    }
+                },
+            ],
+        },
     },
     customExtendedTemplates
 )

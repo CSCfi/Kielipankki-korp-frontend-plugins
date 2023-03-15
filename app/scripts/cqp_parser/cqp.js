@@ -1,7 +1,4 @@
 /** @format */
-
-const prio = settings.cqpPrio || ["deprel", "pos", "msd", "suffix", "prefix", "grundform", "lemgram", "saldo", "word"]
-
 const parseDateInterval = function (op, val, expanded_format) {
     let out
     val = _.invokeMap(val, "toString")
@@ -110,7 +107,7 @@ const stringifyCqp = function (cqp_obj, expanded_format) {
 
                 if (type === "word" && val === "") {
                     out = ""
-                } else if (type === "date_interval") {
+                } else if (settings.corpusListing.isDateInterval(type)) {
                     out = parseDateInterval(op, val, expanded_format)
                 } else {
                     out = `${type} ${op} \"${val}\"`
@@ -181,7 +178,7 @@ window.CQP = {
 
     prioSort(cqpObjs) {
         const getPrio = function (and_array) {
-            const numbers = _.map(and_array, (item) => _.indexOf(prio, item.type))
+            const numbers = _.map(and_array, (item) => _.indexOf(settings["cqp_prio"], item.type))
             return Math.min(...(numbers || []))
         }
 
