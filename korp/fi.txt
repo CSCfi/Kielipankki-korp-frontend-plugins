@@ -1,3 +1,9 @@
+<!-- Uusi aineisto (beta): ERME Ersän ja mokšan laajennettu korpus, versio 2 2023-03-27 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023021601"
+target="_blank">ERME Ersän ja mokšan laajennettu korpus versio 2, Korp
+(erme-s-v2-korp)</a> on nyt käytettävissä beetatestiversiona Korpissa.
+
 
 <!-- Uusi aineistoversio: COCA 2020 (beta) 2022-12-19 -->
 

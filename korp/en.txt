@@ -1,3 +1,9 @@
+<!-- New corpus (beta): Erzya and Moksha Extended Corpora (ERME) version 2 2023-03-27 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023021601"
+target="_blank">Erzya and Moksha Extended Corpora (ERME) version 2, Korp
+(erme-s-v2-korp)</a> is now available in Korp as a beta test version.
+
 
 <!-- New corpus version: COCA 2020 (beta) 2022-12-19 -->
 
