@@ -1,3 +1,17 @@
+
+<!-- Uusi aineisto (beta): STT:n uutisarkisto 1992–2018 2023-04-21 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2019111201"
+target="_blank"">STT:n uutisarkisto 1992–2018, Kielipankin Korp-versio
+(stt-fi-1992-2018-korp)</a> on nyt käytettävissä beetatestiversiona
+Korpissa.
+
+Huomaa, että aineisto on jäsennetty Turku Neural Parser Pipeline
+(TNPP) -jäsentimellä, joten sen kieliopilliset annotaatiot ovat jonkin
+verran erilaiset kuin useimmissa muissa Korpin suomenkielisissä
+aineistoissa.
+
+
 <!-- Uusi aineisto (beta): ERME Ersän ja mokšan laajennettu korpus, versio 2 2023-03-27 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023021601"
