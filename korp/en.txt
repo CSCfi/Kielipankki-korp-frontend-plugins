@@ -1,4 +1,11 @@
 
+<!-- Short service break on 25 May 2023 in the morning 2023-05-24 2023-05-26 -->
+
+The Korp service will have a break of a few minutes on 25 May 2023
+between 9 and 9.30 to increase the capacity of the server. We
+apologize for the short notice.
+
+
 <!-- New corpus (beta): Finnish News Agency Archive 1992–2018 2023-04-21 -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2019111201"

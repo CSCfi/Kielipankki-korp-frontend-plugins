@@ -1,4 +1,11 @@
 
+<!-- Lyhyt käyttökatko 25.5.2023 aamulla 2023-05-24 2023-05-26 -->
+
+Korp-palvelussa on muutaman minuutin käyttökatko 25.5.2023 klo 9–9.30
+välillä palvelimen kapasiteetin kasvattamisen vuoksi. Pahoittelemme
+lyhyttä varoitusaikaa.
+
+
 <!-- Uusi aineisto (beta): STT:n uutisarkisto 1992–2018 2023-04-21 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019111201"
