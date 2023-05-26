@@ -98,6 +98,23 @@ korpApp.controller("ParallelSearch", function ($scope, $location, $rootScope, $t
         }
     }
 
+    // Return an array of the languages of all selected corpora (the
+    // linked corpora are also selected)
+    getSelectedCorporaLangs = function () {
+        langs = _(settings.corpusListing.selected)
+            .map("lang")
+            .uniq()
+            .value()
+        // If langs contains settings.startLang, move it to the
+        // beginning
+        if (langs && langs[0] != settings.startLang &&
+                langs.includes(settings.startLang)) {
+            langs = [settings.startLang].concat(
+                _.filter(langs, (lg) => lg != settings.startLang))
+        }
+        return langs
+    }
+
     enabledLangsHelper = function (lang) {
         return _(settings.corpusListing.getLinksFromLangs([lang]))
             .flatten()
@@ -107,18 +124,28 @@ korpApp.controller("ParallelSearch", function ($scope, $location, $rootScope, $t
     }
 
     s.getEnabledLangs = function (i) {
+        var langResult
         if (i === 0) {
-            if (!s.langs[0].lang) {
-                s.langs[0].lang = settings.startLang
+            // For the first language, allow any language of the
+            // selected corpora
+            langResult = getSelectedCorporaLangs()
+            // If the first language is not set or not included in the
+            // selected corpora, set it to settings.startLang if the
+            // selected corpora contain it, otherwise the first
+            // language listed in langResult
+            if (! s.langs[0].lang || ! langResult.includes(s.langs[0].lang)) {
+                s.langs[0].lang = (langResult.includes(settings.startLang)
+                                   ? settings.startLang
+                                   : langResult[0])
             }
-            return enabledLangsHelper(settings.startLang)
+            return langResult
         }
         var currentLangList = _.map(s.langs, "lang")
         delete currentLangList[i]
         var firstlang
         if (s.langs.length) firstlang = s.langs[0].lang
         var other = enabledLangsHelper(firstlang || settings.startLang)
-        var langResult = _.difference(other, currentLangList)
+        langResult = _.difference(other, currentLangList)
         if (s.langs[i] && !s.langs[i].lang) {
             s.langs[i].lang = langResult[0]
         }
