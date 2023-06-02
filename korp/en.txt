@@ -1,4 +1,14 @@
 
+<!-- New parallel corpus (beta): L. Uspenskij: “Four battles” 2023-06-02 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023042426"
+target="_blank"">Parallel Corpus of the book “Four Battles”, written
+by L. Uspenskij; Korp version (uspenskij-4bat-par-korp)</a> is now
+available in Korp as a beta test version. The languages of the corpus
+are Russian, Komi-Zyrian, Komi-Permyak, Udmurt, Meadow Mari, Hill
+Mari, Erzya, Moksha and Mansi.
+
+
 <!-- Short service break on 25 May 2023 in the morning 2023-05-24 2023-05-26 -->
 
 The Korp service will have a break of a few minutes on 25 May 2023

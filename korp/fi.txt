@@ -1,4 +1,14 @@
 
+<!-- Uusi rinnakkaisaineisto (beta): L. Uspenski: ”Neljä taistelua” 2023-06-02 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023042426"
+target="_blank"">Rinnakkaiskorpus L. Uspenskin kirjasta ”Neljä
+taistelua ”; Korp-versio (uspenskij-4bat-par-korp)</a> on nyt
+käytettävissä beetatestiversiona Korpissa. Aineiston kielet ovat
+venäjä, komi-syrjääni, komi-permjakki, udmurtti, niittymari,
+vuorimari, ersä, mokša ja mansi.
+
+
 <!-- Lyhyt käyttökatko 25.5.2023 aamulla 2023-05-24 2023-05-26 -->
 
 Korp-palvelussa on muutaman minuutin käyttökatko 25.5.2023 klo 9–9.30
