@@ -356,13 +356,23 @@ korpApp.factory("structService", ($http, $q) => ({
                     for (corpora in data.corpora) {
                         values = data.corpora[corpora]
                         result[corpora] = values[structValue]
+                        // Ignore empty _objects_ to work around the
+                        // backend returning such if a corpus contains
+                        // only empty set values (the backend should
+                        // probably be fixed)
+                        if (! _.isArray(result[corpora])) {
+                            result[corpora] = []
+                        }
                     }
                     def.resolve(result)
                 } else {
                     result = []
                     for (corpora in data.corpora) {
                         values = data.corpora[corpora]
-                        result = result.concat(values[structValue])
+                        // Ignore empty objects as above
+                        if (_.isArray(values[structValue])) {
+                            result = result.concat(values[structValue])
+                        }
                     }
                     def.resolve(result)
                 }
