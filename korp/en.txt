@@ -2,7 +2,7 @@
 <!-- New parallel corpus (beta): L. Uspenskij: “Four battles” 2023-06-02 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023042426"
-target="_blank"">Parallel Corpus of the book “Four Battles”, written
+target="_blank">Parallel Corpus of the book “Four Battles”, written
 by L. Uspenskij; Korp version (uspenskij-4bat-par-korp)</a> is now
 available in Korp as a beta test version. The languages of the corpus
 are Russian, Komi-Zyrian, Komi-Permyak, Udmurt, Meadow Mari, Hill
@@ -19,7 +19,7 @@ apologize for the short notice.
 <!-- New corpus (beta): Finnish News Agency Archive 1992–2018 2023-04-21 -->
 
 The <a href="http://urn.fi/urn:nbn:fi:lb-2019111201"
-target="_blank"">Finnish News Agency Archive 1992–2018, Kielipankki
+target="_blank">Finnish News Agency Archive 1992–2018, Kielipankki
 Korp version (stt-fi-1992-2018-korp)</a> is now available in Korp as a
 beta test version.
 

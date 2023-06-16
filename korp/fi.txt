@@ -2,7 +2,7 @@
 <!-- Uusi rinnakkaisaineisto (beta): L. Uspenski: ”Neljä taistelua” 2023-06-02 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023042426"
-target="_blank"">Rinnakkaiskorpus L. Uspenskin kirjasta ”Neljä
+target="_blank">Rinnakkaiskorpus L. Uspenskin kirjasta ”Neljä
 taistelua ”; Korp-versio (uspenskij-4bat-par-korp)</a> on nyt
 käytettävissä beetatestiversiona Korpissa. Aineiston kielet ovat
 venäjä, komi-syrjääni, komi-permjakki, udmurtti, niittymari,
@@ -19,7 +19,7 @@ lyhyttä varoitusaikaa.
 <!-- Uusi aineisto (beta): STT:n uutisarkisto 1992–2018 2023-04-21 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2019111201"
-target="_blank"">STT:n uutisarkisto 1992–2018, Kielipankin Korp-versio
+target="_blank">STT:n uutisarkisto 1992–2018, Kielipankin Korp-versio
 (stt-fi-1992-2018-korp)</a> on nyt käytettävissä beetatestiversiona
 Korpissa.
 
