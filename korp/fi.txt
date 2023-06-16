@@ -1,4 +1,53 @@
 
+<!-- Uusi aineistoversio (beta): Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet, versio 2 2023-06-16 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-202009152"
+target="_blank">Kansalliskirjaston sanoma- ja aikakauslehtikokoelman
+suomenkielinen osakorpus versio 2, Korp (klk-fi-v2-korp)</a> on nyt
+käytettävissä beetatestiversiona Korpissa.
+
+Aineisto sisältää <a href="https://digi.kansalliskirjasto.fi/"
+target="_blank">Kansalliskirjaston lehtikokoelman</a> sanoma- ja
+aikakauslehtiä vuosilta 1771–2021. Aineistossa on yhteensä **yli 22
+miljardia sanetta** eli yli neljä kertaa niin paljon kuin aineiston
+edellisessä versiossa. Paljon uutta aineistoa on määrällisesti etenkin
+vuosilta 1911–1945, suhteellisesti myös vuosilta 1946–2000 ja kokonaan
+uutena vuosilta 2001–2021. Aineisto on jaettu Korpin aineistovalikossa
+osakorpuksiin lehtien julkaisuvuosien mukaan.
+
+**Huomaa**, että aineiston suuren koon vuoksi Korp-haut voivat olla
+hitaita, joten kannattaa ainakin ensin kokeilla hakuja pienehköllä
+osalla aineistoa. Jos aineiston osan (vuosien) valinta Korpin
+aineistovalikossa vaikuttaa hitaalta, kannattaa kokeilla käynnistää
+selain uudelleen tai kokeilla toista selainta.
+
+Aineiston virkkeiden kieli on tunnistettu <a
+href="http://urn.fi/urn:nbn:fi:lb-2022092201"
+target="_blank">HeLI-OTS-kielentunnistimella</a>. Aineisto sisältää ne
+tekstit (lehden sivut), joilla vähintään yksi virke on tunnistettu
+suomeksi, seuraavista lähdeaineistoista: <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050302"
+target="_blank">Kansalliskirjaston lehtikokoelman suomenkielinen
+osakorpus (versio 1)</a>; <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050301"
+target="_blank">Kansalliskirjaston lehtikokoelman ruotsinkielinen
+osakorpus (versio 1)</a>; sekä Kansalliskirjaston vuoden 2013 jälkeen
+tuottama aineisto, jota ei ole aiemmin ollut saatavilla Kielipankissa.
+
+Aineistossa olevat linkit sivun kuviin ja PDF-tiedostoihin vievät <a
+href="https://digi.kansalliskirjasto.fi"
+target="_blank">Kansalliskirjaston digitaalisten aineistojen
+verkkosivuille</a>. Useimmille vuotta 1939 uudemmille lehdille sivun
+kuvien ja PDF-tiedostojen käyttö on sallittu vain
+tutkimustarkoituksiin ja edellyttää kirjautumista ja
+käyttölupalomakkeen täyttämistä Kansalliskirjaston palvelussa.
+
+Kuten aina, palaute aineistosta on tervetullutta joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+
 <!-- Uusi rinnakkaisaineisto (beta): L. Uspenski: ”Neljä taistelua” 2023-06-02 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023042426"

@@ -1,4 +1,56 @@
 
+<!-- New corpus version (beta): The Finnish Sub-corpus of the Newspaper and Periodical Corpus of the National Library of Finland, version 2 2023-06-16 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-202009152" target="_blank">The
+Finnish Sub-corpus of the Newspaper and Periodical Corpus of the
+National Library of Finland version 2, Korp (klk-fi-v2-korp)</a> is
+now available in Korp as a beta test version.
+
+The corpus contains newspapers and periodicals of the <a
+href="https://digi.kansalliskirjasto.fi/etusivu?set_language=en"
+target="_blank">digital collections of the National Library of
+Finland</a> from the years 1771–2021. The corpus contains **over 22
+billion words** in total, which is over four times as many as in the
+previous version of the corpus. In absolute terms, a large amount of
+new material is from the years 1911–1945 in particular, in relative
+terms also from 1946–2000, and as completely new from 2001–2021. The
+corpus has been split into subcorpora by the year of publication in
+the Korp corpus selector.
+
+**Please note** that Korp searches may be slow because of the large
+size of the corpus, so you should at least at first try searching from
+a small subset of the corpus. If choosing a subset (years) of the
+corpus in the Korp corpus selector appears slow, you can try to
+restart the browser or try using a different browser.
+
+The language of the sentences of the corpus has been identified with
+the <a href="http://urn.fi/urn:nbn:fi:lb-2022092201"
+target="_blank">HeLI-OTS language identifier</a>. The corpus contains
+those texts (pages of publications) on which at least one sentence has
+been identified as Finnish from the following sources: <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050302" target="_blank">The
+Finnish Sub-corpus of the Newspaper and Periodical Corpus of the
+National Library of Finland (version 1)</a>; <a
+href="http://urn.fi/urn:nbn:fi:lb-2016050301" target="_blank">The
+Swedish Sub-corpus of the Newspaper and Periodical Corpus of the
+National Library of Finland (version 1)</a>; and material produced by
+the National Library of Finland after 2013 that has not previously
+been available in the Language Bank of Finland.
+
+The links in the corpus to page images and PDF files lead to the <a
+href="https://digi.kansalliskirjasto.fi/etusivu?set_language=en""
+target="_blank">digital collections of the National Library of
+Finland</a>. For most publications since 1940, page images and PDF
+files may only be used for research purposes, and accessing them
+requires logging in to the service of the National Library and
+submitting an application.
+
+As always, feedback on the corpus is welcome, either via the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+
 <!-- New parallel corpus (beta): L. Uspenskij: “Four battles” 2023-06-02 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023042426"
