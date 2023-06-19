@@ -19,9 +19,15 @@ the Korp corpus selector.
 
 **Please note** that Korp searches may be slow because of the large
 size of the corpus, so you should at least at first try searching from
-a small subset of the corpus. If choosing a subset (years) of the
+a small subset of the corpus. The size of individual years of the
+corpus also varies significantly. If choosing a subset (years) of the
 corpus in the Korp corpus selector appears slow, you can try to
 restart the browser or try using a different browser.
+
+Also note that the Korp word picture functionality will be available
+for all years only after a few weeks, since importing data to the word
+picture database is not yet finished because of the size of the
+corpus.
 
 The language of the sentences of the corpus has been identified with
 the <a href="http://urn.fi/urn:nbn:fi:lb-2022092201"

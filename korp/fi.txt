@@ -17,9 +17,14 @@ osakorpuksiin lehtien julkaisuvuosien mukaan.
 
 **Huomaa**, että aineiston suuren koon vuoksi Korp-haut voivat olla
 hitaita, joten kannattaa ainakin ensin kokeilla hakuja pienehköllä
-osalla aineistoa. Jos aineiston osan (vuosien) valinta Korpin
-aineistovalikossa vaikuttaa hitaalta, kannattaa kokeilla käynnistää
-selain uudelleen tai kokeilla toista selainta.
+osalla aineistoa. Myös yksittäisten vuosien koossa on huomattavia
+eroja. Jos aineiston osan (vuosien) valinta Korpin aineistovalikossa
+vaikuttaa hitaalta, kannattaa kokeilla käynnistää selain uudelleen tai
+kokeilla toista selainta.
+
+Huomaa myös, että Korpin sanakuvatoiminto on käytettävissä kaikille
+vuosille vasta muutaman viikon päästä, sillä aineiston koon vuoksi
+datan vienti sanakuvatietokantaan on vielä kesken.
 
 Aineiston virkkeiden kieli on tunnistettu <a
 href="http://urn.fi/urn:nbn:fi:lb-2022092201"
