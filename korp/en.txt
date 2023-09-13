@@ -53,7 +53,7 @@ submitting an application.
 
 As always, feedback on the corpus is welcome, either via the <a
 href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
-target="_blank">feedback form</a> or by email to `fin-clarin (ät)
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
 helsinki.fi`.
 
 
