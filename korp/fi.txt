@@ -1,4 +1,23 @@
 
+<!-- Beetatestivaihe päättynyt: klk-fi-v2-korp ja COCA 2020 2023-09-22 -->
+
+Aineistojen <a href="http://urn.fi/urn:nbn:fi:lb-202009152"
+target="_blank">Kansalliskirjaston sanoma- ja aikakauslehtikokoelman
+suomenkielinen osakorpus versio 2, Korp (klk-fi-v2-korp)</a> ja <a
+href="http://urn.fi/urn:nbn:fi:lb-2022111501" target="_blank">Corpus
+of Contemporary American English (COCA) – Kielipankin Korp-versio
+2020</a> tavanomaista pitempi beetatestivaihe on viimein päättynyt.
+
+Kansalliskirjaston sanoma- ja aikakauslehtikokoelma-aineistoon ei
+tullut muutoksia beetavaiheen aikana.
+
+COCA 2020:ssa tekstin piirteen *otsikko* arvoja siivottiin
+beetavaiheessa: joitain merkistökoodausvirheitä korjattiin,
+HTML-merkkaus poistettiin (pääosin) ja joitain erityisiä
+merkintätapoja normalisoitiin. Otsikon siivoamaton versio näkyy nyt
+tekstin piirteenä *otsikko (siivoamaton)*.
+
+
 <!-- Uusi aineistoversio (beta): Kansalliskirjaston lehtikokoelman (KLK) suomenkieliset lehdet, versio 2 2023-06-16 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-202009152"

@@ -1,4 +1,24 @@
 
+<!-- Beta test period ended: klk-fi-v2-korp and COCA 2020 2023-09-22 -->
+
+The beta test period has finally ended for the <a
+href="http://urn.fi/urn:nbn:fi:lb-202009152" target="_blank">Finnish
+Sub-corpus of the Newspaper and Periodical Corpus of the National
+Library of Finland version 2, Korp (klk-fi-v2-korp)</a> and the <a
+href="http://urn.fi/urn:nbn:fi:lb-2022111501" target="_blank">Corpus
+of Contemporary American English (COCA) – Kielipankki Korp version
+2020</a>. The beta test period was longer than usual for both of these
+corpora.
+
+The klk-fi-v2-korp corpus was not changed during the beta period.
+
+In COCA 2020, the values for the text attribute *title* were somewhat
+cleaned up during the beta period: some character encoding errors were
+corrected, HTML markup was (mostly) removed and some special character
+conventions were normalized. An uncleaned version of the text title is
+now available as the text attribute *title (uncleaned)*.
+
+
 <!-- New corpus version (beta): The Finnish Sub-corpus of the Newspaper and Periodical Corpus of the National Library of Finland, version 2 2023-06-16 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-202009152" target="_blank">The
