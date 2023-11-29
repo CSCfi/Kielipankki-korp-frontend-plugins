@@ -1,3 +1,15 @@
+<!-- Uusi aineisto (beta): Jouluevankeliumi tekstistä puheeksi neljällä uralilaisella kielellä 2023-11-29 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023111601"
+target="_blank">Jouluevankeliumi tekstistä puheeksi neljällä
+uralilaisella kielellä, Korp (xmas-gospel-tts-korp)</a> on nyt
+käytettävissä beetatestiversiona Korpissa.
+
+Aineisto sisältää PaBiVUS-korpuksesta otetun jouluevankeliumin
+Luuk. 2:1–20 tekstimuodossa sekä tekstistä puheeksi neljällä kielellä:
+komi-syrjääni (kpv), ersä (myv), karjala (krl) ja aunuksenkarjala
+eli livvinkarjala (olo).
+
 
 <!-- Beetatestivaihe päättynyt: klk-fi-v2-korp ja COCA 2020 2023-09-22 -->
 

@@ -1,3 +1,16 @@
+<!-- New corpus (beta): Christmas Gospel text-to-speech in four Uralic languages 2023-11-29 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2023111601"
+target="_blank">Christmas Gospel text-to-speech in four
+Uralic languages, Korp (xmas-gospel-tts-korp)</a> is now
+available in Korp as a beta test version.
+
+This resource contains text and text-to-speech in four languages
+pertaining to the Finnish Christmas Gospel verses Luke 2. 1–20.
+The four languages include Komi-Zyrian (kpv), Erzya (myv), Karelian (krl)
+and Olonets-Karelian (olo, aka Livvi), whose texts are all included in
+the PaBiVUS corpus (LUK.2.1–20).
+
 
 <!-- Beta test period ended: klk-fi-v2-korp and COCA 2020 2023-09-22 -->
 
