@@ -1,3 +1,11 @@
+
+<!-- RES corpora not in use on 25 January 2024 09:00–12:00 2024-01-19 2024-01-25 -->
+
+Restricted corpora requiring personal access rights (RES corpora)
+cannot be used in Korp on 25 January 2024 between 9 am and 12 noon due
+to a service break in the Language Bank Rights (LBR) service.
+
+
 <!-- New corpus (beta): Christmas Gospel text-to-speech in four Uralic languages 2023-11-29 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023111601"

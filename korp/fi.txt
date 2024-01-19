@@ -1,3 +1,11 @@
+
+<!-- RES-aineistot poissa käytöstä 25.1.2024 klo 9–12 2024-01-19 2024-01-25 -->
+
+Henkilökohtaista käyttöoikeutta edellyttävät aineistot (RES-aineistot)
+eivät ole käytettävissä Korpissa 25.1.2024 klo 9–12 Kielipankin
+oikeudet -palvelun (LBR) käyttökatkon vuoksi.
+
+
 <!-- Uusi aineisto (beta): Jouluevankeliumi tekstistä puheeksi neljällä uralilaisella kielellä 2023-11-29 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-2023111601"

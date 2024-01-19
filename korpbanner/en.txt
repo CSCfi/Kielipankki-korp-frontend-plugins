@@ -1,4 +1,11 @@
 
+<!-- RES corpora not in use on 25 January 2024 09:00–12:00 2024-01-19 2024-01-25 -->
+
+Restricted corpora requiring personal access rights (RES corpora)
+cannot be used in Korp on 25 January 2024 between 9 am and 12 noon due
+to a service break in the Language Bank Rights (LBR) service.
+
+
 <!-- Korp database update on 22 November 2022 2022-11-15 2022-11-22 -->
 
 Korp’s database will be updated on 22 November 2022 between 8 am and

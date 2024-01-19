@@ -1,4 +1,11 @@
 
+<!-- RES-aineistot poissa käytöstä 25.1.2024 klo 9–12 2024-01-19 2024-01-25 -->
+
+Henkilökohtaista käyttöoikeutta edellyttävät aineistot (RES-aineistot)
+eivät ole käytettävissä Korpissa 25.1.2024 klo 9–12 Kielipankin
+oikeudet -palvelun (LBR) käyttökatkon vuoksi.
+
+
 <!-- Korpin tietokanta päivitetään 22.11.2022 2022-11-15 2022-11-22 -->
 
 Korpin tietokanta päivitetään 22.11.2022 klo 8–11 välisenä aikana.
