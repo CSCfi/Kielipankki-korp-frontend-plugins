@@ -1,4 +1,13 @@
 
+<!-- Korp flyttas till ny server 7.2.2024 kl. 13–14 2024-02-02 2024-02-07 -->
+
+Korp kommer att flyttas till en ny, snabbare server den 7 februari
+2024 kl. 13–14, vilket orsakar ett kort driftavbrott. Korps adress
+kommer också att bytas till <https://www.kielipankki.fi/korp/> till
+vilken den gamla adressen <https://korp.csc.fi> kommer att
+omdirigeras.
+
+
 <!-- Ny korpus (beta): Nationalbibliotekets Klassikerbiblioteks svenskspråkiga delkorpus 2021-11-04 -->
 
 <a href="http://urn.fi/urn:nbn:fi:lb-201804041"

@@ -1,4 +1,12 @@
 
+<!-- Korp siirretään uudelle palvelimelle 7.2.2024 klo 13–14 2024-02-02 2024-02-07 -->
+
+Korp siirretään uudelle, nopeammalle palvelimelle 7.2.2024 klo 13–14,
+mistä aiheutuu lyhyt käyttökatko. Samassa yhteydessä Kielipankin
+Korpin uudeksi osoitteeksi tulee <https://www.kielipankki.fi/korp/>,
+johon vanha osoite <https://korp.csc.fi> uudelleenohjataan.
+
+
 <!-- RES-aineistot poissa käytöstä 25.1.2024 klo 9–12 2024-01-19 2024-01-25 -->
 
 Henkilökohtaista käyttöoikeutta edellyttävät aineistot (RES-aineistot)

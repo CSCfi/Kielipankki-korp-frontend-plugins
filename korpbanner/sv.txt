@@ -1,4 +1,13 @@
 
+<!-- Korp flyttas till ny server 7.2.2024 kl. 13–14 2024-02-02 2024-02-07 -->
+
+Korp kommer att flyttas till en ny, snabbare server den 7 februari
+2024 kl. 13–14, vilket orsakar ett kort driftavbrott. Korps adress
+kommer också att bytas till <https://www.kielipankki.fi/korp/> till
+vilken den gamla adressen <https://korp.csc.fi> kommer att
+omdirigeras.
+
+
 <!-- Korp uppdaterats 2022-02-14 2022-04-30 -->
 
 Korp uppdaterades till en ny version den 14 februari 2022. Vänligen ge
