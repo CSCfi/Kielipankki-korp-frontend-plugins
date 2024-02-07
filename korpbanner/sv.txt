@@ -1,4 +1,17 @@
 
+<!-- Korp flyttades till ny server 7.2.2024 2024-02-07 2024-02-16 -->
+
+Språkbanken i Finlands Korp-service flyttades till en ny, snabbare
+server den 7 februari 2024. Också Korps adress byttes till
+<https://www.kielipankki.fi/korp/> till vilken den gamla adressen
+<https://korp.csc.fi> omdirigeras.
+
+Om något inte fungerar som förr, vänligen ge feedback antingen via <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback_sv"
+target="_blank">feedbackformuläret</a> eller per e-post till
+`fin-clarin (at) helsinki.fi`.
+
+
 <!-- Korp flyttas till ny server 7.2.2024 kl. 13–14 2024-02-02 2024-02-07 -->
 
 Korp kommer att flyttas till en ny, snabbare server den 7 februari

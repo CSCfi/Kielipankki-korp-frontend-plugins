@@ -1,4 +1,18 @@
 
+<!-- Korp moved to a new server, with a new address 2024-02-07 -->
+
+The Korp service of the Language Bank of Finland was moved to a new,
+faster server on 7 February 2024. It also got a new URL
+<https://www.kielipankki.fi/korp/>, to which the old URL
+<https://korp.csc.fi> is redirected.
+
+If something does not work as before, please send feedback either via
+the <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html?rinnakkaislomake=korpfeedback"
+target="_blank">feedback form</a> or by email to `fin-clarin (at)
+helsinki.fi`.
+
+
 <!-- Korp to be moved to new server on 7 February 2024 13:00–14:00 2024-02-02 2024-02-07 -->
 
 Korp will be moved to a new, faster server on 7 February 2024 between

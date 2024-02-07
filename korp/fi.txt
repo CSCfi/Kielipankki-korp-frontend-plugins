@@ -1,4 +1,17 @@
 
+<!-- Korp uudella palvelimella ja uudessa osoitteessa 2024-02-07 -->
+
+Kielipankin Korp-palvelu siirrettiin uudelle, nopeammalle palvelimelle
+7.2.2024, ja Korpin uudeksi osoitteeksi vaihdettiin
+<https://www.kielipankki.fi/korp/>, johon vanha osoite
+<https://korp.csc.fi> ohjautuu.
+
+Jos jokin ei toimi kuten ennen, lähetä palautetta joko <a
+href="https://elomake.helsinki.fi/lomakkeet/56593/lomake.html"
+target="_blank">palautelomakkeen</a> kautta tai sähköpostitse
+osoitteella `fin-clarin (ät) helsinki.fi`.
+
+
 <!-- Korp siirretään uudelle palvelimelle 7.2.2024 klo 13–14 2024-02-02 2024-02-07 -->
 
 Korp siirretään uudelle, nopeammalle palvelimelle 7.2.2024 klo 13–14,
