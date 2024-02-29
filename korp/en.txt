@@ -1,4 +1,12 @@
 
+<!-- Links to original texts corrected: ylenews-fi-2011-2021 2024-02-29 -->
+
+Links to easy-to-read original texts in
+<a href="http://urn.fi/urn:nbn:fi:lb-2023072122" target="_blank">
+Yle News Archive</a>
+have been corrected.
+
+
 <!-- Korp moved to a new server, with a new address 2024-02-07 -->
 
 The Korp service of the Language Bank of Finland was moved to a new,

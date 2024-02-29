@@ -1,4 +1,11 @@
 
+<!-- Alkuperäistekstien linkkejä korjattu: ylenews-fi-2011-2021 2024-02-29 -->
+
+<a href="http://urn.fi/urn:nbn:fi:lb-2021020901" target="_blank">
+Ylen suomenkielisten uutisarkistojen</a>
+selkouutisten alkuperäistekstien linkkejä on korjattu.
+
+
 <!-- Korp uudella palvelimella ja uudessa osoitteessa 2024-02-07 -->
 
 Kielipankin Korp-palvelu siirrettiin uudelle, nopeammalle palvelimelle
