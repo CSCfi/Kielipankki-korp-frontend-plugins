@@ -1,1 +1,3 @@
 *.pyc
+# Do not store compiled JSON files
+*.json
