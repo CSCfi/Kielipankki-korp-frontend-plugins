@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import argparse
@@ -92,4 +92,4 @@ if __name__ == "__main__":
         json_opts = dict(sort_keys=True, indent=4, separators=(',', ': '))
     else:
         json_opts = dict(separators=(',', ':')) # minified
-    print "%s(%s)" % (args.callback, json.dumps(out, **json_opts),)
+    print("%s(%s)" % (args.callback, json.dumps(out, **json_opts),))
