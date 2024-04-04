@@ -74,7 +74,7 @@ if __name__ == "__main__":
     # Derive final structure from the languages
     out = []
     default = languages[def_lang]
-    for n_key in sorted(default.iterkeys(), reverse=True):
+    for n_key in sorted(default.keys(), reverse=True):
         in_item = default[n_key];
         out_item = {"t": { def_lang : in_item["t"] },
                     "h" : { def_lang : in_item["h"] },
