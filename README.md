@@ -7,11 +7,6 @@ repository, containing plugins for the Korp frontend. The plugins have
 been developed and are being used in [Kielipankki – The Language Bank
 of Finland](https://www.kielipankki.fi/language-bank/).
 
-Each individual plugin should be developed in a separate branch
-`plugins/`*plugin_name* starting from branch `plugins/root`. These
-branches are then merged into `plugins/dev-v9` and eventually into
-`plugins/master`.
-
 The files for plugin *plugin_name* should be in the directory
 `app/plugins/`*plugin_name*`/`, preferably containing a `README.md`
 file and organized into subdirectories similarly to the Korp frontend
